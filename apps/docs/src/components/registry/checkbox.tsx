@@ -1,0 +1,51 @@
+import { CheckboxBasicDemo } from "../../demos/checkbox-basic-demo.js";
+import CheckboxBasicDemoSource from "../../demos/checkbox-basic-demo.tsx?raw";
+import type { ComponentMeta } from "./types.js";
+
+export const checkboxMeta: ComponentMeta = {
+  name: "checkbox",
+  label: "Checkbox",
+  description:
+    "Checkbox with accent fill when checked and custom check indicator.",
+  category: "Form",
+  examples: [
+    {
+      title: "Basic",
+      description: "Default, checked, and disabled states.",
+      code: CheckboxBasicDemoSource,
+      render: () => <CheckboxBasicDemo />,
+    },
+  ],
+  usageImport: `import { Checkbox } from "@digital-ui/ui";`,
+  usageCode: `<Checkbox defaultChecked />`,
+  props: [
+    {
+      name: "checked",
+      type: 'boolean | "indeterminate"',
+      description: "Controlled checked state.",
+    },
+    {
+      name: "defaultChecked",
+      type: "boolean",
+      description: "Uncontrolled default checked state.",
+    },
+    {
+      name: "onCheckedChange",
+      type: "function",
+      description: "Called when the checked state changes.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Prevents interaction.",
+    },
+  ],
+  accessibility: [
+    'role="checkbox" with aria-checked',
+    "Keyboard toggle via Space",
+    "Focus visible ring",
+  ],
+  radixBased: true,
+  isNew: false,
+};

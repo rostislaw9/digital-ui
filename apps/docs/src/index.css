@@ -1,0 +1,80 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * Digital UI tokens + base layer.
+ * In a real consumer app this is the only required "config":
+ *   @import "@digital-ui/tokens/css";
+ *   @import "@digital-ui/tokens/base";
+ * (after importing Tailwind itself)
+ */
+@import "@digital-ui/tokens/tokens.css";
+@import "@digital-ui/tokens/base.css";
+
+/*
+ * Component class strings are declared in ./tailwind-classes.ts.
+ * @source explicitly tells Tailwind to scan it so variant classes
+ * (hover:, active:, disabled:, focus-visible:) are generated.
+ */
+@source "./tailwind-classes.ts";
+
+/*
+ * Shiki syntax highlighting overrides.
+ * Shiki generates <pre><code> with inline styles. We override the
+ * background to a darker surface and add CSS-based line numbers.
+ */
+
+/* Darker background for all Shiki code blocks */
+.shiki-wrapper pre,
+.shiki-placeholder {
+  margin: 0;
+  padding: 1rem 1.25rem 1rem 0.5rem;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  border-radius: 0;
+  background-color: var(--surface) !important;
+}
+
+.shiki-wrapper pre code,
+.shiki-placeholder code {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  counter-reset: line;
+}
+
+/* Line numbers via CSS counters on Shiki's .line spans */
+.shiki-wrapper pre code .line {
+  counter-increment: line;
+  display: inline-block;
+  width: 100%;
+}
+
+.shiki-wrapper pre code .line::before {
+  content: counter(line);
+  display: inline-block;
+  width: 2.5rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: var(--foreground-subtle);
+  opacity: 0.5;
+  user-select: none;
+}
+
+/*
+ * Brief highlight flash when navigating to a section via the
+ * "On this page" sidebar links.
+ */
+@keyframes section-flash {
+  0% {
+    background-color: color-mix(in oklab, var(--accent) 12%, transparent);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.section-flash {
+  animation: section-flash 1.2s ease-out;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem 1rem 0.5rem;
+}

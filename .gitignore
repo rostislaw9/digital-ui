@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.pnp.*
+.yarn/cache
+.yarn/install-state.gz
+.yarn/unplugged
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Generated registry items
+registry/items/
+
+# Docs app build
+apps/docs/dist
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.log
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Vite
+*.local

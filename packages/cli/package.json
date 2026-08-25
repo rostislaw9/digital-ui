@@ -1,0 +1,52 @@
+{
+  "name": "@digital-ui/cli",
+  "version": "0.1.0",
+  "description": "Digital UI CLI — install source-owned components from the Digital UI registry.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Rostislav Rudometov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rostislaw9/digital-ui.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/rostislaw9/digital-ui#readme",
+  "bugs": {
+    "url": "https://github.com/rostislaw9/digital-ui/issues"
+  },
+  "keywords": [
+    "cli",
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "registry",
+    "scaffold"
+  ],
+  "bin": {
+    "digital-ui": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "dev": "vite build --watch"
+  },
+  "dependencies": {
+    "chalk": "^6.0.0",
+    "commander": "^15.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+import { Badge } from "@digital-ui/ui";
+
+export function BadgeVariantsDemo() {
+  return (
+    <div className="flex flex-wrap gap-3">
+      <Badge>Default</Badge>
+      <Badge variant="accent">Accent</Badge>
+      <Badge variant="success">Success</Badge>
+      <Badge variant="warning">Warning</Badge>
+      <Badge variant="error">Error</Badge>
+      <Badge variant="outline">Outline</Badge>
+    </div>
+  );
+}

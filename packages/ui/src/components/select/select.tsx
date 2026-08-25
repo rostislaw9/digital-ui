@@ -1,0 +1,147 @@
+import * as SelectPrimitive from "@radix-ui/react-select";
+import { Check, ChevronDown } from "lucide-react";
+import { forwardRef } from "react";
+import { cn } from "../../lib/cn.js";
+
+export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root>;
+
+/**
+ * Select — the root container for a Radix-based select.
+ *
+ * Accessibility: Radix handles focus management, keyboard navigation
+ * (Arrow keys to move between items, Escape to dismiss), and ARIA
+ * attributes. The trigger is announced as a combobox via
+ * `aria-haspopup` and `aria-expanded`.
+ */
+export function Select({ children, ...props }: SelectProps) {
+  return <SelectPrimitive.Root {...props}>{children}</SelectPrimitive.Root>;
+}
+
+export type SelectTriggerProps = React.ComponentProps<
+  typeof SelectPrimitive.Trigger
+>;
+export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
+  function SelectTrigger({ className, children, ...props }, ref) {
+    return (
+      <SelectPrimitive.Trigger
+        ref={ref}
+        className={cn(
+          "flex cursor-pointer items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground",
+          "hover:border-border-strong",
+          "focus-visible:shadow-focus focus-visible:outline-none",
+          "disabled:cursor-not-allowed disabled:opacity-40",
+          "data-[placeholder]:text-foreground-muted",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+        <SelectPrimitive.Icon asChild>
+          <ChevronDown className="size-4 opacity-50" />
+        </SelectPrimitive.Icon>
+      </SelectPrimitive.Trigger>
+    );
+  },
+);
+
+export type SelectValueProps = React.ComponentProps<
+  typeof SelectPrimitive.Value
+>;
+export const SelectValue = forwardRef<HTMLSpanElement, SelectValueProps>(
+  function SelectValue({ className, ...props }, ref) {
+    return (
+      <SelectPrimitive.Value ref={ref} className={cn(className)} {...props} />
+    );
+  },
+);
+
+export type SelectContentProps = React.ComponentProps<
+  typeof SelectPrimitive.Content
+>;
+export const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
+  function SelectContent(
+    { className, children, position = "popper", sideOffset = 4, ...props },
+    ref,
+  ) {
+    return (
+      <SelectPrimitive.Portal>
+        <SelectPrimitive.Content
+          ref={ref}
+          position={position}
+          sideOffset={sideOffset}
+          className={cn(
+            "z-50 max-h-96 overflow-hidden rounded-md border border-border bg-surface-elevated p-1 text-foreground shadow-md",
+            "min-w-[max(var(--radix-select-trigger-width),8rem)]",
+            "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2",
+            "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2",
+            "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
+            className,
+          )}
+          {...props}
+        >
+          <SelectPrimitive.Viewport>{children}</SelectPrimitive.Viewport>
+        </SelectPrimitive.Content>
+      </SelectPrimitive.Portal>
+    );
+  },
+);
+
+export type SelectItemProps = React.ComponentProps<typeof SelectPrimitive.Item>;
+export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
+  function SelectItem({ className, children, ...props }, ref) {
+    return (
+      <SelectPrimitive.Item
+        ref={ref}
+        className={cn(
+          "relative flex cursor-pointer select-none items-center rounded-sm p-2 text-sm text-foreground-muted outline-none transition-colors",
+          "hover:bg-surface-hover hover:text-foreground",
+          "focus:bg-surface-hover focus:text-foreground",
+          "data-[state=checked]:text-accent",
+          "data-[disabled]:opacity-40",
+          className,
+        )}
+        {...props}
+      >
+        <span className="absolute left-2 flex size-4 items-center justify-center">
+          <SelectPrimitive.ItemIndicator>
+            <Check className="size-4" />
+          </SelectPrimitive.ItemIndicator>
+        </span>
+        <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      </SelectPrimitive.Item>
+    );
+  },
+);
+
+export type SelectLabelProps = React.ComponentProps<
+  typeof SelectPrimitive.Label
+>;
+export const SelectLabel = forwardRef<HTMLDivElement, SelectLabelProps>(
+  function SelectLabel({ className, ...props }, ref) {
+    return (
+      <SelectPrimitive.Label
+        ref={ref}
+        className={cn(
+          "px-2 py-1.5 text-xs font-semibold text-foreground-subtle",
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
+
+export type SelectSeparatorProps = React.ComponentProps<
+  typeof SelectPrimitive.Separator
+>;
+export const SelectSeparator = forwardRef<HTMLDivElement, SelectSeparatorProps>(
+  function SelectSeparator({ className, ...props }, ref) {
+    return (
+      <SelectPrimitive.Separator
+        ref={ref}
+        className={cn("my-1 h-px bg-border", className)}
+        {...props}
+      />
+    );
+  },
+);

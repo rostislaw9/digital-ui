@@ -1,0 +1,45 @@
+{
+  "name": "@digital-ui/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for Digital UI, shipped as CSS.",
+  "license": "MIT",
+  "type": "module",
+  "author": "Rostislav Rudometov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rostislaw9/digital-ui.git",
+    "directory": "packages/tokens"
+  },
+  "homepage": "https://github.com/rostislaw9/digital-ui#readme",
+  "bugs": {
+    "url": "https://github.com/rostislaw9/digital-ui/issues"
+  },
+  "keywords": [
+    "design-tokens",
+    "css",
+    "tailwindcss",
+    "design-system",
+    "dark-mode",
+    "oklch"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./css": "./dist/tokens.css",
+    "./base": "./dist/base.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./base.css": "./dist/base.css"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "typecheck": "echo \"@digital-ui/tokens: no TypeScript sources, skipping\""
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  }
+}

@@ -1,0 +1,47 @@
+import { TextareaBasicDemo } from "../../demos/textarea-basic-demo.js";
+import TextareaBasicDemoSource from "../../demos/textarea-basic-demo.tsx?raw";
+import { TextareaInvalidDemo } from "../../demos/textarea-invalid-demo.js";
+import TextareaInvalidDemoSource from "../../demos/textarea-invalid-demo.tsx?raw";
+import type { ComponentMeta } from "./types.js";
+
+export const textareaMeta: ComponentMeta = {
+  name: "textarea",
+  label: "Textarea",
+  description: "Multi-line text input. Same focus and invalid states as Input.",
+  category: "Form",
+  examples: [
+    {
+      title: "Basic",
+      description: "Default and disabled states.",
+      code: TextareaBasicDemoSource,
+      render: () => <TextareaBasicDemo />,
+    },
+    {
+      title: "Invalid",
+      description: "Error state with red border and error glow on focus.",
+      code: TextareaInvalidDemoSource,
+      render: () => <TextareaInvalidDemo />,
+    },
+  ],
+  usageImport: `import { Textarea } from "@digital-ui/ui";`,
+  usageCode: `<Textarea placeholder="Enter message..." />`,
+  props: [
+    {
+      name: "invalid",
+      type: "boolean",
+      default: "false",
+      description: "Shows error styling and sets aria-invalid.",
+    },
+    {
+      name: "...props",
+      type: "TextareaHTMLAttributes",
+      description: "All standard TextareaHTMLAttributes.",
+    },
+  ],
+  accessibility: [
+    "aria-invalid set when invalid prop is true",
+    "Focus visible ring",
+  ],
+  radixBased: false,
+  isNew: false,
+};

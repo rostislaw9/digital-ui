@@ -1,0 +1,40 @@
+import { forwardRef, type TextareaHTMLAttributes } from "react";
+import { cn } from "../../lib/cn.js";
+
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  /** Invalid/error state. */
+  invalid?: boolean;
+}
+
+/**
+ * Textarea — a multi-line text input field with the Digital UI visual language.
+ *
+ * Uses semantic tokens only. The focus state uses an accent-tinted ring
+ * plus a subtle border shift. Invalid state switches the border to error.
+ */
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  function Textarea({ className, invalid = false, ...props }, ref) {
+    return (
+      <textarea
+        ref={ref}
+        aria-invalid={invalid || undefined}
+        className={cn(
+          "flex w-full rounded-md border bg-surface px-3 py-2 min-h-[80px]",
+          "text-sm text-foreground placeholder:text-foreground-subtle",
+          "transition-[border-color,box-shadow,background-color]",
+          "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
+          "focus-visible:outline-none",
+          "disabled:cursor-not-allowed disabled:opacity-40",
+          "border-border hover:border-border-strong",
+          "focus-visible:shadow-focus",
+          invalid && [
+            "border-error hover:border-error",
+            "focus-visible:shadow-focus-error",
+          ],
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);

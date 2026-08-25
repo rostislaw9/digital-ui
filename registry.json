@@ -1,0 +1,632 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "digital-ui",
+  "homepage": "https://github.com/rostislaw9/digital-ui",
+  "items": [
+    {
+      "name": "cn",
+      "type": "registry:lib",
+      "title": "cn",
+      "description": "Utility for merging Tailwind classes (clsx + tailwind-merge).",
+      "files": [
+        {
+          "path": "packages/ui/src/lib/cn.ts",
+          "type": "registry:lib",
+          "target": "lib/cn.ts"
+        }
+      ]
+    },
+    {
+      "name": "tokens",
+      "type": "registry:base",
+      "title": "Design Tokens",
+      "description": "Digital UI design tokens — OKLCH colors, shadows, motion durations, easings, and Tailwind v4 theme mapping.",
+      "files": [
+        {
+          "path": "packages/tokens/src/tokens.css",
+          "type": "registry:file",
+          "target": "styles/tokens.css"
+        },
+        {
+          "path": "packages/tokens/src/base.css",
+          "type": "registry:file",
+          "target": "styles/base.css"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Radix Slot-based button with variants, sizes, loading state, and digital visual identity.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/button/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input with focus ring, invalid state, and semantic token styling.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/input/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multi-line text input with the same focus and invalid states as Input.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/textarea/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Composable card with Header, Title, Description, Content, and Footer parts.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/card/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Radix-based tooltip with animated open/close and semantic token styling.",
+      "dependencies": ["@radix-ui/react-tooltip", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/tooltip/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Radix-based popover with anchored content and fade/zoom animation.",
+      "dependencies": ["@radix-ui/react-popover", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/popover/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Radix-based tabs with animated active indicator and semantic token styling.",
+      "dependencies": ["@radix-ui/react-tabs", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/tabs/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Radix-based toggle switch with accent thumb and animated slide.",
+      "dependencies": ["@radix-ui/react-switch", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/switch/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Radix-based slider with accent range, hover-scaled thumb, and focus ring.",
+      "dependencies": ["@radix-ui/react-slider", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/slider/slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Radix-based checkbox with circular shape, accent fill, and lucide Check indicator.",
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/checkbox/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Radix-based progress bar with accent range and semantic token styling.",
+      "dependencies": ["@radix-ui/react-progress", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/progress/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholder with pulse animation and semantic surface tokens.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/skeleton/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Radix-based dialog with overlay, animated content, and semantic token styling.",
+      "dependencies": ["@radix-ui/react-dialog", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/dialog/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Radix-based dropdown menu with items, labels, separators, and keyboard navigation.",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/dropdown-menu/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dropdown-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Radix-based select with keyboard navigation, animated open/close, and trigger-width dropdown.",
+      "dependencies": [
+        "@radix-ui/react-select",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/select/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Radix-based single-value collapsible accordion with chevron rotation and synced height animation.",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": ["cn", "tokens"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/accordion/accordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Sonner-based toast notifications with Digital UI-compatible CSS variables.",
+      "dependencies": ["sonner", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/toast/toast.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Callout for surfacing status messages with semantic variants (default, accent, success, warning, error).",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/alert/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Radix-based avatar with image and fallback support.",
+      "dependencies": ["@radix-ui/react-avatar", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/avatar/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Small status indicator with semantic variants (default, accent, success, warning, error, outline).",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/badge/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumbs",
+      "type": "registry:ui",
+      "title": "Breadcrumbs",
+      "description": "Navigation trail with list, items, links, separators, and ellipsis support.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/breadcrumbs/breadcrumbs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/breadcrumbs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Radix-based form label with htmlFor association and disabled state styling.",
+      "dependencies": ["@radix-ui/react-label", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/label/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Radix-based visual divider with horizontal/vertical orientation and decorative mode.",
+      "dependencies": ["@radix-ui/react-separator", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/separator/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spotlight",
+      "type": "registry:ui",
+      "title": "Spotlight",
+      "description": "Pointer-following radial highlight with proximity activation and reduced-motion support.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/motion/src/primitives/spotlight.tsx",
+          "type": "registry:ui",
+          "target": "components/motion/spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glow",
+      "type": "registry:ui",
+      "title": "Glow",
+      "description": "Animated glow effect with intensity control and reduced-motion support.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/motion/src/primitives/glow.tsx",
+          "type": "registry:ui",
+          "target": "components/motion/glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:ui",
+      "title": "Magnetic",
+      "description": "Magnetic pull effect that attracts the wrapped element toward the cursor.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/motion/src/primitives/magnetic.tsx",
+          "type": "registry:ui",
+          "target": "components/motion/magnetic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pulse",
+      "type": "registry:ui",
+      "title": "Pulse",
+      "description": "Subtle pulsing animation for drawing attention to elements.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/motion/src/primitives/pulse.tsx",
+          "type": "registry:ui",
+          "target": "components/motion/pulse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reveal",
+      "type": "registry:ui",
+      "title": "Reveal",
+      "description": "Scroll-triggered reveal animation with reduced-motion support.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/motion/src/primitives/reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/motion/reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Radix-based radio group with circular indicators and accent fill.",
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/radio-group/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Radix-based alert dialog for destructive confirmations with overlay and zoom animations.",
+      "dependencies": [
+        "@radix-ui/react-alert-dialog",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/alert-dialog/alert-dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "Radix-based hover card with delayed open/close and zoom animation.",
+      "dependencies": ["@radix-ui/react-hover-card", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/hover-card/hover-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Radix-based right-click context menu with items, labels, and separators.",
+      "dependencies": [
+        "@radix-ui/react-context-menu",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/context-menu/context-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/context-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Radix-based scroll area with custom styled scrollbars.",
+      "dependencies": ["@radix-ui/react-scroll-area", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/scroll-area/scroll-area.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scroll-area.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Slide-in panel built on Radix Dialog with top/right/bottom/left sides.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/sheet/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Pagination control with ellipsis, sibling count, and prev/next buttons.",
+      "dependencies": ["clsx", "tailwind-merge", "lucide-react"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/pagination/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command Palette",
+      "description": "Cmd+k command palette built on Radix Dialog with search input, groups, and items.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react",
+        "cmdk"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/command/command.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/command.tsx"
+        }
+      ]
+    }
+  ]
+}
