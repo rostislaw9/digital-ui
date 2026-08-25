@@ -1,0 +1,67 @@
+{
+  "name": "@digital-ui/motion",
+  "version": "0.1.0",
+  "description": "Reusable motion primitives for Digital UI — Glow, Spotlight, Magnetic, Pulse, Reveal.",
+  "license": "MIT",
+  "type": "module",
+  "author": "Rostislav Rudometov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rostislaw9/digital-ui.git",
+    "directory": "packages/motion"
+  },
+  "homepage": "https://github.com/rostislaw9/digital-ui#readme",
+  "bugs": {
+    "url": "https://github.com/rostislaw9/digital-ui/issues"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "motion",
+    "animation",
+    "framer-motion",
+    "ui",
+    "design-system",
+    "accessibility",
+    "reduced-motion"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "motion": "^11.11.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vite-plugin-dts": "^4.3.1"
+  }
+}

@@ -1,0 +1,48 @@
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { forwardRef } from "react";
+import { cn } from "../../lib/cn.js";
+
+export type RadioGroupProps = React.ComponentProps<
+  typeof RadioGroupPrimitive.Root
+>;
+
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
+  function RadioGroup({ className, ...props }, ref) {
+    return (
+      <RadioGroupPrimitive.Root
+        ref={ref}
+        className={cn("grid w-full gap-2", className)}
+        {...props}
+      />
+    );
+  },
+);
+
+export type RadioGroupItemProps = React.ComponentProps<
+  typeof RadioGroupPrimitive.Item
+>;
+
+export const RadioGroupItem = forwardRef<
+  HTMLButtonElement,
+  RadioGroupItemProps
+>(function RadioGroupItem({ className, ...props }, ref) {
+  return (
+    <RadioGroupPrimitive.Item
+      ref={ref}
+      className={cn(
+        "relative flex aspect-square size-4 shrink-0 rounded-full border border-border-strong bg-surface outline-none",
+        "cursor-pointer transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
+        "hover:border-accent",
+        "focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "disabled:cursor-not-allowed disabled:opacity-50",
+        "data-[state=checked]:border-accent data-[state=checked]:bg-accent",
+        className,
+      )}
+      {...props}
+    >
+      <RadioGroupPrimitive.Indicator className="flex size-4 items-center justify-center">
+        <span className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-foreground" />
+      </RadioGroupPrimitive.Indicator>
+    </RadioGroupPrimitive.Item>
+  );
+});

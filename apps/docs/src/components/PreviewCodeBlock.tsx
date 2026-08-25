@@ -1,0 +1,94 @@
+import { Button, ScrollArea } from "@digital-ui/ui";
+import { Code2 } from "lucide-react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { CopyButton } from "./CopyButton.js";
+import { ShikiCodeBlock } from "./ShikiCodeBlock.js";
+
+const MAX_CODE_HEIGHT = 400;
+
+interface PreviewCodeBlockProps {
+  /** The live preview element. */
+  preview: ReactNode;
+  /** The raw source code to display. */
+  code: string;
+  /** Language for syntax highlighting. @default "tsx" */
+  lang?: "tsx" | "bash";
+}
+
+/**
+ * Combined preview + code block inspired by shadcn docs.
+ *
+ * - Preview is always visible at the top.
+ * - Code is always present but collapsed with a max-height and gradient
+ *   overlay. A centered "View code" button sits on the gradient.
+ * - When expanded, a copy button appears in the top-right corner.
+ * - Code is syntax-highlighted via Shiki with line numbers.
+ */
+export function PreviewCodeBlock({
+  preview,
+  code,
+  lang = "tsx",
+}: PreviewCodeBlockProps) {
+  const [codeExpanded, setCodeExpanded] = useState(false);
+  const [needsScroll, setNeedsScroll] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Measure content height to decide whether ScrollArea needs a fixed height
+  useLayoutEffect(() => {
+    if (!codeExpanded || !contentRef.current) return;
+    const height = contentRef.current.scrollHeight;
+    setNeedsScroll(height > MAX_CODE_HEIGHT);
+  }, [codeExpanded, code]);
+
+  return (
+    <div className="overflow-hidden rounded-lg border border-border">
+      {/* Preview area */}
+      <div className="relative flex min-h-[200px] items-center justify-center bg-background p-8">
+        <div className="flex w-full items-center justify-center">{preview}</div>
+      </div>
+
+      {/* Code area — always in DOM, collapsed with max-height + gradient */}
+      <div className="relative border-t border-border bg-surface">
+        {/* Copy button — top-right, only when expanded */}
+        {codeExpanded && (
+          <div className="absolute right-3 top-3 z-10">
+            <CopyButton text={code} />
+          </div>
+        )}
+
+        {codeExpanded ? (
+          <ScrollArea className={needsScroll ? "h-[400px]" : ""}>
+            <div ref={contentRef}>
+              <ShikiCodeBlock
+                code={code}
+                lang={lang}
+                className="shiki-wrapper"
+              />
+            </div>
+          </ScrollArea>
+        ) : (
+          <div className="relative max-h-32 overflow-hidden">
+            <ShikiCodeBlock code={code} lang={lang} className="shiki-wrapper" />
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to top, var(--surface), color-mix(in oklab, var(--surface) 60%, transparent), transparent)",
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setCodeExpanded(true)}
+              >
+                <Code2 />
+                View code
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

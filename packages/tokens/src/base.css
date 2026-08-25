@@ -1,0 +1,53 @@
+/*
+ * Digital UI — Base layer
+ *
+ * Minimal reset-adjacent defaults + reduced-motion policy.
+ * Import once at the application root, after tokens.css.
+ */
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: var(--leading-normal);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Reduced-motion policy: disable all animations and transitions by default.
+     Components and primitives must opt in via .motion-safe for animations
+     that are safe to keep (functional, non-distracting state changes). */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Opt-in escape hatch for animations that are safe under reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe\:animate,
+  .motion-safe\:transition {
+    animation-duration: var(--duration-fast) !important;
+    transition-duration: var(--duration-fast) !important;
+  }
+}
