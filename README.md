@@ -10,7 +10,6 @@ visual language and an integrated motion/interaction system.
 
 IonBit UI is **not**:
 
-- a generic shadcn clone;
 - a collection of copied Magic UI components;
 - a collection of flashy landing-page effects;
 - generic "neon cyberpunk" UI;
@@ -23,7 +22,8 @@ It **is**:
   reduced-motion tokens;
 - a restrained, dark, technical visual identity built on hierarchy,
   typography, surface depth, and controlled accent light;
-- source-owned — you own the components you install, just like shadcn.
+- source-owned — you own the components you install, inspired by the
+  shadcn/ui source-ownership model.
 
 ## Status
 
@@ -151,6 +151,22 @@ See `CONTRIBUTING.md` for the full development workflow.
 - [Product Spec](docs/PRODUCT_SPEC.md)
 - [Competitive Research](docs/COMPETITIVE_RESEARCH.md)
 - [Agent Rules](docs/AGENT_RULES.md)
+
+## Acknowledgments
+
+IonBit UI stands on the shoulders of several excellent projects:
+
+- [shadcn/ui](https://ui.shadcn.com) — the source-ownership model and
+  component composition patterns that inspired this project.
+- [Radix UI](https://www.radix-ui.com) — the headless, accessible
+  primitives that power most of the overlay and form components.
+- [Sonner](https://sonner.emilkowal.ski) by
+  [Emil Kowalski](https://twitter.com/emilkowalski) — the toast engine
+  that `Toast` is built on.
+- [cmdk](https://cmdk.paco.me) — the command menu primitive behind
+  `Command`.
+- [Tailwind CSS](https://tailwindcss.com) — the utility-first styling
+  layer, via Tailwind v4.
 
 ## License
 

@@ -25,6 +25,11 @@ const slideInBySide: Record<NonNullable<TooltipProps["side"]>, string> = {
 /**
  * Tooltip — a Radix-based tooltip with IonBit UI styling.
  *
+ * Built on `@radix-ui/react-tooltip`, shadcn-inspired. Wraps Provider,
+ * Root, Trigger, Portal, and Content into a single component for
+ * convenience. Pass any element as `children` (rendered via `asChild`)
+ * and tooltip text/JSX as `content`.
+ *
  * Accessibility: Radix handles focus management, keyboard navigation
  * (Escape to dismiss), and ARIA attributes. The tooltip is announced to
  * screen readers via `aria-describedby`.

@@ -7,6 +7,19 @@ export type RadioGroupProps = React.ComponentProps<
   typeof RadioGroupPrimitive.Root
 >;
 
+/**
+ * RadioGroup — a single-choice selection group.
+ *
+ * Built on `@radix-ui/react-radio-group`, shadcn-inspired.
+ * `RadioGroup` is the container; `RadioGroupItem` is an individual option.
+ * The checked item shows a filled accent dot. Items are circular and use
+ * the accent color when selected.
+ *
+ * Accessibility: Radix sets `role="radiogroup"` on the container and
+ * `role="radio"` on each item, manages `aria-checked`, arrow-key
+ * navigation between items, and focus. Label each item via a sibling
+ * `<Label htmlFor>` or `aria-label`.
+ */
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   function RadioGroup({ className, ...props }, ref) {
     return (
@@ -23,6 +36,13 @@ export type RadioGroupItemProps = React.ComponentProps<
   typeof RadioGroupPrimitive.Item
 >;
 
+/**
+ * RadioGroupItem — an individual radio option within a `RadioGroup`.
+ *
+ * Renders as a circular button with a border that turns accent-colored when
+ * selected. The checked state displays a filled accent dot via the Radix
+ * indicator. Must be placed inside a `RadioGroup` container.
+ */
 export const RadioGroupItem = forwardRef<
   HTMLButtonElement,
   RadioGroupItemProps

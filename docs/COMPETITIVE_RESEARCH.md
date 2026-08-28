@@ -553,7 +553,7 @@ worth following closely for interoperability.
 2. **A distinctive, restrained "digital" visual identity.**
    Dark, technical, sophisticated — not neon cyberpunk. Built on
    hierarchy, typography, surface depth, and controlled accent light.
-   Not a shadcn clone, not a Magic UI clone.
+   Inspired by shadcn's model, not a clone of it.
 
 3. **Production-quality primitives, not landing-page blocks.**
    Button, Input, Card, Dialog, Tabs, Select, etc. — the components

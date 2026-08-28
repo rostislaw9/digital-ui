@@ -52,6 +52,19 @@ export interface ButtonProps
   noScale?: boolean;
 }
 
+/**
+ * Button — the primary action trigger.
+ *
+ * Built on `@radix-ui/react-slot` (for `asChild` composition), shadcn-inspired.
+ * Variants cover primary, secondary, outline, ghost, destructive, and link.
+ * Sizes include text buttons (`xs`–`xl`) and icon-only buttons (`icon-xs`–
+ * `icon-xl`). The `scale` variant adds a subtle hover/active scale unless
+ * `noScale` is set.
+ *
+ * Accessibility: renders a native `<button>` with `type="button"` by default.
+ * Use `asChild` to render as a link or other element; the `type` prop is
+ * ignored when `asChild` is set.
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
     {

@@ -5,6 +5,34 @@ All notable changes to IonBit UI will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- **Documentation comments:** added `/** */` doc comments to all 14
+  components that were missing them (AlertDialog, Button, Checkbox,
+  Command, ContextMenu, Dialog, HoverCard, Pagination, Progress,
+  RadioGroup, ScrollArea, Sheet, Slider, Switch). Each comment notes
+  whether the component is Radix-based and/or shadcn-inspired, plus a
+  short accessibility summary.
+- **Comment standardization:** moved all main component doc comments to
+  right before the `export const`/`export function` declaration (JSDoc
+  convention). Added per-subcomponent `/** */` doc comments to every
+  exported subcomponent across all 31 component files (~80 subcomponents
+  total). All main comments now follow a consistent format: one-line
+  description, "Built on `@radix-ui/...`" or "Built on native HTML",
+  shadcn-inspired note, behavior/composition paragraphs, and an
+  Accessibility section.
+- **Toast attribution:** the `Toast` doc comment now credits Sonner and
+  its author Emil Kowalski. The Toast docs page has a new "About" section
+  with the same credit, and the README has an "Acknowledgments" section
+  listing shadcn/ui, Radix UI, Sonner, cmdk, and Tailwind CSS.
+- **Shadcn framing:** removed "not a shadcn clone" language from the
+  README, homepage hero, and competitive research. The project is now
+  described as "inspired by shadcn's source-ownership model."
+- **Rebrand cleanup:** renamed the leftover `DigitalToasterProps` type to
+  `IonBitToasterProps` (and updated re-exports).
+
 ## [0.1.0] — MVP (first iteration)
 
 ### Added

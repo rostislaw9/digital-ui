@@ -42,6 +42,14 @@ export type AvatarImageProps = React.ComponentProps<
   typeof AvatarPrimitive.Image
 >;
 
+/**
+ * AvatarImage — the actual image displayed inside an Avatar.
+ *
+ * Renders an `<img>` absolutely positioned to fill the avatar's circular
+ * container. Pass an `alt` prop for accessibility — screen readers use it
+ * to describe the avatar. When the image fails to load, Radix automatically
+ * swaps to `AvatarFallback`.
+ */
 export const AvatarImage = forwardRef<HTMLImageElement, AvatarImageProps>(
   function AvatarImage({ className, ...props }, ref) {
     return (
@@ -59,6 +67,13 @@ export type AvatarFallbackProps = React.ComponentProps<
   typeof AvatarPrimitive.Fallback
 >;
 
+/**
+ * AvatarFallback — the content shown when `AvatarImage` fails to load.
+ *
+ * Typically displays initials or an icon. Rendered as a centered span
+ * with an elevated background. Provide meaningful fallback content so
+ * the avatar remains informative even without an image.
+ */
 export const AvatarFallback = forwardRef<HTMLSpanElement, AvatarFallbackProps>(
   function AvatarFallback({ className, ...props }, ref) {
     return (

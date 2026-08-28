@@ -31,6 +31,13 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
 });
 
 export type CardHeaderProps = HTMLAttributes<HTMLDivElement>;
+/**
+ * CardHeader — the top section of a card, typically containing a title and
+ * description.
+ *
+ * Renders a flex column with standard padding. Use it to group the card's
+ * heading area above the main content.
+ */
 export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   function CardHeader({ className, ...props }, ref) {
     return (
@@ -44,6 +51,12 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
 );
 
 export type CardTitleProps = HTMLAttributes<HTMLHeadingElement>;
+/**
+ * CardTitle — the heading element of a card.
+ *
+ * Renders as an `<h3>` with semibold typography. Use inside `CardHeader` to
+ * label the card's purpose.
+ */
 export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
   function CardTitle({ className, children, ...props }, ref) {
     return (
@@ -60,6 +73,12 @@ export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
 );
 
 export type CardDescriptionProps = HTMLAttributes<HTMLParagraphElement>;
+/**
+ * CardDescription — a muted supporting description below the card title.
+ *
+ * Renders as a `<p>` with muted foreground text and relaxed leading. Use
+ * inside `CardHeader` to provide secondary context.
+ */
 export const CardDescription = forwardRef<
   HTMLParagraphElement,
   CardDescriptionProps
@@ -74,6 +93,12 @@ export const CardDescription = forwardRef<
 });
 
 export type CardContentProps = HTMLAttributes<HTMLDivElement>;
+/**
+ * CardContent — the main body area of a card.
+ *
+ * Renders a padded container (no top padding, since it follows the header).
+ * Place the primary content of the card here.
+ */
 export const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
   function CardContent({ className, ...props }, ref) {
     return <div ref={ref} className={cn("p-5 pt-0", className)} {...props} />;
@@ -81,6 +106,12 @@ export const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
 );
 
 export type CardFooterProps = HTMLAttributes<HTMLDivElement>;
+/**
+ * CardFooter — the bottom action area of a card.
+ *
+ * Renders a flex row aligned to the end, with padding but no top padding.
+ * Use for buttons or secondary actions at the bottom of the card.
+ */
 export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
   function CardFooter({ className, ...props }, ref) {
     return (

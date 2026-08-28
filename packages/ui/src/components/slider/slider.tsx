@@ -5,6 +5,19 @@ import { cn } from "@/lib/utils";
 
 export type SliderProps = React.ComponentProps<typeof SliderPrimitive.Root>;
 
+/**
+ * Slider — a range input with one or more thumbs.
+ *
+ * Built on `@radix-ui/react-slider`, shadcn-inspired. Supports single and
+ * multi-thumb (range) values. Pass an array `value` (or `defaultValue`)
+ * to render multiple thumbs. The track, range, and thumbs use accent
+ * tokens; thumbs show a focus/active glow shadow.
+ *
+ * Accessibility: Radix sets `role="slider"` on each thumb, manages
+ * `aria-valuenow` / `aria-valuemin` / `aria-valuemax`, arrow-key
+ * adjustment, and focus. Label the slider via `aria-label` or a sibling
+ * `<Label htmlFor>`.
+ */
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
   { className, defaultValue, value, min = 0, max = 100, ...props },
   ref,

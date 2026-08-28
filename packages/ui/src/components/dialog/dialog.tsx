@@ -16,6 +16,19 @@ export interface DialogProps {
   modal?: boolean;
 }
 
+/**
+ * Dialog — a modal overlay for focused tasks, Radix-based, shadcn-inspired.
+ *
+ * Built on `@radix-ui/react-dialog`, shadcn-inspired. A window overlaid on
+ * the page, centered with a backdrop. Includes a built-in close button (X).
+ * `DialogAction` is a primary button that closes on click; `DialogClose` is
+ * a secondary cancel button that also closes. For confirmations that block
+ * dismissal, use `AlertDialog` instead.
+ *
+ * Accessibility: Radix handles focus trapping, `aria-describedby`, Escape
+ * to dismiss, and scroll lock. Provide a `DialogTitle` and
+ * `DialogDescription` for screen readers.
+ */
 export function Dialog({
   children,
   open,
@@ -38,6 +51,12 @@ export function Dialog({
 export type DialogTriggerProps = React.ComponentProps<
   typeof DialogPrimitive.Trigger
 >;
+/**
+ * DialogTrigger — the element that opens the dialog on click.
+ *
+ * Wraps the Radix trigger with `asChild` so the child element becomes the
+ * trigger. Place around a button or interactive element.
+ */
 export const DialogTrigger = forwardRef<HTMLButtonElement, DialogTriggerProps>(
   function DialogTrigger({ children, ...props }, ref) {
     return (
@@ -51,6 +70,12 @@ export const DialogTrigger = forwardRef<HTMLButtonElement, DialogTriggerProps>(
 export type DialogContentProps = React.ComponentProps<
   typeof DialogPrimitive.Content
 >;
+/**
+ * DialogContent — the modal panel containing the dialog's content.
+ *
+ * Renders a backdrop overlay and a centered panel with entrance/exit
+ * animations. Includes a built-in close button (X) in the top-right corner.
+ */
 export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
   function DialogContent({ className, children, ...props }, ref) {
     return (
@@ -82,6 +107,12 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
 export type DialogTitleProps = React.ComponentProps<
   typeof DialogPrimitive.Title
 >;
+/**
+ * DialogTitle — the accessible heading for the dialog.
+ *
+ * Renders the Radix title with semibold typography. Required for screen
+ * reader support; can be visually hidden with `sr-only` if needed.
+ */
 export const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
   function DialogTitle({ className, ...props }, ref) {
     return (
@@ -98,6 +129,12 @@ export const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
 export type DialogDescriptionProps = React.ComponentProps<
   typeof DialogPrimitive.Description
 >;
+/**
+ * DialogDescription — the accessible description for the dialog.
+ *
+ * Renders the Radix description with muted text. Provides additional
+ * context for screen readers; can be visually hidden with `sr-only`.
+ */
 export const DialogDescription = forwardRef<
   HTMLParagraphElement,
   DialogDescriptionProps
@@ -113,6 +150,12 @@ export const DialogDescription = forwardRef<
 
 export type DialogFooterProps = HTMLAttributes<HTMLDivElement>;
 
+/**
+ * DialogFooter — the bottom action area of a dialog.
+ *
+ * Renders a flex row aligned to the end with top margin. Use for action
+ * buttons such as `DialogClose` and `DialogAction`.
+ */
 export const DialogFooter = forwardRef<HTMLDivElement, DialogFooterProps>(
   function DialogFooter({ className, ...props }, ref) {
     return (
@@ -125,14 +168,15 @@ export const DialogFooter = forwardRef<HTMLDivElement, DialogFooterProps>(
   },
 );
 
-/**
- * Close button — auto-closes the dialog (Radix Close primitive).
- * Use for "Cancel" / "Dismiss" buttons. Add onClick for side effects.
- */
 export type DialogCloseProps = React.ComponentProps<
   typeof DialogPrimitive.Close
 >;
 
+/**
+ * DialogClose — auto-closes the dialog (Radix Close primitive).
+ *
+ * Use for "Cancel" / "Dismiss" buttons. Add onClick for side effects.
+ */
 export const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(
   function DialogClose({ className, ...props }, ref) {
     return (
@@ -143,13 +187,14 @@ export const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(
   },
 );
 
+export type DialogActionProps = React.ComponentProps<"button">;
+
 /**
- * Action button — a styled primary button that does NOT auto-close.
+ * DialogAction — a styled primary button that does NOT auto-close.
+ *
  * The user controls closing via onClick + onOpenChange on the Dialog.
  * This allows validation, async operations, or conditional closing.
  */
-export type DialogActionProps = React.ComponentProps<"button">;
-
 export const DialogAction = forwardRef<HTMLButtonElement, DialogActionProps>(
   function DialogAction({ className, ...props }, ref) {
     return (

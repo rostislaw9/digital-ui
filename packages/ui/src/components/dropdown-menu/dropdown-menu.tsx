@@ -42,6 +42,12 @@ export function DropdownMenu({
 export type DropdownMenuTriggerProps = React.ComponentProps<
   typeof DropdownMenuPrimitive.Trigger
 >;
+/**
+ * DropdownMenuTrigger — the element that opens the dropdown menu on click.
+ *
+ * Wraps the Radix trigger with `asChild` so the child element becomes the
+ * trigger. Place around a button or interactive element.
+ */
 export const DropdownMenuTrigger = forwardRef<
   HTMLButtonElement,
   DropdownMenuTriggerProps
@@ -56,6 +62,13 @@ export const DropdownMenuTrigger = forwardRef<
 export type DropdownMenuContentProps = React.ComponentProps<
   typeof DropdownMenuPrimitive.Content
 >;
+/**
+ * DropdownMenuContent — the floating panel containing the menu items.
+ *
+ * Portals and renders the Radix content with entrance/exit animations,
+ * border, shadow, and elevated surface styling. Positioned relative to the
+ * trigger with a configurable `sideOffset`.
+ */
 export const DropdownMenuContent = forwardRef<
   HTMLDivElement,
   DropdownMenuContentProps
@@ -76,6 +89,12 @@ export const DropdownMenuContent = forwardRef<
 export type DropdownMenuItemProps = React.ComponentProps<
   typeof DropdownMenuPrimitive.Item
 >;
+/**
+ * DropdownMenuItem — a single selectable action in the dropdown menu.
+ *
+ * Renders the Radix item with hover and focus states. Use `onSelect` to
+ * trigger the action when the user chooses this item.
+ */
 export const DropdownMenuItem = forwardRef<
   HTMLDivElement,
   DropdownMenuItemProps
@@ -93,6 +112,12 @@ export const DropdownMenuItem = forwardRef<
 export type DropdownMenuSeparatorProps = React.ComponentProps<
   typeof DropdownMenuPrimitive.Separator
 >;
+/**
+ * DropdownMenuSeparator — a horizontal divider between menu groups.
+ *
+ * Renders a thin border line. Use to visually separate sections of the
+ * dropdown menu.
+ */
 export const DropdownMenuSeparator = forwardRef<
   HTMLDivElement,
   DropdownMenuSeparatorProps
@@ -109,6 +134,12 @@ export const DropdownMenuSeparator = forwardRef<
 export type DropdownMenuLabelProps = React.ComponentProps<
   typeof DropdownMenuPrimitive.Label
 >;
+/**
+ * DropdownMenuLabel — a non-interactive heading for a group of items.
+ *
+ * Renders a muted, semibold label. Use to label sections within the
+ * dropdown menu.
+ */
 export const DropdownMenuLabel = forwardRef<
   HTMLDivElement,
   DropdownMenuLabelProps

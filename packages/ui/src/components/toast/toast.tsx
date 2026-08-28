@@ -1,27 +1,3 @@
-/**
- * Toast — Sonner re-exported with IonBit UI token mapping.
- *
- * This follows the shadcn/ui approach: we don't wrap Sonner, we just
- * map our design tokens to Sonner's CSS variables so the toaster uses
- * our color scheme. Consumers import `toast` and `Toaster` directly.
- *
- * Sonner handles stacking, smooth repositioning, swipe-to-dismiss,
- * auto-dismiss, and reduced motion.
- *
- * Usage:
- * ```tsx
- * import { Toaster, toast } from "@ionbit-ui/ui";
- *
- * <App>
- *   <Toaster />
- * </App>
- *
- * toast("Settings saved");
- * toast.success("Deploy complete");
- * toast.error("Deploy failed", { description: "Check the logs." });
- * ```
- */
-
 import type { ToasterProps } from "sonner";
 
 import { forwardRef } from "react";
@@ -63,12 +39,37 @@ const tokenBridge: React.CSSProperties = {
   ["--border-radius" as string]: "var(--radius-lg)",
 } as React.CSSProperties;
 
-export interface DigitalToasterProps extends ToasterProps {
+export interface IonBitToasterProps extends ToasterProps {
   /** Show close button on toasts. @default false */
   closeButton?: boolean;
 }
 
-export const Toaster = forwardRef<HTMLElement, DigitalToasterProps>(
+/**
+ * Toaster — the toast container, Sonner re-exported with IonBit UI token mapping.
+ *
+ * Built on [Sonner](https://sonner.emilkowal.ski) by
+ * [Emil Kowalski](https://twitter.com/emilkowalski), following the
+ * shadcn/ui approach: we don't wrap Sonner, we map our design tokens to
+ * Sonner's CSS variables so the toaster uses our color scheme. Consumers
+ * import `toast` and `Toaster` directly.
+ *
+ * Sonner handles stacking, smooth repositioning, swipe-to-dismiss,
+ * auto-dismiss, and reduced motion.
+ *
+ * Usage:
+ * ```tsx
+ * import { Toaster, toast } from "@ionbit-ui/ui";
+ *
+ * <App>
+ *   <Toaster />
+ * </App>
+ *
+ * toast("Settings saved");
+ * toast.success("Deploy complete");
+ * toast.error("Deploy failed", { description: "Check the logs." });
+ * ```
+ */
+export const Toaster = forwardRef<HTMLElement, IonBitToasterProps>(
   function Toaster({ style, closeButton = false, ...props }, ref) {
     return (
       <SonnerToaster
@@ -83,4 +84,10 @@ export const Toaster = forwardRef<HTMLElement, DigitalToasterProps>(
   },
 );
 
+/**
+ * toast — the imperative toast API, re-exported from Sonner.
+ *
+ * Call `toast(message)`, `toast.success(...)`, `toast.error(...)`, etc.
+ * to display notifications in the nearest `<Toaster>`.
+ */
 export { sonnerToast as toast };

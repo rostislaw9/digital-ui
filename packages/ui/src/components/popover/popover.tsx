@@ -13,7 +13,11 @@ export interface PopoverProps {
 }
 
 /**
- * Popover — a Radix-based popover root.
+ * Popover — a floating panel anchored to a trigger.
+ *
+ * Built on `@radix-ui/react-popover`, shadcn-inspired.
+ * The root component manages open/close state and modal behavior. Compose
+ * with `PopoverTrigger` and `PopoverContent` for the full popover pattern.
  *
  * Accessibility: Radix handles focus management, keyboard navigation
  * (Escape to dismiss), and ARIA attributes.
@@ -40,6 +44,13 @@ export function Popover({
 export type PopoverTriggerProps = React.ComponentProps<
   typeof PopoverPrimitive.Trigger
 >;
+/**
+ * PopoverTrigger — the element that toggles the popover open and closed.
+ *
+ * Renders as a child element via `asChild`, so the trigger is whatever
+ * element you wrap (e.g. a `<button>`). Clicking the trigger toggles the
+ * popover content.
+ */
 export const PopoverTrigger = forwardRef<
   HTMLButtonElement,
   PopoverTriggerProps
@@ -54,6 +65,14 @@ export const PopoverTrigger = forwardRef<
 export type PopoverContentProps = React.ComponentProps<
   typeof PopoverPrimitive.Content
 >;
+/**
+ * PopoverContent — the floating panel shown when the popover is open.
+ *
+ * Portaled to the body and positioned relative to the trigger with a
+ * `sideOffset` of 6px. Includes open/close animations (fade + zoom) using
+ * the normal duration and standard easing tokens. Receives focus when
+ * opened and restores focus to the trigger on close.
+ */
 export const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
   function PopoverContent({ className, children, ...props }, ref) {
     return (

@@ -27,8 +27,9 @@ export function HomePage() {
         <Reveal direction="up" delay={120}>
           <p className="max-w-2xl text-lg text-foreground-muted leading-relaxed">
             IonBit UI is a React component system with a distinctive digital
-            visual language and a coherent motion system. Not a shadcn clone.
-            Not a collection of landing-page effects. Real primitives, polished
+            visual language and a coherent motion system. Inspired by
+            shadcn&apos;s source-ownership model, extended with a motion layer
+            and a restrained digital identity. Real primitives, polished
             interaction, restrained taste.
           </p>
         </Reveal>

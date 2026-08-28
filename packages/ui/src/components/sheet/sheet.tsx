@@ -7,6 +7,18 @@ import { cn } from "@/lib/utils";
 
 export type SheetProps = React.ComponentProps<typeof DialogPrimitive.Root>;
 
+/**
+ * Sheet — a slide-in panel that anchors to a screen edge.
+ *
+ * Built on `@radix-ui/react-dialog`, shadcn-inspired. A panel that slides
+ * in from a screen edge (`side`: top/right/bottom/left). Uses the same
+ * Radix Dialog primitive as `Dialog`, but anchored to a side with a slide
+ * animation. Includes an optional close button.
+ *
+ * Accessibility: Radix handles focus trapping, Escape to dismiss, scroll
+ * lock, and ARIA attributes. Provide a `SheetTitle` and `SheetDescription`
+ * for screen readers.
+ */
 export function Sheet({ ...props }: SheetProps) {
   return <DialogPrimitive.Root {...props} />;
 }
@@ -14,6 +26,12 @@ export function Sheet({ ...props }: SheetProps) {
 export type SheetTriggerProps = React.ComponentProps<
   typeof DialogPrimitive.Trigger
 >;
+/**
+ * SheetTrigger — the element that opens the sheet.
+ *
+ * Wraps a Radix Dialog Trigger with `asChild`, so pass a button or other
+ * interactive element as the child.
+ */
 export const SheetTrigger = forwardRef<HTMLButtonElement, SheetTriggerProps>(
   function SheetTrigger({ ...props }, ref) {
     return <DialogPrimitive.Trigger ref={ref} asChild {...props} />;
@@ -23,6 +41,12 @@ export const SheetTrigger = forwardRef<HTMLButtonElement, SheetTriggerProps>(
 export type SheetCloseProps = React.ComponentProps<
   typeof DialogPrimitive.Close
 >;
+/**
+ * SheetClose — the element that closes the sheet.
+ *
+ * Wraps a Radix Dialog Close with `asChild`. Place inside `SheetContent`
+ * to provide a custom close affordance.
+ */
 export const SheetClose = forwardRef<HTMLButtonElement, SheetCloseProps>(
   function SheetClose({ ...props }, ref) {
     return <DialogPrimitive.Close ref={ref} asChild {...props} />;
@@ -36,6 +60,14 @@ export type SheetContentProps = React.ComponentProps<
   showCloseButton?: boolean;
 };
 
+/**
+ * SheetContent — the panel body that slides in from the chosen edge.
+ *
+ * Renders a Radix Portal with an overlay and the content panel. The `side`
+ * prop controls which edge the panel animates from. An optional close
+ * button (X icon) is shown in the top-right corner when `showCloseButton`
+ * is enabled (default).
+ */
 export const SheetContent = forwardRef<HTMLDivElement, SheetContentProps>(
   function SheetContent(
     { className, children, side = "right", showCloseButton = true, ...props },
@@ -75,6 +107,12 @@ export const SheetContent = forwardRef<HTMLDivElement, SheetContentProps>(
 );
 
 export type SheetHeaderProps = React.ComponentProps<"div">;
+/**
+ * SheetHeader — a layout container for the top of the sheet panel.
+ *
+ * Provides flex column spacing and padding for a `SheetTitle` and
+ * `SheetDescription`.
+ */
 export const SheetHeader = forwardRef<HTMLDivElement, SheetHeaderProps>(
   function SheetHeader({ className, ...props }, ref) {
     return (
@@ -88,6 +126,12 @@ export const SheetHeader = forwardRef<HTMLDivElement, SheetHeaderProps>(
 );
 
 export type SheetFooterProps = React.ComponentProps<"div">;
+/**
+ * SheetFooter — a layout container pinned to the bottom of the sheet.
+ *
+ * Uses `mt-auto` to push content to the bottom. Typically holds action
+ * buttons (e.g. Save / Cancel).
+ */
 export const SheetFooter = forwardRef<HTMLDivElement, SheetFooterProps>(
   function SheetFooter({ className, ...props }, ref) {
     return (
@@ -103,6 +147,12 @@ export const SheetFooter = forwardRef<HTMLDivElement, SheetFooterProps>(
 export type SheetTitleProps = React.ComponentProps<
   typeof DialogPrimitive.Title
 >;
+/**
+ * SheetTitle — the accessible title for the sheet.
+ *
+ * Rendered as a Radix Dialog Title. Required for screen reader support;
+ * omitting it will cause Radix to emit a console warning.
+ */
 export const SheetTitle = forwardRef<HTMLHeadingElement, SheetTitleProps>(
   function SheetTitle({ className, ...props }, ref) {
     return (
@@ -118,6 +168,12 @@ export const SheetTitle = forwardRef<HTMLHeadingElement, SheetTitleProps>(
 export type SheetDescriptionProps = React.ComponentProps<
   typeof DialogPrimitive.Description
 >;
+/**
+ * SheetDescription — the accessible description for the sheet.
+ *
+ * Rendered as a Radix Dialog Description. Provides supplementary
+ * information for screen reader users.
+ */
 export const SheetDescription = forwardRef<
   HTMLParagraphElement,
   SheetDescriptionProps

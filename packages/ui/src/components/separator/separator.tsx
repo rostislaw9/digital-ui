@@ -10,6 +10,12 @@ export type SeparatorProps = React.ComponentProps<
 /**
  * Separator — a visual divider between content sections.
  *
+ * Built on `@radix-ui/react-separator`, shadcn-inspired. Renders a
+ * 1px-wide line that spans the full width (horizontal) or height
+ * (vertical) of its container. The `decorative` prop (default `true`)
+ * marks it as presentational so it is excluded from the accessibility
+ * tree.
+ *
  * Accessibility: Radix sets `role="separator"` with `aria-orientation`
  * based on the `orientation` prop. When the separator separates content
  * sections, it should not be focusable (default).

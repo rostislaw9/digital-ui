@@ -31,6 +31,7 @@ export function ComponentDetailPage() {
 
   // Build the "On this page" sections dynamically
   const sections: Section[] = [{ id: "preview", label: "Preview" }];
+  if (comp?.about) sections.push({ id: "about", label: "About" });
   sections.push({ id: "installation", label: "Installation" });
   if (comp?.usageImport && comp.usageCode)
     sections.push({ id: "usage", label: "Usage" });
@@ -38,7 +39,7 @@ export function ComponentDetailPage() {
   if (comp?.composition)
     sections.push({ id: "composition", label: "Composition" });
   if (comp?.props && comp.props.length > 0)
-    sections.push({ id: "api", label: "API" });
+    sections.push({ id: "api", label: "API Reference" });
   if (comp?.accessibility && comp.accessibility.length > 0)
     sections.push({ id: "accessibility", label: "Accessibility" });
   if (comp?.primitives) {
@@ -146,6 +147,20 @@ export function ComponentDetailPage() {
               </section>
             </Reveal>
 
+            {comp.about && (
+              <Reveal direction="up" delay={120}>
+                <section
+                  id="about"
+                  className="flex flex-col gap-3 scroll-mt-24"
+                >
+                  <h2 className="text-sm font-semibold text-foreground">
+                    About
+                  </h2>
+                  <p className="text-sm text-foreground-muted">{comp.about}</p>
+                </section>
+              </Reveal>
+            )}
+
             <Reveal direction="up" delay={120}>
               <section
                 id="installation"
@@ -192,7 +207,9 @@ export function ComponentDetailPage() {
             {comp.props && comp.props.length > 0 && (
               <Reveal direction="up">
                 <section id="api" className="flex flex-col gap-3 scroll-mt-24">
-                  <h2 className="text-sm font-semibold text-foreground">API</h2>
+                  <h2 className="text-sm font-semibold text-foreground">
+                    API Reference
+                  </h2>
                   <ApiTable props={comp.props} />
                 </section>
               </Reveal>

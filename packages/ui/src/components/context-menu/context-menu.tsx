@@ -8,6 +8,19 @@ export type ContextMenuProps = React.ComponentProps<
   typeof ContextMenuPrimitive.Root
 >;
 
+/**
+ * ContextMenu — a right-click menu, Radix-based, shadcn-inspired.
+ *
+ * Built on `@radix-ui/react-context-menu`, shadcn-inspired. Triggered by
+ * right-clicking the `ContextMenuTrigger`. Supports sub-menus, checkbox
+ * items, radio groups, labels, separators, and shortcuts. Items accept an
+ * `inset` prop for indented labels and a `variant="destructive"` for
+ * dangerous actions.
+ *
+ * Accessibility: Radix handles focus management, keyboard navigation
+ * (Arrow keys, Escape), positioning, and ARIA attributes. The menu is
+ * announced as a context menu via `role="menu"`.
+ */
 export function ContextMenu({ ...props }: ContextMenuProps) {
   return <ContextMenuPrimitive.Root {...props} />;
 }
@@ -15,6 +28,12 @@ export function ContextMenu({ ...props }: ContextMenuProps) {
 export type ContextMenuTriggerProps = React.ComponentProps<
   typeof ContextMenuPrimitive.Trigger
 >;
+/**
+ * ContextMenuTrigger — the element that opens the context menu on right-click.
+ *
+ * Wraps the Radix trigger with `select-none` to prevent text selection.
+ * Place around the content the user right-clicks to reveal the menu.
+ */
 export const ContextMenuTrigger = forwardRef<
   HTMLSpanElement,
   ContextMenuTriggerProps
@@ -31,6 +50,12 @@ export const ContextMenuTrigger = forwardRef<
 export type ContextMenuGroupProps = React.ComponentProps<
   typeof ContextMenuPrimitive.Group
 >;
+/**
+ * ContextMenuGroup — a logical grouping of context menu items.
+ *
+ * Renders the Radix group primitive. Use to organize related items, often
+ * paired with a `ContextMenuLabel`.
+ */
 export const ContextMenuGroup = forwardRef<
   HTMLDivElement,
   ContextMenuGroupProps
@@ -41,6 +66,12 @@ export const ContextMenuGroup = forwardRef<
 export type ContextMenuPortalProps = React.ComponentProps<
   typeof ContextMenuPrimitive.Portal
 >;
+/**
+ * ContextMenuPortal — portals the menu content out of the DOM hierarchy.
+ *
+ * Renders the Radix portal primitive. Ensures the menu is positioned
+ * correctly relative to the viewport rather than its parent.
+ */
 export function ContextMenuPortal({ ...props }: ContextMenuPortalProps) {
   return <ContextMenuPrimitive.Portal {...props} />;
 }
@@ -48,6 +79,12 @@ export function ContextMenuPortal({ ...props }: ContextMenuPortalProps) {
 export type ContextMenuSubProps = React.ComponentProps<
   typeof ContextMenuPrimitive.Sub
 >;
+/**
+ * ContextMenuSub — a nested sub-menu within the context menu.
+ *
+ * Renders the Radix sub primitive. Combine with `ContextMenuSubTrigger` and
+ * `ContextMenuSubContent` to create cascading menus.
+ */
 export function ContextMenuSub({ ...props }: ContextMenuSubProps) {
   return <ContextMenuPrimitive.Sub {...props} />;
 }
@@ -55,6 +92,12 @@ export function ContextMenuSub({ ...props }: ContextMenuSubProps) {
 export type ContextMenuRadioGroupProps = React.ComponentProps<
   typeof ContextMenuPrimitive.RadioGroup
 >;
+/**
+ * ContextMenuRadioGroup — a group of mutually exclusive radio items.
+ *
+ * Renders the Radix radio group primitive. Use with `ContextMenuRadioItem`
+ * to present a single-choice selection within the menu.
+ */
 export const ContextMenuRadioGroup = forwardRef<
   HTMLDivElement,
   ContextMenuRadioGroupProps
@@ -65,6 +108,12 @@ export const ContextMenuRadioGroup = forwardRef<
 export type ContextMenuContentProps = React.ComponentProps<
   typeof ContextMenuPrimitive.Content
 >;
+/**
+ * ContextMenuContent — the floating panel containing the menu items.
+ *
+ * Portals and renders the Radix content with entrance/exit animations,
+ * border, shadow, and elevated surface styling.
+ */
 export const ContextMenuContent = forwardRef<
   HTMLDivElement,
   ContextMenuContentProps
@@ -87,6 +136,12 @@ export interface ContextMenuItemProps extends React.ComponentProps<
   inset?: boolean;
   variant?: "default" | "destructive";
 }
+/**
+ * ContextMenuItem — a single selectable action in the context menu.
+ *
+ * Supports an `inset` prop for indented labels and a `variant="destructive"`
+ * for dangerous actions that should be styled with error colors.
+ */
 export const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
   function ContextMenuItem(
     { className, inset, variant = "default", ...props },
@@ -108,6 +163,13 @@ export const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
 export type ContextMenuSubTriggerProps = React.ComponentProps<
   typeof ContextMenuPrimitive.SubTrigger
 > & { inset?: boolean };
+/**
+ * ContextMenuSubTrigger — the trigger that opens a nested sub-menu.
+ *
+ * Displays a right-chevron indicator and supports an `inset` prop for
+ * alignment with indented items. Opens the `ContextMenuSubContent` on hover
+ * or arrow-key navigation.
+ */
 export const ContextMenuSubTrigger = forwardRef<
   HTMLDivElement,
   ContextMenuSubTriggerProps
@@ -132,6 +194,12 @@ export const ContextMenuSubTrigger = forwardRef<
 export type ContextMenuSubContentProps = React.ComponentProps<
   typeof ContextMenuPrimitive.SubContent
 >;
+/**
+ * ContextMenuSubContent — the floating panel for a nested sub-menu.
+ *
+ * Renders the Radix sub-content with entrance/exit animations, border,
+ * shadow, and elevated surface styling. Position is managed by Radix.
+ */
 export const ContextMenuSubContent = forwardRef<
   HTMLDivElement,
   ContextMenuSubContentProps
@@ -151,6 +219,12 @@ export interface ContextMenuCheckboxItemProps extends React.ComponentProps<
 > {
   inset?: boolean;
 }
+/**
+ * ContextMenuCheckboxItem — a toggleable item with a check indicator.
+ *
+ * Renders the Radix checkbox item with a check icon shown when selected.
+ * Supports an `inset` prop for alignment with indented items.
+ */
 export const ContextMenuCheckboxItem = forwardRef<
   HTMLDivElement,
   ContextMenuCheckboxItemProps
@@ -181,6 +255,13 @@ export interface ContextMenuRadioItemProps extends React.ComponentProps<
 > {
   inset?: boolean;
 }
+/**
+ * ContextMenuRadioItem — a single-choice item within a radio group.
+ *
+ * Renders the Radix radio item with a check icon shown when selected. Use
+ * inside `ContextMenuRadioGroup` for mutually exclusive options. Supports
+ * an `inset` prop for alignment with indented items.
+ */
 export const ContextMenuRadioItem = forwardRef<
   HTMLDivElement,
   ContextMenuRadioItemProps
@@ -208,6 +289,12 @@ export interface ContextMenuLabelProps extends React.ComponentProps<
 > {
   inset?: boolean;
 }
+/**
+ * ContextMenuLabel — a non-interactive heading for a group of items.
+ *
+ * Renders a muted, uppercase, semibold label. Supports an `inset` prop for
+ * alignment with indented items. Use to label sections within the menu.
+ */
 export const ContextMenuLabel = forwardRef<
   HTMLDivElement,
   ContextMenuLabelProps
@@ -226,6 +313,12 @@ export const ContextMenuLabel = forwardRef<
 export type ContextMenuSeparatorProps = React.ComponentProps<
   typeof ContextMenuPrimitive.Separator
 >;
+/**
+ * ContextMenuSeparator — a horizontal divider between menu groups.
+ *
+ * Renders a thin border line. Use to visually separate sections of the
+ * context menu.
+ */
 export const ContextMenuSeparator = forwardRef<
   HTMLDivElement,
   ContextMenuSeparatorProps
@@ -240,6 +333,12 @@ export const ContextMenuSeparator = forwardRef<
 });
 
 export type ContextMenuShortcutProps = React.ComponentProps<"span">;
+/**
+ * ContextMenuShortcut — a right-aligned keyboard shortcut hint for a menu item.
+ *
+ * Renders muted, letter-spaced text. Place inside a `ContextMenuItem` to
+ * display the associated shortcut (e.g. ⌘C).
+ */
 export const ContextMenuShortcut = forwardRef<
   HTMLSpanElement,
   ContextMenuShortcutProps

@@ -37,6 +37,8 @@ export interface ComponentMeta {
   accessibility?: string[];
   /** Whether this component is built on Radix UI. */
   radixBased?: boolean;
+  /** Attribution / "About" note shown above installation (e.g. upstream author). */
+  about?: ReactNode;
   /** For grouped entries (e.g. motion): per-primitive API + accessibility. */
   primitives?: PrimitiveMeta[];
   /** Whether this component is newly added (shows a "New" badge). */

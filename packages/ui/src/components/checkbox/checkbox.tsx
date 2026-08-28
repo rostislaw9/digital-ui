@@ -6,6 +6,17 @@ import { cn } from "@/lib/utils";
 
 export type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root>;
 
+/**
+ * Checkbox — a binary selection control.
+ *
+ * Built on `@radix-ui/react-checkbox`, shadcn-inspired. Renders a
+ * circular checkbox with a check icon indicator. The checked state uses the
+ * accent color; the unchecked state uses a subtle foreground border.
+ *
+ * Accessibility: Radix sets `role="checkbox"` and manages `aria-checked`,
+ * keyboard toggling (Space), and focus. Label the control via a sibling
+ * `<Label htmlFor>` or `aria-label`.
+ */
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   function Checkbox({ className, ...props }, ref) {
     return (

@@ -31,6 +31,13 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
 
 export type BreadcrumbListProps = HTMLAttributes<HTMLOListElement>;
 
+/**
+ * BreadcrumbList — the ordered list container for breadcrumb items.
+ *
+ * Renders an `<ol>` with flex layout to lay out `BreadcrumbItem` children
+ * horizontally with consistent spacing. Using an ordered list is the
+ * WAI-ARIA recommended pattern for breadcrumb trails.
+ */
 export const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>(
   function BreadcrumbList({ className, ...props }, ref) {
     return (
@@ -46,6 +53,12 @@ export const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>(
 
 export type BreadcrumbItemProps = HTMLAttributes<HTMLLIElement>;
 
+/**
+ * BreadcrumbItem — a single step in the breadcrumb trail.
+ *
+ * Renders an `<li>` with inline-flex layout. Place a `BreadcrumbLink` or
+ * `BreadcrumbPage` inside, optionally followed by a `BreadcrumbSeparator`.
+ */
 export const BreadcrumbItem = forwardRef<HTMLLIElement, BreadcrumbItemProps>(
   function BreadcrumbItem({ className, ...props }, ref) {
     return (
@@ -63,6 +76,13 @@ export interface BreadcrumbLinkProps extends AnchorHTMLAttributes<HTMLAnchorElem
   asChild?: boolean;
 }
 
+/**
+ * BreadcrumbLink — a navigable link to a parent page in the trail.
+ *
+ * Renders an `<a>` by default. Use `asChild` to compose with a router Link
+ * component (e.g. React Router, Next.js Link) for client-side navigation.
+ * Includes hover and focus-visible styles for keyboard accessibility.
+ */
 export const BreadcrumbLink = forwardRef<
   HTMLAnchorElement,
   BreadcrumbLinkProps
@@ -80,6 +100,13 @@ export const BreadcrumbLink = forwardRef<
 
 export type BreadcrumbPageProps = HTMLAttributes<HTMLSpanElement>;
 
+/**
+ * BreadcrumbPage — the current page indicator (last item in the trail).
+ *
+ * Renders a `<span>` with `aria-current="page"` so assistive technologies
+ * announce it as the current page. Styled with medium font weight to
+ * visually distinguish it from navigable `BreadcrumbLink` items.
+ */
 export const BreadcrumbPage = forwardRef<HTMLSpanElement, BreadcrumbPageProps>(
   function BreadcrumbPage({ className, ...props }, ref) {
     return (
@@ -95,6 +122,13 @@ export const BreadcrumbPage = forwardRef<HTMLSpanElement, BreadcrumbPageProps>(
 
 export type BreadcrumbSeparatorProps = HTMLAttributes<HTMLLIElement>;
 
+/**
+ * BreadcrumbSeparator — the visual divider between breadcrumb items.
+ *
+ * Renders a `<li>` with `role="presentation"` (decorative, ignored by screen
+ * readers). Displays a `ChevronRight` icon by default; pass custom `children`
+ * to use a different separator character or icon.
+ */
 export const BreadcrumbSeparator = forwardRef<
   HTMLLIElement,
   BreadcrumbSeparatorProps
@@ -116,6 +150,13 @@ export interface BreadcrumbEllipsisProps extends HTMLAttributes<HTMLSpanElement>
   label?: string;
 }
 
+/**
+ * BreadcrumbEllipsis — a collapsed-trail indicator showing hidden levels.
+ *
+ * Renders an ellipsis (`…`) with `role="presentation"` and an `aria-label`
+ * (defaults to "More"). Use when the breadcrumb trail is too long to display
+ * in full, typically as a clickable element that expands the hidden levels.
+ */
 export const BreadcrumbEllipsis = forwardRef<
   HTMLSpanElement,
   BreadcrumbEllipsisProps

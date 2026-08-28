@@ -70,6 +70,11 @@ yarn registry:build   # build the source registry
   tokens. Respect `prefers-reduced-motion` via the `useReducedMotion` hook.
 - **Accessibility:** all interactive components must be keyboard navigable
   and have appropriate ARIA attributes.
+- **Documentation:** every exported component and subcomponent must have
+  a standardized `/** */` JSDoc block. Note Radix/shadcn inspiration
+  where applicable, describe the component's purpose, and include an
+  **Accessibility** section. If a component wraps a third-party library
+  (e.g., Sonner), credit the original author.
 - **Tests:** co-locate test files next to the source they test
   (`*.test.tsx`).
 
@@ -88,7 +93,9 @@ yarn registry:build   # build the source registry
    `apps/docs/src/components/registry/index.ts`. Follow the normalized
    field order: `name`, `label`, `description`, `category`, `examples`,
    `usageImport`, `usageCode`, `composition`, `props`, `accessibility`,
-   `radixBased`, `primitives`, `isNew`.
+   `radixBased`, `about`, `primitives`, `isNew`.
+   - `about` — optional attribution or upstream-credit note
+     (e.g. "Built on Sonner by Emil Kowalski").
 7. Create a demo and documentation in the docs app.
 8. Run `yarn registry:build` to generate the registry item.
 9. Update `CHANGELOG.md` and any affected docs (`README.md`,

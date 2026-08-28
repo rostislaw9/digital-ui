@@ -12,6 +12,29 @@ export const toastMeta: ComponentMeta = {
   label: "Toast",
   description:
     "Toast notifications with smooth stacking, swipe to dismiss, and five variants.",
+  about: (
+    <>
+      Built on{" "}
+      <a
+        href="https://sonner.emilkowal.ski"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:underline"
+      >
+        Sonner
+      </a>{" "}
+      by{" "}
+      <a
+        href="https://twitter.com/emilkowalski"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:underline"
+      >
+        Emil Kowalski
+      </a>
+      .
+    </>
+  ),
   category: "Feedback",
   examples: [
     {

@@ -51,12 +51,13 @@ The goal is:
 
 ---
 
-## 3. Do Not Clone Existing Libraries
+## 3. Take Inspiration, Don't Clone
 
 The project may take inspiration from existing ecosystems, including:
 
 - shadcn/ui
 - Radix UI
+- Sonner
 - Base UI
 - Headless UI
 - Magic UI
@@ -66,9 +67,8 @@ The project may take inspiration from existing ecosystems, including:
 - React Aria
 - other relevant libraries
 
-However:
-
-DO NOT copy their code, design, documentation, naming, or visual identity.
+Inspiration is welcome; wholesale copying of code, design,
+documentation, naming, or visual identity is not.
 
 The project must have its own:
 
@@ -79,6 +79,10 @@ The project must have its own:
 - documentation experience;
 - branding.
 
+When a component wraps a third-party library (e.g., Toast built on
+Sonner), its source JSDoc and registry `about` field must credit the
+original author (e.g., "Built on Sonner by Emil Kowalski").
+
 Competitive research is encouraged.
 
 Copying is not.
@@ -87,7 +91,7 @@ Copying is not.
 
 ## 4. Source-Code Ownership Philosophy
 
-The project should strongly consider the shadcn-style model:
+The project follows the shadcn-inspired source-ownership model:
 
 Developers should be able to add components directly to their application
 source tree and own the resulting code.
@@ -462,7 +466,13 @@ Use:
 - Prettier;
 - clear naming;
 - small components;
-- explicit public APIs.
+- explicit public APIs;
+- **Component JSDoc:** every exported component and every named
+  subcomponent must start with a `/** */` doc block. The block must
+  include a one-line purpose, a note that the component is
+  Radix/shadcn-inspired where applicable, and a dedicated
+  **Accessibility** section. Third-party dependencies used directly
+  (e.g., Sonner) must be credited.
 
 Avoid:
 

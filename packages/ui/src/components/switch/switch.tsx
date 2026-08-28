@@ -5,6 +5,17 @@ import { cn } from "@/lib/utils";
 
 export type SwitchProps = React.ComponentProps<typeof SwitchPrimitive.Root>;
 
+/**
+ * Switch — a toggle for a binary on/off state.
+ *
+ * Built on `@radix-ui/react-switch`, shadcn-inspired. A pill-shaped control
+ * that flips between off and on. The thumb slides horizontally; the track
+ * fills with the accent color when checked.
+ *
+ * Accessibility: Radix sets `role="switch"` and manages `aria-checked`,
+ * keyboard toggling (Space), and focus. Label the control via a sibling
+ * `<Label htmlFor>` or `aria-label`.
+ */
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   function Switch({ className, ...props }, ref) {
     return (

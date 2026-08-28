@@ -192,7 +192,7 @@ export type {
 } from "./components/accordion/index.js";
 
 export { toast, Toaster } from "./components/toast/index.js";
-export type { DigitalToasterProps } from "./components/toast/index.js";
+export type { IonBitToasterProps } from "./components/toast/index.js";
 
 export {
   AlertDialog,

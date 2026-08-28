@@ -212,6 +212,11 @@ prefer the npm package.
 - `src/lib/utils.ts` — small shared utilities.
 - `src/index.ts` — public barrel.
 
+**Documentation convention:** Each component and every named
+subcomponent must begin with a `/** */` JSDoc-style block. The block
+should note Radix/shadcn inspiration where applicable, describe the
+component's purpose, and include an **Accessibility** section.
+
 **Dependencies:**
 
 - Runtime: `@ionbit-ui/tokens` (peer, for CSS), `@ionbit-ui/motion`
@@ -229,8 +234,8 @@ exported as a subpath so tree-shaking works even when consumed via npm:
 copy a component's `.tsx` and `.variants.ts` into the consumer's
 `components/ui/` directory. The consumer's `cn` helper and the
 `@ionbit-ui/motion` / `@ionbit-ui/tokens` packages remain npm
-dependencies. This mirrors shadcn's model but with our motion and
-tokens packages as the shared runtime core.
+dependencies. This is inspired by shadcn's source-ownership model but
+with our motion and tokens packages as the shared runtime core.
 
 ### 4.4 `apps/docs`
 
@@ -790,7 +795,7 @@ with the same tokens and components as a consumer would use.
 | `tailwind-variants`                    | Rejected                           | `cva` + `cn()` is clearer and more widely understood.                                                         |
 | `playwright`                           | Deferred                           | Needed for registry/CLI E2E, not for the foundation.                                                          |
 | `changesets`                           | Deferred                           | Add at first release prep.                                                                                    |
-| `sonner`                               | Not adopted                        | We will build our own Toast when we get there; no need to pre-commit.                                         |
+| `sonner`                               | Adopted (Toast only)               | Toast re-exports Sonner and maps IonBit UI tokens to Sonner's CSS variables. Credit: Emil Kowalski.           |
 | `lucide-react`                         | Not a hard dependency              | Icons are consumer-chosen. Docs app may use it for demos, but it is not a runtime dependency of `ui`.         |
 
 ---

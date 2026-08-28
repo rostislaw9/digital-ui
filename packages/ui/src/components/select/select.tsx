@@ -7,7 +7,11 @@ import { cn } from "@/lib/utils";
 export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root>;
 
 /**
- * Select — the root container for a Radix-based select.
+ * Select — the root container for a Radix-based select dropdown.
+ *
+ * Built on `@radix-ui/react-select`, shadcn-inspired. Compose the dropdown
+ * from `SelectTrigger`, `SelectValue`, `SelectContent`, `SelectItem`,
+ * `SelectGroup`, `SelectLabel`, and `SelectSeparator` subcomponents.
  *
  * Accessibility: Radix handles focus management, keyboard navigation
  * (Arrow keys to move between items, Escape to dismiss), and ARIA
@@ -21,6 +25,13 @@ export function Select({ children, ...props }: SelectProps) {
 export type SelectTriggerProps = React.ComponentProps<
   typeof SelectPrimitive.Trigger
 >;
+/**
+ * SelectTrigger — the button that opens the select dropdown.
+ *
+ * Renders a bordered pill with the current value and a chevron-down icon.
+ * Accepts a `placeholder` via the child `SelectValue`. Focus and disabled
+ * states are styled with semantic tokens.
+ */
 export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
   function SelectTrigger({ className, children, ...props }, ref) {
     return (
@@ -42,6 +53,12 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
 export type SelectValueProps = React.ComponentProps<
   typeof SelectPrimitive.Value
 >;
+/**
+ * SelectValue — displays the currently selected value inside the trigger.
+ *
+ * Pass a `placeholder` prop to show greyed-out text when nothing is
+ * selected.
+ */
 export const SelectValue = forwardRef<HTMLSpanElement, SelectValueProps>(
   function SelectValue({ className, ...props }, ref) {
     return (
@@ -53,6 +70,13 @@ export const SelectValue = forwardRef<HTMLSpanElement, SelectValueProps>(
 export type SelectContentProps = React.ComponentProps<
   typeof SelectPrimitive.Content
 >;
+/**
+ * SelectContent — the floating panel that contains the list of options.
+ *
+ * Rendered inside a Radix Portal with a popper position and configurable
+ * `sideOffset`. Animates in/out with fade and slide. The viewport scrolls
+ * when the list exceeds `max-h-96`.
+ */
 export const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
   function SelectContent(
     { className, children, position = "popper", sideOffset = 4, ...props },
@@ -76,6 +100,12 @@ export const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
 );
 
 export type SelectItemProps = React.ComponentProps<typeof SelectPrimitive.Item>;
+/**
+ * SelectItem — a single selectable option within `SelectContent`.
+ *
+ * Shows a check indicator when selected. Hover and focus states highlight
+ * the row with the surface-hover token. Disabled items are dimmed.
+ */
 export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
   function SelectItem({ className, children, ...props }, ref) {
     return (
@@ -99,6 +129,12 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
 export type SelectLabelProps = React.ComponentProps<
   typeof SelectPrimitive.Label
 >;
+/**
+ * SelectLabel — a non-selectable heading for grouping related items.
+ *
+ * Use inside a `SelectGroup` to label a section of options. Styled as a
+ * small, semibold, muted-text label.
+ */
 export const SelectLabel = forwardRef<HTMLDivElement, SelectLabelProps>(
   function SelectLabel({ className, ...props }, ref) {
     return (
@@ -115,6 +151,11 @@ export const SelectLabel = forwardRef<HTMLDivElement, SelectLabelProps>(
 export type SelectSeparatorProps = React.ComponentProps<
   typeof SelectPrimitive.Separator
 >;
+/**
+ * SelectSeparator — a horizontal divider between groups of items.
+ *
+ * Use inside `SelectContent` to visually separate `SelectGroup` sections.
+ */
 export const SelectSeparator = forwardRef<HTMLDivElement, SelectSeparatorProps>(
   function SelectSeparator({ className, ...props }, ref) {
     return (

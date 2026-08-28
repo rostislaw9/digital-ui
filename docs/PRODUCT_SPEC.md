@@ -223,7 +223,8 @@ The CLI:
 The MVP is successful if:
 
 1. Developers can install/use components easily.
-2. Components look significantly different from generic shadcn-style UI.
+2. Components have a distinctive visual identity inspired by, but not
+   cloning, shadcn-style UI.
 3. Components remain practical for real applications.
 4. Animations feel polished rather than gimmicky.
 5. Accessibility is not sacrificed for visual effects.

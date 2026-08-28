@@ -7,6 +7,18 @@ export type ScrollAreaProps = React.ComponentProps<
   typeof ScrollAreaPrimitive.Root
 >;
 
+/**
+ * ScrollArea — a custom-styled scroll container.
+ *
+ * Built on `@radix-ui/react-scroll-area`, shadcn-inspired.
+ * Replaces native scrollbars with themed ones that match the design system.
+ * `ScrollArea` renders the viewport and a vertical `ScrollBar` by default;
+ * use `ScrollBar` with `orientation="horizontal"` for horizontal scrolling.
+ * The thumb uses the border token and brightens on hover.
+ *
+ * Accessibility: Radix preserves native scroll semantics and keyboard
+ * scrolling. The scrollbar is presentational (`role="presentation"`).
+ */
 export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
   function ScrollArea({ className, children, ...props }, ref) {
     return (
@@ -29,6 +41,14 @@ export type ScrollBarProps = React.ComponentProps<
   typeof ScrollAreaPrimitive.ScrollAreaScrollbar
 >;
 
+/**
+ * ScrollBar — a themed scrollbar for use within a `ScrollArea`.
+ *
+ * Supports `orientation` of `"vertical"` (default) or `"horizontal"`. The
+ * thumb uses the border token and brightens on hover via `bg-border-strong`.
+ * Automatically included by `ScrollArea` for vertical scrolling; add a
+ * second instance with `orientation="horizontal"` for bidirectional scroll.
+ */
 export const ScrollBar = forwardRef<HTMLDivElement, ScrollBarProps>(
   function ScrollBar({ className, orientation = "vertical", ...props }, ref) {
     return (

@@ -12,6 +12,18 @@ import { cn } from "@/lib/utils";
 
 export type CommandProps = React.ComponentProps<typeof CommandPrimitive>;
 
+/**
+ * Command — a composable command palette built on `cmdk`, shadcn-inspired.
+ *
+ * `Command` is a search-driven menu. `CommandDialog` wraps it in a `Dialog`
+ * for a ⌘K-style modal. Sub-components (`CommandInput`, `CommandList`,
+ * `CommandGroup`, `CommandItem`, `CommandEmpty`, `CommandSeparator`,
+ * `CommandShortcut`) compose the layout.
+ *
+ * Accessibility: `cmdk` handles keyboard navigation (Arrow keys, Enter) and
+ * `aria-selected` on the active item. `CommandDialog` provides a visually
+ * hidden `DialogTitle`/`DialogDescription` for screen readers.
+ */
 export const Command = forwardRef<HTMLDivElement, CommandProps>(
   function Command({ className, ...props }, ref) {
     return (
@@ -32,6 +44,13 @@ export interface CommandDialogProps {
   className?: string;
 }
 
+/**
+ * CommandDialog — a modal wrapper around `Command` for a ⌘K-style palette.
+ *
+ * Renders the command palette inside a `Dialog` with a visually hidden title
+ * and description for screen readers. Pass `Command` sub-components as
+ * children.
+ */
 export function CommandDialog({
   open,
   onOpenChange,
@@ -58,6 +77,12 @@ export type CommandInputProps = React.ComponentProps<
   typeof CommandPrimitive.Input
 >;
 
+/**
+ * CommandInput — the search input field for the command palette.
+ *
+ * Renders a search icon followed by the `cmdk` input. Filters the visible
+ * items as the user types.
+ */
 export const CommandInput = forwardRef<HTMLInputElement, CommandInputProps>(
   function CommandInput({ className, ...props }, ref) {
     return (
@@ -78,6 +103,12 @@ export type CommandListProps = React.ComponentProps<
   typeof CommandPrimitive.List
 >;
 
+/**
+ * CommandList — the scrollable container for command items.
+ *
+ * Renders the `cmdk` list with a max height and overflow scrolling. Only
+ * items matching the current search are shown.
+ */
 export const CommandList = forwardRef<HTMLDivElement, CommandListProps>(
   function CommandList({ className, ...props }, ref) {
     return (
@@ -95,6 +126,12 @@ export type CommandEmptyProps = React.ComponentProps<
   typeof CommandPrimitive.Empty
 >;
 
+/**
+ * CommandEmpty — the placeholder shown when no items match the search.
+ *
+ * Renders a centered muted message. Place inside `CommandList` to indicate
+ * an empty result set.
+ */
 export const CommandEmpty = forwardRef<HTMLDivElement, CommandEmptyProps>(
   function CommandEmpty({ className, ...props }, ref) {
     return (
@@ -112,6 +149,12 @@ export type CommandGroupProps = React.ComponentProps<
   typeof CommandPrimitive.Group
 >;
 
+/**
+ * CommandGroup — a labeled group of command items.
+ *
+ * Renders a `cmdk` group with a styled heading. Use to categorize related
+ * items within the command palette.
+ */
 export const CommandGroup = forwardRef<HTMLDivElement, CommandGroupProps>(
   function CommandGroup({ className, ...props }, ref) {
     return (
@@ -129,6 +172,12 @@ export type CommandItemProps = React.ComponentProps<
   typeof CommandPrimitive.Item
 >;
 
+/**
+ * CommandItem — a single selectable action in the command palette.
+ *
+ * Renders a `cmdk` item with hover and selected states. Use `onSelect` to
+ * trigger the action when the user chooses this item.
+ */
 export const CommandItem = forwardRef<HTMLDivElement, CommandItemProps>(
   function CommandItem({ className, ...props }, ref) {
     return (
@@ -146,6 +195,12 @@ export type CommandSeparatorProps = React.ComponentProps<
   typeof CommandPrimitive.Separator
 >;
 
+/**
+ * CommandSeparator — a horizontal divider between command groups.
+ *
+ * Renders a thin border line. Use to visually separate groups within the
+ * command list.
+ */
 export const CommandSeparator = forwardRef<
   HTMLDivElement,
   CommandSeparatorProps
@@ -161,6 +216,12 @@ export const CommandSeparator = forwardRef<
 
 export type CommandShortcutProps = React.ComponentProps<"span">;
 
+/**
+ * CommandShortcut — a right-aligned keyboard shortcut hint for a command item.
+ *
+ * Renders muted, letter-spaced text. Place inside a `CommandItem` to display
+ * the associated shortcut (e.g. ⌘K).
+ */
 export const CommandShortcut = forwardRef<
   HTMLSpanElement,
   CommandShortcutProps

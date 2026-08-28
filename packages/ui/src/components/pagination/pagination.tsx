@@ -6,6 +6,20 @@ import { cn } from "@/lib/utils";
 
 export type PaginationProps = ComponentProps<"nav">;
 
+/**
+ * Pagination — navigation for paged content.
+ *
+ * Built on native HTML, shadcn-inspired.
+ * Composes `PaginationContent` (a `<ul>`), `PaginationItem`, `PaginationLink`,
+ * `PaginationPrevious`, `PaginationNext`, and `PaginationEllipsis`. Links
+ * render as `Button` with `asChild`, so they inherit button sizing and
+ * variants. The active page uses `aria-current="page"`.
+ *
+ * Accessibility: the `<nav>` has `aria-label="pagination"`. Provide
+ * descriptive `aria-label`s on previous/next (defaults: "Go to previous
+ * page" / "Go to next page"). The ellipsis is `aria-hidden` with an
+ * `sr-only` "More pages" label.
+ */
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(
   function Pagination({ className, ...props }, ref) {
     return (
@@ -23,6 +37,12 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
 export type PaginationContentProps = ComponentProps<"ul">;
 
+/**
+ * PaginationContent — the list container for pagination items.
+ *
+ * Renders as a `<ul>` with horizontal flex layout and tight spacing
+ * between items. Place `PaginationItem` children inside it.
+ */
 export const PaginationContent = forwardRef<
   HTMLUListElement,
   PaginationContentProps
@@ -39,6 +59,12 @@ export const PaginationContent = forwardRef<
 
 export type PaginationItemProps = ComponentProps<"li">;
 
+/**
+ * PaginationItem — a single list item wrapper for pagination links.
+ *
+ * Renders as a `<li>`. Wrap a `PaginationLink`, `PaginationPrevious`,
+ * `PaginationNext`, or `PaginationEllipsis` inside it.
+ */
 export const PaginationItem = forwardRef<HTMLLIElement, PaginationItemProps>(
   function PaginationItem({ ...props }, ref) {
     return <li ref={ref} data-slot="pagination-item" {...props} />;
@@ -50,6 +76,14 @@ export type PaginationLinkProps = {
 } & Pick<ComponentProps<typeof Button>, "size"> &
   ComponentProps<"a">;
 
+/**
+ * PaginationLink — a clickable page link rendered as a styled button.
+ *
+ * Uses `Button` with `asChild` to wrap an `<a>` element, inheriting button
+ * sizing and variant styles. When `isActive` is true, the link uses the
+ * `secondary` variant and sets `aria-current="page"`. Supports `size`
+ * prop (defaults to `"icon"`).
+ */
 export const PaginationLink = forwardRef<
   HTMLAnchorElement,
   PaginationLinkProps
@@ -81,6 +115,13 @@ export type PaginationPreviousProps = ComponentProps<typeof PaginationLink> & {
   text?: string;
 };
 
+/**
+ * PaginationPrevious — a "go to previous page" navigation link.
+ *
+ * Renders a `PaginationLink` with a left chevron icon and optional text
+ * label (default "Previous", hidden on small screens). Includes
+ * `aria-label="Go to previous page"` for screen readers.
+ */
 export const PaginationPrevious = forwardRef<
   HTMLAnchorElement,
   PaginationPreviousProps
@@ -103,6 +144,13 @@ export type PaginationNextProps = ComponentProps<typeof PaginationLink> & {
   text?: string;
 };
 
+/**
+ * PaginationNext — a "go to next page" navigation link.
+ *
+ * Renders a `PaginationLink` with optional text label (default "Next",
+ * hidden on small screens) and a right chevron icon. Includes
+ * `aria-label="Go to next page"` for screen readers.
+ */
 export const PaginationNext = forwardRef<
   HTMLAnchorElement,
   PaginationNextProps
@@ -123,6 +171,13 @@ export const PaginationNext = forwardRef<
 
 export type PaginationEllipsisProps = ComponentProps<"span">;
 
+/**
+ * PaginationEllipsis — a non-interactive "…" indicator for skipped pages.
+ *
+ * Renders a `MoreHorizontal` icon inside a `<span>` that is `aria-hidden`
+ * for assistive technology, with an `sr-only` "More pages" label for
+ * screen reader users.
+ */
 export const PaginationEllipsis = forwardRef<
   HTMLSpanElement,
   PaginationEllipsisProps

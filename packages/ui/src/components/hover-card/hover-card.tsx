@@ -12,6 +12,18 @@ export interface HoverCardProps {
   closeDelay?: number;
 }
 
+/**
+ * HoverCard — a popover revealed on hover.
+ *
+ * Built on `@radix-ui/react-hover-card`, shadcn-inspired.
+ * Useful for previewing linked content (e.g. user profiles, link cards)
+ * without navigating away. Open/close delays are configurable via
+ * `openDelay` and `closeDelay` (defaults 200ms / 300ms).
+ *
+ * Accessibility: Radix handles focus management and ARIA attributes. The
+ * content is announced via `aria-describedby` on the trigger. Content is
+ * dismissible with Escape.
+ */
 export function HoverCard({
   children,
   open,
@@ -36,6 +48,13 @@ export function HoverCard({
 export type HoverCardTriggerProps = React.ComponentProps<
   typeof HoverCardPrimitive.Trigger
 >;
+/**
+ * HoverCardTrigger — the element that opens the hover card on hover.
+ *
+ * Renders as a child element via `asChild`, so the trigger is whatever
+ * element you wrap (e.g. an `<a>` or `<button>`). Hover and focus open
+ * the card content.
+ */
 export const HoverCardTrigger = forwardRef<
   HTMLAnchorElement,
   HoverCardTriggerProps
@@ -50,6 +69,14 @@ export const HoverCardTrigger = forwardRef<
 export type HoverCardContentProps = React.ComponentProps<
   typeof HoverCardPrimitive.Content
 >;
+/**
+ * HoverCardContent — the floating panel shown when the card is open.
+ *
+ * Portaled to the body and positioned relative to the trigger. Includes
+ * open/close animations (fade + zoom) using the fast duration and standard
+ * easing tokens. Accepts a `sideOffset` (default 6px) for spacing from the
+ * trigger.
+ */
 export const HoverCardContent = forwardRef<
   HTMLDivElement,
   HoverCardContentProps

@@ -42,10 +42,16 @@ export interface TabsProps {
 /**
  * Tabs — Radix-based tabs with a sliding active indicator.
  *
- * The indicator measures the active trigger's position within the list and
- * animates `transform` + `width` to slide between tabs. Content panels
- * slide in horizontally — right-to-left when switching to a tab on the
- * right, left-to-right when switching to a tab on the left.
+ * Built on `@radix-ui/react-tabs`, shadcn-inspired. The indicator measures
+ * the active trigger's position within the list and animates `transform`
+ * + `width` to slide between tabs. Content panels slide in horizontally —
+ * right-to-left when switching to a tab on the right, left-to-right when
+ * switching to a tab on the left.
+ *
+ * Accessibility: Radix sets `role="tablist"`, `role="tab"`, and
+ * `role="tabpanel"` with appropriate `aria-selected` and `aria-controls`
+ * attributes. Keyboard navigation (Arrow keys, Home, End) is handled by
+ * Radix.
  *
  * Reduced motion: the base CSS layer collapses all transition/animation
  * durations to ~0ms under `prefers-reduced-motion: reduce`, so both the
@@ -143,6 +149,13 @@ export function Tabs({
 }
 
 export type TabsListProps = React.ComponentProps<typeof TabsPrimitive.List>;
+/**
+ * TabsList — the container row of tab triggers.
+ *
+ * Renders a Radix Tabs List with a sliding accent indicator that animates
+ * between the active tab. The indicator is an absolutely-positioned span
+ * whose `transform` and `width` are driven by the Tabs context.
+ */
 export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
   function TabsList({ className, children, ...props }, ref) {
     const { indicator, listRef } = useTabsContext();
@@ -178,6 +191,13 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
 export type TabsTriggerProps = React.ComponentProps<
   typeof TabsPrimitive.Trigger
 >;
+/**
+ * TabsTrigger — an individual tab button within `TabsList`.
+ *
+ * Sets `data-value` so the parent Tabs can track direction for content
+ * slide animation. Active and hover states use accent and foreground
+ * tokens respectively.
+ */
 export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
   function TabsTrigger({ className, value, ...props }, ref) {
     return (
@@ -196,6 +216,14 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
 export type TabsContentProps = React.ComponentProps<
   typeof TabsPrimitive.Content
 >;
+/**
+ * TabsContent — the panel body for a single tab.
+ *
+ * Slides in horizontally based on the navigation direction tracked by the
+ * Tabs context: right-to-left when moving to a tab on the right, and
+ * left-to-right when moving to a tab on the left. Inactive panels are
+ * hidden via `data-[state=inactive]:hidden`.
+ */
 export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
   function TabsContent({ className, children, ...props }, ref) {
     const { direction } = useTabsContext();

@@ -39,6 +39,13 @@ export type AccordionItemProps = React.ComponentProps<
   typeof AccordionPrimitive.Item
 >;
 
+/**
+ * AccordionItem — a single collapsible section within an Accordion.
+ *
+ * Renders a bordered container that wraps an `AccordionTrigger` and
+ * `AccordionContent` pair. Use the `value` prop to control which item
+ * is open (must be unique within the Accordion).
+ */
 export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
   function AccordionItem({ className, ...props }, ref) {
     return (
@@ -55,6 +62,13 @@ export type AccordionTriggerProps = React.ComponentProps<
   typeof AccordionPrimitive.Trigger
 >;
 
+/**
+ * AccordionTrigger — the clickable header that toggles an AccordionItem.
+ *
+ * Renders a button inside a flex header row. Includes a `ChevronDown` icon
+ * that rotates 180° when the item is open (`group-data-[state=open]`).
+ * Keyboard accessible: Enter and Space toggle the panel.
+ */
 export const AccordionTrigger = forwardRef<
   HTMLButtonElement,
   AccordionTriggerProps
@@ -81,6 +95,14 @@ export type AccordionContentProps = React.ComponentProps<
   typeof AccordionPrimitive.Content
 >;
 
+/**
+ * AccordionContent — the collapsible body of an AccordionItem.
+ *
+ * Animates height via CSS grid-row transitions (`0fr → 1fr`) combined with
+ * Radix's `data-[state]` attributes (`animate-accordion-up` / `animate-accordion-down`).
+ * Content is wrapped in an inner `<div>` with vertical padding to prevent
+ * clipping during the animation.
+ */
 export const AccordionContent = forwardRef<
   HTMLDivElement,
   AccordionContentProps

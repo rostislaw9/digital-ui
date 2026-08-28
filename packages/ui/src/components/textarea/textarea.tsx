@@ -10,8 +10,13 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
 /**
  * Textarea — a multi-line text input field with the IonBit UI visual language.
  *
- * Uses semantic tokens only. The focus state uses an accent-tinted ring
- * plus a subtle border shift. Invalid state switches the border to error.
+ * Built on native HTML, shadcn-inspired. Uses semantic tokens only. The
+ * focus state uses an accent-tinted ring plus a subtle border shift.
+ * Invalid state switches the border to error.
+ *
+ * Accessibility: the `invalid` prop sets `aria-invalid` on the underlying
+ * `<textarea>`. Associate a `<Label htmlFor>` or use `aria-label` for
+ * screen reader support.
  */
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   function Textarea({ className, invalid = false, ...props }, ref) {
