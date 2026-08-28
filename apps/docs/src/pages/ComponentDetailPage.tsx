@@ -1,4 +1,4 @@
-import { Button, Toaster, cn } from "@digital-ui/ui";
+import { Button, cn } from "@digital-ui/ui";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AccessibilityList } from "../components/detail/AccessibilityList.js";
@@ -220,7 +220,6 @@ export function ComponentDetailPage() {
           </div>
         </aside>
       </div>
-      <Toaster position="bottom-right" />
     </>
   );
 }

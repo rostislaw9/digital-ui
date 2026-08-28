@@ -65,13 +65,8 @@ export const DropdownMenuContent = forwardRef<
       <DropdownMenuPrimitive.Content
         ref={ref}
         sideOffset={sideOffset}
-        className={cn(
-          "z-50 min-w-[8rem] overflow-hidden rounded-md border border-border bg-surface-elevated p-1 text-foreground shadow-md",
-          "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2",
-          "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2",
-          "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("z-50 min-w-[8rem] overflow-hidden rounded-md border border-border bg-surface-elevated p-1 text-foreground shadow-md data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 duration-[var(--duration-fast)] ease-[var(--ease-standard)]", className)}
         {...props}
       />
     </DropdownMenuPrimitive.Portal>
@@ -88,13 +83,8 @@ export const DropdownMenuItem = forwardRef<
   return (
     <DropdownMenuPrimitive.Item
       ref={ref}
-      className={cn(
-        "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
-        "hover:bg-surface-hover hover:text-foreground",
-        "focus:bg-surface-hover focus:text-foreground",
-        "data-[disabled]:opacity-40",
-        className,
-      )}
+      // prettier-ignore
+      className={cn("relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors hover:bg-surface-hover hover:text-foreground focus:bg-surface-hover focus:text-foreground data-[disabled]:opacity-40", className)}
       {...props}
     />
   );
@@ -126,10 +116,8 @@ export const DropdownMenuLabel = forwardRef<
   return (
     <DropdownMenuPrimitive.Label
       ref={ref}
-      className={cn(
-        "px-2 py-1.5 text-xs font-semibold text-foreground-subtle",
-        className,
-      )}
+      // prettier-ignore
+      className={cn("px-2 py-1.5 text-xs font-semibold text-foreground-subtle", className)}
       {...props}
     />
   );

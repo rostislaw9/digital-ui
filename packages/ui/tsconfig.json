@@ -9,7 +9,8 @@
     "noEmit": false,
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/components/ui/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"]
     }
   },
   "include": ["src"],

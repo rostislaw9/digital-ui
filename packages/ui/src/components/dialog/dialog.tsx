@@ -3,8 +3,8 @@ import { X } from "lucide-react";
 import type { HTMLAttributes } from "react";
 import { forwardRef, type ReactNode } from "react";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../button/button.js";
 
 export interface DialogProps {
   children: ReactNode;
@@ -55,35 +55,19 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
     return (
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay
-          className={cn(
-            "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm",
-            "data-[state=open]:animate-in data-[state=open]:fade-in-0",
-            "data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
-            "duration-[var(--duration-normal)] ease-[var(--ease-standard)]",
-          )}
+          // prettier-ignore
+          className={cn("fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 duration-[var(--duration-normal)] ease-[var(--ease-standard)]")}
         />
         <DialogPrimitive.Content
           ref={ref}
-          className={cn(
-            "fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2",
-            "w-full max-w-lg rounded-lg border border-border-strong bg-surface-elevated shadow-lg",
-            "p-6",
-            "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
-            "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
-            "duration-[var(--duration-normal)] ease-[var(--ease-standard)]",
-            "focus-visible:outline-none",
-            className,
-          )}
+          // prettier-ignore
+          className={cn("fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg rounded-lg border border-border-strong bg-surface-elevated shadow-lg p-6 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 duration-[var(--duration-normal)] ease-[var(--ease-standard)] focus-visible:outline-none", className)}
           {...props}
         >
           {children}
           <DialogPrimitive.Close
-            className={cn(
-              "absolute right-4 top-4 rounded-md p-1",
-              "text-foreground-muted hover:text-foreground hover:bg-surface-hover",
-              "transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-            )}
+            // prettier-ignore
+            className={cn("absolute right-4 top-4 rounded-md p-1 text-foreground-muted hover:text-foreground hover:bg-surface-hover transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background")}
             aria-label="Close"
           >
             <X className="h-4 w-4" />
@@ -102,10 +86,8 @@ export const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
     return (
       <DialogPrimitive.Title
         ref={ref}
-        className={cn(
-          "text-lg font-semibold tracking-tight text-foreground",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("text-lg font-semibold tracking-tight text-foreground", className)}
         {...props}
       />
     );
@@ -153,11 +135,9 @@ export type DialogCloseProps = React.ComponentProps<
 export const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(
   function DialogClose({ className, ...props }, ref) {
     return (
-      <DialogPrimitive.Close
-        ref={ref}
-        className={cn(buttonVariants({ variant: "secondary" }), className)}
-        {...props}
-      />
+      <Button asChild variant="secondary" className={cn(className)}>
+        <DialogPrimitive.Close ref={ref} {...props} />
+      </Button>
     );
   },
 );
@@ -172,11 +152,9 @@ export type DialogActionProps = React.ComponentProps<"button">;
 export const DialogAction = forwardRef<HTMLButtonElement, DialogActionProps>(
   function DialogAction({ className, ...props }, ref) {
     return (
-      <button
-        ref={ref}
-        className={cn(buttonVariants({ variant: "primary" }), className)}
-        {...props}
-      />
+      <Button asChild variant="primary" className={cn(className)}>
+        <DialogPrimitive.Close ref={ref} {...props} />
+      </Button>
     );
   },
 );

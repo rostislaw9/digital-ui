@@ -17,10 +17,8 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
       <ProgressPrimitive.Root
         ref={ref}
         value={pct}
-        className={cn(
-          "relative h-2 w-full overflow-hidden rounded-full border border-border bg-surface",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("relative h-2 w-full overflow-hidden rounded-full border border-border bg-surface", className)}
         {...props}
       >
         <ProgressPrimitive.Indicator

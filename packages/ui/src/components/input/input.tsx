@@ -22,21 +22,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       ref={ref}
       type={type}
       aria-invalid={invalid || undefined}
-      className={cn(
-        "flex w-full rounded-md border bg-surface px-3 py-1.5",
-        "text-sm text-foreground placeholder:text-foreground-subtle",
-        "transition-[border-color,box-shadow,background-color]",
-        "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-        "focus-visible:outline-none",
-        "disabled:cursor-not-allowed disabled:opacity-40",
-        "border-border hover:border-border-strong",
-        "focus-visible:shadow-focus",
-        invalid && [
-          "border-error hover:border-error",
-          "focus-visible:shadow-focus-error",
-        ],
-        className,
-      )}
+      // prettier-ignore
+      className={cn("flex w-full rounded-md border bg-surface px-3 py-1.5 text-sm text-foreground placeholder:text-foreground-subtle transition-[border-color,box-shadow,background-color] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 border-border hover:border-border-strong focus-visible:shadow-focus", invalid && ["border-error hover:border-error", "focus-visible:shadow-focus-error"], className)}
       {...props}
     />
   );

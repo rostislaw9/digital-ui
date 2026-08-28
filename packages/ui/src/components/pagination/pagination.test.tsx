@@ -1,57 +1,99 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import { Pagination } from "./pagination.js";
+
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "./pagination.js";
 
 describe("Pagination", () => {
-  it("renders correct page numbers", () => {
+  it("renders pagination with links", () => {
     render(
-      <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />,
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">2</PaginationLink>
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>,
     );
-    expect(screen.getByLabelText("Page 1")).toBeInTheDocument();
-    expect(screen.getByLabelText("Page 5")).toBeInTheDocument();
+    expect(screen.getByText("1")).toBeInTheDocument();
+    expect(screen.getByText("2")).toBeInTheDocument();
   });
 
-  it("marks current page as active", () => {
+  it("marks active page with aria-current", () => {
     render(
-      <Pagination currentPage={3} totalPages={5} onPageChange={() => {}} />,
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationLink href="#" isActive>
+              1
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">2</PaginationLink>
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>,
     );
-    expect(screen.getByLabelText("Page 3")).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
+    expect(screen.getByText("1")).toHaveAttribute("aria-current", "page");
+    expect(screen.getByText("2")).not.toHaveAttribute("aria-current");
   });
 
-  it("calls onPageChange when clicking a page", async () => {
+  it("calls onClick when clicking a page link", async () => {
     const user = userEvent.setup();
-    const onPageChange = vi.fn();
+    const onClick = vi.fn();
     render(
-      <Pagination currentPage={1} totalPages={5} onPageChange={onPageChange} />,
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationLink href="#" onClick={onClick}>
+              3
+            </PaginationLink>
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>,
     );
-    await user.click(screen.getByLabelText("Page 3"));
-    expect(onPageChange).toHaveBeenCalledWith(3);
+    await user.click(screen.getByText("3"));
+    expect(onClick).toHaveBeenCalledOnce();
   });
 
-  it("disables previous button on first page", () => {
+  it("renders previous and next buttons with aria-labels", () => {
     render(
-      <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />,
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious href="#" />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>,
     );
-    expect(screen.getByLabelText("Previous page")).toBeDisabled();
+    expect(screen.getByLabelText("Go to previous page")).toBeInTheDocument();
+    expect(screen.getByLabelText("Go to next page")).toBeInTheDocument();
   });
 
-  it("disables next button on last page", () => {
+  it("renders ellipsis with sr-only text", () => {
     render(
-      <Pagination currentPage={5} totalPages={5} onPageChange={() => {}} />,
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>,
     );
-    expect(screen.getByLabelText("Next page")).toBeDisabled();
-  });
-
-  it("shows ellipsis for large page counts", () => {
-    render(
-      <Pagination currentPage={5} totalPages={20} onPageChange={() => {}} />,
-    );
-    // Should have ellipsis (rendered as MoreHorizontal icon spans)
-    const ellipsisSpans = screen.getAllByText("", { selector: "span" });
-    expect(ellipsisSpans.length).toBeGreaterThan(0);
+    expect(screen.getByText("More pages")).toBeInTheDocument();
   });
 });
