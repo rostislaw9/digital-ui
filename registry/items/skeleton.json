@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:ui",
+  "title": "Skeleton",
+  "description": "Loading placeholder with pulse animation and semantic surface tokens.",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "components/ui/skeleton.tsx",
+      "type": "registry:ui",
+      "content": "import { forwardRef, type HTMLAttributes } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type SkeletonProps = HTMLAttributes<HTMLDivElement>;\n\n/**\n * Skeleton — a loading placeholder with a subtle pulse animation.\n *\n * Uses semantic surface tokens so it adapts to the active theme. Consumers\n * control sizing via `className` (e.g. `h-4 w-full`); the component itself\n * only provides shape, color, and animation defaults.\n */\nexport const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(\n  function Skeleton({ className, ...props }, ref) {\n    return (\n      <div\n        ref={ref}\n        // prettier-ignore\n        className={cn(\"animate-pulse rounded-md bg-surface-elevated\", className)}\n        {...props}\n      />\n    );\n  },\n);\n"
+    }
+  ]
+}

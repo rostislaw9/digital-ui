@@ -15,6 +15,19 @@ task.
 
 ### Changed
 
+- Fixed CLI `init` command: now actually creates directory structure
+  (was logging "Created" without calling `mkdirSync`), auto-installs base
+  items (`cn` utility + design tokens), adds token CSS imports to the
+  user's stylesheet, and auto-installs npm dependencies for base items.
+- Fixed CLI `add` command: now auto-installs npm dependencies instead of
+  just printing the install command for the user to run manually. Detects
+  package manager (pnpm/yarn/npm) from lockfile.
+- Fixed motion primitives in registry: each primitive (`glow`, `magnetic`,
+  `pulse`, `reveal`, `spotlight`) now includes its hooks
+  (`use-inherited-radius`, `use-reduced-motion`) and `tokens.ts` files in
+  the registry entry. Previously only the primitive itself was included,
+  causing broken imports when installed. Added `motion` to npm
+  dependencies for all motion primitives.
 - Moved Shiki syntax highlighting from runtime to build time via a custom
   Vite plugin (`vite-plugin-shiki.ts`). Demo source files use
   `?highlighted` imports; usage examples, cursor CSS, and install commands

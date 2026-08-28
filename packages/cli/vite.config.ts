@@ -12,6 +12,7 @@ export default defineConfig({
       external: [
         "commander",
         "chalk",
+        "node:child_process",
         "node:fs",
         "node:path",
         "node:process",

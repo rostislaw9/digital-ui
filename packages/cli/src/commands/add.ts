@@ -4,6 +4,7 @@ import chalk from "chalk";
 import { existsSync } from "node:fs";
 
 import { loadConfig, resolveTargetPath, writeFile } from "../utils/fs.js";
+import { installNpmDeps } from "../utils/npm.js";
 import { fetchRegistry, fetchRegistryItems } from "../utils/registry.js";
 
 export async function add(
@@ -51,7 +52,7 @@ export async function add(
     await installItem(item, config, cwd, options.overwrite ?? false);
   }
 
-  // Collect npm dependencies
+  // Collect and install npm dependencies
   const npmDeps = new Set<string>();
   for (const item of items) {
     for (const dep of item.dependencies ?? []) {
@@ -59,13 +60,12 @@ export async function add(
     }
   }
 
-  console.log("");
   if (npmDeps.size > 0) {
-    console.log(chalk.bold("Dependencies to install:"));
-    console.log(chalk.cyan(`  npm install ${[...npmDeps].join(" ")}`));
     console.log("");
+    installNpmDeps([...npmDeps], cwd);
   }
 
+  console.log("");
   console.log(chalk.green(`✓ Added ${items.length} component(s).`));
 }
 

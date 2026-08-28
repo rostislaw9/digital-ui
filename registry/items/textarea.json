@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "type": "registry:ui",
+  "title": "Textarea",
+  "description": "Multi-line text input with the same focus and invalid states as Input.",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "components/ui/textarea.tsx",
+      "type": "registry:ui",
+      "content": "import { forwardRef, type TextareaHTMLAttributes } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {\n  /** Invalid/error state. */\n  invalid?: boolean;\n}\n\n/**\n * Textarea — a multi-line text input field with the Digital UI visual language.\n *\n * Uses semantic tokens only. The focus state uses an accent-tinted ring\n * plus a subtle border shift. Invalid state switches the border to error.\n */\nexport const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(\n  function Textarea({ className, invalid = false, ...props }, ref) {\n    return (\n      <textarea\n        ref={ref}\n        aria-invalid={invalid || undefined}\n        // prettier-ignore\n        className={cn(\"flex w-full rounded-md border bg-surface px-3 py-2 min-h-[80px] text-sm text-foreground placeholder:text-foreground-subtle transition-[border-color,box-shadow,background-color] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 border-border hover:border-border-strong focus-visible:shadow-focus\", invalid && [\"border-error hover:border-error\", \"focus-visible:shadow-focus-error\"], className)}\n        {...props}\n      />\n    );\n  },\n);\n"
+    }
+  ]
+}

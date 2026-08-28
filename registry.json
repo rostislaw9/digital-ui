@@ -20,7 +20,7 @@
       "name": "tokens",
       "type": "registry:base",
       "title": "Design Tokens",
-      "description": "Digital UI design tokens — OKLCH colors, shadows, motion durations, easings, and Tailwind v4 theme mapping.",
+      "description": "Digital UI design tokens \u2014 OKLCH colors, shadows, motion durations, easings, and Tailwind v4 theme mapping.",
       "files": [
         {
           "path": "packages/tokens/src/tokens.css",
@@ -46,7 +46,9 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/button/button.tsx",
@@ -60,8 +62,13 @@
       "type": "registry:ui",
       "title": "Input",
       "description": "Text input with focus ring, invalid state, and semantic token styling.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/input/input.tsx",
@@ -75,8 +82,13 @@
       "type": "registry:ui",
       "title": "Textarea",
       "description": "Multi-line text input with the same focus and invalid states as Input.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/textarea/textarea.tsx",
@@ -90,8 +102,13 @@
       "type": "registry:ui",
       "title": "Card",
       "description": "Composable card with Header, Title, Description, Content, and Footer parts.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/card/card.tsx",
@@ -105,8 +122,14 @@
       "type": "registry:ui",
       "title": "Tooltip",
       "description": "Radix-based tooltip with animated open/close and semantic token styling.",
-      "dependencies": ["@radix-ui/react-tooltip", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-tooltip",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/tooltip/tooltip.tsx",
@@ -120,8 +143,14 @@
       "type": "registry:ui",
       "title": "Popover",
       "description": "Radix-based popover with anchored content and fade/zoom animation.",
-      "dependencies": ["@radix-ui/react-popover", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/popover/popover.tsx",
@@ -135,8 +164,14 @@
       "type": "registry:ui",
       "title": "Tabs",
       "description": "Radix-based tabs with animated active indicator and semantic token styling.",
-      "dependencies": ["@radix-ui/react-tabs", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-tabs",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/tabs/tabs.tsx",
@@ -150,8 +185,14 @@
       "type": "registry:ui",
       "title": "Switch",
       "description": "Radix-based toggle switch with accent thumb and animated slide.",
-      "dependencies": ["@radix-ui/react-switch", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-switch",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/switch/switch.tsx",
@@ -165,8 +206,14 @@
       "type": "registry:ui",
       "title": "Slider",
       "description": "Radix-based slider with accent range, hover-scaled thumb, and focus ring.",
-      "dependencies": ["@radix-ui/react-slider", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-slider",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/slider/slider.tsx",
@@ -186,7 +233,9 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/checkbox/checkbox.tsx",
@@ -200,8 +249,14 @@
       "type": "registry:ui",
       "title": "Progress",
       "description": "Radix-based progress bar with accent range and semantic token styling.",
-      "dependencies": ["@radix-ui/react-progress", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-progress",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/progress/progress.tsx",
@@ -215,8 +270,13 @@
       "type": "registry:ui",
       "title": "Skeleton",
       "description": "Loading placeholder with pulse animation and semantic surface tokens.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/skeleton/skeleton.tsx",
@@ -230,8 +290,15 @@
       "type": "registry:ui",
       "title": "Dialog",
       "description": "Radix-based dialog with overlay, animated content, and semantic token styling.",
-      "dependencies": ["@radix-ui/react-dialog", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn", "button"],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn",
+        "button"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/dialog/dialog.tsx",
@@ -250,7 +317,9 @@
         "clsx",
         "tailwind-merge"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/dropdown-menu/dropdown-menu.tsx",
@@ -270,7 +339,9 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/select/select.tsx",
@@ -290,7 +361,10 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn", "tokens"],
+      "registryDependencies": [
+        "cn",
+        "tokens"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/accordion/accordion.tsx",
@@ -304,8 +378,14 @@
       "type": "registry:ui",
       "title": "Toast",
       "description": "Sonner-based toast notifications with Digital UI-compatible CSS variables.",
-      "dependencies": ["sonner", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "sonner",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/toast/toast.tsx",
@@ -319,8 +399,14 @@
       "type": "registry:ui",
       "title": "Alert",
       "description": "Callout for surfacing status messages with semantic variants (default, accent, success, warning, error).",
-      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/alert/alert.tsx",
@@ -334,8 +420,14 @@
       "type": "registry:ui",
       "title": "Avatar",
       "description": "Radix-based avatar with image and fallback support.",
-      "dependencies": ["@radix-ui/react-avatar", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-avatar",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/avatar/avatar.tsx",
@@ -349,8 +441,14 @@
       "type": "registry:ui",
       "title": "Badge",
       "description": "Small status indicator with semantic variants (default, accent, success, warning, error, outline).",
-      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/badge/badge.tsx",
@@ -370,7 +468,9 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/breadcrumb/breadcrumb.tsx",
@@ -384,8 +484,14 @@
       "type": "registry:ui",
       "title": "Label",
       "description": "Radix-based form label with htmlFor association and disabled state styling.",
-      "dependencies": ["@radix-ui/react-label", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-label",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/label/label.tsx",
@@ -399,8 +505,14 @@
       "type": "registry:ui",
       "title": "Separator",
       "description": "Radix-based visual divider with horizontal/vertical orientation and decorative mode.",
-      "dependencies": ["@radix-ui/react-separator", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-separator",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/separator/separator.tsx",
@@ -414,13 +526,34 @@
       "type": "registry:ui",
       "title": "Spotlight",
       "description": "Pointer-following radial highlight with proximity activation and reduced-motion support.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "motion"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/motion/src/primitives/spotlight.tsx",
           "type": "registry:ui",
           "target": "components/motion/spotlight.tsx"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-inherited-radius.ts"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-reduced-motion.ts"
+        },
+        {
+          "path": "packages/motion/src/tokens.ts",
+          "type": "registry:lib",
+          "target": "components/motion/tokens.ts"
         }
       ]
     },
@@ -429,13 +562,34 @@
       "type": "registry:ui",
       "title": "Glow",
       "description": "Animated glow effect with intensity control and reduced-motion support.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "motion"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/motion/src/primitives/glow.tsx",
           "type": "registry:ui",
           "target": "components/motion/glow.tsx"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-inherited-radius.ts"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-reduced-motion.ts"
+        },
+        {
+          "path": "packages/motion/src/tokens.ts",
+          "type": "registry:lib",
+          "target": "components/motion/tokens.ts"
         }
       ]
     },
@@ -444,13 +598,34 @@
       "type": "registry:ui",
       "title": "Magnetic",
       "description": "Magnetic pull effect that attracts the wrapped element toward the cursor.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "motion"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/motion/src/primitives/magnetic.tsx",
           "type": "registry:ui",
           "target": "components/motion/magnetic.tsx"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-inherited-radius.ts"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-reduced-motion.ts"
+        },
+        {
+          "path": "packages/motion/src/tokens.ts",
+          "type": "registry:lib",
+          "target": "components/motion/tokens.ts"
         }
       ]
     },
@@ -459,13 +634,34 @@
       "type": "registry:ui",
       "title": "Pulse",
       "description": "Subtle pulsing animation for drawing attention to elements.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "motion"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/motion/src/primitives/pulse.tsx",
           "type": "registry:ui",
           "target": "components/motion/pulse.tsx"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-inherited-radius.ts"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-reduced-motion.ts"
+        },
+        {
+          "path": "packages/motion/src/tokens.ts",
+          "type": "registry:lib",
+          "target": "components/motion/tokens.ts"
         }
       ]
     },
@@ -474,13 +670,34 @@
       "type": "registry:ui",
       "title": "Reveal",
       "description": "Scroll-triggered reveal animation with reduced-motion support.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "motion"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/motion/src/primitives/reveal.tsx",
           "type": "registry:ui",
           "target": "components/motion/reveal.tsx"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-inherited-radius.ts"
+        },
+        {
+          "path": "packages/motion/src/hooks/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "components/motion/hooks/use-reduced-motion.ts"
+        },
+        {
+          "path": "packages/motion/src/tokens.ts",
+          "type": "registry:lib",
+          "target": "components/motion/tokens.ts"
         }
       ]
     },
@@ -495,7 +712,9 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/radio-group/radio-group.tsx",
@@ -514,7 +733,10 @@
         "clsx",
         "tailwind-merge"
       ],
-      "registryDependencies": ["cn", "button"],
+      "registryDependencies": [
+        "cn",
+        "button"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/alert-dialog/alert-dialog.tsx",
@@ -528,8 +750,14 @@
       "type": "registry:ui",
       "title": "Hover Card",
       "description": "Radix-based hover card with delayed open/close and zoom animation.",
-      "dependencies": ["@radix-ui/react-hover-card", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-hover-card",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/hover-card/hover-card.tsx",
@@ -548,7 +776,9 @@
         "clsx",
         "tailwind-merge"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/context-menu/context-menu.tsx",
@@ -562,8 +792,14 @@
       "type": "registry:ui",
       "title": "Scroll Area",
       "description": "Radix-based scroll area with custom styled scrollbars.",
-      "dependencies": ["@radix-ui/react-scroll-area", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "dependencies": [
+        "@radix-ui/react-scroll-area",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/scroll-area/scroll-area.tsx",
@@ -583,7 +819,10 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn", "button"],
+      "registryDependencies": [
+        "cn",
+        "button"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/sheet/sheet.tsx",
@@ -597,8 +836,15 @@
       "type": "registry:ui",
       "title": "Pagination",
       "description": "Pagination control with ellipsis, sibling count, and prev/next buttons.",
-      "dependencies": ["clsx", "tailwind-merge", "lucide-react"],
-      "registryDependencies": ["cn", "button"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "cn",
+        "button"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/pagination/pagination.tsx",
@@ -619,7 +865,10 @@
         "lucide-react",
         "cmdk"
       ],
-      "registryDependencies": ["cn", "dialog"],
+      "registryDependencies": [
+        "cn",
+        "dialog"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/command/command.tsx",

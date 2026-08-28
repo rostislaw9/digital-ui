@@ -10,9 +10,6 @@ dist/
 build/
 *.tsbuildinfo
 
-# Generated registry items
-registry/items/
-
 # Docs app build
 apps/docs/dist
 
