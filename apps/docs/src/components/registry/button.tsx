@@ -52,6 +52,7 @@ export const buttonMeta: ComponentMeta = {
   ],
   usageImport: `import { Button } from "@digital-ui/ui";`,
   usageCode: `<Button variant="primary" size="md">Click me</Button>`,
+  cursor: true,
   props: [
     {
       name: "variant",

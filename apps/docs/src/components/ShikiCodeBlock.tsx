@@ -11,7 +11,11 @@ function getHighlighterPromise() {
         import("shiki/themes/github-dark-default.mjs"),
         import("shiki/themes/github-light-default.mjs"),
       ],
-      langs: [import("shiki/langs/tsx.mjs"), import("shiki/langs/bash.mjs")],
+      langs: [
+        import("shiki/langs/tsx.mjs"),
+        import("shiki/langs/bash.mjs"),
+        import("shiki/langs/css.mjs"),
+      ],
       engine: createJavaScriptRegexEngine(),
     });
   }
@@ -23,7 +27,7 @@ getHighlighterPromise();
 
 interface ShikiCodeBlockProps {
   code: string;
-  lang?: "tsx" | "bash";
+  lang?: "tsx" | "bash" | "css";
   className?: string;
 }
 

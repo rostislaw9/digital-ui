@@ -126,7 +126,7 @@ function PaginationButton({
       onClick={onClick}
       className={cn(
         "inline-flex h-8 min-w-8 items-center justify-center rounded-md px-2 text-sm",
-        "font-medium select-none cursor-pointer",
+        "font-medium select-none",
         "transition-[background-color,border-color,color,box-shadow,transform]",
         "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",

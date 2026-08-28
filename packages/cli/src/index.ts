@@ -18,6 +18,10 @@ program
     "Initialize Digital UI in your project. Creates a digital-ui.config.json and installs design tokens.",
   )
   .option("-y, --yes", "Skip prompts and use defaults")
+  .option(
+    "--pointer",
+    "Add cursor: pointer CSS for buttons (Tailwind v4 defaults to cursor: default)",
+  )
   .action(init);
 
 program

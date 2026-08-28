@@ -26,7 +26,7 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
       <SelectPrimitive.Trigger
         ref={ref}
         className={cn(
-          "flex cursor-pointer items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground",
+          "flex items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground",
           "hover:border-border-strong",
           "focus-visible:shadow-focus focus-visible:outline-none",
           "disabled:cursor-not-allowed disabled:opacity-40",
@@ -93,7 +93,7 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
       <SelectPrimitive.Item
         ref={ref}
         className={cn(
-          "relative flex cursor-pointer select-none items-center rounded-sm p-2 text-sm text-foreground-muted outline-none transition-colors",
+          "relative flex select-none items-center rounded-sm p-2 text-sm text-foreground-muted outline-none transition-colors",
           "hover:bg-surface-hover hover:text-foreground",
           "focus:bg-surface-hover focus:text-foreground",
           "data-[state=checked]:text-accent",

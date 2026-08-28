@@ -11,7 +11,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       <CheckboxPrimitive.Root
         ref={ref}
         className={cn(
-          "peer inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full cursor-pointer",
+          "peer inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
           "border-2 border-foreground-subtle bg-surface transition-[background-color,border-color]",
           "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
           "focus-visible:outline-none focus-visible:shadow-focus",

@@ -102,7 +102,7 @@ export const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
         data-inset={inset}
         data-variant={variant}
         className={cn(
-          "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
+          "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
           "focus:bg-surface-hover focus:text-foreground",
           "data-[inset]:pl-7",
           "data-[variant=destructive]:text-error data-[variant=destructive]:focus:bg-error/10 data-[variant=destructive]:focus:text-error",
@@ -131,7 +131,7 @@ export const ContextMenuSubTrigger = forwardRef<
       ref={ref}
       data-inset={inset}
       className={cn(
-        "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
+        "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
         "focus:bg-surface-hover focus:text-foreground",
         "data-[state=open]:bg-surface-hover data-[state=open]:text-foreground",
         "data-[inset]:pl-7",
@@ -184,7 +184,7 @@ export const ContextMenuCheckboxItem = forwardRef<
       ref={ref}
       data-inset={inset}
       className={cn(
-        "relative flex cursor-pointer select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors",
+        "relative flex select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors",
         "focus:bg-surface-hover focus:text-foreground",
         "data-[inset]:pl-7",
         "data-[disabled]:opacity-40",
@@ -216,7 +216,7 @@ export const ContextMenuRadioItem = forwardRef<
       ref={ref}
       data-inset={inset}
       className={cn(
-        "relative flex cursor-pointer select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors",
+        "relative flex select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors",
         "focus:bg-surface-hover focus:text-foreground",
         "data-[inset]:pl-7",
         "data-[disabled]:opacity-40",

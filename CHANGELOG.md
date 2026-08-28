@@ -13,6 +13,23 @@ documentation app are complete and validated locally, but no
 `@digital-ui/*` package has been released. Publishing is a follow-up
 task.
 
+### Changed
+
+- Removed `cursor-pointer` from all UI components. Tailwind v4 defaults
+  to `cursor: default` for buttons. The docs app restores pointer cursor
+  via a CSS `@layer base` rule. Consumers can opt in with
+  `digital-ui init --pointer`.
+- Added `--border-error` token (light + dark) and
+  `--color-border-error` Tailwind mapping. Fixes `--shadow-glow-error`
+  being silently dropped because `--border-error` was undefined.
+- Replaced manual `<pre>` in `InstallBlock` with `ShikiCodeBlock` using
+  a new `shiki-compact` wrapper (no line numbers, transparent background).
+- Added CSS language support to `ShikiCodeBlock`.
+- Extracted reusable `InlineCode` component for the repeated inline code
+  styling pattern in docs.
+- Extracted `CursorSection` as a standalone docs component, gated by a
+  new `cursor` field on `ComponentMeta` (enabled for Button).
+
 ## [0.1.0] — MVP (first iteration, unreleased)
 
 ### Added

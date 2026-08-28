@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { AccessibilityList } from "../components/detail/AccessibilityList.js";
 import { ApiTable } from "../components/detail/ApiTable.js";
 import { CompositionSection } from "../components/detail/CompositionSection.js";
+import { CursorSection } from "../components/detail/CursorSection.js";
 import { OnThisPage } from "../components/detail/OnThisPage.js";
 import { PrevNextNav } from "../components/detail/PrevNextNav.js";
 import { UsageSection } from "../components/detail/UsageSection.js";
@@ -30,6 +31,7 @@ export function ComponentDetailPage() {
   sections.push({ id: "installation", label: "Installation" });
   if (comp?.usageImport && comp.usageCode)
     sections.push({ id: "usage", label: "Usage" });
+  if (comp?.cursor) sections.push({ id: "cursor", label: "Cursor" });
   if (comp?.composition)
     sections.push({ id: "composition", label: "Composition" });
   if (comp?.props && comp.props.length > 0)
@@ -153,6 +155,8 @@ export function ComponentDetailPage() {
                 usageCode={comp.usageCode}
               />
             )}
+
+            {comp.cursor && <CursorSection />}
 
             {comp.composition && (
               <CompositionSection tree={comp.composition} label={comp.label} />
