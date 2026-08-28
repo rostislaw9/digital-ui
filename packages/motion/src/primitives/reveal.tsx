@@ -7,8 +7,8 @@ import {
   type ReactNode,
 } from "react";
 
-import { useReducedMotion } from "../hooks/use-reduced-motion.js";
-import { motionTokens } from "../tokens.js";
+import { useReducedMotion } from "../hooks/use-reduced-motion";
+import { motionTokens } from "../tokens";
 
 export interface RevealProps extends Omit<
   HTMLAttributes<HTMLDivElement>,

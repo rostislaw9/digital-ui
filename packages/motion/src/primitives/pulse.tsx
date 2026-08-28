@@ -1,7 +1,7 @@
 import { forwardRef, useId, type CSSProperties, type ReactNode } from "react";
 
-import { useInheritedRadius } from "../hooks/use-inherited-radius.js";
-import { motionTokens } from "../tokens.js";
+import { useInheritedRadius } from "../hooks/use-inherited-radius";
+import { motionTokens } from "../tokens";
 
 export interface PulseProps {
   children: ReactNode;

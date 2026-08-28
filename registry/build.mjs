@@ -6,8 +6,8 @@
  * item with file contents embedded, ready to be served via a URL endpoint
  * or fetched directly from the GitHub repo.
  */
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { resolve, dirname } from "node:path";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -34,9 +34,25 @@ for (const item of registry.items) {
   };
 
   for (const file of item.files) {
-    const content = readFileSync(resolve(root, file.path), "utf-8");
+    let content = readFileSync(resolve(root, file.path), "utf-8");
+
+    // Motion primitives live in packages/motion/src/primitives/ and import
+    // from ../hooks/ and ../tokens. When installed to components/motion/
+    // (flattened, no primitives/ subdir), these must become ./hooks/ and
+    // ./tokens.
+    const target = file.target ?? file.path;
+    if (
+      target.startsWith("components/motion/") &&
+      !target.includes("/hooks/") &&
+      !target.endsWith("/tokens.ts")
+    ) {
+      content = content
+        .replace(/\.\.\/hooks\//g, "./hooks/")
+        .replace(/\.\.\/tokens/g, "./tokens");
+    }
+
     itemWithContent.files.push({
-      path: file.target ?? file.path,
+      path: target,
       type: file.type,
       content,
     });

@@ -15,6 +15,19 @@ task.
 
 ### Changed
 
+- Renamed CLI package from `@digital-ui/cli` to `digital-ui` (no scope) so
+  users can run `npx digital-ui@latest add button`. Renamed monorepo root
+  to `digital-ui-monorepo` to avoid workspace name conflict.
+- Added bun support to CLI package manager detection (checks `bun.lockb`
+  and `bun.lock`, uses `bun add` for installation). All 4 package managers
+  (pnpm, npm, yarn, bun) now fully supported.
+- Fixed motion primitive imports in registry: the registry build now
+  rewrites `../hooks/` to `./hooks/` and `../tokens` to `./tokens` for
+  motion primitive files, since the registry flattens the `primitives/`
+  subdirectory. Without this fix, installed motion primitives had broken
+  imports.
+- Removed `.js` extensions from motion primitive imports (incompatible
+  with Vite v8/rolldown resolution).
 - Fixed CLI `init` command: now actually creates directory structure
   (was logging "Created" without calling `mkdirSync`), auto-installs base
   items (`cn` utility + design tokens), adds token CSS imports to the
