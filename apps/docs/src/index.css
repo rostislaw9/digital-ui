@@ -19,6 +19,17 @@
 @source "./tailwind-classes.ts";
 
 /*
+ * Tailwind v4 switched from cursor: pointer to cursor: default for
+ * buttons. We restore pointer cursor for interactive elements.
+ */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/*
  * Shiki syntax highlighting overrides.
  * Shiki generates <pre><code> with inline styles. We override the
  * background to a darker surface and add CSS-based line numbers.
@@ -58,6 +69,29 @@
   color: var(--foreground-subtle);
   opacity: 0.5;
   user-select: none;
+}
+
+/*
+ * Compact Shiki wrapper — no line numbers, no background override.
+ * Used for single-line command blocks (e.g. install instructions)
+ * where the parent container already provides background and padding.
+ */
+.shiki-compact pre {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  border-radius: 0;
+  background: transparent !important;
+}
+
+.shiki-compact pre code {
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+.shiki-compact pre code .line::before {
+  content: none;
 }
 
 /*

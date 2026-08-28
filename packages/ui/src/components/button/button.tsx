@@ -5,7 +5,7 @@ import { cn } from "../../lib/cn.js";
 
 // prettier-ignore
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium select-none cursor-pointer rounded-md transition-[background-color,border-color,color,box-shadow,transform] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-40 will-change-transform [&_svg]:pointer-events-none [&_svg]:shrink-0 shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium select-none rounded-md transition-[background-color,border-color,color,box-shadow,transform] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-40 will-change-transform [&_svg]:pointer-events-none [&_svg]:shrink-0 shrink-0",
   {
     variants: {
       variant: {

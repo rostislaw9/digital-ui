@@ -10,7 +10,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
       <SwitchPrimitive.Root
         ref={ref}
         className={cn(
-          "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full",
+          "peer inline-flex h-5 w-9 shrink-0 items-center rounded-full",
           "border border-border bg-surface transition-[background-color,border-color]",
           "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",

@@ -78,7 +78,7 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
           {children}
           <DialogPrimitive.Close
             className={cn(
-              "absolute right-4 top-4 rounded-md p-1 cursor-pointer",
+              "absolute right-4 top-4 rounded-md p-1",
               "text-foreground-muted hover:text-foreground hover:bg-surface-hover",
               "transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",

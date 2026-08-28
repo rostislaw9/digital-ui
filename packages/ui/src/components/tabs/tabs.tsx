@@ -192,7 +192,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         data-value={value}
         className={cn(
           "relative z-[1] inline-flex items-center justify-center whitespace-nowrap rounded px-3 py-1",
-          "text-sm font-medium select-none cursor-pointer",
+          "text-sm font-medium select-none",
           "transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           "disabled:pointer-events-none disabled:opacity-40",

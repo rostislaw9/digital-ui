@@ -44,4 +44,6 @@ export interface ComponentMeta {
   usageCode?: string;
   /** Component tree diagram for the Composition section. */
   composition?: string[];
+  /** Whether to show the Cursor section (Tailwind v4 cursor: pointer guidance). */
+  cursor?: boolean;
 }

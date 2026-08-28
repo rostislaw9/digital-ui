@@ -152,7 +152,7 @@ export const CommandItem = forwardRef<HTMLDivElement, CommandItemProps>(
       <CommandPrimitive.Item
         ref={ref}
         className={cn(
-          "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted",
+          "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted",
           "outline-none transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
           "data-[selected=true]:bg-surface-hover data-[selected=true]:text-foreground",
           "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40",

@@ -144,7 +144,7 @@ function DemoCard({
             navigate(to);
           }
         }}
-        className="group flex cursor-pointer flex-col gap-4 rounded-lg border border-border bg-surface p-6 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="group flex flex-col gap-4 rounded-lg border border-border bg-surface p-6 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <div className="flex min-h-[80px] items-center justify-center">
           {/* eslint-disable jsx-a11y/no-static-element-interactions -- stop navigation only on the showcased component, not the card padding around it */}

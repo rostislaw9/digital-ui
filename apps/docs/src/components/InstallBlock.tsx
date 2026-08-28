@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@digital-ui/ui";
 import { Terminal } from "lucide-react";
 import { useState } from "react";
 import { CopyButton } from "./CopyButton.js";
+import { ShikiCodeBlock } from "./ShikiCodeBlock.js";
 
 interface InstallBlockProps {
   /** Component name, e.g. "button" — used to build the `add` command. */
@@ -44,17 +45,14 @@ export function InstallBlock({ name }: InstallBlockProps) {
           <CopyButton text={activeCommand} />
         </div>
 
-        {/* Command display — terminal style, no syntax highlighting */}
+        {/* Command display — syntax-highlighted via Shiki */}
         {PACKAGE_MANAGERS.map((pm) => (
           <TabsContent key={pm.id} value={pm.id} className="p-4">
-            <pre className="overflow-x-auto">
-              <code className="font-mono text-sm leading-none text-foreground-muted">
-                <span className="text-accent">{pm.prefix}</span>{" "}
-                <span className="text-foreground">
-                  digital-ui@latest add {name}
-                </span>
-              </code>
-            </pre>
+            <ShikiCodeBlock
+              code={`${pm.prefix} digital-ui@latest add ${name}`}
+              lang="bash"
+              className="shiki-compact"
+            />
           </TabsContent>
         ))}
       </Tabs>

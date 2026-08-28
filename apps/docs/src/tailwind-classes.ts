@@ -14,7 +14,7 @@
 
 const _buttonClasses = [
   "inline-flex items-center justify-center gap-2 whitespace-nowrap",
-  "font-medium select-none cursor-pointer rounded-md shrink-0",
+  "font-medium select-none rounded-md shrink-0",
   "transition-[background-color,border-color,color,box-shadow,transform]",
   "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
@@ -65,7 +65,7 @@ const _cardClasses = [
   "rounded-lg border border-border bg-surface text-foreground",
   "transition-[background-color,border-color,box-shadow] duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "border-border-strong bg-surface-elevated shadow-md",
-  "hover:bg-surface-hover hover:border-border-strong cursor-pointer",
+  "hover:bg-surface-hover hover:border-border-strong",
   "flex flex-col gap-1.5 p-5",
   "text-base font-semibold leading-tight tracking-tight text-foreground",
   "text-sm text-foreground-muted leading-relaxed",
@@ -98,7 +98,7 @@ const _tabsClasses = [
   "transition-[transform,width,opacity] duration-[var(--duration-normal)] ease-[var(--ease-standard)]",
   "will-change-transform",
   "relative z-[1] inline-flex items-center justify-center whitespace-nowrap rounded px-3 py-1",
-  "text-sm font-medium select-none cursor-pointer",
+  "text-sm font-medium select-none",
   "transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
   "disabled:pointer-events-none disabled:opacity-40",
@@ -112,7 +112,7 @@ const _tabsClasses = [
 ];
 
 const _switchClasses = [
-  "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full",
+  "peer inline-flex h-5 w-9 shrink-0 items-center rounded-full",
   "border border-border bg-surface transition-[background-color,border-color]",
   "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
@@ -155,7 +155,7 @@ const _dialogClasses = [
 const _toastClasses: string[] = [];
 
 const _checkboxClasses = [
-  "peer inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full cursor-pointer",
+  "peer inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
   "border-2 border-foreground-subtle bg-surface transition-[background-color,border-color]",
   "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "focus-visible:outline-none focus-visible:shadow-focus",
@@ -185,14 +185,14 @@ const _sliderClasses = [
 ];
 
 const _selectClasses = [
-  "flex cursor-pointer items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground",
+  "flex items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground",
   "hover:border-border-strong focus-visible:outline-none focus-visible:shadow-focus",
   "disabled:cursor-not-allowed disabled:opacity-40",
   "z-50 max-h-96 overflow-hidden rounded-md border border-border bg-surface-elevated p-1 text-foreground shadow-md",
   "w-[var(--radix-select-trigger-width)] min-w-[max(var(--radix-select-trigger-width),8rem)]",
   "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
   "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
-  "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-foreground-muted outline-none transition-colors",
+  "relative flex select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-foreground-muted outline-none transition-colors",
   "hover:bg-surface-hover hover:text-foreground focus:bg-surface-hover focus:text-foreground",
   "data-[state=checked]:text-accent data-[disabled]:opacity-40",
   "px-2 py-1.5 text-xs font-semibold text-foreground-subtle",
@@ -209,7 +209,7 @@ const _dropdownMenuClasses = [
   "z-50 min-w-[8rem] overflow-hidden rounded-md border border-border bg-surface-elevated p-1 text-foreground shadow-md",
   "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2",
   "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2",
-  "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
+  "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
   "hover:bg-surface-hover hover:text-foreground focus:bg-surface-hover focus:text-foreground",
   "data-[disabled]:opacity-40",
   "my-1 h-px bg-border",
@@ -218,7 +218,7 @@ const _dropdownMenuClasses = [
 
 const _accordionClasses = [
   "border-b border-border",
-  "flex flex-1 cursor-pointer items-center justify-between py-4",
+  "flex flex-1 items-center justify-between py-4",
   "font-medium text-sm text-foreground",
   "hover:text-accent transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
@@ -294,7 +294,7 @@ const _separatorClasses = ["shrink-0 bg-border h-px w-full w-px self-stretch"];
 const _radioGroupClasses = [
   "grid w-full gap-2",
   "relative flex aspect-square size-4 shrink-0 rounded-full border border-border-strong bg-surface outline-none",
-  "cursor-pointer transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
+  "transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "hover:border-accent",
   "focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
   "disabled:cursor-not-allowed disabled:opacity-50",
@@ -332,14 +332,14 @@ const _contextMenuClasses = [
   "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
   "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
   "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-  "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
+  "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors",
   "focus:bg-surface-hover focus:text-foreground",
   "data-[state=open]:bg-surface-hover data-[state=open]:text-foreground",
   "data-[inset]:pl-7",
   "data-[variant=destructive]:text-error data-[variant=destructive]:focus:bg-error/10 data-[variant=destructive]:focus:text-error",
   "data-[disabled]:opacity-40",
   "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-  "relative flex cursor-pointer select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors",
+  "relative flex select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors",
   "pointer-events-none absolute right-2 flex items-center justify-center",
   "ml-auto",
   "-mx-1 my-1 h-px bg-border",
@@ -384,7 +384,7 @@ const _sheetClasses = [
 const _paginationClasses = [
   "flex items-center gap-1",
   "inline-flex h-8 min-w-8 items-center justify-center rounded-md px-2 text-sm",
-  "font-medium select-none cursor-pointer",
+  "font-medium select-none",
   "transition-[background-color,border-color,color,box-shadow,transform]",
   "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
@@ -409,7 +409,7 @@ const _commandClasses = [
   "focus-visible:outline-none",
   "disabled:cursor-not-allowed disabled:opacity-40",
   "max-h-[300px] overflow-y-auto overflow-x-hidden p-1",
-  "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted",
+  "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted",
   "outline-none transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
   "data-[selected=true]:bg-surface-hover data-[selected=true]:text-foreground",
   "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40",
