@@ -29,23 +29,23 @@ export { Badge, badgeVariants } from "./components/badge/index.js";
 export type { BadgeProps } from "./components/badge/index.js";
 
 export {
+  Breadcrumb,
   BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  Breadcrumbs,
   BreadcrumbSeparator,
-} from "./components/breadcrumbs/index.js";
+} from "./components/breadcrumb/index.js";
 export type {
   BreadcrumbEllipsisProps,
   BreadcrumbItemProps,
   BreadcrumbLinkProps,
   BreadcrumbListProps,
   BreadcrumbPageProps,
+  BreadcrumbProps,
   BreadcrumbSeparatorProps,
-  BreadcrumbsProps,
-} from "./components/breadcrumbs/index.js";
+} from "./components/breadcrumb/index.js";
 
 export { Button, buttonVariants } from "./components/button/index.js";
 export type { ButtonProps } from "./components/button/index.js";

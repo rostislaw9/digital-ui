@@ -360,9 +360,9 @@
       ]
     },
     {
-      "name": "breadcrumbs",
+      "name": "breadcrumb",
       "type": "registry:ui",
-      "title": "Breadcrumbs",
+      "title": "Breadcrumb",
       "description": "Navigation trail with list, items, links, separators, and ellipsis support.",
       "dependencies": [
         "@radix-ui/react-slot",
@@ -373,9 +373,9 @@
       "registryDependencies": ["cn"],
       "files": [
         {
-          "path": "packages/ui/src/components/breadcrumbs/breadcrumbs.tsx",
+          "path": "packages/ui/src/components/breadcrumb/breadcrumb.tsx",
           "type": "registry:ui",
-          "target": "components/ui/breadcrumbs.tsx"
+          "target": "components/ui/breadcrumb.tsx"
         }
       ]
     },

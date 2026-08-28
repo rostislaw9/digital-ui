@@ -3,7 +3,7 @@ import { alertDialogMeta } from "./alert-dialog.js";
 import { alertMeta } from "./alert.js";
 import { avatarMeta } from "./avatar.js";
 import { badgeMeta } from "./badge.js";
-import { breadcrumbsMeta } from "./breadcrumbs.js";
+import { breadcrumbMeta } from "./breadcrumb.js";
 import { buttonMeta } from "./button.js";
 import { cardMeta } from "./card.js";
 import { checkboxMeta } from "./checkbox.js";
@@ -39,7 +39,7 @@ export const componentRegistry: ComponentMeta[] = [
   alertDialogMeta,
   avatarMeta,
   badgeMeta,
-  breadcrumbsMeta,
+  breadcrumbMeta,
   buttonMeta,
   cardMeta,
   checkboxMeta,

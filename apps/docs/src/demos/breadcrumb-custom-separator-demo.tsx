@@ -1,15 +1,15 @@
 import {
+  Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  Breadcrumbs,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumbs";
+} from "@/components/ui/breadcrumb";
 
-export function BreadcrumbsCustomSeparatorDemo() {
+export function BreadcrumbCustomSeparatorDemo() {
   return (
-    <Breadcrumbs>
+    <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -19,6 +19,6 @@ export function BreadcrumbsCustomSeparatorDemo() {
           <BreadcrumbPage>Current</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
-    </Breadcrumbs>
+    </Breadcrumb>
   );
 }

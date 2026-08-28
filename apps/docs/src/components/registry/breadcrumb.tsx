@@ -1,47 +1,51 @@
-import { BreadcrumbsCustomSeparatorDemo } from "../../demos/breadcrumbs-custom-separator-demo.js";
-import BreadcrumbsCustomSeparatorDemoSource from "../../demos/breadcrumbs-custom-separator-demo.tsx?raw";
-import { BreadcrumbsDefaultDemo } from "../../demos/breadcrumbs-default-demo.js";
-import BreadcrumbsDefaultDemoSource from "../../demos/breadcrumbs-default-demo.tsx?raw";
+import { BreadcrumbCustomSeparatorDemo } from "../../demos/breadcrumb-custom-separator-demo.js";
+import BreadcrumbCustomSeparatorDemoSource from "../../demos/breadcrumb-custom-separator-demo.tsx?raw";
+import { BreadcrumbDefaultDemo } from "../../demos/breadcrumb-default-demo.js";
+import BreadcrumbDefaultDemoSource from "../../demos/breadcrumb-default-demo.tsx?raw";
 import type { ComponentMeta } from "./types.js";
 
-export const breadcrumbsMeta: ComponentMeta = {
-  name: "breadcrumbs",
-  label: "Breadcrumbs",
+export const breadcrumbMeta: ComponentMeta = {
+  name: "breadcrumb",
+  label: "Breadcrumb",
   description: "Navigation trail showing the user's location in a hierarchy.",
   category: "Layout",
   examples: [
     {
       title: "Default",
       description: "Home > Components > Button (current page).",
-      code: BreadcrumbsDefaultDemoSource,
-      render: () => <BreadcrumbsDefaultDemo />,
+      code: BreadcrumbDefaultDemoSource,
+      render: () => <BreadcrumbDefaultDemo />,
     },
     {
       title: "With Custom Separator",
-      description: "Breadcrumbs with a custom separator character.",
-      code: BreadcrumbsCustomSeparatorDemoSource,
-      render: () => <BreadcrumbsCustomSeparatorDemo />,
+      description: "Breadcrumb with a custom separator character.",
+      code: BreadcrumbCustomSeparatorDemoSource,
+      render: () => <BreadcrumbCustomSeparatorDemo />,
     },
   ],
   usageImport: `import {
-  Breadcrumbs,
+  Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumbs";`,
-  usageCode: `<Breadcrumbs>
-  <BreadcrumbItem>
-    <BreadcrumbLink href="/">Home</BreadcrumbLink>
-  </BreadcrumbItem>
-  <BreadcrumbSeparator />
-  <BreadcrumbItem>
-    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-  </BreadcrumbItem>
-</Breadcrumbs>`,
+} from "@/components/ui/breadcrumb";`,
+  usageCode: `<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>`,
   composition: [
-    "Breadcrumbs",
-    "└── BreadcrumbItem",
-    "    ├── BreadcrumbLink",
+    "Breadcrumb",
+    "└── BreadcrumbList",
+    "    ├── BreadcrumbItem",
+    "    │   ├── BreadcrumbLink",
+    "    │   └── BreadcrumbPage",
     "    └── BreadcrumbSeparator",
   ],
   props: [

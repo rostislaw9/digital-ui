@@ -272,7 +272,7 @@ const _badgeClasses = [
   "border-border-strong bg-transparent text-foreground",
 ];
 
-const _breadcrumbsClasses = [
+const _breadcrumbClasses = [
   "text-sm",
   "flex flex-wrap items-center gap-1.5 text-foreground-muted",
   "inline-flex items-center gap-1.5",

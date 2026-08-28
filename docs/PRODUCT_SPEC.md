@@ -137,7 +137,7 @@ primitives:
 - Tabs
 - Accordion
 - Pagination
-- Breadcrumbs
+- Breadcrumb
 - ContextMenu
 - DropdownMenu
 - Command

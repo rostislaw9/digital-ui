@@ -37,20 +37,24 @@ task.
   styling pattern in docs.
 - Extracted `CursorSection` as a standalone docs component, gated by a
   new `cursor` field on `ComponentMeta` (enabled for Button).
-- Fixed `radixBased` metadata for Button and Breadcrumbs (both use
+- Fixed `radixBased` metadata for Button and Breadcrumb (both use
   `@radix-ui/react-slot`).
 - Added inverted Alert variants (`accent-inverted`, `success-inverted`,
   `warning-inverted`, `error-inverted`) with `bg-surface` and colored
   text/icons. Removed hardcoded `text-foreground` from `AlertTitle` and
   `text-foreground-muted` from `AlertDescription` so they inherit the
   alert's variant color.
+- Renamed `Breadcrumbs` component to `Breadcrumb` (singular) across
+  source, registry, demos, and docs. Fixed composition tree:
+  `BreadcrumbSeparator` is a sibling of `BreadcrumbItem` under
+  `BreadcrumbList`, not a child of `BreadcrumbItem`.
 
 ## [0.1.0] — MVP (first iteration, unreleased)
 
 ### Added
 
 - **31 UI components:** Accordion, Alert, AlertDialog, Avatar, Badge,
-  Breadcrumbs, Button (8 variants, 10 sizes including icon variants,
+  Breadcrumb, Button (8 variants, 10 sizes including icon variants,
   data-icon padding, data-slot/data-variant/data-size attributes),
   Card, Checkbox, Command (cmdk-based), ContextMenu, Dialog,
   DropdownMenu, HoverCard, Input, Label, Pagination, Popover, Progress,
