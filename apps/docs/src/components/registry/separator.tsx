@@ -23,7 +23,7 @@ export const separatorMeta: ComponentMeta = {
       render: () => <SeparatorVerticalDemo />,
     },
   ],
-  usageImport: `import { Separator } from "@digital-ui/ui";`,
+  usageImport: `import { Separator } from "@/components/ui/separator";`,
   usageCode: `<Separator orientation="horizontal" />`,
   props: [
     {

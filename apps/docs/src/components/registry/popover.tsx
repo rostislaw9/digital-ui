@@ -19,7 +19,7 @@ export const popoverMeta: ComponentMeta = {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/popover";`,
   usageCode: `<Popover>
   <PopoverTrigger>Open</PopoverTrigger>
   <PopoverContent>Popover content</PopoverContent>

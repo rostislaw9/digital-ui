@@ -28,7 +28,7 @@ export const alertMeta: ComponentMeta = {
   Alert,
   AlertTitle,
   AlertDescription,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/alert";`,
   usageCode: `<Alert variant="success">
   <AlertTitle>Success</AlertTitle>
   <AlertDescription>Your changes have been saved.</AlertDescription>

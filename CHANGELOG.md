@@ -15,6 +15,14 @@ task.
 
 ### Changed
 
+- Adopted shadcn-style source-owned import paths. Component source now
+  uses `import { cn } from "@/lib/utils"` with an empty line between
+  external and local imports. Renamed `lib/cn.ts` to `lib/utils.ts`.
+  Configured `@/` path aliases in `packages/ui` (tsconfig, vite,
+  vitest) and `apps/docs` (tsconfig, vite).
+- Updated all docs usage examples and demo imports to show
+  `@/components/ui/*` and `@/components/motion/*` paths instead of
+  `@digital-ui/ui` / `@digital-ui/motion`.
 - Removed `cursor-pointer` from all UI components. Tailwind v4 defaults
   to `cursor: default` for buttons. The docs app restores pointer cursor
   via a CSS `@layer base` rule. Consumers can opt in with
@@ -29,6 +37,8 @@ task.
   styling pattern in docs.
 - Extracted `CursorSection` as a standalone docs component, gated by a
   new `cursor` field on `ComponentMeta` (enabled for Button).
+- Fixed `radixBased` metadata for Button and Breadcrumbs (both use
+  `@radix-ui/react-slot`).
 
 ## [0.1.0] — MVP (first iteration, unreleased)
 

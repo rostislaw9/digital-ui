@@ -1,4 +1,5 @@
-import { Button, toast } from "@digital-ui/ui";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/toast";
 
 export function ToastDemo() {
   return (

@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/accordion";
 
 export function AccordionBasicDemo() {
   return (

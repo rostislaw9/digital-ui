@@ -1,6 +1,7 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import { forwardRef, type ReactNode } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 
 export interface HoverCardProps {
   children: ReactNode;

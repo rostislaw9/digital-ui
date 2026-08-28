@@ -23,7 +23,7 @@ export const paginationMeta: ComponentMeta = {
   PaginationPrev,
   PaginationNext,
   PaginationLink,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/pagination";`,
   usageCode: `<Pagination currentPage={1} totalPages={10} onPageChange={(p) => console.log(p)}>
   <PaginationContent>
     <PaginationItem><PaginationPrev /></PaginationItem>

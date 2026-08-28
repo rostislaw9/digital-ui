@@ -5,7 +5,7 @@ import {
   BreadcrumbPage,
   Breadcrumbs,
   BreadcrumbSeparator,
-} from "@digital-ui/ui";
+} from "@/components/ui/breadcrumbs";
 
 export function BreadcrumbsDefaultDemo() {
   return (

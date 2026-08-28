@@ -1,4 +1,3 @@
-import { Button } from "@digital-ui/ui";
 import {
   MoreHorizontal,
   Paperclip,
@@ -8,6 +7,8 @@ import {
   Trash2,
   User2,
 } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 export function ButtonIconVariantsDemo() {
   return (

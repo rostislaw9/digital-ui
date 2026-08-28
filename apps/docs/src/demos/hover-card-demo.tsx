@@ -1,9 +1,9 @@
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/hover-card";
 
 export function HoverCardDemo() {
   return (

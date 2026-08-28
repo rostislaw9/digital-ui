@@ -1,4 +1,4 @@
-import { Textarea } from "@digital-ui/ui";
+import { Textarea } from "@/components/ui/textarea";
 
 export function TextareaInvalidDemo() {
   return (

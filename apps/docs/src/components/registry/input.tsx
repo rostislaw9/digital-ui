@@ -24,7 +24,7 @@ export const inputMeta: ComponentMeta = {
       render: () => <InputInvalidDemo />,
     },
   ],
-  usageImport: `import { Input } from "@digital-ui/ui";`,
+  usageImport: `import { Input } from "@/components/ui/input";`,
   usageCode: `<Input placeholder="Enter text..." />`,
   props: [
     {

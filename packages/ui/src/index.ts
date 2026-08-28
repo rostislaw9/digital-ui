@@ -1,4 +1,4 @@
-export { cn } from "./lib/cn.js";
+export { cn } from "./lib/utils.js";
 
 export {
   Alert,

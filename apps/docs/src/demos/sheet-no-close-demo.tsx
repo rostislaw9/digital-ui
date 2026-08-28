@@ -1,12 +1,12 @@
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/sheet";
 
 export function SheetNoCloseDemo() {
   return (

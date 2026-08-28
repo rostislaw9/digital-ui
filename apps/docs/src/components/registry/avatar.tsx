@@ -36,7 +36,7 @@ export const avatarMeta: ComponentMeta = {
   Avatar,
   AvatarImage,
   AvatarFallback,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/avatar";`,
   usageCode: `<Avatar>
   <AvatarImage src="/avatar.jpg" alt="User" />
   <AvatarFallback>JD</AvatarFallback>

@@ -208,7 +208,7 @@ prefer the npm package.
 - `src/components/<name>/` — one folder per component, containing
   `index.ts` (re-exports), the component `.tsx`, and a
   `<name>.variants.ts` where applicable.
-- `src/lib/cn.ts` — the `cn()` helper (clsx + tailwind-merge).
+- `src/lib/utils.ts` — the `cn()` helper (clsx + tailwind-merge).
 - `src/lib/utils.ts` — small shared utilities.
 - `src/index.ts` — public barrel.
 
@@ -313,7 +313,7 @@ always use semantic utilities (`bg-surface`, `text-foreground`,
 
 ### 5.4 The `cn()` helper
 
-`packages/ui/src/lib/cn.ts`:
+`packages/ui/src/lib/utils.ts`:
 
 ```ts
 import { clsx, type ClassValue } from "clsx";
@@ -503,7 +503,7 @@ Example (illustrative, not final):
 ### 8.1 `cn()`
 
 `clsx` + `tailwind-merge`. The single class-merging utility used by
-every component. Lives in `packages/ui/src/lib/cn.ts` and is also
+every component. Lives in `packages/ui/src/lib/utils.ts` and is also
 re-exported from `@digital-ui/ui` for consumers.
 
 ### 8.2 `cva`

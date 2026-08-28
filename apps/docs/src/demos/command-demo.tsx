@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Command,
   CommandDialog,
   CommandEmpty,
@@ -9,8 +11,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@digital-ui/ui";
-import { useEffect, useState } from "react";
+} from "@/components/ui/command";
 
 export function CommandDemo() {
   const [open, setOpen] = useState(false);

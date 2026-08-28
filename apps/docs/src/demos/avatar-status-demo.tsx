@@ -3,7 +3,7 @@ import {
   AvatarFallback,
   AvatarImage,
   AvatarStatus,
-} from "@digital-ui/ui";
+} from "@/components/ui/avatar";
 
 export function AvatarStatusDemo() {
   return (

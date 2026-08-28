@@ -192,10 +192,10 @@
       "import": "./dist/sheet.js",
       "require": "./dist/sheet.cjs"
     },
-    "./cn": {
-      "types": "./dist/cn.d.ts",
-      "import": "./dist/cn.js",
-      "require": "./dist/cn.cjs"
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.js",
+      "require": "./dist/utils.cjs"
     }
   },
   "sideEffects": false,

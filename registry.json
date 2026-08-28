@@ -10,9 +10,9 @@
       "description": "Utility for merging Tailwind classes (clsx + tailwind-merge).",
       "files": [
         {
-          "path": "packages/ui/src/lib/cn.ts",
+          "path": "packages/ui/src/lib/utils.ts",
           "type": "registry:lib",
-          "target": "lib/cn.ts"
+          "target": "lib/utils.ts"
         }
       ]
     },

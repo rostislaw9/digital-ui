@@ -16,7 +16,7 @@ export const skeletonMeta: ComponentMeta = {
       render: () => <SkeletonBasicDemo />,
     },
   ],
-  usageImport: `import { Skeleton } from "@digital-ui/ui";`,
+  usageImport: `import { Skeleton } from "@/components/ui/skeleton";`,
   usageCode: `<Skeleton className="h-4 w-full" />`,
   props: [
     {

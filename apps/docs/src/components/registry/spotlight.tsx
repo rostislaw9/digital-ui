@@ -26,7 +26,7 @@ export const spotlightMeta: ComponentMeta = {
       render: () => <SpotlightProximityDemo />,
     },
   ],
-  usageImport: `import { Spotlight } from "@digital-ui/ui";`,
+  usageImport: `import { Spotlight } from "@/components/motion/spotlight";`,
   usageCode: `<Spotlight intensity={0.5} radius={220}>
   <div className="surface">Hover me</div>
 </Spotlight>`,

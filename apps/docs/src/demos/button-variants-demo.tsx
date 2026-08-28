@@ -1,4 +1,4 @@
-import { Button } from "@digital-ui/ui";
+import { Button } from "@/components/ui/button";
 
 export function ButtonVariantsDemo() {
   return (

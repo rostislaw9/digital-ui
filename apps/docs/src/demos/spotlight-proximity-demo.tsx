@@ -1,11 +1,11 @@
+import { Spotlight } from "@/components/motion/spotlight";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@digital-ui/ui";
-import { Spotlight } from "@digital-ui/motion";
+} from "@/components/ui/card";
 
 export function SpotlightProximityDemo() {
   return (

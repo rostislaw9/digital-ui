@@ -1,5 +1,5 @@
-import { Button } from "@digital-ui/ui";
-import { Glow } from "@digital-ui/motion";
+import { Glow } from "@/components/motion";
+import { Button } from "@/components/ui/button";
 
 export function GlowDemo() {
   return (

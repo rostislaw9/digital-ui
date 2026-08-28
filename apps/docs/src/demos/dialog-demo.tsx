@@ -1,5 +1,7 @@
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Dialog,
   DialogAction,
   DialogClose,
@@ -8,8 +10,7 @@ import {
   DialogFooter,
   DialogTitle,
   DialogTrigger,
-} from "@digital-ui/ui";
-import { useState } from "react";
+} from "@/components/ui/dialog";
 
 export function DialogDemo() {
   const [open, setOpen] = useState(false);

@@ -22,7 +22,7 @@ export const commandMeta: ComponentMeta = {
   CommandGroup,
   CommandItem,
   CommandEmpty,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/command";`,
   usageCode: `<Command>
   <CommandInput placeholder="Search..." />
   <CommandList>

@@ -5,6 +5,11 @@ import dts from "vite-plugin-dts";
 
 export default defineConfig({
   plugins: [react(), dts({ include: ["src"], insertTypesEntry: true })],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
+  },
   build: {
     lib: {
       entry: {
@@ -55,7 +60,7 @@ export default defineConfig({
           "src/components/scroll-area/index.ts",
         ),
         sheet: resolve(__dirname, "src/components/sheet/index.ts"),
-        cn: resolve(__dirname, "src/lib/cn.ts"),
+        utils: resolve(__dirname, "src/lib/utils.ts"),
       },
       formats: ["es", "cjs"],
       fileName: (format, name) => `${name}.${format === "es" ? "js" : "cjs"}`,

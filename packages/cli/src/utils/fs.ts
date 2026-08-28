@@ -32,7 +32,7 @@ export function resolveTargetPath(
   // Map registry target paths to the user's configured aliases.
   // e.g. "components/ui/button.tsx" -> "{cwd}/components/ui/button.tsx"
   //      "components/motion/spotlight.tsx" -> "{cwd}/components/motion/spotlight.tsx"
-  //      "lib/cn.ts" -> "{cwd}/lib/cn.ts"
+  //      "lib/utils.ts" -> "{cwd}/lib/utils.ts"
   //      "styles/tokens.css" -> "{cwd}/styles/tokens.css"
   let resolved = target;
 

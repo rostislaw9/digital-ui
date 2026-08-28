@@ -1,4 +1,4 @@
-import { Glow } from "@digital-ui/motion";
+import { Glow } from "@/components/motion";
 
 export function GlowTextDemo() {
   return (

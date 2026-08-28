@@ -22,7 +22,7 @@ export const dropdownMenuMeta: ComponentMeta = {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/dropdown-menu";`,
   usageCode: `<DropdownMenu>
   <DropdownMenuTrigger>Open</DropdownMenuTrigger>
   <DropdownMenuContent>

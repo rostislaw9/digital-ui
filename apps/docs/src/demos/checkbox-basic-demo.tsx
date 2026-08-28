@@ -1,4 +1,4 @@
-import { Checkbox } from "@digital-ui/ui";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export function CheckboxBasicDemo() {
   return (

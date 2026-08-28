@@ -50,7 +50,7 @@ export const buttonMeta: ComponentMeta = {
       render: () => <ButtonStatesDemo />,
     },
   ],
-  usageImport: `import { Button } from "@digital-ui/ui";`,
+  usageImport: `import { Button } from "@/components/ui/button";`,
   usageCode: `<Button variant="primary" size="md">Click me</Button>`,
   cursor: true,
   props: [
@@ -86,6 +86,6 @@ export const buttonMeta: ComponentMeta = {
     "Disabled state prevents interaction and reduces opacity",
     "Icon-only buttons require an aria-label",
   ],
-  radixBased: false,
+  radixBased: true,
   isNew: false,
 };

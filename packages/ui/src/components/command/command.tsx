@@ -1,7 +1,8 @@
 import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 import { forwardRef, type ReactNode } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogContent,

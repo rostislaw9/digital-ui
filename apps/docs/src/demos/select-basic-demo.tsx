@@ -4,7 +4,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@digital-ui/ui";
+} from "@/components/ui/select";
 
 export function SelectBasicDemo() {
   return (

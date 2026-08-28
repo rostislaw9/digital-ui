@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@digital-ui/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export function AvatarSizesDemo() {
   return (

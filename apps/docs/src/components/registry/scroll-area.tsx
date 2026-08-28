@@ -15,7 +15,7 @@ export const scrollAreaMeta: ComponentMeta = {
       render: () => <ScrollAreaDemo />,
     },
   ],
-  usageImport: `import { ScrollArea } from "@digital-ui/ui";`,
+  usageImport: `import { ScrollArea } from "@/components/ui/scroll-area";`,
   usageCode: `<ScrollArea className="h-72 w-48">
   <div>Long content...</div>
 </ScrollArea>`,

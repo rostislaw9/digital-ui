@@ -16,7 +16,7 @@ export const sliderMeta: ComponentMeta = {
       render: () => <SliderBasicDemo />,
     },
   ],
-  usageImport: `import { Slider } from "@digital-ui/ui";`,
+  usageImport: `import { Slider } from "@/components/ui/slider";`,
   usageCode: `<Slider defaultValue={[50]} max={100} step={1} />`,
   props: [
     {

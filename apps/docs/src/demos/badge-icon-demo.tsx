@@ -1,5 +1,6 @@
-import { Badge } from "@digital-ui/ui";
 import { AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
 
 export function BadgeIconDemo() {
   return (

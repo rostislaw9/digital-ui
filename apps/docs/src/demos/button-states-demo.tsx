@@ -1,5 +1,6 @@
-import { Button } from "@digital-ui/ui";
 import { Loader2 } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 export function ButtonStatesDemo() {
   return (

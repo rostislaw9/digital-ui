@@ -1,4 +1,4 @@
-import { Reveal } from "@digital-ui/motion";
+import { Reveal } from "@/components/motion";
 
 export function RevealDemo() {
   return (

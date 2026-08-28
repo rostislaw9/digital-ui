@@ -1,4 +1,3 @@
-import { Alert, AlertTitle } from "@digital-ui/ui";
 import {
   AlertCircle,
   AlertTriangle,
@@ -6,6 +5,8 @@ import {
   Info,
   XCircle,
 } from "lucide-react";
+
+import { Alert, AlertTitle } from "@/components/ui/alert";
 
 export function AlertVariantsDemo() {
   return (

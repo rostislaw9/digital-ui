@@ -1,12 +1,12 @@
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/dropdown-menu";
 
 export function DropdownMenuBasicDemo() {
   return (

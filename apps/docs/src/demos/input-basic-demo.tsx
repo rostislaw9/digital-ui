@@ -1,4 +1,4 @@
-import { Input } from "@digital-ui/ui";
+import { Input } from "@/components/ui/input";
 
 export function InputBasicDemo() {
   return (

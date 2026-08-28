@@ -23,7 +23,7 @@ export const labelMeta: ComponentMeta = {
       render: () => <LabelDisabledDemo />,
     },
   ],
-  usageImport: `import { Label } from "@digital-ui/ui";`,
+  usageImport: `import { Label } from "@/components/ui/label";`,
   usageCode: `<Label htmlFor="email">Email</Label>`,
   props: [
     {

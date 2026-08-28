@@ -1,5 +1,6 @@
-import { Button } from "@digital-ui/ui";
 import { ArrowRight, Search } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 export function ButtonWithIconDemo() {
   return (
