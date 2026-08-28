@@ -28,7 +28,7 @@ export const breadcrumbsMeta: ComponentMeta = {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbSeparator,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/breadcrumbs";`,
   usageCode: `<Breadcrumbs>
   <BreadcrumbItem>
     <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -80,6 +80,6 @@ export const breadcrumbsMeta: ComponentMeta = {
     'BreadcrumbPage sets aria-current="page" on the current page.',
     'BreadcrumbSeparator has role="presentation".',
   ],
-  radixBased: false,
+  radixBased: true,
   isNew: false,
 };

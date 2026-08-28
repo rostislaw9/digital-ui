@@ -16,7 +16,7 @@ export const tooltipMeta: ComponentMeta = {
       render: () => <TooltipPositionsDemo />,
     },
   ],
-  usageImport: `import { Tooltip, TooltipTrigger, TooltipContent } from "@digital-ui/ui";`,
+  usageImport: `import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";`,
   usageCode: `<Tooltip>
   <TooltipTrigger>Hover me</TooltipTrigger>
   <TooltipContent>Tooltip text</TooltipContent>

@@ -26,7 +26,7 @@ export const dialogMeta: ComponentMeta = {
   DialogFooter,
   DialogClose,
   DialogAction,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/dialog";`,
   usageCode: `<Dialog>
   <DialogTrigger>Open</DialogTrigger>
   <DialogContent>

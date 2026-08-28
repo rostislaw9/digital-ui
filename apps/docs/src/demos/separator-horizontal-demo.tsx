@@ -1,4 +1,4 @@
-import { Separator } from "@digital-ui/ui";
+import { Separator } from "@/components/ui/separator";
 
 export function SeparatorHorizontalDemo() {
   return (

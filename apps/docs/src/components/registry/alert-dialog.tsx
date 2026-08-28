@@ -27,7 +27,7 @@ export const alertDialogMeta: ComponentMeta = {
   AlertDialogFooter,
   AlertDialogCancel,
   AlertDialogAction,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/alert-dialog";`,
   usageCode: `<AlertDialog>
   <AlertDialogTrigger>Delete</AlertDialogTrigger>
   <AlertDialogContent>

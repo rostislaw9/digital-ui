@@ -13,7 +13,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/context-menu";
 
 export function ContextMenuDemo() {
   return (

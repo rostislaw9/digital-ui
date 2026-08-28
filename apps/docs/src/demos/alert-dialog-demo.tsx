@@ -7,8 +7,8 @@ import {
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
-  Button,
-} from "@digital-ui/ui";
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 
 export function AlertDialogDemo() {
   return (

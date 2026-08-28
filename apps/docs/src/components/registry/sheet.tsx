@@ -41,7 +41,7 @@ export const sheetMeta: ComponentMeta = {
   SheetDescription,
   SheetFooter,
   SheetClose,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/sheet";`,
   usageCode: `<Sheet>
   <SheetTrigger>Open</SheetTrigger>
   <SheetContent>

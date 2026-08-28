@@ -24,7 +24,7 @@ export const badgeMeta: ComponentMeta = {
       render: () => <BadgeIconDemo />,
     },
   ],
-  usageImport: `import { Badge } from "@digital-ui/ui";`,
+  usageImport: `import { Badge } from "@/components/ui/badge";`,
   usageCode: `<Badge variant="success">Active</Badge>`,
   props: [
     {

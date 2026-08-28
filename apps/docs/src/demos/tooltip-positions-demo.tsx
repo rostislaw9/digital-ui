@@ -1,5 +1,7 @@
-import { Button, Tooltip } from "@digital-ui/ui";
 import { Bell, Settings } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Tooltip } from "@/components/ui/tooltip";
 
 export function TooltipPositionsDemo() {
   return (

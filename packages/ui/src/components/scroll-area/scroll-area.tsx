@@ -1,6 +1,7 @@
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 import { forwardRef } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 
 export type ScrollAreaProps = React.ComponentProps<
   typeof ScrollAreaPrimitive.Root

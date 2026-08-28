@@ -1,7 +1,8 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { forwardRef } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 import { buttonVariants } from "../button/button.js";
 
 export type SheetProps = React.ComponentProps<typeof DialogPrimitive.Root>;

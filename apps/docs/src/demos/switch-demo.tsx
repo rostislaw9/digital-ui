@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Switch } from "@digital-ui/ui";
+
+import { Switch } from "@/components/ui/switch";
 
 export function SwitchDemo() {
   const [on, setOn] = useState(true);

@@ -1,6 +1,7 @@
-import { Glow } from "@digital-ui/motion";
-import { Button } from "@digital-ui/ui";
 import { Link } from "react-router-dom";
+
+import { Glow } from "@/components/motion";
+import { Button } from "@/components/ui/button";
 
 export function GlowLinkDemo() {
   return (

@@ -1,5 +1,6 @@
-import { Progress } from "@digital-ui/ui";
 import { useEffect, useState } from "react";
+
+import { Progress } from "@/components/ui/progress";
 
 export function ProgressDemo() {
   const [progress, setProgress] = useState(13);

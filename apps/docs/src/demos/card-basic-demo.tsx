@@ -1,12 +1,12 @@
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@digital-ui/ui";
+} from "@/components/ui/card";
 
 export function CardBasicDemo() {
   return (

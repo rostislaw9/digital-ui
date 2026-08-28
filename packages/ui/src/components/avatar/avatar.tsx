@@ -1,6 +1,7 @@
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { forwardRef, type HTMLAttributes } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 
 const avatarSizes = {
   sm: "size-8",

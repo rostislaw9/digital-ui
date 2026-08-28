@@ -21,7 +21,7 @@ export const selectMeta: ComponentMeta = {
   SelectTrigger,
   SelectContent,
   SelectItem,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/select";`,
   usageCode: `<Select defaultValue="a">
   <SelectTrigger>Select an option</SelectTrigger>
   <SelectContent>

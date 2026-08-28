@@ -1,9 +1,9 @@
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/popover";
 
 export function PopoverBasicDemo() {
   return (

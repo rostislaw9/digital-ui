@@ -1,5 +1,5 @@
-import { Button } from "@digital-ui/ui";
-import { Magnetic } from "@digital-ui/motion";
+import { Magnetic } from "@/components/motion";
+import { Button } from "@/components/ui/button";
 
 export function MagneticDemo() {
   return (

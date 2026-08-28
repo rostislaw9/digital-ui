@@ -32,7 +32,7 @@ export const cardMeta: ComponentMeta = {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/card";`,
   usageCode: `<Card>
   <CardHeader>
     <CardTitle>Title</CardTitle>

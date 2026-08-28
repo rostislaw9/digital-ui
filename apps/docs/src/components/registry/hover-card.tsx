@@ -19,7 +19,7 @@ export const hoverCardMeta: ComponentMeta = {
   HoverCard,
   HoverCardTrigger,
   HoverCardContent,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/hover-card";`,
   usageCode: `<HoverCard>
   <HoverCardTrigger>Hover me</HoverCardTrigger>
   <HoverCardContent>Preview content</HoverCardContent>

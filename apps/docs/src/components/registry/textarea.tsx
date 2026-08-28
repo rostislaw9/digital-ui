@@ -23,7 +23,7 @@ export const textareaMeta: ComponentMeta = {
       render: () => <TextareaInvalidDemo />,
     },
   ],
-  usageImport: `import { Textarea } from "@digital-ui/ui";`,
+  usageImport: `import { Textarea } from "@/components/ui/textarea";`,
   usageCode: `<Textarea placeholder="Enter message..." />`,
   props: [
     {

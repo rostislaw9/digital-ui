@@ -1,5 +1,6 @@
-import { Alert, AlertDescription, AlertTitle } from "@digital-ui/ui";
 import { CheckCircle2 } from "lucide-react";
+
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export function AlertDescriptionDemo() {
   return (

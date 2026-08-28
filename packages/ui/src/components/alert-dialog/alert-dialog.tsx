@@ -1,7 +1,8 @@
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import type { HTMLAttributes } from "react";
 import { forwardRef, type ReactNode } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 import { buttonVariants } from "../button/button.js";
 
 export interface AlertDialogProps {

@@ -21,7 +21,7 @@ export const accordionMeta: ComponentMeta = {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/accordion";`,
   usageCode: `<Accordion>
   <AccordionItem value="item-1">
     <AccordionTrigger>Section 1</AccordionTrigger>

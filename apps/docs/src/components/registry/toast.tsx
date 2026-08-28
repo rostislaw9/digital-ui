@@ -25,7 +25,7 @@ export const toastMeta: ComponentMeta = {
       render: () => <ToastPositionsDemo />,
     },
   ],
-  usageImport: `import { toast } from "@digital-ui/ui";`,
+  usageImport: `import { toast } from "@/components/ui/toast";`,
   usageCode: `toast("Settings saved", { variant: "success" });`,
   props: [
     {

@@ -1,5 +1,5 @@
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Sheet,
   SheetClose,
   SheetContent,
@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/sheet";
 
 const SHEET_SIDES = ["top", "right", "bottom", "left"] as const;
 

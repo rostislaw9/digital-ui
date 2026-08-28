@@ -1,6 +1,7 @@
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { forwardRef } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 
 export type RadioGroupProps = React.ComponentProps<
   typeof RadioGroupPrimitive.Root

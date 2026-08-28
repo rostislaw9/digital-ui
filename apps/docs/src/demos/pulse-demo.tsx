@@ -1,4 +1,4 @@
-import { Pulse } from "@digital-ui/motion";
+import { Pulse } from "@/components/motion";
 
 export function PulseDemo() {
   return (

@@ -1,6 +1,7 @@
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { forwardRef, type ReactNode } from "react";
-import { cn } from "../../lib/cn.js";
+
+import { cn } from "@/lib/utils";
 
 export interface DropdownMenuProps {
   children: ReactNode;

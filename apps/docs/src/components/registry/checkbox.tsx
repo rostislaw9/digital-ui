@@ -16,7 +16,7 @@ export const checkboxMeta: ComponentMeta = {
       render: () => <CheckboxBasicDemo />,
     },
   ],
-  usageImport: `import { Checkbox } from "@digital-ui/ui";`,
+  usageImport: `import { Checkbox } from "@/components/ui/checkbox";`,
   usageCode: `<Checkbox defaultChecked />`,
   props: [
     {

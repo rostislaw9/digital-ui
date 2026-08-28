@@ -7,7 +7,10 @@
     "declarationMap": true,
     "sourceMap": true,
     "noEmit": false,
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

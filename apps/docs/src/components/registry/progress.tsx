@@ -15,7 +15,7 @@ export const progressMeta: ComponentMeta = {
       render: () => <ProgressDemo />,
     },
   ],
-  usageImport: `import { Progress } from "@digital-ui/ui";`,
+  usageImport: `import { Progress } from "@/components/ui/progress";`,
   usageCode: `<Progress value={60} />`,
   props: [
     {

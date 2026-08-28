@@ -71,7 +71,7 @@ export const motionMeta: ComponentMeta = {
       render: () => <RevealDemo />,
     },
   ],
-  usageImport: `import { Magnetic, Glow, Pulse, Reveal } from "@digital-ui/ui";`,
+  usageImport: `import { Magnetic, Glow, Pulse, Reveal } from "@/components/motion";`,
   usageCode: `<Magnetic>
   <Glow>
     <Pulse>

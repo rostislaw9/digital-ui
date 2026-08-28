@@ -1,7 +1,7 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
-  Button,
-  Input,
-  Label,
   Sheet,
   SheetClose,
   SheetContent,
@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@digital-ui/ui";
+} from "@/components/ui/sheet";
 
 export function SheetBasicDemo() {
   return (

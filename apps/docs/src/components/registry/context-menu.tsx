@@ -21,7 +21,7 @@ export const contextMenuMeta: ComponentMeta = {
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuSeparator,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/context-menu";`,
   usageCode: `<ContextMenu>
   <ContextMenuTrigger>Right-click me</ContextMenuTrigger>
   <ContextMenuContent>

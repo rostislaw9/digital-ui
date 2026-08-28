@@ -22,7 +22,7 @@ export const tabsMeta: ComponentMeta = {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "@digital-ui/ui";`,
+} from "@/components/ui/tabs";`,
   usageCode: `<Tabs defaultValue="tab1">
   <TabsList>
     <TabsTrigger value="tab1">Tab 1</TabsTrigger>

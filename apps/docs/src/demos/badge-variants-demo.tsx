@@ -1,4 +1,4 @@
-import { Badge } from "@digital-ui/ui";
+import { Badge } from "@/components/ui/badge";
 
 export function BadgeVariantsDemo() {
   return (

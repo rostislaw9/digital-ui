@@ -1,10 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
     "noEmit": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "paths": {
+      "@/components/ui/*": ["../../packages/ui/src/components/*"],
+      "@/components/motion/*": ["../../packages/motion/src/primitives/*"],
+      "@/components/motion": ["../../packages/motion/src/index.ts"],
+      "@/lib/utils": ["../../packages/ui/src/lib/utils.ts"]
+    }
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

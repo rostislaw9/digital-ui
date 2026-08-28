@@ -15,7 +15,7 @@ export const switchMeta: ComponentMeta = {
       render: () => <SwitchDemo />,
     },
   ],
-  usageImport: `import { Switch } from "@digital-ui/ui";`,
+  usageImport: `import { Switch } from "@/components/ui/switch";`,
   usageCode: `<Switch checked />`,
   props: [
     {

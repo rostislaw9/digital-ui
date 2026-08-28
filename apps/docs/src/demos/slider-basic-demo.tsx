@@ -1,4 +1,4 @@
-import { Slider } from "@digital-ui/ui";
+import { Slider } from "@/components/ui/slider";
 
 export function SliderBasicDemo() {
   return (
