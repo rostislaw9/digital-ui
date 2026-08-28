@@ -1,5 +1,5 @@
 {
-  "name": "@digital-ui/cli",
+  "name": "digital-ui",
   "version": "0.1.0",
   "description": "Digital UI CLI — install source-owned components from the Digital UI registry.",
   "type": "module",
@@ -23,9 +23,7 @@
     "registry",
     "scaffold"
   ],
-  "bin": {
-    "digital-ui": "./dist/index.js"
-  },
+  "bin": "./dist/index.js",
   "files": [
     "dist"
   ],

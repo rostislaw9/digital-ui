@@ -626,7 +626,7 @@ yarn typecheck   # tsc --noEmit across packages
 - `@digital-ui/tokens`
 - `@digital-ui/motion`
 - `@digital-ui/ui`
-- `@digital-ui/cli`
+- `digital-ui`
 
 ### 12.2 Packages NOT published
 

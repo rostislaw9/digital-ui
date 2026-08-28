@@ -40,7 +40,7 @@ CLI workflow or directly from this repository.
 | `@digital-ui/ui`     | 31 production-quality React components                         |
 | `@digital-ui/motion` | 5 motion primitives (Glow, Pulse, Spotlight, Magnetic, Reveal) |
 | `@digital-ui/tokens` | Design tokens as CSS with Tailwind v4 mapping                  |
-| `@digital-ui/cli`    | CLI for source-owned component installation                    |
+| `digital-ui`    | CLI for source-owned component installation                    |
 
 ## Components
 
@@ -124,7 +124,7 @@ apps/docs/        Vite + React documentation app
 packages/tokens/  Design tokens as CSS (@digital-ui/tokens)
 packages/motion/  Motion primitives (@digital-ui/motion)
 packages/ui/      Component library (@digital-ui/ui)
-packages/cli/     Digital UI CLI (@digital-ui/cli)
+packages/cli/     Digital UI CLI (digital-ui)
 registry/         Source registry build scripts
 docs/             Project spec, architecture, design system docs
 ```
