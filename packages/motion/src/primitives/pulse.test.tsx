@@ -29,7 +29,7 @@ describe("Pulse", () => {
       </Pulse>,
     );
     const wrapper = container.querySelector("span");
-    expect(wrapper?.style.animation).toContain("digital-ui-pulse");
+    expect(wrapper?.style.animation).toContain("ionbit-ui-pulse");
     expect(wrapper?.style.animation).toContain("infinite");
   });
 

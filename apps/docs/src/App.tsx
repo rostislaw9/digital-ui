@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 
-import { cn, Toaster } from "@digital-ui/ui";
+import { cn, Toaster } from "@ionbit-ui/ui";
 
 import { HomePage } from "./pages/HomePage.js";
 
@@ -45,8 +45,8 @@ export function App() {
       <header className="sticky top-0 z-20 border-b border-border bg-surface/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-mono text-sm font-semibold tracking-tight text-foreground">
-              digital
+            <span className="font-mono text-md font-semibold tracking-tight text-foreground">
+              ionbit
               <span className="text-accent">_ui</span>
             </span>
           </Link>

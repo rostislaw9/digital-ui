@@ -16,9 +16,7 @@ export async function add(
 
   if (!config) {
     console.log(
-      chalk.red(
-        "No digital-ui.config.json found. Run `digital-ui init` first.",
-      ),
+      chalk.red("No ionbit-ui.config.json found. Run `ionbit-ui init` first."),
     );
     process.exit(1);
   }
@@ -32,7 +30,7 @@ export async function add(
     if (!allNames.has(name)) {
       console.log(
         chalk.red(
-          `Component "${name}" not found in registry. Run \`digital-ui list\` to see available components.`,
+          `Component "${name}" not found in registry. Run \`ionbit-ui list\` to see available components.`,
         ),
       );
       process.exit(1);

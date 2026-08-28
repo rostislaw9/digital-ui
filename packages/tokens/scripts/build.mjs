@@ -12,4 +12,4 @@ await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await cp(src, dist, { recursive: true });
 
-console.log("@digital-ui/tokens built -> dist/");
+console.log("@ionbit-ui/tokens built -> dist/");

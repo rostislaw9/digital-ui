@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Button } from "@digital-ui/ui";
+import { Button } from "@ionbit-ui/ui";
 
 export function NotFoundPage() {
   return (

@@ -184,7 +184,7 @@ export function shikiHighlightPlugin(): Plugin {
             entry.codeHtml = await highlight(usageCode, "tsx");
           }
           for (const pm of PACKAGE_MANAGERS) {
-            const cmd = `${pm.prefix} digital-ui@latest add ${name}`;
+            const cmd = `${pm.prefix} ionbit-ui@latest add ${name}`;
             entry.install[pm.id] = await highlight(cmd, "bash");
           }
           result[name] = entry;

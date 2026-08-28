@@ -2,7 +2,7 @@ import { Terminal } from "lucide-react";
 import { useState } from "react";
 import highlightedInline from "virtual:highlighted-inline";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@digital-ui/ui";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ionbit-ui/ui";
 
 import { CopyButton } from "./CopyButton.js";
 import { HighlightedCode } from "./HighlightedCode.js";
@@ -22,7 +22,7 @@ const PACKAGE_MANAGERS = [
 export function InstallBlock({ name }: InstallBlockProps) {
   const [activePm, setActivePm] = useState<string>("npm");
 
-  const activeCommand = `${PACKAGE_MANAGERS.find((pm) => pm.id === activePm)!.prefix} digital-ui@latest add ${name}`;
+  const activeCommand = `${PACKAGE_MANAGERS.find((pm) => pm.id === activePm)!.prefix} ionbit-ui@latest add ${name}`;
   const install = highlightedInline[name]!.install!;
 
   return (

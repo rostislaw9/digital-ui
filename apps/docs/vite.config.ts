@@ -78,11 +78,11 @@ export default defineConfig({
       "@/components/motion": resolve(motion, "index.ts"),
       "@/lib/utils": resolve(ui, "lib/utils.ts"),
       // Package aliases for internal docs app code (pages, components).
-      "@digital-ui/ui": resolve(ui, "index.ts"),
-      "@digital-ui/ui/button": resolve(ui, "components/button/index.ts"),
-      "@digital-ui/ui/card": resolve(ui, "components/card/index.ts"),
-      "@digital-ui/ui/utils": resolve(ui, "lib/utils.ts"),
-      "@digital-ui/motion": resolve(motion, "index.ts"),
+      "@ionbit-ui/ui": resolve(ui, "index.ts"),
+      "@ionbit-ui/ui/button": resolve(ui, "components/button/index.ts"),
+      "@ionbit-ui/ui/card": resolve(ui, "components/card/index.ts"),
+      "@ionbit-ui/ui/utils": resolve(ui, "lib/utils.ts"),
+      "@ionbit-ui/motion": resolve(motion, "index.ts"),
     },
   },
   server: {

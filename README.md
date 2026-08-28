@@ -1,4 +1,4 @@
-# Digital UI
+# IonBit UI
 
 A production-quality React UI component system with a distinctive digital
 visual language and an integrated motion/interaction system.
@@ -8,7 +8,7 @@ visual language and an integrated motion/interaction system.
 
 ## What this is
 
-Digital UI is **not**:
+IonBit UI is **not**:
 
 - a generic shadcn clone;
 - a collection of copied Magic UI components;
@@ -29,18 +29,18 @@ It **is**:
 
 This is the first MVP iteration. The source, registry, CLI, and
 documentation app are complete and validated locally, but **no
-`@digital-ui/*` package has been published to npm yet**. Publishing is
+`@ionbit-ui/*` package has been published to npm yet**. Publishing is
 a follow-up task. Until then, use the components via the source-owned
 CLI workflow or directly from this repository.
 
 ## Packages
 
-| Package              | Description                                                    |
-| -------------------- | -------------------------------------------------------------- |
-| `@digital-ui/ui`     | 31 production-quality React components                         |
-| `@digital-ui/motion` | 5 motion primitives (Glow, Pulse, Spotlight, Magnetic, Reveal) |
-| `@digital-ui/tokens` | Design tokens as CSS with Tailwind v4 mapping                  |
-| `digital-ui`    | CLI for source-owned component installation                    |
+| Package             | Description                                                    |
+| ------------------- | -------------------------------------------------------------- |
+| `@ionbit-ui/ui`     | 31 production-quality React components                         |
+| `@ionbit-ui/motion` | 5 motion primitives (Glow, Pulse, Spotlight, Magnetic, Reveal) |
+| `@ionbit-ui/tokens` | Design tokens as CSS with Tailwind v4 mapping                  |
+| `ionbit-ui`         | CLI for source-owned component installation                    |
 
 ## Components
 
@@ -63,10 +63,10 @@ Switch, Tabs, Textarea, Toast, Tooltip.
 Install components as source files into your project — you own the code:
 
 ```bash
-npx digital-ui init
-npx digital-ui add button
-npx digital-ui add accordion
-npx digital-ui list
+npx ionbit-ui init
+npx ionbit-ui add button
+npx ionbit-ui add accordion
+npx ionbit-ui list
 ```
 
 This copies the component source into `src/components/ui/`, resolves registry
@@ -75,7 +75,7 @@ dependencies, and tells you which npm packages to install.
 ## Motion primitives
 
 ```tsx
-import { Spotlight, Glow, Magnetic, Pulse, Reveal } from "@digital-ui/motion";
+import { Spotlight, Glow, Magnetic, Pulse, Reveal } from "@ionbit-ui/motion";
 
 // Spotlight — cursor-following radial light on hover
 <Spotlight>
@@ -84,7 +84,7 @@ import { Spotlight, Glow, Magnetic, Pulse, Reveal } from "@digital-ui/motion";
 
 // Glow — accent-colored box-shadow / text-shadow halo
 <Glow variant="text">
-  <h1>Digital UI</h1>
+  <h1>IonBit UI</h1>
 </Glow>
 
 // Magnetic — element subtly translates toward the cursor
@@ -97,7 +97,7 @@ All motion primitives respect `prefers-reduced-motion` automatically.
 
 ## Design tokens
 
-Digital UI uses a semantic token system mapped to Tailwind v4 utilities:
+IonBit UI uses a semantic token system mapped to Tailwind v4 utilities:
 
 ```text
 --background    --surface    --surface-elevated    --surface-hover
@@ -121,10 +121,10 @@ Override any token in your `:root` or `.dark` / `.light` selectors to retheme.
 
 ```text
 apps/docs/        Vite + React documentation app
-packages/tokens/  Design tokens as CSS (@digital-ui/tokens)
-packages/motion/  Motion primitives (@digital-ui/motion)
-packages/ui/      Component library (@digital-ui/ui)
-packages/cli/     Digital UI CLI (digital-ui)
+packages/tokens/  Design tokens as CSS (@ionbit-ui/tokens)
+packages/motion/  Motion primitives (@ionbit-ui/motion)
+packages/ui/      Component library (@ionbit-ui/ui)
+packages/cli/     IonBit UI CLI (ionbit-ui)
 registry/         Source registry build scripts
 docs/             Project spec, architecture, design system docs
 ```

@@ -1,14 +1,14 @@
 # tooling/
 
-Placeholder for the future Digital UI CLI and shared build tooling.
+Placeholder for the future IonBit UI CLI and shared build tooling.
 
 Planned CLI surface:
 
 ```bash
-yarn digital-ui init
-yarn digital-ui add button
-yarn digital-ui add card
-yarn digital-ui list
+yarn ionbit-ui init
+yarn ionbit-ui add button
+yarn ionbit-ui add card
+yarn ionbit-ui list
 ```
 
 The CLI will read the registry (in `../registry/`), resolve a component's npm

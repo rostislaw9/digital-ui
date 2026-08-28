@@ -101,12 +101,12 @@ export async function init(options: {
   }
 
   console.log("");
-  console.log(chalk.bold("Digital UI initialized!"));
+  console.log(chalk.bold("IonBit UI initialized!"));
   console.log("");
   console.log(chalk.dim("Next steps:"));
-  console.log(`  ${chalk.cyan("digital-ui add button")}    — add a component`);
+  console.log(`  ${chalk.cyan("ionbit-ui add button")}    — add a component`);
   console.log(
-    `  ${chalk.cyan("digital-ui list")}          — browse available components`,
+    `  ${chalk.cyan("ionbit-ui list")}          — browse available components`,
   );
   console.log("");
 }

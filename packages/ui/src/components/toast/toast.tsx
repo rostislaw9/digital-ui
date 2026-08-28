@@ -1,5 +1,5 @@
 /**
- * Toast — Sonner re-exported with Digital UI token mapping.
+ * Toast — Sonner re-exported with IonBit UI token mapping.
  *
  * This follows the shadcn/ui approach: we don't wrap Sonner, we just
  * map our design tokens to Sonner's CSS variables so the toaster uses
@@ -10,7 +10,7 @@
  *
  * Usage:
  * ```tsx
- * import { Toaster, toast } from "@digital-ui/ui";
+ * import { Toaster, toast } from "@ionbit-ui/ui";
  *
  * <App>
  *   <Toaster />
@@ -28,7 +28,7 @@ import { forwardRef } from "react";
 import { Toaster as SonnerToaster, toast as sonnerToast } from "sonner";
 
 /**
- * Token bridge — maps Digital UI semantic tokens to Sonner's CSS variables.
+ * Token bridge — maps IonBit UI semantic tokens to Sonner's CSS variables.
  * Applied as inline `style` on the Toaster so Sonner's internal styles
  * resolve to our colors.
  */

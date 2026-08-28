@@ -7,16 +7,16 @@ import { list } from "./commands/list.js";
 const program = new Command();
 
 program
-  .name("digital-ui")
+  .name("ionbit-ui")
   .description(
-    "Digital UI CLI — install source-owned components from the Digital UI registry.",
+    "IonBit UI CLI — install source-owned components from the IonBit UI registry.",
   )
   .version("0.0.1");
 
 program
   .command("init")
   .description(
-    "Initialize Digital UI in your project. Creates a digital-ui.config.json and installs design tokens.",
+    "Initialize IonBit UI in your project. Creates a ionbit-ui.config.json and installs design tokens.",
   )
   .option("-y, --yes", "Skip prompts and use defaults")
   .option(
@@ -28,7 +28,7 @@ program
 program
   .command("add <components...>")
   .description(
-    "Add components to your project. e.g. digital-ui add button card accordion",
+    "Add components to your project. e.g. ionbit-ui add button card accordion",
   )
   .option("-o, --overwrite", "Overwrite existing files")
   .action(add);

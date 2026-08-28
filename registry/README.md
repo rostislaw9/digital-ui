@@ -1,6 +1,6 @@
 # registry/
 
-The Digital UI source registry, compatible with the [shadcn registry schema](https://ui.shadcn.com/schema/registry.json).
+The IonBit UI source registry, compatible with the [shadcn registry schema](https://ui.shadcn.com/schema/registry.json).
 
 ## Structure
 
@@ -17,7 +17,7 @@ registry/
 ## Usage with shadcn CLI
 
 ```bash
-npx shadcn@latest add https://github.com/rostislaw9/digital-ui/registry.json
+npx shadcn@latest add https://github.com/rostislaw9/ionbit-ui/registry.json
 ```
 
 Or add the registry to your `components.json`:
@@ -25,7 +25,7 @@ Or add the registry to your `components.json`:
 ```json
 {
   "registries": {
-    "digital-ui": "https://github.com/rostislaw9/digital-ui/registry.json"
+    "ionbit-ui": "https://github.com/rostislaw9/ionbit-ui/registry.json"
   }
 }
 ```
@@ -33,9 +33,9 @@ Or add the registry to your `components.json`:
 Then install components:
 
 ```bash
-npx shadcn@latest add digital-ui/button
-npx shadcn@latest add digital-ui/card
-npx shadcn@latest add digital-ui/accordion
+npx shadcn@latest add ionbit-ui/button
+npx shadcn@latest add ionbit-ui/card
+npx shadcn@latest add ionbit-ui/accordion
 ```
 
 ## Items

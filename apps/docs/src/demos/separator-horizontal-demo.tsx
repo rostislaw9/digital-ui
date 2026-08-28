@@ -12,7 +12,7 @@ export function SeparatorHorizontalDemo() {
       <Separator />
       <div className="text-foreground-muted">
         Add individual components on demand with{" "}
-        <code className="text-foreground">npx digital-ui add button</code> — no
+        <code className="text-foreground">npx ionbit-ui add button</code> — no
         global dependency lock-in, full control over your source.
       </div>
     </div>

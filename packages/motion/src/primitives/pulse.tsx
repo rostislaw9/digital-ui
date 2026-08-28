@@ -58,7 +58,7 @@ export const Pulse = forwardRef<HTMLSpanElement, PulseProps>(function Pulse(
   ref,
 ) {
   const id = useId().replace(/:/g, "");
-  const keyframeName = `digital-ui-pulse-${id}`;
+  const keyframeName = `ionbit-ui-pulse-${id}`;
   const radiusRef = useInheritedRadius<HTMLSpanElement>(style);
 
   // Merge refs

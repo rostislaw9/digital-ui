@@ -1,7 +1,7 @@
 import { Code2 } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
-import { Button, ScrollArea } from "@digital-ui/ui";
+import { Button, ScrollArea } from "@ionbit-ui/ui";
 
 import { CopyButton } from "./CopyButton.js";
 import { HighlightedCode } from "./HighlightedCode.js";

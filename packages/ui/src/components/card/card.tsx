@@ -13,7 +13,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
  * Card — a surface container.
  *
  * Uses semantic tokens only. Pair with `<Spotlight>` from
- * `@digital-ui/motion` for a pointer-follow highlight, or `<Reveal>` for an
+ * `@ionbit-ui/motion` for a pointer-follow highlight, or `<Reveal>` for an
  * in-view entrance. The card itself stays presentational.
  */
 export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(

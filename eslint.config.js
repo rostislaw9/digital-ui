@@ -107,7 +107,7 @@ export default tseslint.config(
             },
           ],
           newlinesBetween: 1,
-          internalPattern: ["^@digital-ui/"],
+          internalPattern: ["^@ionbit-ui/"],
         },
       ],
     },

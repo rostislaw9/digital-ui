@@ -6,3 +6,4 @@ build
 coverage
 apps/docs/dist
 packages/*/dist
+registry/items

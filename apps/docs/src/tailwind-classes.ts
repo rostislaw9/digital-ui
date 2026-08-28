@@ -1,5 +1,5 @@
 /*
- * Tailwind class safelist for Digital UI components.
+ * Tailwind class safelist for IonBit UI components.
  *
  * Tailwind v4's @source directive scans package source files but does not
  * reliably generate variant classes (hover:, active:, disabled:, focus-visible:)

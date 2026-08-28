@@ -1,0 +1,67 @@
+# IonBit UI CLI
+
+A CLI for installing [IonBit UI](https://github.com/rostislaw9/ionbit-ui) components into your React project.
+
+## Quick start
+
+```bash
+npx ionbit-ui@latest init
+npx ionbit-ui@latest add button
+```
+
+## Commands
+
+### `init`
+
+Initialize IonBit UI in your project. Creates a config file, sets up directories, installs base utilities and design tokens, and adds CSS imports.
+
+```bash
+npx ionbit-ui@latest init
+```
+
+Options:
+
+- `--yes` — skip confirmation prompts
+- `--pointer` — add `cursor: pointer` to buttons (Tailwind v4 changed the default)
+
+### `add <component...>`
+
+Install one or more components from the registry. Automatically resolves transitive dependencies and installs npm packages.
+
+```bash
+npx ionbit-ui@latest add button
+npx ionbit-ui@latest add dialog accordion glow
+```
+
+Options:
+
+- `--overwrite` — overwrite existing files
+
+### `list`
+
+List all available components in the registry.
+
+```bash
+npx ionbit-ui@latest list
+```
+
+## Package manager support
+
+The CLI auto-detects your package manager from lockfiles and uses the correct install command:
+
+| Package manager | Lockfile                 | Install command |
+| --------------- | ------------------------ | --------------- |
+| pnpm            | `pnpm-lock.yaml`         | `pnpm add`      |
+| npm             | _(default)_              | `npm install`   |
+| yarn            | `yarn.lock`              | `yarn add`      |
+| bun             | `bun.lockb` / `bun.lock` | `bun add`       |
+
+## Requirements
+
+- Node.js >= 20
+- React 18+
+- Tailwind CSS v4
+
+## License
+
+MIT

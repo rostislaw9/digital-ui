@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { Glow, Magnetic, Reveal, Spotlight } from "@digital-ui/motion";
-import { Button, Input, Progress, Switch } from "@digital-ui/ui";
+import { Glow, Magnetic, Reveal, Spotlight } from "@ionbit-ui/motion";
+import { Button, Input, Progress, Switch } from "@ionbit-ui/ui";
 
 import { componentRegistry } from "../components/registry.js";
 
@@ -26,7 +26,7 @@ export function HomePage() {
         </Reveal>
         <Reveal direction="up" delay={120}>
           <p className="max-w-2xl text-lg text-foreground-muted leading-relaxed">
-            Digital UI is a React component system with a distinctive digital
+            IonBit UI is a React component system with a distinctive digital
             visual language and a coherent motion system. Not a shadcn clone.
             Not a collection of landing-page effects. Real primitives, polished
             interaction, restrained taste.

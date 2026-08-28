@@ -8,7 +8,7 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
 }
 
 /**
- * Textarea — a multi-line text input field with the Digital UI visual language.
+ * Textarea — a multi-line text input field with the IonBit UI visual language.
  *
  * Uses semantic tokens only. The focus state uses an accent-tinted ring
  * plus a subtle border shift. Invalid state switches the border to error.

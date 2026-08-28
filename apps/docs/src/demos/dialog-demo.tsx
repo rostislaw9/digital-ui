@@ -22,7 +22,7 @@ export function DialogDemo() {
       <DialogContent>
         <DialogTitle>Confirm action</DialogTitle>
         <DialogDescription>
-          This is a Digital UI dialog. It traps focus, closes on Escape and
+          This is a IonBit UI dialog. It traps focus, closes on Escape and
           backdrop click, and animates using shared motion tokens.
         </DialogDescription>
         <DialogFooter>

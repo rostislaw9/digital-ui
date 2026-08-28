@@ -45,6 +45,6 @@ export async function list(): Promise<void> {
 
   console.log("");
   console.log(chalk.dim(`Total: ${registry.items.length} items`));
-  console.log(chalk.dim(`Install with: digital-ui add <name>`));
+  console.log(chalk.dim(`Install with: ionbit-ui add <name>`));
   console.log("");
 }

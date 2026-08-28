@@ -1,9 +1,9 @@
 {
-  "name": "digital-ui-monorepo",
+  "name": "ionbit-ui-root",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
-  "description": "Digital UI — a production-quality React UI component system with a distinctive digital visual language and integrated motion/interaction primitives.",
+  "description": "IonBit UI — a production-quality React UI component system with a distinctive digital visual language and integrated motion/interaction primitives.",
   "license": "MIT",
   "workspaces": [
     "apps/*",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "yarn workspaces foreach -A -t run build",
-    "dev": "yarn workspace @digital-ui/docs run dev",
+    "dev": "yarn workspace @ionbit-ui/docs run dev",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

@@ -1,10 +1,10 @@
 /**
- * Digital UI — Motion tokens
+ * IonBit UI — Motion tokens
  *
  * The single source of truth for timing, easing, spring, and intensity.
  * Components and primitives reference these; they do not hardcode values.
  *
- * These mirror the CSS variables in @digital-ui/tokens so JS-driven
+ * These mirror the CSS variables in @ionbit-ui/tokens so JS-driven
  * animations (Motion) and CSS-driven animations stay in sync.
  */
 

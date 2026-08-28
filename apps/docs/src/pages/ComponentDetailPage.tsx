@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { Button, cn } from "@digital-ui/ui";
+import { Button, cn } from "@ionbit-ui/ui";
 
 import { AccessibilityList } from "../components/detail/AccessibilityList.js";
 import { ApiTable } from "../components/detail/ApiTable.js";

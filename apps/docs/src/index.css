@@ -2,14 +2,14 @@
 @import "tw-animate-css";
 
 /*
- * Digital UI tokens + base layer.
+ * IonBit UI tokens + base layer.
  * In a real consumer app this is the only required "config":
- *   @import "@digital-ui/tokens/css";
- *   @import "@digital-ui/tokens/base";
+ *   @import "@ionbit-ui/tokens/css";
+ *   @import "@ionbit-ui/tokens/base";
  * (after importing Tailwind itself)
  */
-@import "@digital-ui/tokens/tokens.css";
-@import "@digital-ui/tokens/base.css";
+@import "@ionbit-ui/tokens/tokens.css";
+@import "@ionbit-ui/tokens/base.css";
 
 /*
  * Component class strings live in the package source files. Tailwind v4

@@ -1,4 +1,4 @@
-# Digital UI
+# IonBit UI
 
 ## Working Description
 
@@ -56,7 +56,7 @@ than production-ready application primitives.
 
 Production-ready but frequently visually conservative.
 
-Digital UI should combine these strengths.
+IonBit UI should combine these strengths.
 
 ---
 
@@ -69,7 +69,7 @@ Digital UI should combine these strengths.
 
 ## Design Position
 
-Digital UI should feel:
+IonBit UI should feel:
 
 - precise;
 - responsive;
@@ -206,7 +206,7 @@ yet published to npm — publishing is a follow-up task.
 
 Conceptual experience:
 
-    npx digital-ui add button
+    npx ionbit-ui add button
 
 The CLI:
 

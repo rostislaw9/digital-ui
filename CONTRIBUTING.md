@@ -1,6 +1,6 @@
-# Contributing to Digital UI
+# Contributing to IonBit UI
 
-Thank you for your interest in contributing to Digital UI! This document
+Thank you for your interest in contributing to IonBit UI! This document
 describes the development workflow and conventions.
 
 ## Prerequisites
@@ -11,8 +11,8 @@ describes the development workflow and conventions.
 ## Getting started
 
 ```bash
-git clone https://github.com/rostislaw9/digital-ui.git
-cd digital-ui
+git clone https://github.com/rostislaw9/ionbit-ui.git
+cd ionbit-ui
 yarn install
 ```
 
@@ -20,10 +20,10 @@ yarn install
 
 ```text
 apps/docs/        Documentation & component playground (Vite + React)
-packages/tokens/  Design tokens as CSS (@digital-ui/tokens)
-packages/motion/  Motion primitives (@digital-ui/motion)
-packages/ui/      Component library (@digital-ui/ui)
-packages/cli/     Digital UI CLI (digital-ui)
+packages/tokens/  Design tokens as CSS (@ionbit-ui/tokens)
+packages/motion/  Motion primitives (@ionbit-ui/motion)
+packages/ui/      Component library (@ionbit-ui/ui)
+packages/cli/     IonBit UI CLI (ionbit-ui)
 registry/         Source registry build scripts
 docs/             Project spec, architecture, design system docs
 ```
@@ -109,8 +109,8 @@ yarn registry:build   # build the source registry
 
 1. Update `CHANGELOG.md` with the changes since the last release.
 2. Bump versions in all publishable packages
-   (`@digital-ui/ui`, `@digital-ui/motion`, `@digital-ui/tokens`,
-   `digital-ui`).
+   (`@ionbit-ui/ui`, `@ionbit-ui/motion`, `@ionbit-ui/tokens`,
+   `ionbit-ui`).
 3. Run all checks: `yarn typecheck && yarn lint && yarn test && yarn build`.
 4. Build the registry: `yarn registry:build`.
 5. Publish packages in dependency order: tokens → motion → ui → cli.

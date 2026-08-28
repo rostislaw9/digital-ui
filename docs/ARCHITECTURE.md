@@ -1,12 +1,12 @@
-# Digital UI — Architecture
+# IonBit UI — Architecture
 
-This document defines the technical architecture for Digital UI. It is
+This document defines the technical architecture for IonBit UI. It is
 the authoritative reference for repository structure, package layout,
 styling, motion, testing, build, the registry, and the CLI.
 
 The repository is in its first MVP iteration. The source, registry,
 CLI, and documentation app are complete and validated locally. No
-`@digital-ui/*` package has been published to npm yet — publishing is
+`@ionbit-ui/*` package has been published to npm yet — publishing is
 a follow-up task.
 
 Decisions are stated with reasoning. Where a choice was rejected, the
@@ -25,7 +25,7 @@ new information.
    state changes. Use Motion only for spring physics, pointer tracking,
    and gesture-driven effects that CSS cannot express.
 3. **Accessibility is non-negotiable.** Complex interactive components
-   layer on top of Radix Primitives. Digital UI owns the reduced-motion
+   layer on top of Radix Primitives. IonBit UI owns the reduced-motion
    and motion-a11y story on top.
 4. **Tokens as the contract.** Components reference semantic design
    tokens (`bg-surface`, `text-foreground`, `border-border`) via
@@ -46,14 +46,14 @@ component library, a documentation app, shared motion primitives,
 shared tokens, the source registry, and the CLI.
 
 ```text
-digital-ui/
+ionbit-ui/
 ├── apps/
 │   └── docs/                  # Vite + React documentation app
 ├── packages/
 │   ├── ui/                    # Component library (source-owned + npm published)
 │   ├── motion/                # Motion primitives (npm published)
 │   ├── tokens/                # Design tokens as CSS (npm published)
-│   └── cli/                   # Digital UI CLI (npm published)
+│   └── cli/                   # IonBit UI CLI (npm published)
 ├── registry/                  # Source registry build scripts
 ├── registry.json              # Generated source registry (shadcn-compatible)
 ├── docs/                      # Project documentation (spec, rules, design system)
@@ -68,8 +68,8 @@ digital-ui/
 
 ### Why a monorepo
 
-- The docs app must consume `@digital-ui/ui`, `@digital-ui/motion`,
-  and `@digital-ui/tokens` as if they were published packages, so that
+- The docs app must consume `@ionbit-ui/ui`, `@ionbit-ui/motion`,
+  and `@ionbit-ui/tokens` as if they were published packages, so that
   the documentation site is a faithful integration test of the public
   API.
 - Tokens, motion, and UI are independently versionable but co-evolve.
@@ -140,7 +140,7 @@ enableGlobalCache: true
 
 ## 4. Package details
 
-### 4.1 `@digital-ui/tokens`
+### 4.1 `@ionbit-ui/tokens`
 
 **Purpose:** The single source of truth for design tokens, shipped as
 CSS.
@@ -152,7 +152,7 @@ CSS.
 - `src/base.css` — minimal base layer (reset-adjacent defaults: focus
   ring base, reduced-motion media query hook, font smoothing).
 
-**Public API:** `import "@digital-ui/tokens/css"` resolves to the
+**Public API:** `import "@ionbit-ui/tokens/css"` resolves to the
 compiled CSS bundle. Components and the docs app import this once at
 the root.
 
@@ -173,7 +173,7 @@ them as CSS means non-Tailwind consumers can still use them, and
 Tailwind consumers get the `@theme` integration for free. No JS
 runtime, no bundle cost.
 
-### 4.2 `@digital-ui/motion`
+### 4.2 `@ionbit-ui/motion`
 
 **Purpose:** Reusable motion primitives (`Glow`, `Spotlight`,
 `Magnetic`, `Pulse`, `Reveal`) plus shared motion tokens (timing,
@@ -193,11 +193,11 @@ easing, intensity) and reduced-motion utilities.
 
 **Why a separate package:** Motion primitives are useful independently
 of the component library. A user should be able to install
-`@digital-ui/motion` and wrap their own elements with `<Magnetic>`
+`@ionbit-ui/motion` and wrap their own elements with `<Magnetic>`
 without adopting our Button. Bundling motion into `ui` would force
 Motion as a dependency of every component user.
 
-### 4.3 `@digital-ui/ui`
+### 4.3 `@ionbit-ui/ui`
 
 **Purpose:** The component library. Source-owned components that
 consumers copy into their repo, plus a published build for users who
@@ -214,7 +214,7 @@ prefer the npm package.
 
 **Dependencies:**
 
-- Runtime: `@digital-ui/tokens` (peer, for CSS), `@digital-ui/motion`
+- Runtime: `@ionbit-ui/tokens` (peer, for CSS), `@ionbit-ui/motion`
   (peer, only for components that use motion), `class-variance-authority`,
   `clsx`, `tailwind-merge`, `@radix-ui/react-*` (per component, e.g.
   `@radix-ui/react-slot` for Button, `@radix-ui/react-dialog` for
@@ -223,12 +223,12 @@ prefer the npm package.
 
 **Build:** Vite library mode → ESM + CJS + types. Each component is
 exported as a subpath so tree-shaking works even when consumed via npm:
-`import { Button } from "@digital-ui/ui/button"`.
+`import { Button } from "@ionbit-ui/ui/button"`.
 
 **Source ownership note:** When the registry/CLI exists, the CLI will
 copy a component's `.tsx` and `.variants.ts` into the consumer's
 `components/ui/` directory. The consumer's `cn` helper and the
-`@digital-ui/motion` / `@digital-ui/tokens` packages remain npm
+`@ionbit-ui/motion` / `@ionbit-ui/tokens` packages remain npm
 dependencies. This mirrors shadcn's model but with our motion and
 tokens packages as the shared runtime core.
 
@@ -261,7 +261,7 @@ owns the theme.
 
 ### 5.2 Token layering
 
-`@digital-ui/tokens` ships `tokens.css` structured as:
+`@ionbit-ui/tokens` ships `tokens.css` structured as:
 
 ```css
 /* 1. Raw variable values, themeable by the consumer */
@@ -331,12 +331,12 @@ This is the standard shadcn pattern. It lets consumers pass a
 ### 5.5 What the consumer needs to use a copied component
 
 1. Install Tailwind v4 in their project.
-2. `import "@digital-ui/tokens/css"` once (in their root CSS or entry).
-3. Add `@digital-ui/tokens` to their Tailwind `@import` source list, or
+2. `import "@ionbit-ui/tokens/css"` once (in their root CSS or entry).
+3. Add `@ionbit-ui/tokens` to their Tailwind `@import` source list, or
    `@import` the tokens CSS before their own Tailwind entry so the
    `@theme` block is picked up. (We will document the exact one-line
    setup.)
-4. Copy the component source via the CLI (`npx digital-ui add <name>`)
+4. Copy the component source via the CLI (`npx ionbit-ui add <name>`)
    or manually.
 5. Install the component's npm dependencies (Radix primitive, cva,
    clsx, tailwind-merge) — the CLI resolves and reports these
@@ -368,7 +368,7 @@ usable.
 ```
 
 - `theme` — Tailwind's generated theme (from `@theme`).
-- `base` — reset and element defaults (from `@digital-ui/tokens/base`).
+- `base` — reset and element defaults (from `@ionbit-ui/tokens/base`).
 - `components` — component class definitions (rare; we prefer utility
   composition via `cva` over component classes).
 - `utilities` — Tailwind utilities (always win over `components`).
@@ -384,7 +384,7 @@ classes.
 
 ### 6.3 Focus and reduced-motion base
 
-`@digital-ui/tokens/base.css` defines:
+`@ionbit-ui/tokens/base.css` defines:
 
 - `:focus-visible` baseline (we layer component-specific focus on top).
 - `@media (prefers-reduced-motion: reduce)` global rule that disables
@@ -422,7 +422,7 @@ documented by Aceternity.
 
 ### 7.2 Motion tokens
 
-`@digital-ui/motion` exports:
+`@ionbit-ui/motion` exports:
 
 ```ts
 export const motionTokens = {
@@ -493,7 +493,7 @@ Example (illustrative, not final):
 - Animate `transform` and `opacity` only. Never animate `width`,
   `height`, `top`, `margin`.
 - Motion's `LazyMotion` + `m` components are used in the docs app to
-  keep the bundle small. The published `@digital-ui/motion` package is
+  keep the bundle small. The published `@ionbit-ui/motion` package is
   tree-shakable so consumers only pay for primitives they import.
 
 ---
@@ -504,7 +504,7 @@ Example (illustrative, not final):
 
 `clsx` + `tailwind-merge`. The single class-merging utility used by
 every component. Lives in `packages/ui/src/lib/utils.ts` and is also
-re-exported from `@digital-ui/ui` for consumers.
+re-exported from `@ionbit-ui/ui` for consumers.
 
 ### 8.2 `cva`
 
@@ -623,10 +623,10 @@ yarn typecheck   # tsc --noEmit across packages
 
 ### 12.1 Packages to publish
 
-- `@digital-ui/tokens`
-- `@digital-ui/motion`
-- `@digital-ui/ui`
-- `digital-ui`
+- `@ionbit-ui/tokens`
+- `@ionbit-ui/motion`
+- `@ionbit-ui/ui`
+- `ionbit-ui`
 
 ### 12.2 Packages NOT published
 
@@ -637,7 +637,7 @@ yarn typecheck   # tsc --noEmit across packages
 - Each publishable package has `publishConfig` set to `dist/`.
 - Changesets will be adopted for versioning when the first release
   approaches. Not configured now to avoid premature tooling.
-- Scope `@digital-ui` must be reserved on npm. This is a follow-up
+- Scope `@ionbit-ui` must be reserved on npm. This is a follow-up
   task; the architecture does not depend on the exact scope name.
 - No package has been published yet. The current state is the first
   MVP iteration, validated locally.
@@ -645,8 +645,8 @@ yarn typecheck   # tsc --noEmit across packages
 ### 12.4 Peer dependencies
 
 `react` and `react-dom` are peer dependencies in `ui` and `motion`.
-`@digital-ui/tokens` and `@digital-ui/motion` are peer dependencies of
-`@digital-ui/ui` so consumers do not end up with multiple copies.
+`@ionbit-ui/tokens` and `@ionbit-ui/motion` are peer dependencies of
+`@ionbit-ui/ui` so consumers do not end up with multiple copies.
 
 ---
 
@@ -655,7 +655,7 @@ yarn typecheck   # tsc --noEmit across packages
 ### 13.1 Goal
 
 A `registry.json` describing each component, its source files, its npm
-dependencies, and its registry dependencies (other Digital UI
+dependencies, and its registry dependencies (other IonBit UI
 components/utilities it relies on). Compatible in spirit with the
 shadcn registry schema so consumers familiar with shadcn find the DX
 natural.
@@ -682,10 +682,10 @@ by `registry/build.mjs` (`yarn registry:build`).
 ### 14.1 Goal
 
 ```bash
-npx digital-ui init
-npx digital-ui add button
-npx digital-ui add card
-npx digital-ui list
+npx ionbit-ui init
+npx ionbit-ui add button
+npx ionbit-ui add card
+npx ionbit-ui list
 ```
 
 The CLI:
@@ -715,7 +715,7 @@ Tabs, Dropdown Menu, Checkbox, Switch, Slider) wrap Radix Primitives.
 We do not reimplement focus trapping, ARIA roles, or keyboard
 navigation.
 
-### 15.2 What Digital UI owns
+### 15.2 What IonBit UI owns
 
 - **Focus-visible treatment:** a consistent, token-driven focus ring
   across all components, layered on top of Radix's focus management.
@@ -809,7 +809,7 @@ pass:
 - `yarn dev` starts the docs app and Tailwind classes render
   correctly.
 - The docs app renders the visual prototype (Button, Card, one motion
-  interaction) using the real `@digital-ui/*` packages.
+  interaction) using the real `@ionbit-ui/*` packages.
 
 The exact commands and results are recorded in the final report.
 
@@ -824,7 +824,7 @@ The exact commands and results are recorded in the final report.
 2. **Yarn linker (node-modules vs PnP).** node-modules is chosen for
    compatibility. If the docs app grows large, we can revisit PnP for
    dev performance.
-3. **Scope name `@digital-ui`.** Must be available on npm. If taken,
+3. **Scope name `@ionbit-ui`.** Must be available on npm. If taken,
    the scope changes but the architecture does not.
 4. **Motion vs CSS for Reveal.** CSS `animation-timeline: view()` is
    promising but not universally supported. We may ship a CSS-first

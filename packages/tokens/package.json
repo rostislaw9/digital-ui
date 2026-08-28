@@ -1,18 +1,18 @@
 {
-  "name": "@digital-ui/tokens",
+  "name": "@ionbit-ui/tokens",
   "version": "0.1.0",
-  "description": "Design tokens for Digital UI, shipped as CSS.",
+  "description": "Design tokens for IonBit UI, shipped as CSS.",
   "license": "MIT",
   "type": "module",
   "author": "Rostislav Rudometov",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rostislaw9/digital-ui.git",
+    "url": "https://github.com/rostislaw9/ionbit-ui.git",
     "directory": "packages/tokens"
   },
-  "homepage": "https://github.com/rostislaw9/digital-ui#readme",
+  "homepage": "https://github.com/rostislaw9/ionbit-ui#readme",
   "bugs": {
-    "url": "https://github.com/rostislaw9/digital-ui/issues"
+    "url": "https://github.com/rostislaw9/ionbit-ui/issues"
   },
   "keywords": [
     "design-tokens",
@@ -37,7 +37,7 @@
   },
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "typecheck": "echo \"@digital-ui/tokens: no TypeScript sources, skipping\""
+    "typecheck": "echo \"@ionbit-ui/tokens: no TypeScript sources, skipping\""
   },
   "devDependencies": {
     "typescript": "^5.6.2"

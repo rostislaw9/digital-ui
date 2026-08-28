@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Badge, Button, cn, Input } from "@digital-ui/ui";
+import { Badge, Button, cn, Input } from "@ionbit-ui/ui";
 
 import {
   componentCategories,

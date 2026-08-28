@@ -23,7 +23,7 @@ const slideInBySide: Record<NonNullable<TooltipProps["side"]>, string> = {
 };
 
 /**
- * Tooltip — a Radix-based tooltip with Digital UI styling.
+ * Tooltip — a Radix-based tooltip with IonBit UI styling.
  *
  * Accessibility: Radix handles focus management, keyboard navigation
  * (Escape to dismiss), and ARIA attributes. The tooltip is announced to

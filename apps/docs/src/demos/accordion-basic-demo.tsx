@@ -12,11 +12,11 @@ export function AccordionBasicDemo() {
         <AccordionTrigger>Installation</AccordionTrigger>
         <AccordionContent>
           <p className="text-sm text-foreground-muted leading-relaxed">
-            Digital UI is designed for source ownership. Install individual
+            IonBit UI is designed for source ownership. Install individual
             components on demand using the CLI — no global dependency lock-in.
             Run{" "}
-            <code className="text-foreground">npx digital-ui add button</code>{" "}
-            to drop the component source directly into your project.
+            <code className="text-foreground">npx ionbit-ui add button</code> to
+            drop the component source directly into your project.
           </p>
         </AccordionContent>
       </AccordionItem>

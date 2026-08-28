@@ -26,7 +26,7 @@ export function CursorSection() {
       </p>
       <p className="text-sm text-foreground-muted">
         You can also enable this during project setup with{" "}
-        <InlineCode>npx digital-ui init --pointer</InlineCode>.
+        <InlineCode>npx ionbit-ui init --pointer</InlineCode>.
       </p>
       <HighlightedCode
         html={highlightedInline["__cursor__"]!.codeHtml!}

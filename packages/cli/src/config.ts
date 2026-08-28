@@ -1,8 +1,8 @@
 export const REGISTRY_URL =
-  "https://raw.githubusercontent.com/rostislaw9/digital-ui/main/registry.json";
+  "https://raw.githubusercontent.com/rostislaw9/ionbit-ui/main/registry.json";
 
 export const REGISTRY_ITEM_URL =
-  "https://raw.githubusercontent.com/rostislaw9/digital-ui/main/registry/items";
+  "https://raw.githubusercontent.com/rostislaw9/ionbit-ui/main/registry/items";
 
 export interface RegistryItem {
   name: string;
@@ -58,4 +58,4 @@ export const DEFAULT_CONFIG: Config = {
   },
 };
 
-export const CONFIG_FILE = "digital-ui.config.json";
+export const CONFIG_FILE = "ionbit-ui.config.json";

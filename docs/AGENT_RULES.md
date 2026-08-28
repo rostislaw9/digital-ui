@@ -1,4 +1,4 @@
-# Digital UI — Agent Rules
+# IonBit UI — Agent Rules
 
 ## 1. Project Overview
 
