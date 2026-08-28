@@ -335,3 +335,17 @@ export type {
   SheetTitleProps,
   SheetTriggerProps,
 } from "./components/sheet/index.js";
+
+export {
+  StatusBeacon,
+  statusBeaconVariants,
+  StatusIndicator,
+  statusIndicatorVariants,
+  StatusLabel,
+} from "./components/status-indicator/index.js";
+export type {
+  StatusBeaconProps,
+  StatusIndicatorProps,
+  StatusLabelProps,
+} from "./components/status-indicator/index.js";
+

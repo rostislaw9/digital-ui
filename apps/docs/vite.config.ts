@@ -70,6 +70,10 @@ export default defineConfig({
       "@/components/ui/textarea": resolve(ui, "components/textarea/index.ts"),
       "@/components/ui/toast": resolve(ui, "components/toast/index.ts"),
       "@/components/ui/tooltip": resolve(ui, "components/tooltip/index.ts"),
+      "@/components/ui/status-indicator": resolve(
+        ui,
+        "components/status-indicator/index.ts",
+      ),
       "@/components/ui": resolve(ui, "index.ts"),
       "@/components/motion/spotlight": resolve(
         motion,

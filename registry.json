@@ -876,6 +876,27 @@
           "target": "components/ui/command.tsx"
         }
       ]
+    },
+    {
+      "name": "status-indicator",
+      "type": "registry:ui",
+      "title": "Status Indicator",
+      "description": "Pulsing beacon and status badge component for online, busy, away, error, warning, info, and offline states.",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/status-indicator/status-indicator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/status-indicator.tsx"
+        }
+      ]
     }
   ]
 }

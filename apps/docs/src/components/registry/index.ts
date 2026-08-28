@@ -28,6 +28,7 @@ import { sheetMeta } from "./sheet.js";
 import { skeletonMeta } from "./skeleton.js";
 import { sliderMeta } from "./slider.js";
 import { spotlightMeta } from "./spotlight.js";
+import { statusIndicatorMeta } from "./status-indicator.js";
 import { switchMeta } from "./switch.js";
 import { tabsMeta } from "./tabs.js";
 import { textareaMeta } from "./textarea.js";
@@ -62,6 +63,7 @@ export const componentRegistry: ComponentMeta[] = [
   skeletonMeta,
   sliderMeta,
   spotlightMeta,
+  statusIndicatorMeta,
   switchMeta,
   tabsMeta,
   textareaMeta,

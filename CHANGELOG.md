@@ -13,6 +13,15 @@ documentation app are complete and validated locally, but no
 `@digital-ui/*` package has been released. Publishing is a follow-up
 task.
 
+### Added
+
+- Added `StatusIndicator` (`StatusBeacon`, `StatusLabel`) component for
+  online, busy, away, error, warning, info, and offline statuses with
+  glowing halo and radar ping animation (`@digital-ui/ui`).
+- Registered `status-indicator` item in `registry.json` for CLI installation
+  via `npx digital-ui add status-indicator`.
+- Added interactive status indicator documentation and demos to `apps/docs`.
+
 ### Changed
 
 - Fixed CLI `init` command: now actually creates directory structure

@@ -192,6 +192,11 @@
       "import": "./dist/sheet.js",
       "require": "./dist/sheet.cjs"
     },
+    "./status-indicator": {
+      "types": "./dist/status-indicator.d.ts",
+      "import": "./dist/status-indicator.js",
+      "require": "./dist/status-indicator.cjs"
+    },
     "./utils": {
       "types": "./dist/utils.d.ts",
       "import": "./dist/utils.js",

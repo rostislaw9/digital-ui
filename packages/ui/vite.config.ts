@@ -61,6 +61,10 @@ export default defineConfig({
           "src/components/scroll-area/index.ts",
         ),
         sheet: resolve(__dirname, "src/components/sheet/index.ts"),
+        "status-indicator": resolve(
+          __dirname,
+          "src/components/status-indicator/index.ts",
+        ),
         utils: resolve(__dirname, "src/lib/utils.ts"),
       },
       formats: ["es", "cjs"],
