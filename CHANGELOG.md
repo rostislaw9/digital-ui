@@ -70,6 +70,12 @@ task.
   toasts persist across navigation.
 - Fixed pagination demo page range logic: ellipsis thresholds and
   off-by-one that dropped the last page.
+- Updated Tokens page to include all missing tokens: `accent-foreground`,
+  `error-foreground`, `border-error`, `shadow-glow-error`,
+  `shadow-focus-error`, typography (fonts, text sizes, leading, tracking,
+  weights), spacing scale, effect intensities, and accordion animations.
+  Color groups arranged in a responsive multi-column grid to fill page
+  width.
 
 ## [0.1.0] — MVP (first iteration, unreleased)
 
