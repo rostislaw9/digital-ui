@@ -11,23 +11,13 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     return (
       <CheckboxPrimitive.Root
         ref={ref}
-        className={cn(
-          "peer inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
-          "border-2 border-foreground-subtle bg-surface transition-[background-color,border-color]",
-          "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-          "focus-visible:outline-none focus-visible:shadow-focus",
-          "disabled:cursor-not-allowed disabled:opacity-40",
-          "data-[state=checked]:bg-accent data-[state=checked]:border-accent",
-          "hover:border-accent",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("peer inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-foreground-subtle bg-surface transition-[background-color,border-color] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:shadow-focus disabled:cursor-not-allowed disabled:opacity-40 data-[state=checked]:bg-accent data-[state=checked]:border-accent hover:border-accent", className)}
         {...props}
       >
         <CheckboxPrimitive.Indicator
-          className={cn(
-            "flex items-center justify-center text-accent-foreground",
-            "data-[state=checked]:animate-in data-[state=checked]:fade-in",
-          )}
+          // prettier-ignore
+          className={cn("flex items-center justify-center text-accent-foreground data-[state=checked]:animate-in data-[state=checked]:fade-in")}
         >
           <Check className="h-3 w-3" strokeWidth={3} />
         </CheckboxPrimitive.Indicator>

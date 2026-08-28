@@ -9,7 +9,6 @@ export function ToastDemo() {
         onClick={() =>
           toast("Default", {
             description: "A simple notification.",
-            position: "top-center",
           })
         }
       >
@@ -20,7 +19,6 @@ export function ToastDemo() {
         onClick={() =>
           toast.info("Info", {
             description: "Something to know.",
-            position: "top-center",
           })
         }
       >
@@ -31,7 +29,6 @@ export function ToastDemo() {
         onClick={() =>
           toast.success("Success!", {
             description: "Operation completed.",
-            position: "top-center",
           })
         }
       >
@@ -42,7 +39,6 @@ export function ToastDemo() {
         onClick={() =>
           toast.warning("Warning", {
             description: "Check before proceeding.",
-            position: "top-center",
           })
         }
       >
@@ -53,7 +49,6 @@ export function ToastDemo() {
         onClick={() =>
           toast.error("Error", {
             description: "Something went wrong.",
-            position: "top-center",
           })
         }
       >

@@ -26,14 +26,8 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
     return (
       <SelectPrimitive.Trigger
         ref={ref}
-        className={cn(
-          "flex items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground",
-          "hover:border-border-strong",
-          "focus-visible:shadow-focus focus-visible:outline-none",
-          "disabled:cursor-not-allowed disabled:opacity-40",
-          "data-[placeholder]:text-foreground-muted",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("flex items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground hover:border-border-strong focus-visible:shadow-focus focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 data-[placeholder]:text-foreground-muted", className)}
         {...props}
       >
         {children}
@@ -70,14 +64,8 @@ export const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
           ref={ref}
           position={position}
           sideOffset={sideOffset}
-          className={cn(
-            "z-50 max-h-96 overflow-hidden rounded-md border border-border bg-surface-elevated p-1 text-foreground shadow-md",
-            "min-w-[max(var(--radix-select-trigger-width),8rem)]",
-            "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2",
-            "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2",
-            "duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-            className,
-          )}
+          // prettier-ignore
+          className={cn("z-50 max-h-96 overflow-hidden rounded-md border border-border bg-surface-elevated p-1 text-foreground shadow-md min-w-[max(var(--radix-select-trigger-width),8rem)] data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 duration-[var(--duration-fast)] ease-[var(--ease-standard)]", className)}
           {...props}
         >
           <SelectPrimitive.Viewport>{children}</SelectPrimitive.Viewport>
@@ -93,14 +81,8 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
     return (
       <SelectPrimitive.Item
         ref={ref}
-        className={cn(
-          "relative flex select-none items-center rounded-sm p-2 text-sm text-foreground-muted outline-none transition-colors",
-          "hover:bg-surface-hover hover:text-foreground",
-          "focus:bg-surface-hover focus:text-foreground",
-          "data-[state=checked]:text-accent",
-          "data-[disabled]:opacity-40",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("relative flex select-none items-center rounded-sm p-2 text-sm text-foreground-muted outline-none transition-colors hover:bg-surface-hover hover:text-foreground focus:bg-surface-hover focus:text-foreground data-[state=checked]:text-accent data-[disabled]:opacity-40", className)}
         {...props}
       >
         <span className="absolute left-2 flex size-4 items-center justify-center">
@@ -122,10 +104,8 @@ export const SelectLabel = forwardRef<HTMLDivElement, SelectLabelProps>(
     return (
       <SelectPrimitive.Label
         ref={ref}
-        className={cn(
-          "px-2 py-1.5 text-xs font-semibold text-foreground-subtle",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("px-2 py-1.5 text-xs font-semibold text-foreground-subtle", className)}
         {...props}
       />
     );

@@ -284,8 +284,24 @@ export type {
   HoverCardTriggerProps,
 } from "./components/hover-card/index.js";
 
-export { Pagination } from "./components/pagination/index.js";
-export type { PaginationProps } from "./components/pagination/index.js";
+export {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "./components/pagination/index.js";
+export type {
+  PaginationContentProps,
+  PaginationEllipsisProps,
+  PaginationItemProps,
+  PaginationLinkProps,
+  PaginationNextProps,
+  PaginationPreviousProps,
+  PaginationProps,
+} from "./components/pagination/index.js";
 
 export { RadioGroup, RadioGroupItem } from "./components/radio-group/index.js";
 export type {

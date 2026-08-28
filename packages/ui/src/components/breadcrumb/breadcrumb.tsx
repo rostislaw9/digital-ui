@@ -36,10 +36,8 @@ export const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>(
     return (
       <ol
         ref={ref}
-        className={cn(
-          "flex flex-wrap items-center gap-1.5 text-foreground-muted",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("flex flex-wrap items-center gap-1.5 text-foreground-muted", className)}
         {...props}
       />
     );
@@ -73,11 +71,8 @@ export const BreadcrumbLink = forwardRef<
   return (
     <Comp
       ref={ref}
-      className={cn(
-        "rounded transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-        "hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-        className,
-      )}
+      // prettier-ignore
+      className={cn("rounded transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", className)}
       {...props}
     />
   );

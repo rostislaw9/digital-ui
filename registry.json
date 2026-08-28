@@ -231,7 +231,7 @@
       "title": "Dialog",
       "description": "Radix-based dialog with overlay, animated content, and semantic token styling.",
       "dependencies": ["@radix-ui/react-dialog", "clsx", "tailwind-merge"],
-      "registryDependencies": ["cn"],
+      "registryDependencies": ["cn", "button"],
       "files": [
         {
           "path": "packages/ui/src/components/dialog/dialog.tsx",
@@ -514,7 +514,7 @@
         "clsx",
         "tailwind-merge"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": ["cn", "button"],
       "files": [
         {
           "path": "packages/ui/src/components/alert-dialog/alert-dialog.tsx",
@@ -583,7 +583,7 @@
         "tailwind-merge",
         "lucide-react"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": ["cn", "button"],
       "files": [
         {
           "path": "packages/ui/src/components/sheet/sheet.tsx",
@@ -598,7 +598,7 @@
       "title": "Pagination",
       "description": "Pagination control with ellipsis, sibling count, and prev/next buttons.",
       "dependencies": ["clsx", "tailwind-merge", "lucide-react"],
-      "registryDependencies": ["cn"],
+      "registryDependencies": ["cn", "button"],
       "files": [
         {
           "path": "packages/ui/src/components/pagination/pagination.tsx",
@@ -619,7 +619,7 @@
         "lucide-react",
         "cmdk"
       ],
-      "registryDependencies": ["cn"],
+      "registryDependencies": ["cn", "dialog"],
       "files": [
         {
           "path": "packages/ui/src/components/command/command.tsx",

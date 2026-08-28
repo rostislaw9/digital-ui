@@ -28,11 +28,10 @@ export function DialogDemo() {
         <DialogFooter>
           {/* DialogClose auto-closes the dialog. Add onClick for side effects. */}
           <DialogClose onClick={() => {}}>Cancel</DialogClose>
-          {/* DialogAction does NOT auto-close — control closing via onOpenChange. */}
+          {/* DialogAction auto-closes the dialog. Add onClick for side effects. */}
           <DialogAction
             onClick={() => {
-              // Perform your action here, then close the dialog
-              setOpen(false);
+              // Perform your action here
             }}
           >
             Confirm

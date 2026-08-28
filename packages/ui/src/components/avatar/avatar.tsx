@@ -31,11 +31,8 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
   return (
     <AvatarPrimitive.Root
       ref={ref}
-      className={cn(
-        "relative flex shrink-0 rounded-full",
-        avatarSizes[size],
-        className,
-      )}
+      // prettier-ignore
+      className={cn("relative flex shrink-0 rounded-full", avatarSizes[size], className)}
       {...props}
     />
   );
@@ -50,11 +47,8 @@ export const AvatarImage = forwardRef<HTMLImageElement, AvatarImageProps>(
     return (
       <AvatarPrimitive.Image
         ref={ref}
-        className={cn(
-          "absolute inset-0 size-full rounded-full object-cover",
-          "border border-border bg-surface",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("absolute inset-0 size-full rounded-full object-cover border border-border bg-surface", className)}
         {...props}
       />
     );
@@ -70,11 +64,8 @@ export const AvatarFallback = forwardRef<HTMLSpanElement, AvatarFallbackProps>(
     return (
       <AvatarPrimitive.Fallback
         ref={ref}
-        className={cn(
-          "absolute inset-0 flex items-center justify-center rounded-full",
-          "border border-border bg-surface-elevated text-sm font-medium text-foreground-muted",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("absolute inset-0 flex items-center justify-center rounded-full border border-border bg-surface-elevated text-sm font-medium text-foreground-muted", className)}
         {...props}
       />
     );
@@ -123,13 +114,8 @@ export const AvatarStatus = forwardRef<HTMLSpanElement, AvatarStatusProps>(
       <span
         ref={ref}
         role="img"
-        className={cn(
-          "absolute z-10 size-3.5 rounded-full border-2 border-background ring-2 ring-background/50",
-          "transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-          statusColors[variant],
-          statusPositions[position],
-          className,
-        )}
+        // prettier-ignore
+        className={cn("absolute z-10 size-3.5 rounded-full border-2 border-background ring-2 ring-background/50 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]", statusColors[variant], statusPositions[position], className)}
         {...props}
       />
     );

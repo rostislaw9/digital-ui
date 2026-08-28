@@ -1,4 +1,4 @@
-import { cn } from "@digital-ui/ui";
+import { cn, Toaster } from "@digital-ui/ui";
 import { lazy, Suspense, useEffect } from "react";
 import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { HomePage } from "./pages/HomePage.js";
@@ -92,6 +92,7 @@ export function App() {
           />
         </Routes>
       </main>
+      <Toaster position="top-center" />
     </div>
   );
 }

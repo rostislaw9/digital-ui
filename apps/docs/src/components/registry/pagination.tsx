@@ -6,12 +6,12 @@ export const paginationMeta: ComponentMeta = {
   name: "pagination",
   label: "Pagination",
   description:
-    "Pagination control with ellipsis, sibling count, and prev/next buttons.",
+    "Composable pagination with prev/next, page links, and ellipsis.",
   category: "Navigation",
   examples: [
     {
       title: "Basic",
-      description: "Pagination with 20 pages and ellipsis truncation.",
+      description: "Pagination with prev/next, page links, and ellipsis.",
       code: PaginationDemoSource,
       render: () => <PaginationDemo />,
     },
@@ -20,52 +20,61 @@ export const paginationMeta: ComponentMeta = {
   Pagination,
   PaginationContent,
   PaginationItem,
-  PaginationPrev,
+  PaginationPrevious,
   PaginationNext,
   PaginationLink,
+  PaginationEllipsis,
 } from "@/components/ui/pagination";`,
-  usageCode: `<Pagination currentPage={1} totalPages={10} onPageChange={(p) => console.log(p)}>
+  usageCode: `<Pagination>
   <PaginationContent>
-    <PaginationItem><PaginationPrev /></PaginationItem>
-    <PaginationItem><PaginationLink page={1} /></PaginationItem>
-    <PaginationItem><PaginationNext /></PaginationItem>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#" isActive>1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
   </PaginationContent>
 </Pagination>`,
   composition: [
     "Pagination",
     "└── PaginationContent",
     "    └── PaginationItem",
-    "        ├── PaginationPrev",
+    "        ├── PaginationPrevious",
     "        ├── PaginationNext",
-    "        └── PaginationLink",
+    "        ├── PaginationLink",
+    "        └── PaginationEllipsis",
   ],
   props: [
     {
-      name: "currentPage",
-      type: "number",
-      description: "Currently active page (1-based).",
+      name: "isActive",
+      type: "boolean",
+      description:
+        "Whether the link is the current page (sets aria-current and outline variant).",
     },
     {
-      name: "totalPages",
-      type: "number",
-      description: "Total number of pages.",
+      name: "size",
+      type: '"xs" | "sm" | "md" | "lg" | "xl" | "icon-xs" | "icon-sm" | "icon" | "icon-lg" | "icon-xl"',
+      default: '"icon"',
+      description: "Button size for the pagination link.",
     },
     {
-      name: "onPageChange",
-      type: "function",
-      description: "Called when a page is selected.",
-    },
-    {
-      name: "siblingCount",
-      type: "number",
-      default: "1",
-      description: "Number of siblings to show on each side of current page.",
+      name: "text",
+      type: "string",
+      default: '"Previous" / "Next"',
+      description: "Label text for PaginationPrevious / PaginationNext.",
     },
   ],
   accessibility: [
-    'aria-label="Pagination" on nav element',
-    'aria-current="page" on active page',
-    "aria-label on prev/next buttons",
+    'aria-label="pagination" on nav element',
+    'aria-current="page" on active link',
+    'aria-label="Go to previous page" / "Go to next page"',
+    "sr-only text on ellipsis",
   ],
   isNew: false,
 };

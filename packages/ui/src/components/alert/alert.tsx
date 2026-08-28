@@ -73,11 +73,8 @@ export const AlertTitle = forwardRef<HTMLDivElement, AlertTitleProps>(
     return (
       <div
         ref={ref}
-        className={cn(
-          "flex items-center gap-2 font-medium leading-none tracking-tight",
-          "[&_svg]:size-4 [&_svg]:shrink-0",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("flex items-center gap-2 font-medium leading-none tracking-tight [&_svg]:size-4 [&_svg]:shrink-0", className)}
         {...props}
       />
     );
@@ -97,7 +94,7 @@ export const AlertDescription = forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("text-sm leading-relaxed opacity-70", "pl-6", className)}
+      className={cn("text-sm leading-relaxed opacity-70 pl-6", className)}
       {...props}
     />
   );

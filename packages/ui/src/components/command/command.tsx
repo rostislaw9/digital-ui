@@ -2,13 +2,13 @@ import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 import { forwardRef, type ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogTitle,
-} from "../dialog/dialog.js";
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 export type CommandProps = React.ComponentProps<typeof CommandPrimitive>;
 
@@ -17,11 +17,8 @@ export const Command = forwardRef<HTMLDivElement, CommandProps>(
     return (
       <CommandPrimitive
         ref={ref}
-        className={cn(
-          "flex size-full flex-col overflow-hidden",
-          "bg-surface-elevated text-foreground",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("flex size-full flex-col overflow-hidden bg-surface-elevated text-foreground", className)}
         {...props}
       />
     );
@@ -44,11 +41,8 @@ export function CommandDialog({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className={cn(
-          "top-[20%] -translate-y-0 overflow-hidden p-0",
-          "max-w-xl",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("top-[20%] -translate-y-0 overflow-hidden p-0 max-w-xl", className)}
       >
         <DialogTitle className="sr-only">Command palette</DialogTitle>
         <DialogDescription className="sr-only">
@@ -71,13 +65,8 @@ export const CommandInput = forwardRef<HTMLInputElement, CommandInputProps>(
         <Search className="mr-2 h-4 w-4 shrink-0 text-foreground-subtle" />
         <CommandPrimitive.Input
           ref={ref}
-          className={cn(
-            "flex h-12 w-full bg-transparent text-sm text-foreground",
-            "placeholder:text-foreground-subtle",
-            "focus-visible:outline-none",
-            "disabled:cursor-not-allowed disabled:opacity-40",
-            className,
-          )}
+          // prettier-ignore
+          className={cn("flex h-12 w-full bg-transparent text-sm text-foreground placeholder:text-foreground-subtle focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40", className)}
           {...props}
         />
       </div>
@@ -94,10 +83,8 @@ export const CommandList = forwardRef<HTMLDivElement, CommandListProps>(
     return (
       <CommandPrimitive.List
         ref={ref}
-        className={cn(
-          "max-h-[300px] overflow-y-auto overflow-x-hidden p-1",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("max-h-[300px] overflow-y-auto overflow-x-hidden p-1", className)}
         {...props}
       />
     );
@@ -113,10 +100,8 @@ export const CommandEmpty = forwardRef<HTMLDivElement, CommandEmptyProps>(
     return (
       <CommandPrimitive.Empty
         ref={ref}
-        className={cn(
-          "py-6 text-center text-sm text-foreground-subtle",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("py-6 text-center text-sm text-foreground-subtle", className)}
         {...props}
       />
     );
@@ -132,11 +117,8 @@ export const CommandGroup = forwardRef<HTMLDivElement, CommandGroupProps>(
     return (
       <CommandPrimitive.Group
         ref={ref}
-        className={cn(
-          "overflow-hidden p-1",
-          "[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wider [&_[cmdk-group-heading]]:text-foreground-subtle",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wider [&_[cmdk-group-heading]]:text-foreground-subtle", className)}
         {...props}
       />
     );
@@ -152,14 +134,8 @@ export const CommandItem = forwardRef<HTMLDivElement, CommandItemProps>(
     return (
       <CommandPrimitive.Item
         ref={ref}
-        className={cn(
-          "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted",
-          "outline-none transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-          "data-[selected=true]:bg-surface-hover data-[selected=true]:text-foreground",
-          "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40",
-          "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] data-[selected=true]:bg-surface-hover data-[selected=true]:text-foreground data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", className)}
         {...props}
       />
     );
@@ -192,10 +168,8 @@ export const CommandShortcut = forwardRef<
   return (
     <span
       ref={ref}
-      className={cn(
-        "ml-auto text-xs tracking-widest text-foreground-subtle",
-        className,
-      )}
+      // prettier-ignore
+      className={cn("ml-auto text-xs tracking-widest text-foreground-subtle", className)}
       {...props}
     />
   );

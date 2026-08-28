@@ -153,21 +153,15 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
           if (typeof ref === "function") ref(node);
           else if (ref) ref.current = node;
         }}
-        className={cn(
-          "relative inline-flex items-center gap-1 rounded-md border border-border bg-surface p-1",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("relative inline-flex items-center gap-1 rounded-md border border-border bg-surface p-1", className)}
         {...props}
       >
         {children}
         <span
           aria-hidden="true"
-          className={cn(
-            "pointer-events-none absolute top-1 bottom-1 left-0",
-            "rounded bg-accent-muted",
-            "transition-[transform,width,opacity] duration-[var(--duration-normal)] ease-[var(--ease-standard)]",
-            "will-change-transform",
-          )}
+          // prettier-ignore
+          className={cn("pointer-events-none absolute top-1 bottom-1 left-0 rounded bg-accent-muted transition-[transform,width,opacity] duration-[var(--duration-normal)] ease-[var(--ease-standard)] will-change-transform")}
           style={{
             width: indicator ? `${indicator.w}px` : "0px",
             transform: indicator
@@ -191,16 +185,8 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         ref={ref}
         value={value}
         data-value={value}
-        className={cn(
-          "relative z-[1] inline-flex items-center justify-center whitespace-nowrap rounded px-3 py-1",
-          "text-sm font-medium select-none",
-          "transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          "disabled:pointer-events-none disabled:opacity-40",
-          "text-foreground-muted hover:text-foreground",
-          "data-[state=active]:text-accent",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("relative z-[1] inline-flex items-center justify-center whitespace-nowrap rounded px-3 py-1 text-sm font-medium select-none transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-40 text-foreground-muted hover:text-foreground data-[state=active]:text-accent", className)}
         {...props}
       />
     );
@@ -222,14 +208,8 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
     return (
       <TabsPrimitive.Content
         ref={ref}
-        className={cn(
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          "data-[state=active]:animate-in data-[state=active]:fade-in-50",
-          slideIn,
-          "data-[state=active]:duration-[var(--duration-normal)] data-[state=active]:ease-[var(--ease-standard)]",
-          "data-[state=inactive]:hidden",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background data-[state=active]:animate-in data-[state=active]:fade-in-50 data-[state=active]:duration-[var(--duration-normal)] data-[state=active]:ease-[var(--ease-standard)] data-[state=inactive]:hidden", slideIn, className)}
         {...props}
       >
         {children}

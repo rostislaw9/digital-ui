@@ -48,6 +48,28 @@ task.
   source, registry, demos, and docs. Fixed composition tree:
   `BreadcrumbSeparator` is a sibling of `BreadcrumbItem` under
   `BreadcrumbList`, not a child of `BreadcrumbItem`.
+- Refactored Pagination to the composable shadcn pattern. Now exports
+  `Pagination`, `PaginationContent`, `PaginationItem`, `PaginationLink`,
+  `PaginationPrevious`, `PaginationNext`, `PaginationEllipsis`.
+  `PaginationLink` uses `<Button asChild>` instead of duplicating button
+  styles. The old self-managed API (`currentPage`, `totalPages`,
+  `onPageChange`, `siblingCount`) was removed.
+- Updated Dialog, Sheet, and AlertDialog to use `<Button asChild>`
+  instead of `buttonVariants()`. Command now imports Dialog via
+  `@/components/ui/dialog`. All cross-component imports use
+  `@/components/ui/*` paths.
+- Collapsed all component `cn()` style strings to single-line strings
+  with `// prettier-ignore` where needed.
+- Updated `registry.json` with component-to-component
+  `registryDependencies` so `npx digital-ui add <component>` also
+  installs dependencies (e.g. pagination → button, command → dialog).
+- Added `@source` directives in docs CSS pointing to
+  `packages/ui/src/components` and `packages/motion/src` so Tailwind v4
+  scans actual component source files for class names.
+- Moved `<Toaster>` from `ComponentDetailPage` to the `App` root so
+  toasts persist across navigation.
+- Fixed pagination demo page range logic: ellipsis thresholds and
+  off-by-one that dropped the last page.
 
 ## [0.1.0] — MVP (first iteration, unreleased)
 

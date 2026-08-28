@@ -2,8 +2,8 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import type { HTMLAttributes } from "react";
 import { forwardRef, type ReactNode } from "react";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../button/button.js";
 
 export interface AlertDialogProps {
   children: ReactNode;
@@ -53,24 +53,13 @@ export const AlertDialogContent = forwardRef<
   return (
     <AlertDialogPrimitive.Portal>
       <AlertDialogPrimitive.Overlay
-        className={cn(
-          "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm",
-          "data-[state=open]:animate-in data-[state=open]:fade-in-0",
-          "data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
-          "duration-[var(--duration-normal)] ease-[var(--ease-standard)]",
-        )}
+        // prettier-ignore
+        className={cn("fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 duration-[var(--duration-normal)] ease-[var(--ease-standard)]")}
       />
       <AlertDialogPrimitive.Content
         ref={ref}
-        className={cn(
-          "fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2",
-          "w-full max-w-lg rounded-lg border border-border-strong bg-surface-elevated shadow-lg p-6",
-          "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
-          "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
-          "duration-[var(--duration-normal)] ease-[var(--ease-standard)]",
-          "focus-visible:outline-none",
-          className,
-        )}
+        // prettier-ignore
+        className={cn("fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg rounded-lg border border-border-strong bg-surface-elevated shadow-lg p-6 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 duration-[var(--duration-normal)] ease-[var(--ease-standard)] focus-visible:outline-none", className)}
         {...props}
       >
         {children}
@@ -105,10 +94,8 @@ export const AlertDialogDescription = forwardRef<
   return (
     <AlertDialogPrimitive.Description
       ref={ref}
-      className={cn(
-        "text-sm text-foreground-muted leading-relaxed mt-2",
-        className,
-      )}
+      // prettier-ignore
+      className={cn("text-sm text-foreground-muted leading-relaxed mt-2", className)}
       {...props}
     />
   );
@@ -137,11 +124,9 @@ export const AlertDialogAction = forwardRef<
   AlertDialogActionProps
 >(function AlertDialogAction({ className, ...props }, ref) {
   return (
-    <AlertDialogPrimitive.Action
-      ref={ref}
-      className={cn(buttonVariants({ variant: "destructive" }), className)}
-      {...props}
-    />
+    <Button asChild variant="destructive" className={cn(className)}>
+      <AlertDialogPrimitive.Action ref={ref} {...props} />
+    </Button>
   );
 });
 
@@ -153,10 +138,8 @@ export const AlertDialogCancel = forwardRef<
   AlertDialogCancelProps
 >(function AlertDialogCancel({ className, ...props }, ref) {
   return (
-    <AlertDialogPrimitive.Cancel
-      ref={ref}
-      className={cn(buttonVariants({ variant: "secondary" }), className)}
-      {...props}
-    />
+    <Button asChild variant="secondary" className={cn(className)}>
+      <AlertDialogPrimitive.Cancel ref={ref} {...props} />
+    </Button>
   );
 });

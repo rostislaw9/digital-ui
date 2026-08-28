@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react(), dts({ include: ["src"], insertTypesEntry: true })],
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
+      "@/components/ui": resolve(__dirname, "src/components"),
+      "@/lib": resolve(__dirname, "src/lib"),
     },
   },
   build: {

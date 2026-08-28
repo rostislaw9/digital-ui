@@ -12,10 +12,15 @@
 @import "@digital-ui/tokens/base.css";
 
 /*
- * Component class strings are declared in ./tailwind-classes.ts.
- * @source explicitly tells Tailwind to scan it so variant classes
- * (hover:, active:, disabled:, focus-visible:) are generated.
+ * Component class strings live in the package source files. Tailwind v4
+ * auto-scans the docs app directory, but the component .tsx files are in
+ * packages/ui/src and packages/motion/src — outside the docs app root.
+ * @source explicitly tells Tailwind to scan those directories so all
+ * variant classes (hover:, active:, disabled:, focus-visible:, data-[*])
+ * are generated.
  */
+@source "../../../packages/ui/src/components";
+@source "../../../packages/motion/src";
 @source "./tailwind-classes.ts";
 
 /*
