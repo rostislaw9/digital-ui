@@ -1,10 +1,11 @@
+import type { ComponentMeta } from "./types.js";
+
 import { AvatarFallbackDemo } from "../../demos/avatar-fallback-demo.js";
 import AvatarFallbackDemoSource from "../../demos/avatar-fallback-demo.tsx?raw";
 import { AvatarSizesDemo } from "../../demos/avatar-sizes-demo.js";
 import AvatarSizesDemoSource from "../../demos/avatar-sizes-demo.tsx?raw";
 import { AvatarStatusDemo } from "../../demos/avatar-status-demo.js";
 import AvatarStatusDemoSource from "../../demos/avatar-status-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const avatarMeta: ComponentMeta = {
   name: "avatar",

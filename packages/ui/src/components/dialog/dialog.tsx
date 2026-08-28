@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from "react";
+
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
-import type { HTMLAttributes } from "react";
 import { forwardRef, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";

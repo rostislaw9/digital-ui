@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { TabsBasicDemo } from "../../demos/tabs-basic-demo.js";
 import TabsBasicDemoSource from "../../demos/tabs-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const tabsMeta: ComponentMeta = {
   name: "tabs",

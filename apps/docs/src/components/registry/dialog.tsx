@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { DialogDemo } from "../../demos/dialog-demo.js";
 import DialogDemoSource from "../../demos/dialog-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const dialogMeta: ComponentMeta = {
   name: "dialog",

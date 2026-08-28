@@ -1,6 +1,7 @@
-import { cn } from "@digital-ui/ui";
-import type { ReactNode } from "react";
 import type { Section } from "../../hooks/useScrollSpy.js";
+import type { ReactNode } from "react";
+
+import { cn } from "@digital-ui/ui";
 
 export function OnThisPage({
   sections,

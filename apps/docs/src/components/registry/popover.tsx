@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { PopoverBasicDemo } from "../../demos/popover-basic-demo.js";
 import PopoverBasicDemoSource from "../../demos/popover-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const popoverMeta: ComponentMeta = {
   name: "popover",

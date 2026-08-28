@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { AlertDialogDemo } from "../../demos/alert-dialog-demo.js";
 import AlertDialogDemoSource from "../../demos/alert-dialog-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const alertDialogMeta: ComponentMeta = {
   name: "alert-dialog",

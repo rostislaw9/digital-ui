@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { InputBasicDemo } from "../../demos/input-basic-demo.js";
 import InputBasicDemoSource from "../../demos/input-basic-demo.tsx?raw";
 import { InputInvalidDemo } from "../../demos/input-invalid-demo.js";
 import InputInvalidDemoSource from "../../demos/input-invalid-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const inputMeta: ComponentMeta = {
   name: "input",

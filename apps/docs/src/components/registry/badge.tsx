@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { BadgeIconDemo } from "../../demos/badge-icon-demo.js";
 import BadgeIconDemoSource from "../../demos/badge-icon-demo.tsx?raw";
 import { BadgeVariantsDemo } from "../../demos/badge-variants-demo.js";
 import BadgeVariantsDemoSource from "../../demos/badge-variants-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const badgeMeta: ComponentMeta = {
   name: "badge",

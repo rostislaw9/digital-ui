@@ -1,7 +1,9 @@
+import type { Config } from "../config.js";
+
 import chalk from "chalk";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import type { Config } from "../config.js";
+
 import { CONFIG_FILE, DEFAULT_CONFIG } from "../config.js";
 import { saveConfig } from "../utils/fs.js";
 

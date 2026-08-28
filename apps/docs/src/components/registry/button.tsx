@@ -1,3 +1,5 @@
+import type { ComponentMeta } from "./types.js";
+
 import { ButtonIconVariantsDemo } from "../../demos/button-icon-variants-demo.js";
 import ButtonIconVariantsDemoSource from "../../demos/button-icon-variants-demo.tsx?raw";
 import { ButtonSizesDemo } from "../../demos/button-sizes-demo.js";
@@ -8,7 +10,6 @@ import { ButtonVariantsDemo } from "../../demos/button-variants-demo.js";
 import ButtonVariantsDemoSource from "../../demos/button-variants-demo.tsx?raw";
 import { ButtonWithIconDemo } from "../../demos/button-with-icon-demo.js";
 import ButtonWithIconDemoSource from "../../demos/button-with-icon-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const buttonMeta: ComponentMeta = {
   name: "button",

@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { SwitchDemo } from "../../demos/switch-demo.js";
 import SwitchDemoSource from "../../demos/switch-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const switchMeta: ComponentMeta = {
   name: "switch",

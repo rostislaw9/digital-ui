@@ -1,6 +1,8 @@
-import { Badge, Button, cn, Input } from "@digital-ui/ui";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+import { Badge, Button, cn, Input } from "@digital-ui/ui";
+
 import {
   componentCategories,
   componentRegistry,

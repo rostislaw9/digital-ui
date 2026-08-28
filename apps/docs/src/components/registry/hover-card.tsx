@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { HoverCardDemo } from "../../demos/hover-card-demo.js";
 import HoverCardDemoSource from "../../demos/hover-card-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const hoverCardMeta: ComponentMeta = {
   name: "hover-card",

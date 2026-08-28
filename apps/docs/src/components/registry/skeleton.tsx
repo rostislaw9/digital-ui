@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { SkeletonBasicDemo } from "../../demos/skeleton-basic-demo.js";
 import SkeletonBasicDemoSource from "../../demos/skeleton-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const skeletonMeta: ComponentMeta = {
   name: "skeleton",

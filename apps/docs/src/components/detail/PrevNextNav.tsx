@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import type { ComponentMeta } from "../registry.js";
+
+import { Link } from "react-router-dom";
 
 export function PrevNextNav({
   current,

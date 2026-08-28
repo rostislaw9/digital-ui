@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { TextareaBasicDemo } from "../../demos/textarea-basic-demo.js";
 import TextareaBasicDemoSource from "../../demos/textarea-basic-demo.tsx?raw";
 import { TextareaInvalidDemo } from "../../demos/textarea-invalid-demo.js";
 import TextareaInvalidDemoSource from "../../demos/textarea-invalid-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const textareaMeta: ComponentMeta = {
   name: "textarea",

@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { CheckboxBasicDemo } from "../../demos/checkbox-basic-demo.js";
 import CheckboxBasicDemoSource from "../../demos/checkbox-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const checkboxMeta: ComponentMeta = {
   name: "checkbox",

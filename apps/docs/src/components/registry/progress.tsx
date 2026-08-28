@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { ProgressDemo } from "../../demos/progress-demo.js";
 import ProgressDemoSource from "../../demos/progress-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const progressMeta: ComponentMeta = {
   name: "progress",

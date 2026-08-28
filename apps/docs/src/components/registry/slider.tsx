@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { SliderBasicDemo } from "../../demos/slider-basic-demo.js";
 import SliderBasicDemoSource from "../../demos/slider-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const sliderMeta: ComponentMeta = {
   name: "slider",

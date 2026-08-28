@@ -1,6 +1,8 @@
-import { cn, Toaster } from "@digital-ui/ui";
 import { lazy, Suspense, useEffect } from "react";
 import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
+
+import { cn, Toaster } from "@digital-ui/ui";
+
 import { HomePage } from "./pages/HomePage.js";
 
 const ComponentsPage = lazy(() =>

@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { ContextMenuDemo } from "../../demos/context-menu-demo.js";
 import ContextMenuDemoSource from "../../demos/context-menu-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const contextMenuMeta: ComponentMeta = {
   name: "context-menu",

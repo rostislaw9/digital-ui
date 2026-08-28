@@ -1,10 +1,11 @@
+import type { ComponentMeta } from "./types.js";
+
 import { AlertDescriptionDemo } from "../../demos/alert-description-demo.js";
 import AlertDescriptionDemoSource from "../../demos/alert-description-demo.tsx?raw";
 import { AlertInvertedDemo } from "../../demos/alert-inverted-demo.js";
 import AlertInvertedDemoSource from "../../demos/alert-inverted-demo.tsx?raw";
 import { AlertVariantsDemo } from "../../demos/alert-variants-demo.js";
 import AlertVariantsDemoSource from "../../demos/alert-variants-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const alertMeta: ComponentMeta = {
   name: "alert",

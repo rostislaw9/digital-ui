@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { DropdownMenuBasicDemo } from "../../demos/dropdown-menu-basic-demo.js";
 import DropdownMenuBasicDemoSource from "../../demos/dropdown-menu-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const dropdownMenuMeta: ComponentMeta = {
   name: "dropdown-menu",

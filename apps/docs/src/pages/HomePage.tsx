@@ -1,7 +1,9 @@
-import { Glow, Magnetic, Reveal, Spotlight } from "@digital-ui/motion";
-import { Button, Input, Progress, Switch } from "@digital-ui/ui";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+import { Glow, Magnetic, Reveal, Spotlight } from "@digital-ui/motion";
+import { Button, Input, Progress, Switch } from "@digital-ui/ui";
+
 import { componentRegistry } from "../components/registry.js";
 
 export function HomePage() {

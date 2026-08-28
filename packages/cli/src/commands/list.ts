@@ -1,4 +1,5 @@
 import chalk from "chalk";
+
 import { fetchRegistry } from "../utils/registry.js";
 
 export async function list(): Promise<void> {
