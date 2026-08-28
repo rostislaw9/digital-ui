@@ -1,29 +1,40 @@
+import highlightedInline from "virtual:highlighted-inline";
+
 import { CopyButton } from "../CopyButton.js";
-import { ShikiCodeBlock } from "../ShikiCodeBlock.js";
+import { HighlightedCode } from "../HighlightedCode.js";
 
 export function UsageSection({
+  componentName,
   usageImport,
   usageCode,
 }: {
+  componentName: string;
   usageImport: string;
   usageCode: string;
 }) {
+  const highlighted = highlightedInline[componentName]!;
   return (
     <section id="usage" className="flex flex-col gap-3 scroll-mt-24">
       <h2 className="text-sm font-semibold text-foreground">Usage</h2>
-      <CodeBlockWithCopy code={usageImport} />
-      <CodeBlockWithCopy code={usageCode} />
+      <CodeBlockWithCopy rawCode={usageImport} html={highlighted.importHtml!} />
+      <CodeBlockWithCopy rawCode={usageCode} html={highlighted.codeHtml!} />
     </section>
   );
 }
 
-function CodeBlockWithCopy({ code }: { code: string }) {
+function CodeBlockWithCopy({
+  rawCode,
+  html,
+}: {
+  rawCode: string;
+  html: string;
+}) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
       <div className="absolute right-3 top-3 z-10">
-        <CopyButton text={code} />
+        <CopyButton text={rawCode} />
       </div>
-      <ShikiCodeBlock code={code} lang="tsx" className="shiki-wrapper" />
+      <HighlightedCode html={html} className="shiki-wrapper" />
     </div>
   );
 }

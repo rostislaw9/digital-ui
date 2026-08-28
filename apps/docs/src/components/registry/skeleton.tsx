@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { SkeletonBasicDemo } from "../../demos/skeleton-basic-demo.js";
-import SkeletonBasicDemoSource from "../../demos/skeleton-basic-demo.tsx?raw";
+import SkeletonBasicDemoSource from "../../demos/skeleton-basic-demo.tsx?highlighted";
+import SkeletonBasicDemoRaw from "../../demos/skeleton-basic-demo.tsx?raw";
 
 export const skeletonMeta: ComponentMeta = {
   name: "skeleton",
@@ -14,6 +15,7 @@ export const skeletonMeta: ComponentMeta = {
       description:
         "A loading profile card with avatar, title, subtitle, and text lines.",
       code: SkeletonBasicDemoSource,
+      rawCode: SkeletonBasicDemoRaw,
       render: () => <SkeletonBasicDemo />,
     },
   ],

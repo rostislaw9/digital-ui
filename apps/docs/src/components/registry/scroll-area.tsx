@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { ScrollAreaDemo } from "../../demos/scroll-area-demo.js";
-import ScrollAreaDemoSource from "../../demos/scroll-area-demo.tsx?raw";
+import ScrollAreaDemoSource from "../../demos/scroll-area-demo.tsx?highlighted";
+import ScrollAreaDemoRaw from "../../demos/scroll-area-demo.tsx?raw";
 
 export const scrollAreaMeta: ComponentMeta = {
   name: "scroll-area",
@@ -13,6 +14,7 @@ export const scrollAreaMeta: ComponentMeta = {
       title: "Basic",
       description: "Custom scrollbar styling for a scrollable list.",
       code: ScrollAreaDemoSource,
+      rawCode: ScrollAreaDemoRaw,
       render: () => <ScrollAreaDemo />,
     },
   ],

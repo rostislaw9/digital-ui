@@ -34,7 +34,7 @@ export function HomePage() {
         </Reveal>
         <Reveal direction="up" delay={180}>
           <div className="flex flex-wrap justify-center gap-3">
-            <Magnetic intensity={0.7}>
+            <Magnetic intensity={0.15}>
               <Glow intensity={0.7}>
                 <Button variant="primary" size="lg" asChild>
                   <Link to="/components">Browse components</Link>

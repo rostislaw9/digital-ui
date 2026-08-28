@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { SpotlightBasicDemo } from "../../demos/spotlight-basic-demo.js";
-import SpotlightBasicDemoSource from "../../demos/spotlight-basic-demo.tsx?raw";
+import SpotlightBasicDemoSource from "../../demos/spotlight-basic-demo.tsx?highlighted";
+import SpotlightBasicDemoRaw from "../../demos/spotlight-basic-demo.tsx?raw";
 import { SpotlightProximityDemo } from "../../demos/spotlight-proximity-demo.js";
-import SpotlightProximityDemoSource from "../../demos/spotlight-proximity-demo.tsx?raw";
+import SpotlightProximityDemoSource from "../../demos/spotlight-proximity-demo.tsx?highlighted";
+import SpotlightProximityDemoRaw from "../../demos/spotlight-proximity-demo.tsx?raw";
 
 export const spotlightMeta: ComponentMeta = {
   name: "spotlight",
@@ -17,6 +19,7 @@ export const spotlightMeta: ComponentMeta = {
       description:
         "Wrap any surface to add a radial highlight that follows the cursor. The effect starts 20px before the pointer enters.",
       code: SpotlightBasicDemoSource,
+      rawCode: SpotlightBasicDemoRaw,
       render: () => <SpotlightBasicDemo />,
     },
     {
@@ -24,6 +27,7 @@ export const spotlightMeta: ComponentMeta = {
       description:
         "Control how far before the cursor reaches the element the effect activates.",
       code: SpotlightProximityDemoSource,
+      rawCode: SpotlightProximityDemoRaw,
       render: () => <SpotlightProximityDemo />,
     },
   ],

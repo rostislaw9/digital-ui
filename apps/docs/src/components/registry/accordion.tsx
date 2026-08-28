@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { AccordionBasicDemo } from "../../demos/accordion-basic-demo.js";
-import AccordionBasicDemoSource from "../../demos/accordion-basic-demo.tsx?raw";
+import AccordionBasicDemoSource from "../../demos/accordion-basic-demo.tsx?highlighted";
+import AccordionBasicDemoRaw from "../../demos/accordion-basic-demo.tsx?raw";
 
 export const accordionMeta: ComponentMeta = {
   name: "accordion",
@@ -14,6 +15,7 @@ export const accordionMeta: ComponentMeta = {
       title: "Basic",
       description: "Collapsible sections with chevron indicator.",
       code: AccordionBasicDemoSource,
+      rawCode: AccordionBasicDemoRaw,
       render: () => <AccordionBasicDemo />,
     },
   ],

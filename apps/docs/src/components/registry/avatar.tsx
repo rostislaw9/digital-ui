@@ -1,11 +1,14 @@
 import type { ComponentMeta } from "./types.js";
 
 import { AvatarFallbackDemo } from "../../demos/avatar-fallback-demo.js";
-import AvatarFallbackDemoSource from "../../demos/avatar-fallback-demo.tsx?raw";
+import AvatarFallbackDemoSource from "../../demos/avatar-fallback-demo.tsx?highlighted";
+import AvatarFallbackDemoRaw from "../../demos/avatar-fallback-demo.tsx?raw";
 import { AvatarSizesDemo } from "../../demos/avatar-sizes-demo.js";
-import AvatarSizesDemoSource from "../../demos/avatar-sizes-demo.tsx?raw";
+import AvatarSizesDemoSource from "../../demos/avatar-sizes-demo.tsx?highlighted";
+import AvatarSizesDemoRaw from "../../demos/avatar-sizes-demo.tsx?raw";
 import { AvatarStatusDemo } from "../../demos/avatar-status-demo.js";
-import AvatarStatusDemoSource from "../../demos/avatar-status-demo.tsx?raw";
+import AvatarStatusDemoSource from "../../demos/avatar-status-demo.tsx?highlighted";
+import AvatarStatusDemoRaw from "../../demos/avatar-status-demo.tsx?raw";
 
 export const avatarMeta: ComponentMeta = {
   name: "avatar",
@@ -17,12 +20,14 @@ export const avatarMeta: ComponentMeta = {
       title: "With Fallback",
       description: "Shows a fallback (initials) when the image fails to load.",
       code: AvatarFallbackDemoSource,
+      rawCode: AvatarFallbackDemoRaw,
       render: () => <AvatarFallbackDemo />,
     },
     {
       title: "Sizes",
       description: "Avatars in different sizes via className.",
       code: AvatarSizesDemoSource,
+      rawCode: AvatarSizesDemoRaw,
       render: () => <AvatarSizesDemo />,
     },
     {
@@ -30,6 +35,7 @@ export const avatarMeta: ComponentMeta = {
       description:
         "Presence indicators with online, offline, busy, and away variants.",
       code: AvatarStatusDemoSource,
+      rawCode: AvatarStatusDemoRaw,
       render: () => <AvatarStatusDemo />,
     },
   ],

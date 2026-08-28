@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { RadioGroupBasicDemo } from "../../demos/radio-group-basic-demo.js";
-import RadioGroupBasicDemoSource from "../../demos/radio-group-basic-demo.tsx?raw";
+import RadioGroupBasicDemoSource from "../../demos/radio-group-basic-demo.tsx?highlighted";
+import RadioGroupBasicDemoRaw from "../../demos/radio-group-basic-demo.tsx?raw";
 
 export const radioGroupMeta: ComponentMeta = {
   name: "radio-group",
@@ -13,6 +14,7 @@ export const radioGroupMeta: ComponentMeta = {
       title: "Basic",
       description: "Vertical radio group with labels.",
       code: RadioGroupBasicDemoSource,
+      rawCode: RadioGroupBasicDemoRaw,
       render: () => <RadioGroupBasicDemo />,
     },
   ],

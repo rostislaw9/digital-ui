@@ -1,10 +1,11 @@
 import { Terminal } from "lucide-react";
 import { useState } from "react";
+import highlightedInline from "virtual:highlighted-inline";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@digital-ui/ui";
 
 import { CopyButton } from "./CopyButton.js";
-import { ShikiCodeBlock } from "./ShikiCodeBlock.js";
+import { HighlightedCode } from "./HighlightedCode.js";
 
 interface InstallBlockProps {
   /** Component name, e.g. "button" — used to build the `add` command. */
@@ -22,6 +23,7 @@ export function InstallBlock({ name }: InstallBlockProps) {
   const [activePm, setActivePm] = useState<string>("npm");
 
   const activeCommand = `${PACKAGE_MANAGERS.find((pm) => pm.id === activePm)!.prefix} digital-ui@latest add ${name}`;
+  const install = highlightedInline[name]!.install!;
 
   return (
     <div className="overflow-hidden rounded-lg border border-border bg-background">
@@ -47,14 +49,10 @@ export function InstallBlock({ name }: InstallBlockProps) {
           <CopyButton text={activeCommand} />
         </div>
 
-        {/* Command display — syntax-highlighted via Shiki */}
+        {/* Command display — pre-highlighted at build time */}
         {PACKAGE_MANAGERS.map((pm) => (
           <TabsContent key={pm.id} value={pm.id} className="p-4">
-            <ShikiCodeBlock
-              code={`${pm.prefix} digital-ui@latest add ${name}`}
-              lang="bash"
-              className="shiki-compact"
-            />
+            <HighlightedCode html={install[pm.id]!} className="shiki-compact" />
           </TabsContent>
         ))}
       </Tabs>

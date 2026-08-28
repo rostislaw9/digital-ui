@@ -1,21 +1,29 @@
 import type { ComponentMeta } from "./types.js";
 
 import { GlowAlwaysDemo } from "../../demos/glow-always-demo.js";
-import GlowAlwaysDemoSource from "../../demos/glow-always-demo.tsx?raw";
+import GlowAlwaysDemoSource from "../../demos/glow-always-demo.tsx?highlighted";
+import GlowAlwaysDemoRaw from "../../demos/glow-always-demo.tsx?raw";
 import { GlowDemo } from "../../demos/glow-demo.js";
-import GlowDemoSource from "../../demos/glow-demo.tsx?raw";
+import GlowDemoSource from "../../demos/glow-demo.tsx?highlighted";
+import GlowDemoRaw from "../../demos/glow-demo.tsx?raw";
 import { GlowLinkDemo } from "../../demos/glow-link-demo.js";
-import GlowLinkDemoSource from "../../demos/glow-link-demo.tsx?raw";
+import GlowLinkDemoSource from "../../demos/glow-link-demo.tsx?highlighted";
+import GlowLinkDemoRaw from "../../demos/glow-link-demo.tsx?raw";
 import { GlowTextDemo } from "../../demos/glow-text-demo.js";
-import GlowTextDemoSource from "../../demos/glow-text-demo.tsx?raw";
+import GlowTextDemoSource from "../../demos/glow-text-demo.tsx?highlighted";
+import GlowTextDemoRaw from "../../demos/glow-text-demo.tsx?raw";
 import { MagneticDemo } from "../../demos/magnetic-demo.js";
-import MagneticDemoSource from "../../demos/magnetic-demo.tsx?raw";
+import MagneticDemoSource from "../../demos/magnetic-demo.tsx?highlighted";
+import MagneticDemoRaw from "../../demos/magnetic-demo.tsx?raw";
 import { PulseDemo } from "../../demos/pulse-demo.js";
-import PulseDemoSource from "../../demos/pulse-demo.tsx?raw";
+import PulseDemoSource from "../../demos/pulse-demo.tsx?highlighted";
+import PulseDemoRaw from "../../demos/pulse-demo.tsx?raw";
 import { PulseTextDemo } from "../../demos/pulse-text-demo.js";
-import PulseTextDemoSource from "../../demos/pulse-text-demo.tsx?raw";
+import PulseTextDemoSource from "../../demos/pulse-text-demo.tsx?highlighted";
+import PulseTextDemoRaw from "../../demos/pulse-text-demo.tsx?raw";
 import { RevealDemo } from "../../demos/reveal-demo.js";
-import RevealDemoSource from "../../demos/reveal-demo.tsx?raw";
+import RevealDemoSource from "../../demos/reveal-demo.tsx?highlighted";
+import RevealDemoRaw from "../../demos/reveal-demo.tsx?raw";
 
 export const motionMeta: ComponentMeta = {
   name: "motion",
@@ -27,48 +35,56 @@ export const motionMeta: ComponentMeta = {
       title: "Magnetic",
       description: "Spring-based cursor attraction.",
       code: MagneticDemoSource,
+      rawCode: MagneticDemoRaw,
       render: () => <MagneticDemo />,
     },
     {
       title: "Glow",
       description: "State-driven accent halo on hover/focus.",
       code: GlowDemoSource,
+      rawCode: GlowDemoRaw,
       render: () => <GlowDemo />,
     },
     {
       title: "Glow Always",
       description: "Constant glow without hover — use for active/live states.",
       code: GlowAlwaysDemoSource,
+      rawCode: GlowAlwaysDemoRaw,
       render: () => <GlowAlwaysDemo />,
     },
     {
       title: "Glow Link",
       description: "Link text with glow on hover.",
       code: GlowLinkDemoSource,
+      rawCode: GlowLinkDemoRaw,
       render: () => <GlowLinkDemo />,
     },
     {
       title: "Glow Text",
       description: "Text-shadow glow that follows letter shapes on hover.",
       code: GlowTextDemoSource,
+      rawCode: GlowTextDemoRaw,
       render: () => <GlowTextDemo />,
     },
     {
       title: "Pulse",
       description: "Periodic accent halo for active status.",
       code: PulseDemoSource,
+      rawCode: PulseDemoRaw,
       render: () => <PulseDemo />,
     },
     {
       title: "Pulse Text",
       description: "Text-shadow pulse that follows individual letter shapes.",
       code: PulseTextDemoSource,
+      rawCode: PulseTextDemoRaw,
       render: () => <PulseTextDemo />,
     },
     {
       title: "Reveal",
       description: "In-view entrance animation.",
       code: RevealDemoSource,
+      rawCode: RevealDemoRaw,
       render: () => <RevealDemo />,
     },
   ],

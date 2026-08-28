@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { CheckboxBasicDemo } from "../../demos/checkbox-basic-demo.js";
-import CheckboxBasicDemoSource from "../../demos/checkbox-basic-demo.tsx?raw";
+import CheckboxBasicDemoSource from "../../demos/checkbox-basic-demo.tsx?highlighted";
+import CheckboxBasicDemoRaw from "../../demos/checkbox-basic-demo.tsx?raw";
 
 export const checkboxMeta: ComponentMeta = {
   name: "checkbox",
@@ -14,6 +15,7 @@ export const checkboxMeta: ComponentMeta = {
       title: "Basic",
       description: "Default, checked, and disabled states.",
       code: CheckboxBasicDemoSource,
+      rawCode: CheckboxBasicDemoRaw,
       render: () => <CheckboxBasicDemo />,
     },
   ],

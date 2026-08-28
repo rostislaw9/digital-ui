@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { AlertDialogDemo } from "../../demos/alert-dialog-demo.js";
-import AlertDialogDemoSource from "../../demos/alert-dialog-demo.tsx?raw";
+import AlertDialogDemoSource from "../../demos/alert-dialog-demo.tsx?highlighted";
+import AlertDialogDemoRaw from "../../demos/alert-dialog-demo.tsx?raw";
 
 export const alertDialogMeta: ComponentMeta = {
   name: "alert-dialog",
@@ -15,6 +16,7 @@ export const alertDialogMeta: ComponentMeta = {
       description:
         "Destructive action confirmation with cancel and action buttons.",
       code: AlertDialogDemoSource,
+      rawCode: AlertDialogDemoRaw,
       render: () => <AlertDialogDemo />,
     },
   ],

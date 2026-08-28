@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { DialogDemo } from "../../demos/dialog-demo.js";
-import DialogDemoSource from "../../demos/dialog-demo.tsx?raw";
+import DialogDemoSource from "../../demos/dialog-demo.tsx?highlighted";
+import DialogDemoRaw from "../../demos/dialog-demo.tsx?raw";
 
 export const dialogMeta: ComponentMeta = {
   name: "dialog",
@@ -14,6 +15,7 @@ export const dialogMeta: ComponentMeta = {
       title: "Basic",
       description: "Open a dialog with title, description, and actions.",
       code: DialogDemoSource,
+      rawCode: DialogDemoRaw,
       render: () => <DialogDemo />,
     },
   ],

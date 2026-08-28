@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { BreadcrumbCustomSeparatorDemo } from "../../demos/breadcrumb-custom-separator-demo.js";
-import BreadcrumbCustomSeparatorDemoSource from "../../demos/breadcrumb-custom-separator-demo.tsx?raw";
+import BreadcrumbCustomSeparatorDemoSource from "../../demos/breadcrumb-custom-separator-demo.tsx?highlighted";
+import BreadcrumbCustomSeparatorDemoRaw from "../../demos/breadcrumb-custom-separator-demo.tsx?raw";
 import { BreadcrumbDefaultDemo } from "../../demos/breadcrumb-default-demo.js";
-import BreadcrumbDefaultDemoSource from "../../demos/breadcrumb-default-demo.tsx?raw";
+import BreadcrumbDefaultDemoSource from "../../demos/breadcrumb-default-demo.tsx?highlighted";
+import BreadcrumbDefaultDemoRaw from "../../demos/breadcrumb-default-demo.tsx?raw";
 
 export const breadcrumbMeta: ComponentMeta = {
   name: "breadcrumb",
@@ -15,12 +17,14 @@ export const breadcrumbMeta: ComponentMeta = {
       title: "Default",
       description: "Home > Components > Button (current page).",
       code: BreadcrumbDefaultDemoSource,
+      rawCode: BreadcrumbDefaultDemoRaw,
       render: () => <BreadcrumbDefaultDemo />,
     },
     {
       title: "With Custom Separator",
       description: "Breadcrumb with a custom separator character.",
       code: BreadcrumbCustomSeparatorDemoSource,
+      rawCode: BreadcrumbCustomSeparatorDemoRaw,
       render: () => <BreadcrumbCustomSeparatorDemo />,
     },
   ],

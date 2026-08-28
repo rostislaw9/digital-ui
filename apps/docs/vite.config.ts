@@ -3,11 +3,13 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
+import { shikiHighlightPlugin } from "./vite-plugin-shiki";
+
 const ui = resolve(__dirname, "../../packages/ui/src");
 const motion = resolve(__dirname, "../../packages/motion/src");
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), shikiHighlightPlugin()],
   resolve: {
     alias: {
       // @/ path aliases — match the source-owned import convention shown in docs.

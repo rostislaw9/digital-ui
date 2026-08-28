@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { PopoverBasicDemo } from "../../demos/popover-basic-demo.js";
-import PopoverBasicDemoSource from "../../demos/popover-basic-demo.tsx?raw";
+import PopoverBasicDemoSource from "../../demos/popover-basic-demo.tsx?highlighted";
+import PopoverBasicDemoRaw from "../../demos/popover-basic-demo.tsx?raw";
 
 export const popoverMeta: ComponentMeta = {
   name: "popover",
@@ -13,6 +14,7 @@ export const popoverMeta: ComponentMeta = {
       title: "Basic",
       description: "Click trigger to show anchored content.",
       code: PopoverBasicDemoSource,
+      rawCode: PopoverBasicDemoRaw,
       render: () => <PopoverBasicDemo />,
     },
   ],

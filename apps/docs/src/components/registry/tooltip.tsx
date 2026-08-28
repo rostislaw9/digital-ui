@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { TooltipPositionsDemo } from "../../demos/tooltip-positions-demo.js";
-import TooltipPositionsDemoSource from "../../demos/tooltip-positions-demo.tsx?raw";
+import TooltipPositionsDemoSource from "../../demos/tooltip-positions-demo.tsx?highlighted";
+import TooltipPositionsDemoRaw from "../../demos/tooltip-positions-demo.tsx?raw";
 
 export const tooltipMeta: ComponentMeta = {
   name: "tooltip",
@@ -14,6 +15,7 @@ export const tooltipMeta: ComponentMeta = {
       title: "Positions",
       description: "Top, bottom, left and right positions.",
       code: TooltipPositionsDemoSource,
+      rawCode: TooltipPositionsDemoRaw,
       render: () => <TooltipPositionsDemo />,
     },
   ],

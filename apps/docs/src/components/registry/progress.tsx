@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { ProgressDemo } from "../../demos/progress-demo.js";
-import ProgressDemoSource from "../../demos/progress-demo.tsx?raw";
+import ProgressDemoSource from "../../demos/progress-demo.tsx?highlighted";
+import ProgressDemoRaw from "../../demos/progress-demo.tsx?raw";
 
 export const progressMeta: ComponentMeta = {
   name: "progress",
@@ -13,6 +14,7 @@ export const progressMeta: ComponentMeta = {
       title: "Basic",
       description: "Adjustable progress value.",
       code: ProgressDemoSource,
+      rawCode: ProgressDemoRaw,
       render: () => <ProgressDemo />,
     },
   ],

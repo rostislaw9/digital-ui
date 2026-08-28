@@ -3,7 +3,10 @@ import type { ReactNode } from "react";
 export interface ComponentExample {
   title: string;
   description: string;
+  /** Pre-highlighted HTML from Shiki (build-time via ?highlighted import). */
   code: string;
+  /** Raw source code for the copy button. */
+  rawCode: string;
   render: () => ReactNode;
 }
 

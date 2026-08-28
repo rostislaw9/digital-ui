@@ -1,15 +1,20 @@
 import type { ComponentMeta } from "./types.js";
 
 import { ButtonIconVariantsDemo } from "../../demos/button-icon-variants-demo.js";
-import ButtonIconVariantsDemoSource from "../../demos/button-icon-variants-demo.tsx?raw";
+import ButtonIconVariantsDemoSource from "../../demos/button-icon-variants-demo.tsx?highlighted";
+import ButtonIconVariantsDemoRaw from "../../demos/button-icon-variants-demo.tsx?raw";
 import { ButtonSizesDemo } from "../../demos/button-sizes-demo.js";
-import ButtonSizesDemoSource from "../../demos/button-sizes-demo.tsx?raw";
+import ButtonSizesDemoSource from "../../demos/button-sizes-demo.tsx?highlighted";
+import ButtonSizesDemoRaw from "../../demos/button-sizes-demo.tsx?raw";
 import { ButtonStatesDemo } from "../../demos/button-states-demo.js";
-import ButtonStatesDemoSource from "../../demos/button-states-demo.tsx?raw";
+import ButtonStatesDemoSource from "../../demos/button-states-demo.tsx?highlighted";
+import ButtonStatesDemoRaw from "../../demos/button-states-demo.tsx?raw";
 import { ButtonVariantsDemo } from "../../demos/button-variants-demo.js";
-import ButtonVariantsDemoSource from "../../demos/button-variants-demo.tsx?raw";
+import ButtonVariantsDemoSource from "../../demos/button-variants-demo.tsx?highlighted";
+import ButtonVariantsDemoRaw from "../../demos/button-variants-demo.tsx?raw";
 import { ButtonWithIconDemo } from "../../demos/button-with-icon-demo.js";
-import ButtonWithIconDemoSource from "../../demos/button-with-icon-demo.tsx?raw";
+import ButtonWithIconDemoSource from "../../demos/button-with-icon-demo.tsx?highlighted";
+import ButtonWithIconDemoRaw from "../../demos/button-with-icon-demo.tsx?raw";
 
 export const buttonMeta: ComponentMeta = {
   name: "button",
@@ -23,6 +28,7 @@ export const buttonMeta: ComponentMeta = {
       description:
         "All eight variants including inverted styles. Icons with data-icon adjust padding automatically.",
       code: ButtonVariantsDemoSource,
+      rawCode: ButtonVariantsDemoRaw,
       render: () => <ButtonVariantsDemo />,
     },
     {
@@ -30,24 +36,28 @@ export const buttonMeta: ComponentMeta = {
       description:
         'Remember to add data-icon="inline-start" or data-icon="inline-end" to the icon for correct spacing.',
       code: ButtonWithIconDemoSource,
+      rawCode: ButtonWithIconDemoRaw,
       render: () => <ButtonWithIconDemo />,
     },
     {
       title: "Icon Variants",
       description: 'Icon-only buttons using size="icon". Requires aria-label.',
       code: ButtonIconVariantsDemoSource,
+      rawCode: ButtonIconVariantsDemoRaw,
       render: () => <ButtonIconVariantsDemo />,
     },
     {
       title: "Sizes",
       description: "Five sizes paired with their icon equivalents.",
       code: ButtonSizesDemoSource,
+      rawCode: ButtonSizesDemoRaw,
       render: () => <ButtonSizesDemo />,
     },
     {
       title: "States",
       description: "Disabled state with a custom loading spinner.",
       code: ButtonStatesDemoSource,
+      rawCode: ButtonStatesDemoRaw,
       render: () => <ButtonStatesDemo />,
     },
   ],

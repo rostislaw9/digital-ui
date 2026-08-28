@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { HoverCardDemo } from "../../demos/hover-card-demo.js";
-import HoverCardDemoSource from "../../demos/hover-card-demo.tsx?raw";
+import HoverCardDemoSource from "../../demos/hover-card-demo.tsx?highlighted";
+import HoverCardDemoRaw from "../../demos/hover-card-demo.tsx?raw";
 
 export const hoverCardMeta: ComponentMeta = {
   name: "hover-card",
@@ -13,6 +14,7 @@ export const hoverCardMeta: ComponentMeta = {
       title: "Basic",
       description: "Preview content on hover with a delay.",
       code: HoverCardDemoSource,
+      rawCode: HoverCardDemoRaw,
       render: () => <HoverCardDemo />,
     },
   ],

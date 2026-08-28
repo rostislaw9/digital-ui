@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { InputBasicDemo } from "../../demos/input-basic-demo.js";
-import InputBasicDemoSource from "../../demos/input-basic-demo.tsx?raw";
+import InputBasicDemoSource from "../../demos/input-basic-demo.tsx?highlighted";
+import InputBasicDemoRaw from "../../demos/input-basic-demo.tsx?raw";
 import { InputInvalidDemo } from "../../demos/input-invalid-demo.js";
-import InputInvalidDemoSource from "../../demos/input-invalid-demo.tsx?raw";
+import InputInvalidDemoSource from "../../demos/input-invalid-demo.tsx?highlighted";
+import InputInvalidDemoRaw from "../../demos/input-invalid-demo.tsx?raw";
 
 export const inputMeta: ComponentMeta = {
   name: "input",
@@ -16,12 +18,14 @@ export const inputMeta: ComponentMeta = {
       title: "Basic",
       description: "Default, with placeholder, and disabled.",
       code: InputBasicDemoSource,
+      rawCode: InputBasicDemoRaw,
       render: () => <InputBasicDemo />,
     },
     {
       title: "Invalid",
       description: "Error state with red border and error glow on focus.",
       code: InputInvalidDemoSource,
+      rawCode: InputInvalidDemoRaw,
       render: () => <InputInvalidDemo />,
     },
   ],

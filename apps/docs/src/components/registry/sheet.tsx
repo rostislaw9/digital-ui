@@ -1,11 +1,14 @@
 import type { ComponentMeta } from "./types.js";
 
 import { SheetBasicDemo } from "../../demos/sheet-basic-demo.js";
-import SheetBasicDemoSource from "../../demos/sheet-basic-demo.tsx?raw";
+import SheetBasicDemoSource from "../../demos/sheet-basic-demo.tsx?highlighted";
+import SheetBasicDemoRaw from "../../demos/sheet-basic-demo.tsx?raw";
 import { SheetNoCloseDemo } from "../../demos/sheet-no-close-demo.js";
-import SheetNoCloseDemoSource from "../../demos/sheet-no-close-demo.tsx?raw";
+import SheetNoCloseDemoSource from "../../demos/sheet-no-close-demo.tsx?highlighted";
+import SheetNoCloseDemoRaw from "../../demos/sheet-no-close-demo.tsx?raw";
 import { SheetSideDemo } from "../../demos/sheet-side-demo.js";
-import SheetSideDemoSource from "../../demos/sheet-side-demo.tsx?raw";
+import SheetSideDemoSource from "../../demos/sheet-side-demo.tsx?highlighted";
+import SheetSideDemoRaw from "../../demos/sheet-side-demo.tsx?raw";
 
 export const sheetMeta: ComponentMeta = {
   name: "sheet",
@@ -17,12 +20,14 @@ export const sheetMeta: ComponentMeta = {
       title: "Basic",
       description: "A right-side panel with form fields and footer actions.",
       code: SheetBasicDemoSource,
+      rawCode: SheetBasicDemoRaw,
       render: () => <SheetBasicDemo />,
     },
     {
       title: "Sides",
       description: "Panels sliding from all four edges.",
       code: SheetSideDemoSource,
+      rawCode: SheetSideDemoRaw,
       render: () => <SheetSideDemo />,
     },
     {
@@ -30,6 +35,7 @@ export const sheetMeta: ComponentMeta = {
       description:
         "Panel without a close button — dismiss via overlay or Escape.",
       code: SheetNoCloseDemoSource,
+      rawCode: SheetNoCloseDemoRaw,
       render: () => <SheetNoCloseDemo />,
     },
   ],
