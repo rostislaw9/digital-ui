@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import { Reveal } from "@ionbit-ui/motion";
 import { Button, cn } from "@ionbit-ui/ui";
 
 import { AccessibilityList } from "../components/detail/AccessibilityList.js";
@@ -61,9 +62,9 @@ export function ComponentDetailPage() {
         <p className="text-sm text-foreground-muted">
           No component named &quot;{name}&quot;.
         </p>
-        <Link to="/components" className="text-sm text-accent hover:underline">
-          ← Back to all components
-        </Link>
+        <Button asChild variant="link">
+          <Link to="/components">← Back to all components</Link>
+        </Button>
       </div>
     );
   }
@@ -77,135 +78,162 @@ export function ComponentDetailPage() {
         {/* Main content */}
         <div className="min-w-0 flex-1">
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-2">
-              <Link
-                to="/components"
-                className="text-sm text-foreground-muted hover:text-foreground transition-colors"
-              >
-                ← Components
-              </Link>
-              <div className="flex items-center gap-3">
-                <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-                  {comp.label}
-                </h1>
-                <span className="font-mono text-[10px] uppercase tracking-wider rounded bg-accent-muted text-accent px-2 py-0.5">
-                  {comp.category}
-                </span>
-                {comp.radixBased && (
-                  <span className="font-mono text-[10px] uppercase tracking-wider rounded border border-border text-foreground-subtle px-2 py-0.5">
-                    Radix
+            <Reveal direction="up">
+              <div className="flex flex-col gap-2">
+                <Link
+                  to="/components"
+                  className="text-sm text-foreground-muted hover:text-foreground transition-colors"
+                >
+                  ← Components
+                </Link>
+                <div className="flex items-center gap-3">
+                  <h1 className="text-3xl font-semibold tracking-tight text-foreground">
+                    {comp.label}
+                  </h1>
+                  <span className="font-mono text-[10px] uppercase tracking-wider rounded bg-accent-muted text-accent px-2 py-0.5">
+                    {comp.category}
                   </span>
-                )}
+                  {comp.radixBased && (
+                    <span className="font-mono text-[10px] uppercase tracking-wider rounded border border-border text-foreground-subtle px-2 py-0.5">
+                      Radix
+                    </span>
+                  )}
+                </div>
+                <p className="max-w-2xl text-foreground-muted">
+                  {comp.description}
+                </p>
               </div>
-              <p className="max-w-2xl text-foreground-muted">
-                {comp.description}
-              </p>
-            </div>
+            </Reveal>
 
             {comp.examples.length > 1 && (
-              <div className="flex flex-wrap gap-1">
-                {comp.examples.map((ex, i) => (
-                  <Button
-                    key={ex.title}
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setActiveExample(i)}
-                    className={cn(
-                      activeExample === i &&
-                        "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent",
-                    )}
-                  >
-                    {ex.title}
-                  </Button>
-                ))}
-              </div>
+              <Reveal direction="up">
+                <div className="flex flex-wrap gap-1">
+                  {comp.examples.map((ex, i) => (
+                    <Button
+                      key={ex.title}
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setActiveExample(i)}
+                      className={cn(
+                        activeExample === i &&
+                          "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent",
+                      )}
+                    >
+                      {ex.title}
+                    </Button>
+                  ))}
+                </div>
+              </Reveal>
             )}
 
-            <section id="preview" className="flex flex-col gap-3 scroll-mt-24">
-              <h2 className="text-sm font-semibold text-foreground">
-                {example.title}
-              </h2>
-              <p className="text-sm text-foreground-muted">
-                {example.description}
-              </p>
-              <PreviewCodeBlock
-                key={`${name}-${activeExample}`}
-                preview={example.render()}
-                code={example.code}
-                rawCode={example.rawCode}
-              />
-            </section>
-
-            <section
-              id="installation"
-              className="flex flex-col gap-3 scroll-mt-24"
-            >
-              <h2 className="text-sm font-semibold text-foreground">
-                Installation
-              </h2>
-              <InstallBlock name={comp.name} />
-              {comp.radixBased && (
-                <p className="text-xs text-foreground-subtle">
-                  Built on Radix UI — npm dependencies will be installed
-                  automatically.
-                </p>
-              )}
-            </section>
-
-            {comp.usageImport && comp.usageCode && (
-              <UsageSection
-                componentName={comp.name}
-                usageImport={comp.usageImport}
-                usageCode={comp.usageCode}
-              />
-            )}
-
-            {comp.cursor && <CursorSection />}
-
-            {comp.composition && (
-              <CompositionSection tree={comp.composition} label={comp.label} />
-            )}
-
-            {comp.props && comp.props.length > 0 && (
-              <section id="api" className="flex flex-col gap-3 scroll-mt-24">
-                <h2 className="text-sm font-semibold text-foreground">API</h2>
-                <ApiTable props={comp.props} />
-              </section>
-            )}
-
-            {comp.accessibility && comp.accessibility.length > 0 && (
+            <Reveal direction="up" delay={60}>
               <section
-                id="accessibility"
+                id="preview"
                 className="flex flex-col gap-3 scroll-mt-24"
               >
                 <h2 className="text-sm font-semibold text-foreground">
-                  Accessibility
+                  {example.title}
                 </h2>
-                <AccessibilityList notes={comp.accessibility} />
+                <p className="text-sm text-foreground-muted">
+                  {example.description}
+                </p>
+                <PreviewCodeBlock
+                  key={`${name}-${activeExample}`}
+                  preview={example.render()}
+                  code={example.code}
+                  rawCode={example.rawCode}
+                />
               </section>
+            </Reveal>
+
+            <Reveal direction="up" delay={120}>
+              <section
+                id="installation"
+                className="flex flex-col gap-3 scroll-mt-24"
+              >
+                <h2 className="text-sm font-semibold text-foreground">
+                  Installation
+                </h2>
+                <InstallBlock name={comp.name} />
+                {comp.radixBased && (
+                  <p className="text-xs text-foreground-subtle">
+                    Built on Radix UI — npm dependencies will be installed
+                    automatically.
+                  </p>
+                )}
+              </section>
+            </Reveal>
+
+            {comp.usageImport && comp.usageCode && (
+              <Reveal direction="up" delay={180}>
+                <UsageSection
+                  componentName={comp.name}
+                  usageImport={comp.usageImport}
+                  usageCode={comp.usageCode}
+                />
+              </Reveal>
+            )}
+
+            {comp.cursor && (
+              <Reveal direction="up">
+                <CursorSection />
+              </Reveal>
+            )}
+
+            {comp.composition && (
+              <Reveal direction="up">
+                <CompositionSection
+                  tree={comp.composition}
+                  label={comp.label}
+                />
+              </Reveal>
+            )}
+
+            {comp.props && comp.props.length > 0 && (
+              <Reveal direction="up">
+                <section id="api" className="flex flex-col gap-3 scroll-mt-24">
+                  <h2 className="text-sm font-semibold text-foreground">API</h2>
+                  <ApiTable props={comp.props} />
+                </section>
+              </Reveal>
+            )}
+
+            {comp.accessibility && comp.accessibility.length > 0 && (
+              <Reveal direction="up">
+                <section
+                  id="accessibility"
+                  className="flex flex-col gap-3 scroll-mt-24"
+                >
+                  <h2 className="text-sm font-semibold text-foreground">
+                    Accessibility
+                  </h2>
+                  <AccessibilityList notes={comp.accessibility} />
+                </section>
+              </Reveal>
             )}
 
             {comp.primitives &&
               comp.primitives.map((primitive) => {
                 const sectionId = `primitive-${toSectionId(primitive.name)}`;
                 return (
-                  <section
-                    key={primitive.name}
-                    id={sectionId}
-                    className="flex flex-col gap-3 scroll-mt-24"
-                  >
-                    <h2 className="text-sm font-semibold text-foreground">
-                      {primitive.name} API
-                    </h2>
-                    <p className="text-sm text-foreground-muted">
-                      {primitive.description}
-                    </p>
-                    <ApiTable props={primitive.props} />
-                    <h3 className="text-xs font-semibold text-foreground-muted">
-                      {primitive.name} Accessibility
-                    </h3>
-                    <AccessibilityList notes={primitive.accessibility} />
-                  </section>
+                  <Reveal key={primitive.name} direction="up">
+                    <section
+                      id={sectionId}
+                      className="flex flex-col gap-3 scroll-mt-24"
+                    >
+                      <h2 className="text-sm font-semibold text-foreground">
+                        {primitive.name} API
+                      </h2>
+                      <p className="text-sm text-foreground-muted">
+                        {primitive.description}
+                      </p>
+                      <ApiTable props={primitive.props} />
+                      <h3 className="text-xs font-semibold text-foreground-muted">
+                        {primitive.name} Accessibility
+                      </h3>
+                      <AccessibilityList notes={primitive.accessibility} />
+                    </section>
+                  </Reveal>
                 );
               })}
 

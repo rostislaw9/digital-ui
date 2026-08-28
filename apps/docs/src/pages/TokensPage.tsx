@@ -3,22 +3,24 @@ import { Reveal } from "@/components/motion";
 export function TokensPage() {
   return (
     <div className="flex flex-col gap-12">
-      <header className="flex flex-col gap-2">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-          Design tokens
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-          The visual contract
-        </h1>
-        <p className="max-w-2xl text-foreground-muted">
-          Components reference these semantic tokens via Tailwind utilities.
-          Retheme by overriding the variables in your CSS — no Tailwind config
-          edit required.
-        </p>
-      </header>
+      <Reveal direction="up">
+        <header className="flex flex-col gap-2">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+            Design tokens
+          </p>
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground">
+            The visual contract
+          </h1>
+          <p className="max-w-2xl text-foreground-muted">
+            Components reference these semantic tokens via Tailwind utilities.
+            Retheme by overriding the variables in your CSS — no Tailwind config
+            edit required.
+          </p>
+        </header>
+      </Reveal>
 
       <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
-        <Reveal direction="up" delay={0}>
+        <Reveal direction="up">
           <TokenGroup title="Surfaces">
             <Swatch name="background" var="--background" />
             <Swatch name="surface" var="--surface" />
@@ -59,7 +61,6 @@ export function TokensPage() {
           </TokenGroup>
         </Reveal>
       </div>
-
       <Reveal direction="up">
         <TokenGroup title="Typography">
           <div className="grid gap-2 font-mono text-xs text-foreground-muted sm:grid-cols-2">
@@ -85,7 +86,6 @@ export function TokensPage() {
           </div>
         </TokenGroup>
       </Reveal>
-
       <Reveal direction="up">
         <TokenGroup title="Spacing">
           <div className="grid gap-2 font-mono text-xs text-foreground-muted sm:grid-cols-2">
@@ -102,7 +102,6 @@ export function TokensPage() {
           </div>
         </TokenGroup>
       </Reveal>
-
       <Reveal direction="up">
         <TokenGroup title="Radius">
           <div className="flex flex-wrap items-end gap-4">
@@ -120,7 +119,6 @@ export function TokensPage() {
           </div>
         </TokenGroup>
       </Reveal>
-
       <Reveal direction="up">
         <TokenGroup title="Shadows">
           <div className="flex flex-wrap gap-6 rounded-lg border border-border bg-surface p-6">
@@ -174,7 +172,6 @@ export function TokensPage() {
           </div>
         </TokenGroup>
       </Reveal>
-
       <Reveal direction="up">
         <TokenGroup title="Motion">
           <div className="grid gap-2 font-mono text-xs text-foreground-muted sm:grid-cols-2">
@@ -187,7 +184,6 @@ export function TokensPage() {
           </div>
         </TokenGroup>
       </Reveal>
-
       <Reveal direction="up">
         <TokenGroup title="Effect intensities">
           <div className="grid gap-2 font-mono text-xs text-foreground-muted sm:grid-cols-2">
@@ -196,7 +192,6 @@ export function TokensPage() {
           </div>
         </TokenGroup>
       </Reveal>
-
       <Reveal direction="up">
         <TokenGroup title="Animations">
           <div className="grid gap-2 font-mono text-xs text-foreground-muted sm:grid-cols-2">
