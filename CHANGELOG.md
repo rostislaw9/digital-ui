@@ -119,7 +119,7 @@ task.
   spacing, radius, shadow, and motion tokens as CSS custom properties
   with Tailwind v4 `@theme` mapping. Dark theme default, light theme
   override.
-- **CLI** (`@digital-ui/cli`): `digital-ui init`, `digital-ui add <component>`,
+- **CLI** (`digital-ui`): `digital-ui init`, `digital-ui add <component>`,
   `digital-ui list` — source-owned component installation with transitive
   dependency resolution.
 - **Source registry** (`registry.json`): shadcn-compatible schema with

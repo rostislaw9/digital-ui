@@ -282,19 +282,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-ui/cli@workspace:packages/cli":
-  version: 0.0.0-use.local
-  resolution: "@digital-ui/cli@workspace:packages/cli"
-  dependencies:
-    chalk: "npm:^6.0.0"
-    commander: "npm:^15.0.0"
-    typescript: "npm:^5.6.0"
-    vite: "npm:^5.4.0"
-  bin:
-    digital-ui: ./dist/index.js
-  languageName: unknown
-  linkType: soft
-
 "@digital-ui/docs@workspace:apps/docs":
   version: 0.0.0-use.local
   resolution: "@digital-ui/docs@workspace:apps/docs"
@@ -3796,9 +3783,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"digital-ui@workspace:.":
+"digital-ui-monorepo@workspace:.":
   version: 0.0.0-use.local
-  resolution: "digital-ui@workspace:."
+  resolution: "digital-ui-monorepo@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.11.0"
     "@testing-library/dom": "npm:^10.4.0"
@@ -3823,6 +3810,19 @@ __metadata:
     typescript-eslint: "npm:^8.8.0"
     vite: "npm:^5.4.8"
     vitest: "npm:^2.1.1"
+  languageName: unknown
+  linkType: soft
+
+"digital-ui@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "digital-ui@workspace:packages/cli"
+  dependencies:
+    chalk: "npm:^6.0.0"
+    commander: "npm:^15.0.0"
+    typescript: "npm:^5.6.0"
+    vite: "npm:^5.4.0"
+  bin:
+    digital-ui: ./dist/index.js
   languageName: unknown
   linkType: soft
 
