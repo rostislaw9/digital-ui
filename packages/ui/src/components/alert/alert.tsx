@@ -14,6 +14,10 @@ export const alertVariants = cva(
         success: "border-success/30 bg-success/10 text-foreground [&_svg]:text-success",
         warning: "border-warning/30 bg-warning/10 text-foreground [&_svg]:text-warning",
         error: "border-error/30 bg-error/10 text-foreground [&_svg]:text-error",
+        "accent-inverted": "border-border bg-surface text-accent [&_svg]:text-accent",
+        "success-inverted": "border-border bg-surface text-success [&_svg]:text-success",
+        "warning-inverted": "border-border bg-surface text-warning [&_svg]:text-warning",
+        "error-inverted": "border-border bg-surface text-error [&_svg]:text-error",
       },
     },
     defaultVariants: {
@@ -41,7 +45,13 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   ref,
 ) {
   const implicitRole =
-    role ?? (variant === "error" || variant === "warning" ? "alert" : "status");
+    role ??
+    (variant === "error" ||
+    variant === "warning" ||
+    variant === "error-inverted" ||
+    variant === "warning-inverted"
+      ? "alert"
+      : "status");
   return (
     <div
       ref={ref}
@@ -64,7 +74,7 @@ export const AlertTitle = forwardRef<HTMLDivElement, AlertTitleProps>(
       <div
         ref={ref}
         className={cn(
-          "flex items-center gap-2 font-medium leading-none tracking-tight text-foreground",
+          "flex items-center gap-2 font-medium leading-none tracking-tight",
           "[&_svg]:size-4 [&_svg]:shrink-0",
           className,
         )}
@@ -87,11 +97,7 @@ export const AlertDescription = forwardRef<
   return (
     <div
       ref={ref}
-      className={cn(
-        "text-sm text-foreground-muted leading-relaxed",
-        "pl-6",
-        className,
-      )}
+      className={cn("text-sm leading-relaxed opacity-70", "pl-6", className)}
       {...props}
     />
   );

@@ -1,5 +1,7 @@
 import { AlertDescriptionDemo } from "../../demos/alert-description-demo.js";
 import AlertDescriptionDemoSource from "../../demos/alert-description-demo.tsx?raw";
+import { AlertInvertedDemo } from "../../demos/alert-inverted-demo.js";
+import AlertInvertedDemoSource from "../../demos/alert-inverted-demo.tsx?raw";
 import { AlertVariantsDemo } from "../../demos/alert-variants-demo.js";
 import AlertVariantsDemoSource from "../../demos/alert-variants-demo.tsx?raw";
 import type { ComponentMeta } from "./types.js";
@@ -16,6 +18,13 @@ export const alertMeta: ComponentMeta = {
         "Default, accent, success, warning, and error alerts with icons and titles.",
       code: AlertVariantsDemoSource,
       render: () => <AlertVariantsDemo />,
+    },
+    {
+      title: "Inverted",
+      description:
+        "Solid background with contrasting text — accent, success, warning, and error.",
+      code: AlertInvertedDemoSource,
+      render: () => <AlertInvertedDemo />,
     },
     {
       title: "With Description",
@@ -37,7 +46,7 @@ export const alertMeta: ComponentMeta = {
   props: [
     {
       name: "variant",
-      type: '"default" | "accent" | "success" | "warning" | "error"',
+      type: '"default" | "accent" | "success" | "warning" | "error" | "accent-inverted" | "success-inverted" | "warning-inverted" | "error-inverted"',
       default: '"default"',
       description: "Visual variant of the alert.",
     },

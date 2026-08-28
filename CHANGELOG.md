@@ -39,6 +39,11 @@ task.
   new `cursor` field on `ComponentMeta` (enabled for Button).
 - Fixed `radixBased` metadata for Button and Breadcrumbs (both use
   `@radix-ui/react-slot`).
+- Added inverted Alert variants (`accent-inverted`, `success-inverted`,
+  `warning-inverted`, `error-inverted`) with `bg-surface` and colored
+  text/icons. Removed hardcoded `text-foreground` from `AlertTitle` and
+  `text-foreground-muted` from `AlertDescription` so they inherit the
+  alert's variant color.
 
 ## [0.1.0] — MVP (first iteration, unreleased)
 
