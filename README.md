@@ -44,7 +44,7 @@ CLI workflow or directly from this repository.
 
 ## Components
 
-**UI (31):** Accordion, Alert, AlertDialog, Avatar, Badge, Breadcrumbs,
+**UI (31):** Accordion, Alert, AlertDialog, Avatar, Badge, Breadcrumb,
 Button, Card, Checkbox, Command, ContextMenu, Dialog, DropdownMenu,
 HoverCard, Input, Label, Pagination, Popover, Progress,
 RadioGroup, ScrollArea, Select, Separator, Sheet, Skeleton, Slider,

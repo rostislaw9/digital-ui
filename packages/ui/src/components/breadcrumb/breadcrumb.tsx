@@ -8,16 +8,16 @@ import {
 
 import { cn } from "@/lib/utils";
 
-export type BreadcrumbsProps = HTMLAttributes<HTMLElement>;
+export type BreadcrumbProps = HTMLAttributes<HTMLElement>;
 
 /**
- * Breadcrumbs — a navigation trail showing the user's location in a hierarchy.
+ * Breadcrumb — a navigation trail showing the user's location in a hierarchy.
  *
  * Accessibility: renders a `<nav>` with `aria-label="breadcrumb"`. The
  * `BreadcrumbList` uses an ordered list (`<ol>`) as recommended by WAI-ARIA.
  */
-export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
-  function Breadcrumbs({ className, ...props }, ref) {
+export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
+  function Breadcrumb({ className, ...props }, ref) {
     return (
       <nav
         ref={ref}
@@ -137,5 +137,3 @@ export const BreadcrumbEllipsis = forwardRef<
     </span>
   );
 });
-
-export type BreadcrumbProps = BreadcrumbsProps;

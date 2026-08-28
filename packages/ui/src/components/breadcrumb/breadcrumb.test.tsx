@@ -1,24 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import {
-  Breadcrumbs,
-  BreadcrumbList,
+  Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "./index.js";
 
-describe("Breadcrumbs", () => {
+describe("Breadcrumb", () => {
   it("renders nav with aria-label breadcrumb", () => {
     render(
-      <Breadcrumbs>
+      <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href="#">Home</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumbs>,
+      </Breadcrumb>,
     );
     expect(screen.getByRole("navigation")).toHaveAttribute(
       "aria-label",
@@ -28,7 +28,7 @@ describe("Breadcrumbs", () => {
 
   it("renders breadcrumb links", () => {
     render(
-      <Breadcrumbs>
+      <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href="#">Home</BreadcrumbLink>
@@ -38,7 +38,7 @@ describe("Breadcrumbs", () => {
             <BreadcrumbPage>Current</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumbs>,
+      </Breadcrumb>,
     );
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("Current")).toBeInTheDocument();
@@ -46,20 +46,20 @@ describe("Breadcrumbs", () => {
 
   it("marks current page with aria-current", () => {
     render(
-      <Breadcrumbs>
+      <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbPage>Current</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumbs>,
+      </Breadcrumb>,
     );
     expect(screen.getByText("Current")).toHaveAttribute("aria-current", "page");
   });
 
   it("renders default separator icon", () => {
     const { container } = render(
-      <Breadcrumbs>
+      <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href="#">A</BreadcrumbLink>
@@ -69,7 +69,7 @@ describe("Breadcrumbs", () => {
             <BreadcrumbPage>B</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumbs>,
+      </Breadcrumb>,
     );
     const svg = container.querySelector("svg");
     expect(svg).toBeInTheDocument();

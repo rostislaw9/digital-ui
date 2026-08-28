@@ -21,9 +21,9 @@ export default defineConfig({
       ),
       "@/components/ui/avatar": resolve(ui, "components/avatar/index.ts"),
       "@/components/ui/badge": resolve(ui, "components/badge/index.ts"),
-      "@/components/ui/breadcrumbs": resolve(
+      "@/components/ui/breadcrumb": resolve(
         ui,
-        "components/breadcrumbs/index.ts",
+        "components/breadcrumb/index.ts",
       ),
       "@/components/ui/button": resolve(ui, "components/button/index.ts"),
       "@/components/ui/card": resolve(ui, "components/card/index.ts"),

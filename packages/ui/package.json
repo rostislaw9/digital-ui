@@ -52,10 +52,10 @@
       "import": "./dist/badge.js",
       "require": "./dist/badge.cjs"
     },
-    "./breadcrumbs": {
-      "types": "./dist/breadcrumbs.d.ts",
-      "import": "./dist/breadcrumbs.js",
-      "require": "./dist/breadcrumbs.cjs"
+    "./breadcrumb": {
+      "types": "./dist/breadcrumb.d.ts",
+      "import": "./dist/breadcrumb.js",
+      "require": "./dist/breadcrumb.cjs"
     },
     "./button": {
       "types": "./dist/button.d.ts",

@@ -17,7 +17,7 @@ export default defineConfig({
         alert: resolve(__dirname, "src/components/alert/index.ts"),
         avatar: resolve(__dirname, "src/components/avatar/index.ts"),
         badge: resolve(__dirname, "src/components/badge/index.ts"),
-        breadcrumbs: resolve(__dirname, "src/components/breadcrumbs/index.ts"),
+        breadcrumb: resolve(__dirname, "src/components/breadcrumb/index.ts"),
         button: resolve(__dirname, "src/components/button/index.ts"),
         card: resolve(__dirname, "src/components/card/index.ts"),
         input: resolve(__dirname, "src/components/input/index.ts"),
