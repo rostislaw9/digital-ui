@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { Alert, AlertTitle, AlertDescription } from "./index.js";
+import { Alert, AlertDescription, AlertTitle } from "./index.js";
 
 describe("Alert", () => {
   it("renders children", () => {
@@ -18,6 +18,15 @@ describe("Alert", () => {
     const { container } = render(<Alert variant="error">Test</Alert>);
     const alert = container.firstChild as HTMLElement;
     expect(alert.className).toContain("bg-error");
+  });
+
+  it("applies inverted variant classes", () => {
+    const { container } = render(
+      <Alert variant="success-inverted">Test</Alert>,
+    );
+    const alert = container.firstChild as HTMLElement;
+    expect(alert.className).toContain("bg-surface");
+    expect(alert.className).toContain("text-success");
   });
 
   it("sets role=alert for error variant", () => {
