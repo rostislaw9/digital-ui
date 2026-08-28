@@ -4,17 +4,17 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Button, ScrollArea } from "@digital-ui/ui";
 
 import { CopyButton } from "./CopyButton.js";
-import { ShikiCodeBlock } from "./ShikiCodeBlock.js";
+import { HighlightedCode } from "./HighlightedCode.js";
 
 const MAX_CODE_HEIGHT = 400;
 
 interface PreviewCodeBlockProps {
   /** The live preview element. */
   preview: ReactNode;
-  /** The raw source code to display. */
+  /** Pre-highlighted HTML from Shiki (build-time). */
   code: string;
-  /** Language for syntax highlighting. @default "tsx" */
-  lang?: "tsx" | "bash";
+  /** Raw source code for the copy button. */
+  rawCode: string;
 }
 
 /**
@@ -24,12 +24,12 @@ interface PreviewCodeBlockProps {
  * - Code is always present but collapsed with a max-height and gradient
  *   overlay. A centered "View code" button sits on the gradient.
  * - When expanded, a copy button appears in the top-right corner.
- * - Code is syntax-highlighted via Shiki with line numbers.
+ * - Code is syntax-highlighted at build time via Shiki (no runtime cost).
  */
 export function PreviewCodeBlock({
   preview,
   code,
-  lang = "tsx",
+  rawCode,
 }: PreviewCodeBlockProps) {
   const [codeExpanded, setCodeExpanded] = useState(false);
   const [needsScroll, setNeedsScroll] = useState(false);
@@ -54,23 +54,19 @@ export function PreviewCodeBlock({
         {/* Copy button — top-right, only when expanded */}
         {codeExpanded && (
           <div className="absolute right-3 top-3 z-10">
-            <CopyButton text={code} />
+            <CopyButton text={rawCode} />
           </div>
         )}
 
         {codeExpanded ? (
           <ScrollArea className={needsScroll ? "h-[400px]" : ""}>
             <div ref={contentRef}>
-              <ShikiCodeBlock
-                code={code}
-                lang={lang}
-                className="shiki-wrapper"
-              />
+              <HighlightedCode html={code} className="shiki-wrapper" />
             </div>
           </ScrollArea>
         ) : (
           <div className="relative max-h-32 overflow-hidden">
-            <ShikiCodeBlock code={code} lang={lang} className="shiki-wrapper" />
+            <HighlightedCode html={code} className="shiki-wrapper" />
             <div
               className="pointer-events-none absolute inset-0"
               style={{

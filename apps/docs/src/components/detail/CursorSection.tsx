@@ -1,4 +1,6 @@
-import { ShikiCodeBlock } from "../ShikiCodeBlock.js";
+import highlightedInline from "virtual:highlighted-inline";
+
+import { HighlightedCode } from "../HighlightedCode.js";
 import { InlineCode } from "./InlineCode.js";
 
 export function CursorSection() {
@@ -26,14 +28,8 @@ export function CursorSection() {
         You can also enable this during project setup with{" "}
         <InlineCode>npx digital-ui init --pointer</InlineCode>.
       </p>
-      <ShikiCodeBlock
-        code={`@layer base {
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-}`}
-        lang="css"
+      <HighlightedCode
+        html={highlightedInline["__cursor__"]!.codeHtml!}
         className="shiki-wrapper"
       />
     </section>

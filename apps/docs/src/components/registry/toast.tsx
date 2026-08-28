@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { ToastDemo } from "../../demos/toast-demo.js";
-import ToastDemoSource from "../../demos/toast-demo.tsx?raw";
+import ToastDemoSource from "../../demos/toast-demo.tsx?highlighted";
+import ToastDemoRaw from "../../demos/toast-demo.tsx?raw";
 import { ToastPositionsDemo } from "../../demos/toast-positions-demo.js";
-import ToastPositionsDemoSource from "../../demos/toast-positions-demo.tsx?raw";
+import ToastPositionsDemoSource from "../../demos/toast-positions-demo.tsx?highlighted";
+import ToastPositionsDemoRaw from "../../demos/toast-positions-demo.tsx?raw";
 
 export const toastMeta: ComponentMeta = {
   name: "toast",
@@ -16,6 +18,7 @@ export const toastMeta: ComponentMeta = {
       title: "Variants",
       description: "Default, info, success, warning, and error toasts.",
       code: ToastDemoSource,
+      rawCode: ToastDemoRaw,
       render: () => <ToastDemo />,
     },
     {
@@ -23,6 +26,7 @@ export const toastMeta: ComponentMeta = {
       description:
         "Position each toast individually — top-left, top-center, top-right, bottom-left, bottom-center, bottom-right.",
       code: ToastPositionsDemoSource,
+      rawCode: ToastPositionsDemoRaw,
       render: () => <ToastPositionsDemo />,
     },
   ],

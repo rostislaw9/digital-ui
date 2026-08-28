@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { CardBasicDemo } from "../../demos/card-basic-demo.js";
-import CardBasicDemoSource from "../../demos/card-basic-demo.tsx?raw";
+import CardBasicDemoSource from "../../demos/card-basic-demo.tsx?highlighted";
+import CardBasicDemoRaw from "../../demos/card-basic-demo.tsx?raw";
 import { CardSpotlightDemo } from "../../demos/card-spotlight-demo.js";
-import CardSpotlightDemoSource from "../../demos/card-spotlight-demo.tsx?raw";
+import CardSpotlightDemoSource from "../../demos/card-spotlight-demo.tsx?highlighted";
+import CardSpotlightDemoRaw from "../../demos/card-spotlight-demo.tsx?raw";
 
 export const cardMeta: ComponentMeta = {
   name: "card",
@@ -16,6 +18,7 @@ export const cardMeta: ComponentMeta = {
       title: "Basic",
       description: "Standard card with header, content, and footer.",
       code: CardBasicDemoSource,
+      rawCode: CardBasicDemoRaw,
       render: () => <CardBasicDemo />,
     },
     {
@@ -23,6 +26,7 @@ export const cardMeta: ComponentMeta = {
       description:
         "Wrap with the Spotlight motion primitive for a pointer-following highlight.",
       code: CardSpotlightDemoSource,
+      rawCode: CardSpotlightDemoRaw,
       render: () => <CardSpotlightDemo />,
     },
   ],

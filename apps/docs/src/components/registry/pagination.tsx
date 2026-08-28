@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { PaginationDemo } from "../../demos/pagination-demo.js";
-import PaginationDemoSource from "../../demos/pagination-demo.tsx?raw";
+import PaginationDemoSource from "../../demos/pagination-demo.tsx?highlighted";
+import PaginationDemoRaw from "../../demos/pagination-demo.tsx?raw";
 
 export const paginationMeta: ComponentMeta = {
   name: "pagination",
@@ -14,6 +15,7 @@ export const paginationMeta: ComponentMeta = {
       title: "Basic",
       description: "Pagination with prev/next, page links, and ellipsis.",
       code: PaginationDemoSource,
+      rawCode: PaginationDemoRaw,
       render: () => <PaginationDemo />,
     },
   ],

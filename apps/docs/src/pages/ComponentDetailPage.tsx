@@ -132,6 +132,7 @@ export function ComponentDetailPage() {
                 key={`${name}-${activeExample}`}
                 preview={example.render()}
                 code={example.code}
+                rawCode={example.rawCode}
               />
             </section>
 
@@ -153,6 +154,7 @@ export function ComponentDetailPage() {
 
             {comp.usageImport && comp.usageCode && (
               <UsageSection
+                componentName={comp.name}
                 usageImport={comp.usageImport}
                 usageCode={comp.usageCode}
               />

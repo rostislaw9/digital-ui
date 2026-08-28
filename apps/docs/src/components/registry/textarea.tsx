@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { TextareaBasicDemo } from "../../demos/textarea-basic-demo.js";
-import TextareaBasicDemoSource from "../../demos/textarea-basic-demo.tsx?raw";
+import TextareaBasicDemoSource from "../../demos/textarea-basic-demo.tsx?highlighted";
+import TextareaBasicDemoRaw from "../../demos/textarea-basic-demo.tsx?raw";
 import { TextareaInvalidDemo } from "../../demos/textarea-invalid-demo.js";
-import TextareaInvalidDemoSource from "../../demos/textarea-invalid-demo.tsx?raw";
+import TextareaInvalidDemoSource from "../../demos/textarea-invalid-demo.tsx?highlighted";
+import TextareaInvalidDemoRaw from "../../demos/textarea-invalid-demo.tsx?raw";
 
 export const textareaMeta: ComponentMeta = {
   name: "textarea",
@@ -15,12 +17,14 @@ export const textareaMeta: ComponentMeta = {
       title: "Basic",
       description: "Default and disabled states.",
       code: TextareaBasicDemoSource,
+      rawCode: TextareaBasicDemoRaw,
       render: () => <TextareaBasicDemo />,
     },
     {
       title: "Invalid",
       description: "Error state with red border and error glow on focus.",
       code: TextareaInvalidDemoSource,
+      rawCode: TextareaInvalidDemoRaw,
       render: () => <TextareaInvalidDemo />,
     },
   ],

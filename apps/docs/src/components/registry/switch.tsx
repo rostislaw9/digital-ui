@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { SwitchDemo } from "../../demos/switch-demo.js";
-import SwitchDemoSource from "../../demos/switch-demo.tsx?raw";
+import SwitchDemoSource from "../../demos/switch-demo.tsx?highlighted";
+import SwitchDemoRaw from "../../demos/switch-demo.tsx?raw";
 
 export const switchMeta: ComponentMeta = {
   name: "switch",
@@ -13,6 +14,7 @@ export const switchMeta: ComponentMeta = {
       title: "Basic",
       description: "Controlled switch with state display.",
       code: SwitchDemoSource,
+      rawCode: SwitchDemoRaw,
       render: () => <SwitchDemo />,
     },
   ],

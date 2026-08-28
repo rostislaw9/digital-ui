@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { LabelDefaultDemo } from "../../demos/label-default-demo.js";
-import LabelDefaultDemoSource from "../../demos/label-default-demo.tsx?raw";
+import LabelDefaultDemoSource from "../../demos/label-default-demo.tsx?highlighted";
+import LabelDefaultDemoRaw from "../../demos/label-default-demo.tsx?raw";
 import { LabelDisabledDemo } from "../../demos/label-disabled-demo.js";
-import LabelDisabledDemoSource from "../../demos/label-disabled-demo.tsx?raw";
+import LabelDisabledDemoSource from "../../demos/label-disabled-demo.tsx?highlighted";
+import LabelDisabledDemoRaw from "../../demos/label-disabled-demo.tsx?raw";
 
 export const labelMeta: ComponentMeta = {
   name: "label",
@@ -15,12 +17,14 @@ export const labelMeta: ComponentMeta = {
       title: "Default",
       description: "A Label associated with an Input via htmlFor.",
       code: LabelDefaultDemoSource,
+      rawCode: LabelDefaultDemoRaw,
       render: () => <LabelDefaultDemo />,
     },
     {
       title: "With Disabled",
       description: "Label dims when the peer control is disabled.",
       code: LabelDisabledDemoSource,
+      rawCode: LabelDisabledDemoRaw,
       render: () => <LabelDisabledDemo />,
     },
   ],

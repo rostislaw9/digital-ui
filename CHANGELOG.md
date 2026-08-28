@@ -15,6 +15,17 @@ task.
 
 ### Changed
 
+- Moved Shiki syntax highlighting from runtime to build time via a custom
+  Vite plugin (`vite-plugin-shiki.ts`). Demo source files use
+  `?highlighted` imports; usage examples, cursor CSS, and install commands
+  are pre-highlighted via a `virtual:highlighted-inline` module. This
+  eliminates the entire Shiki runtime (regex engine, grammars, themes)
+  from the browser bundle — pages load instantly on first visit.
+  ComponentDetailPage chunk went from 185 KB to 108 KB (60 KB → 8.7 KB
+  gzipped). Replaced `ShikiCodeBlock` with `HighlightedCode` (a trivial
+  `dangerouslySetInnerHTML` renderer). Moved `shiki` to devDependencies.
+- Added `eslint-plugin-perfectionist` for import ordering with custom
+  groups: external, internal (`@digital-ui/*`), alias (`@/`), relative.
 - Adopted shadcn-style source-owned import paths. Component source now
   uses `import { cn } from "@/lib/utils"` with an empty line between
   external and local imports. Renamed `lib/cn.ts` to `lib/utils.ts`.

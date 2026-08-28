@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { SliderBasicDemo } from "../../demos/slider-basic-demo.js";
-import SliderBasicDemoSource from "../../demos/slider-basic-demo.tsx?raw";
+import SliderBasicDemoSource from "../../demos/slider-basic-demo.tsx?highlighted";
+import SliderBasicDemoRaw from "../../demos/slider-basic-demo.tsx?raw";
 
 export const sliderMeta: ComponentMeta = {
   name: "slider",
@@ -14,6 +15,7 @@ export const sliderMeta: ComponentMeta = {
       title: "Basic",
       description: "Adjustable single-value slider with live value display.",
       code: SliderBasicDemoSource,
+      rawCode: SliderBasicDemoRaw,
       render: () => <SliderBasicDemo />,
     },
   ],

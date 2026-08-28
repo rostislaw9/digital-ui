@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { BadgeIconDemo } from "../../demos/badge-icon-demo.js";
-import BadgeIconDemoSource from "../../demos/badge-icon-demo.tsx?raw";
+import BadgeIconDemoSource from "../../demos/badge-icon-demo.tsx?highlighted";
+import BadgeIconDemoRaw from "../../demos/badge-icon-demo.tsx?raw";
 import { BadgeVariantsDemo } from "../../demos/badge-variants-demo.js";
-import BadgeVariantsDemoSource from "../../demos/badge-variants-demo.tsx?raw";
+import BadgeVariantsDemoSource from "../../demos/badge-variants-demo.tsx?highlighted";
+import BadgeVariantsDemoRaw from "../../demos/badge-variants-demo.tsx?raw";
 
 export const badgeMeta: ComponentMeta = {
   name: "badge",
@@ -16,12 +18,14 @@ export const badgeMeta: ComponentMeta = {
       description:
         "Default, accent, success, warning, error, and outline badges.",
       code: BadgeVariantsDemoSource,
+      rawCode: BadgeVariantsDemoRaw,
       render: () => <BadgeVariantsDemo />,
     },
     {
       title: "With Icon",
       description: "Badges paired with lucide icons.",
       code: BadgeIconDemoSource,
+      rawCode: BadgeIconDemoRaw,
       render: () => <BadgeIconDemo />,
     },
   ],

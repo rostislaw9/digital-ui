@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { TabsBasicDemo } from "../../demos/tabs-basic-demo.js";
-import TabsBasicDemoSource from "../../demos/tabs-basic-demo.tsx?raw";
+import TabsBasicDemoSource from "../../demos/tabs-basic-demo.tsx?highlighted";
+import TabsBasicDemoRaw from "../../demos/tabs-basic-demo.tsx?raw";
 
 export const tabsMeta: ComponentMeta = {
   name: "tabs",
@@ -15,6 +16,7 @@ export const tabsMeta: ComponentMeta = {
       description:
         "Three tabs with sliding indicator and directional content animation.",
       code: TabsBasicDemoSource,
+      rawCode: TabsBasicDemoRaw,
       render: () => <TabsBasicDemo />,
     },
   ],

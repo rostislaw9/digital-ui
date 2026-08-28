@@ -1,9 +1,11 @@
 import type { ComponentMeta } from "./types.js";
 
 import { SeparatorHorizontalDemo } from "../../demos/separator-horizontal-demo.js";
-import SeparatorHorizontalDemoSource from "../../demos/separator-horizontal-demo.tsx?raw";
+import SeparatorHorizontalDemoSource from "../../demos/separator-horizontal-demo.tsx?highlighted";
+import SeparatorHorizontalDemoRaw from "../../demos/separator-horizontal-demo.tsx?raw";
 import { SeparatorVerticalDemo } from "../../demos/separator-vertical-demo.js";
-import SeparatorVerticalDemoSource from "../../demos/separator-vertical-demo.tsx?raw";
+import SeparatorVerticalDemoSource from "../../demos/separator-vertical-demo.tsx?highlighted";
+import SeparatorVerticalDemoRaw from "../../demos/separator-vertical-demo.tsx?raw";
 
 export const separatorMeta: ComponentMeta = {
   name: "separator",
@@ -15,12 +17,14 @@ export const separatorMeta: ComponentMeta = {
       title: "Horizontal",
       description: "A horizontal separator between text blocks.",
       code: SeparatorHorizontalDemoSource,
+      rawCode: SeparatorHorizontalDemoRaw,
       render: () => <SeparatorHorizontalDemo />,
     },
     {
       title: "Vertical",
       description: "A vertical separator between items in a flex row.",
       code: SeparatorVerticalDemoSource,
+      rawCode: SeparatorVerticalDemoRaw,
       render: () => <SeparatorVerticalDemo />,
     },
   ],

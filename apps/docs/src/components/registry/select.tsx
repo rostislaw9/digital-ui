@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { SelectBasicDemo } from "../../demos/select-basic-demo.js";
-import SelectBasicDemoSource from "../../demos/select-basic-demo.tsx?raw";
+import SelectBasicDemoSource from "../../demos/select-basic-demo.tsx?highlighted";
+import SelectBasicDemoRaw from "../../demos/select-basic-demo.tsx?raw";
 
 export const selectMeta: ComponentMeta = {
   name: "select",
@@ -14,6 +15,7 @@ export const selectMeta: ComponentMeta = {
       title: "Basic",
       description: "Single-value select with placeholder.",
       code: SelectBasicDemoSource,
+      rawCode: SelectBasicDemoRaw,
       render: () => <SelectBasicDemo />,
     },
   ],

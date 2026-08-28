@@ -1,7 +1,8 @@
 import type { ComponentMeta } from "./types.js";
 
 import { ContextMenuDemo } from "../../demos/context-menu-demo.js";
-import ContextMenuDemoSource from "../../demos/context-menu-demo.tsx?raw";
+import ContextMenuDemoSource from "../../demos/context-menu-demo.tsx?highlighted";
+import ContextMenuDemoRaw from "../../demos/context-menu-demo.tsx?raw";
 
 export const contextMenuMeta: ComponentMeta = {
   name: "context-menu",
@@ -13,6 +14,7 @@ export const contextMenuMeta: ComponentMeta = {
       title: "Basic",
       description: "Right-click to open a context menu with actions.",
       code: ContextMenuDemoSource,
+      rawCode: ContextMenuDemoRaw,
       render: () => <ContextMenuDemo />,
     },
   ],
