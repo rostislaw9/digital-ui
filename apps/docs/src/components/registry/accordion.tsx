@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { AccordionBasicDemo } from "../../demos/accordion-basic-demo.js";
 import AccordionBasicDemoSource from "../../demos/accordion-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const accordionMeta: ComponentMeta = {
   name: "accordion",

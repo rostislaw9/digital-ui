@@ -1,3 +1,5 @@
+import type { ComponentMeta } from "./types.js";
+
 import { GlowAlwaysDemo } from "../../demos/glow-always-demo.js";
 import GlowAlwaysDemoSource from "../../demos/glow-always-demo.tsx?raw";
 import { GlowDemo } from "../../demos/glow-demo.js";
@@ -14,7 +16,6 @@ import { PulseTextDemo } from "../../demos/pulse-text-demo.js";
 import PulseTextDemoSource from "../../demos/pulse-text-demo.tsx?raw";
 import { RevealDemo } from "../../demos/reveal-demo.js";
 import RevealDemoSource from "../../demos/reveal-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const motionMeta: ComponentMeta = {
   name: "motion",

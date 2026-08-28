@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { BreadcrumbCustomSeparatorDemo } from "../../demos/breadcrumb-custom-separator-demo.js";
 import BreadcrumbCustomSeparatorDemoSource from "../../demos/breadcrumb-custom-separator-demo.tsx?raw";
 import { BreadcrumbDefaultDemo } from "../../demos/breadcrumb-default-demo.js";
 import BreadcrumbDefaultDemoSource from "../../demos/breadcrumb-default-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const breadcrumbMeta: ComponentMeta = {
   name: "breadcrumb",

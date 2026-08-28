@@ -1,6 +1,8 @@
+import type { Config } from "../config.js";
+
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import type { Config } from "../config.js";
+
 import { CONFIG_FILE } from "../config.js";
 
 export function loadConfig(cwd = process.cwd()): Config | null {

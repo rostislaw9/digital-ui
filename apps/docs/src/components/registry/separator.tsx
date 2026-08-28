@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { SeparatorHorizontalDemo } from "../../demos/separator-horizontal-demo.js";
 import SeparatorHorizontalDemoSource from "../../demos/separator-horizontal-demo.tsx?raw";
 import { SeparatorVerticalDemo } from "../../demos/separator-vertical-demo.js";
 import SeparatorVerticalDemoSource from "../../demos/separator-vertical-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const separatorMeta: ComponentMeta = {
   name: "separator",

@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { TooltipPositionsDemo } from "../../demos/tooltip-positions-demo.js";
 import TooltipPositionsDemoSource from "../../demos/tooltip-positions-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const tooltipMeta: ComponentMeta = {
   name: "tooltip",

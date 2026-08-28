@@ -1,3 +1,5 @@
+import type { ComponentMeta } from "./types.js";
+
 import { accordionMeta } from "./accordion.js";
 import { alertDialogMeta } from "./alert-dialog.js";
 import { alertMeta } from "./alert.js";
@@ -31,7 +33,6 @@ import { tabsMeta } from "./tabs.js";
 import { textareaMeta } from "./textarea.js";
 import { toastMeta } from "./toast.js";
 import { tooltipMeta } from "./tooltip.js";
-import type { ComponentMeta } from "./types.js";
 
 export const componentRegistry: ComponentMeta[] = [
   accordionMeta,

@@ -1,6 +1,8 @@
-import { Button, ScrollArea } from "@digital-ui/ui";
 import { Code2 } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+
+import { Button, ScrollArea } from "@digital-ui/ui";
+
 import { CopyButton } from "./CopyButton.js";
 import { ShikiCodeBlock } from "./ShikiCodeBlock.js";
 

@@ -1,6 +1,7 @@
 // @ts-check
 import js from "@eslint/js";
 import a11y from "eslint-plugin-jsx-a11y";
+import perfectionist from "eslint-plugin-perfectionist";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
@@ -26,6 +27,7 @@ export default tseslint.config(
       react,
       "react-hooks": reactHooks,
       "jsx-a11y": a11y,
+      perfectionist,
     },
     languageOptions: {
       parserOptions: {
@@ -84,6 +86,29 @@ export default tseslint.config(
       "@typescript-eslint/consistent-type-imports": [
         "error",
         { prefer: "type-imports", fixStyle: "separate-type-imports" },
+      ],
+      "perfectionist/sort-imports": [
+        "error",
+        {
+          type: "natural",
+          order: "asc",
+          groups: [
+            "type",
+            ["builtin", "external"],
+            "internal",
+            "alias",
+            ["parent", "sibling", "index"],
+            "unknown",
+          ],
+          customGroups: [
+            {
+              groupName: "alias",
+              elementNamePattern: "^@/",
+            },
+          ],
+          newlinesBetween: 1,
+          internalPattern: ["^@digital-ui/"],
+        },
       ],
     },
   },

@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { CommandDemo } from "../../demos/command-demo.js";
 import CommandDemoSource from "../../demos/command-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const commandMeta: ComponentMeta = {
   name: "command",

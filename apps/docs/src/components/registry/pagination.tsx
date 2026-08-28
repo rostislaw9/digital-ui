@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { PaginationDemo } from "../../demos/pagination-demo.js";
 import PaginationDemoSource from "../../demos/pagination-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const paginationMeta: ComponentMeta = {
   name: "pagination",

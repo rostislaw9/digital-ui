@@ -1,6 +1,8 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@digital-ui/ui";
 import { Terminal } from "lucide-react";
 import { useState } from "react";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@digital-ui/ui";
+
 import { CopyButton } from "./CopyButton.js";
 import { ShikiCodeBlock } from "./ShikiCodeBlock.js";
 

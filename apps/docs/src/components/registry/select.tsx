@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { SelectBasicDemo } from "../../demos/select-basic-demo.js";
 import SelectBasicDemoSource from "../../demos/select-basic-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const selectMeta: ComponentMeta = {
   name: "select",

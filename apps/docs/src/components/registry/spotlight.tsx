@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { SpotlightBasicDemo } from "../../demos/spotlight-basic-demo.js";
 import SpotlightBasicDemoSource from "../../demos/spotlight-basic-demo.tsx?raw";
 import { SpotlightProximityDemo } from "../../demos/spotlight-proximity-demo.js";
 import SpotlightProximityDemoSource from "../../demos/spotlight-proximity-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const spotlightMeta: ComponentMeta = {
   name: "spotlight",

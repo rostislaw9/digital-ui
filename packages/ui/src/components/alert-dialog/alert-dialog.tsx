@@ -1,5 +1,6 @@
-import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import type { HTMLAttributes } from "react";
+
+import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { forwardRef, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";

@@ -1,6 +1,7 @@
+import type { ComponentMeta } from "./types.js";
+
 import { ScrollAreaDemo } from "../../demos/scroll-area-demo.js";
 import ScrollAreaDemoSource from "../../demos/scroll-area-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const scrollAreaMeta: ComponentMeta = {
   name: "scroll-area",

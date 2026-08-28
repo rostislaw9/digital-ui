@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { ToastDemo } from "../../demos/toast-demo.js";
 import ToastDemoSource from "../../demos/toast-demo.tsx?raw";
 import { ToastPositionsDemo } from "../../demos/toast-positions-demo.js";
 import ToastPositionsDemoSource from "../../demos/toast-positions-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const toastMeta: ComponentMeta = {
   name: "toast",

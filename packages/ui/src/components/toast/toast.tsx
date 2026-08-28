@@ -22,8 +22,9 @@
  * ```
  */
 
-import { forwardRef } from "react";
 import type { ToasterProps } from "sonner";
+
+import { forwardRef } from "react";
 import { Toaster as SonnerToaster, toast as sonnerToast } from "sonner";
 
 /**

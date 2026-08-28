@@ -1,8 +1,9 @@
+import type { ComponentMeta } from "./types.js";
+
 import { LabelDefaultDemo } from "../../demos/label-default-demo.js";
 import LabelDefaultDemoSource from "../../demos/label-default-demo.tsx?raw";
 import { LabelDisabledDemo } from "../../demos/label-disabled-demo.js";
 import LabelDisabledDemoSource from "../../demos/label-disabled-demo.tsx?raw";
-import type { ComponentMeta } from "./types.js";
 
 export const labelMeta: ComponentMeta = {
   name: "label",

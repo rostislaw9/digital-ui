@@ -1,6 +1,8 @@
+import type { Config, RegistryItem } from "../config.js";
+
 import chalk from "chalk";
 import { existsSync } from "node:fs";
-import type { Config, RegistryItem } from "../config.js";
+
 import { loadConfig, resolveTargetPath, writeFile } from "../utils/fs.js";
 import { fetchRegistry, fetchRegistryItems } from "../utils/registry.js";
 
