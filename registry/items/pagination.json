@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:ui",
+  "title": "Pagination",
+  "description": "Pagination control with ellipsis, sibling count, and prev/next buttons.",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "cn",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/ui/pagination.tsx",
+      "type": "registry:ui",
+      "content": "import { ChevronLeft, ChevronRight, MoreHorizontal } from \"lucide-react\";\nimport { forwardRef, type ComponentProps } from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nexport type PaginationProps = ComponentProps<\"nav\">;\n\nexport const Pagination = forwardRef<HTMLElement, PaginationProps>(\n  function Pagination({ className, ...props }, ref) {\n    return (\n      <nav\n        ref={ref}\n        role=\"navigation\"\n        aria-label=\"pagination\"\n        data-slot=\"pagination\"\n        className={cn(\"mx-auto flex w-full justify-center\", className)}\n        {...props}\n      />\n    );\n  },\n);\n\nexport type PaginationContentProps = ComponentProps<\"ul\">;\n\nexport const PaginationContent = forwardRef<\n  HTMLUListElement,\n  PaginationContentProps\n>(function PaginationContent({ className, ...props }, ref) {\n  return (\n    <ul\n      ref={ref}\n      data-slot=\"pagination-content\"\n      className={cn(\"flex items-center gap-0.5\", className)}\n      {...props}\n    />\n  );\n});\n\nexport type PaginationItemProps = ComponentProps<\"li\">;\n\nexport const PaginationItem = forwardRef<HTMLLIElement, PaginationItemProps>(\n  function PaginationItem({ ...props }, ref) {\n    return <li ref={ref} data-slot=\"pagination-item\" {...props} />;\n  },\n);\n\nexport type PaginationLinkProps = {\n  isActive?: boolean;\n} & Pick<ComponentProps<typeof Button>, \"size\"> &\n  ComponentProps<\"a\">;\n\nexport const PaginationLink = forwardRef<\n  HTMLAnchorElement,\n  PaginationLinkProps\n>(function PaginationLink(\n  { className, isActive, size = \"icon\", children, ...props },\n  ref,\n) {\n  return (\n    <Button\n      asChild\n      variant={isActive ? \"secondary\" : \"ghost\"}\n      size={size}\n      className={cn(className)}\n    >\n      <a\n        ref={ref}\n        aria-current={isActive ? \"page\" : undefined}\n        data-slot=\"pagination-link\"\n        data-active={isActive}\n        {...props}\n      >\n        {children}\n      </a>\n    </Button>\n  );\n});\n\nexport type PaginationPreviousProps = ComponentProps<typeof PaginationLink> & {\n  text?: string;\n};\n\nexport const PaginationPrevious = forwardRef<\n  HTMLAnchorElement,\n  PaginationPreviousProps\n>(function PaginationPrevious({ className, text = \"Previous\", ...props }, ref) {\n  return (\n    <PaginationLink\n      ref={ref}\n      aria-label=\"Go to previous page\"\n      size=\"md\"\n      className={cn(\"pl-1.5\", className)}\n      {...props}\n    >\n      <ChevronLeft data-icon=\"inline-start\" className=\"size-4\" />\n      <span className=\"hidden sm:block\">{text}</span>\n    </PaginationLink>\n  );\n});\n\nexport type PaginationNextProps = ComponentProps<typeof PaginationLink> & {\n  text?: string;\n};\n\nexport const PaginationNext = forwardRef<\n  HTMLAnchorElement,\n  PaginationNextProps\n>(function PaginationNext({ className, text = \"Next\", ...props }, ref) {\n  return (\n    <PaginationLink\n      ref={ref}\n      aria-label=\"Go to next page\"\n      size=\"md\"\n      className={cn(\"pr-1.5\", className)}\n      {...props}\n    >\n      <span className=\"hidden sm:block\">{text}</span>\n      <ChevronRight data-icon=\"inline-end\" className=\"size-4\" />\n    </PaginationLink>\n  );\n});\n\nexport type PaginationEllipsisProps = ComponentProps<\"span\">;\n\nexport const PaginationEllipsis = forwardRef<\n  HTMLSpanElement,\n  PaginationEllipsisProps\n>(function PaginationEllipsis({ className, ...props }, ref) {\n  return (\n    <span\n      ref={ref}\n      aria-hidden\n      data-slot=\"pagination-ellipsis\"\n      className={cn(\"flex size-8 items-center justify-center\", className)}\n      {...props}\n    >\n      <MoreHorizontal className=\"size-4\" />\n      <span className=\"sr-only\">More pages</span>\n    </span>\n  );\n});\n"
+    }
+  ]
+}

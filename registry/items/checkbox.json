@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "Radix-based checkbox with circular shape, accent fill, and lucide Check indicator.",
+  "dependencies": [
+    "@radix-ui/react-checkbox",
+    "clsx",
+    "tailwind-merge",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "components/ui/checkbox.tsx",
+      "type": "registry:ui",
+      "content": "import * as CheckboxPrimitive from \"@radix-ui/react-checkbox\";\nimport { Check } from \"lucide-react\";\nimport { forwardRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root>;\n\nexport const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(\n  function Checkbox({ className, ...props }, ref) {\n    return (\n      <CheckboxPrimitive.Root\n        ref={ref}\n        // prettier-ignore\n        className={cn(\"peer inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-foreground-subtle bg-surface transition-[background-color,border-color] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:shadow-focus disabled:cursor-not-allowed disabled:opacity-40 data-[state=checked]:bg-accent data-[state=checked]:border-accent hover:border-accent\", className)}\n        {...props}\n      >\n        <CheckboxPrimitive.Indicator\n          // prettier-ignore\n          className={cn(\"flex items-center justify-center text-accent-foreground data-[state=checked]:animate-in data-[state=checked]:fade-in\")}\n        >\n          <Check className=\"h-3 w-3\" strokeWidth={3} />\n        </CheckboxPrimitive.Indicator>\n      </CheckboxPrimitive.Root>\n    );\n  },\n);\n"
+    }
+  ]
+}

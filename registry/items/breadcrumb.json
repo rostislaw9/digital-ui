@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "type": "registry:ui",
+  "title": "Breadcrumb",
+  "description": "Navigation trail with list, items, links, separators, and ellipsis support.",
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "clsx",
+    "tailwind-merge",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "components/ui/breadcrumb.tsx",
+      "type": "registry:ui",
+      "content": "import { Slot } from \"@radix-ui/react-slot\";\nimport { ChevronRight } from \"lucide-react\";\nimport {\n  forwardRef,\n  type AnchorHTMLAttributes,\n  type HTMLAttributes,\n} from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type BreadcrumbProps = HTMLAttributes<HTMLElement>;\n\n/**\n * Breadcrumb — a navigation trail showing the user's location in a hierarchy.\n *\n * Accessibility: renders a `<nav>` with `aria-label=\"breadcrumb\"`. The\n * `BreadcrumbList` uses an ordered list (`<ol>`) as recommended by WAI-ARIA.\n */\nexport const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(\n  function Breadcrumb({ className, ...props }, ref) {\n    return (\n      <nav\n        ref={ref}\n        aria-label=\"breadcrumb\"\n        className={cn(\"text-sm\", className)}\n        {...props}\n      />\n    );\n  },\n);\n\nexport type BreadcrumbListProps = HTMLAttributes<HTMLOListElement>;\n\nexport const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>(\n  function BreadcrumbList({ className, ...props }, ref) {\n    return (\n      <ol\n        ref={ref}\n        // prettier-ignore\n        className={cn(\"flex flex-wrap items-center gap-1.5 text-foreground-muted\", className)}\n        {...props}\n      />\n    );\n  },\n);\n\nexport type BreadcrumbItemProps = HTMLAttributes<HTMLLIElement>;\n\nexport const BreadcrumbItem = forwardRef<HTMLLIElement, BreadcrumbItemProps>(\n  function BreadcrumbItem({ className, ...props }, ref) {\n    return (\n      <li\n        ref={ref}\n        className={cn(\"inline-flex items-center gap-1.5\", className)}\n        {...props}\n      />\n    );\n  },\n);\n\nexport interface BreadcrumbLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {\n  /** Render as the child element instead of an `<a>`. Useful with routers. */\n  asChild?: boolean;\n}\n\nexport const BreadcrumbLink = forwardRef<\n  HTMLAnchorElement,\n  BreadcrumbLinkProps\n>(function BreadcrumbLink({ className, asChild, ...props }, ref) {\n  const Comp = asChild ? Slot : \"a\";\n  return (\n    <Comp\n      ref={ref}\n      // prettier-ignore\n      className={cn(\"rounded transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring\", className)}\n      {...props}\n    />\n  );\n});\n\nexport type BreadcrumbPageProps = HTMLAttributes<HTMLSpanElement>;\n\nexport const BreadcrumbPage = forwardRef<HTMLSpanElement, BreadcrumbPageProps>(\n  function BreadcrumbPage({ className, ...props }, ref) {\n    return (\n      <span\n        ref={ref}\n        aria-current=\"page\"\n        className={cn(\"font-medium text-foreground\", className)}\n        {...props}\n      />\n    );\n  },\n);\n\nexport type BreadcrumbSeparatorProps = HTMLAttributes<HTMLLIElement>;\n\nexport const BreadcrumbSeparator = forwardRef<\n  HTMLLIElement,\n  BreadcrumbSeparatorProps\n>(function BreadcrumbSeparator({ className, children, ...props }, ref) {\n  return (\n    <li\n      ref={ref}\n      role=\"presentation\"\n      className={cn(\"text-foreground-subtle\", className)}\n      {...props}\n    >\n      {children ?? <ChevronRight className=\"size-3.5\" />}\n    </li>\n  );\n});\n\nexport interface BreadcrumbEllipsisProps extends HTMLAttributes<HTMLSpanElement> {\n  /** Optional label for the ellipsis, defaults to \"More\". */\n  label?: string;\n}\n\nexport const BreadcrumbEllipsis = forwardRef<\n  HTMLSpanElement,\n  BreadcrumbEllipsisProps\n>(function BreadcrumbEllipsis({ className, label = \"More\", ...props }, ref) {\n  return (\n    <span\n      ref={ref}\n      role=\"presentation\"\n      aria-label={label}\n      className={cn(\"flex size-4 items-center justify-center\", className)}\n      {...props}\n    >\n      &hellip;\n    </span>\n  );\n});\n"
+    }
+  ]
+}

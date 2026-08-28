@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "type": "registry:ui",
+  "title": "Separator",
+  "description": "Radix-based visual divider with horizontal/vertical orientation and decorative mode.",
+  "dependencies": [
+    "@radix-ui/react-separator",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "components/ui/separator.tsx",
+      "type": "registry:ui",
+      "content": "import * as SeparatorPrimitive from \"@radix-ui/react-separator\";\nimport { forwardRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type SeparatorProps = React.ComponentProps<\n  typeof SeparatorPrimitive.Root\n>;\n\n/**\n * Separator — a visual divider between content sections.\n *\n * Accessibility: Radix sets `role=\"separator\"` with `aria-orientation`\n * based on the `orientation` prop. When the separator separates content\n * sections, it should not be focusable (default).\n */\nexport const Separator = forwardRef<HTMLDivElement, SeparatorProps>(\n  function Separator(\n    { className, orientation = \"horizontal\", decorative = true, ...props },\n    ref,\n  ) {\n    return (\n      <SeparatorPrimitive.Root\n        ref={ref}\n        orientation={orientation}\n        decorative={decorative}\n        // prettier-ignore\n        className={cn(\"shrink-0 bg-border\", orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px self-stretch\", className)}\n        {...props}\n      />\n    );\n  },\n);\n"
+    }
+  ]
+}
