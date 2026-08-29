@@ -46,13 +46,9 @@ export function SheetSideDemo() {
               ))}
             </div>
             <SheetFooter>
-              <Button variant="primary" noScale>
-                Apply
-              </Button>
+              <Button variant="primary">Apply</Button>
               <SheetClose asChild>
-                <Button variant="secondary" noScale>
-                  Cancel
-                </Button>
+                <Button variant="secondary">Cancel</Button>
               </SheetClose>
             </SheetFooter>
           </SheetContent>

@@ -78,13 +78,6 @@ export const buttonMeta: ComponentMeta = {
       description: "Button size. Use icon variants for icon-only buttons.",
     },
     {
-      name: "noScale",
-      type: "boolean",
-      default: "false",
-      description:
-        "Disable hover/active scaling. Useful for full-width buttons.",
-    },
-    {
       name: "asChild",
       type: "boolean",
       default: "false",

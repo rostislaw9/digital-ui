@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 // prettier-ignore
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium select-none rounded-md transition-[background-color,border-color,color,box-shadow,transform] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-40 will-change-transform [&_svg]:pointer-events-none [&_svg]:shrink-0 shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium select-none rounded-md transition-[background-color,border-color,color,box-shadow,transform] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0 shrink-0 active:translate-y-px",
   {
     variants: {
       variant: {
@@ -31,15 +31,10 @@ export const buttonVariants = cva(
         "icon-lg": "size-9 [&_svg:not([class*='size-'])]:size-5",
         "icon-xl": "size-10 [&_svg:not([class*='size-'])]:size-5",
       },
-      scale: {
-        true: "hover:scale-[1.02] active:scale-[0.97]",
-        false: "",
-      },
     },
     defaultVariants: {
       variant: "primary",
       size: "md",
-      scale: true,
     },
   },
 );
@@ -49,7 +44,6 @@ export interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  noScale?: boolean;
 }
 
 /**
@@ -58,8 +52,7 @@ export interface ButtonProps
  * Built on `@radix-ui/react-slot` (for `asChild` composition), shadcn-inspired.
  * Variants cover primary, secondary, outline, ghost, destructive, and link.
  * Sizes include text buttons (`xs`–`xl`) and icon-only buttons (`icon-xs`–
- * `icon-xl`). The `scale` variant adds a subtle hover/active scale unless
- * `noScale` is set.
+ * `icon-xl`). On active, the button shifts 1px down for tactile feedback.
  *
  * Accessibility: renders a native `<button>` with `type="button"` by default.
  * Use `asChild` to render as a link or other element; the `type` prop is
@@ -67,15 +60,7 @@ export interface ButtonProps
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
-    {
-      className,
-      variant,
-      size,
-      asChild = false,
-      type,
-      noScale = false,
-      ...props
-    },
+    { className, variant, size, asChild = false, type, ...props },
     ref,
   ) {
     const Comp = asChild ? Slot : "button";
@@ -86,9 +71,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-size={size}
         type={asChild ? undefined : (type ?? "button")}
-        className={cn(
-          buttonVariants({ variant, size, scale: !noScale, className }),
-        )}
+        className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       />
     );

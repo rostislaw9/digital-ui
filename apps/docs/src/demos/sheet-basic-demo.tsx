@@ -36,13 +36,9 @@ export function SheetBasicDemo() {
           </div>
         </div>
         <SheetFooter>
-          <Button variant="primary" noScale>
-            Save
-          </Button>
+          <Button variant="primary">Save</Button>
           <SheetClose asChild>
-            <Button variant="secondary" noScale>
-              Cancel
-            </Button>
+            <Button variant="secondary">Cancel</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>
