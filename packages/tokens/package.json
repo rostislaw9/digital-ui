@@ -1,7 +1,7 @@
 {
   "name": "@ionbit-ui/tokens",
   "version": "0.1.0",
-  "description": "Design tokens for IonBit UI, shipped as CSS.",
+  "description": "Design tokens for Ionbit UI, shipped as CSS.",
   "license": "MIT",
   "type": "module",
   "author": "Rostislav Rudometov",

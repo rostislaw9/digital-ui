@@ -1,7 +1,7 @@
 {
   "name": "@ionbit-ui/motion",
   "version": "0.1.0",
-  "description": "Reusable motion primitives for IonBit UI — Glow, Spotlight, Magnetic, Pulse, Reveal.",
+  "description": "Reusable motion primitives for Ionbit UI — Glow, Spotlight, Magnetic, Pulse, Reveal.",
   "license": "MIT",
   "type": "module",
   "author": "Rostislav Rudometov",

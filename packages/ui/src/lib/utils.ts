@@ -2,7 +2,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 /**
- * IonBit UI class-merging utility.
+ * Ionbit UI class-merging utility.
  *
  * `clsx` flattens conditional inputs; `tailwind-merge` resolves conflicting
  * Tailwind classes (last wins). Together they let consumers pass a `className`

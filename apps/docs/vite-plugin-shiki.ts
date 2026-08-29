@@ -142,6 +142,9 @@ export function shikiHighlightPlugin(): Plugin {
         const ext = filePath.slice(filePath.lastIndexOf("."));
         const lang = LANG_MAP[ext] ?? "tsx";
         const html = await highlight(code, lang);
+        // Register the source file as a dependency so Vite invalidates
+        // this virtual module when the source changes (HMR support).
+        this.addWatchFile(filePath);
         return {
           code: `export default ${JSON.stringify(html)};`,
           map: null,

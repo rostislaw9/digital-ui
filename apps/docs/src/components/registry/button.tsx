@@ -26,7 +26,7 @@ export const buttonMeta: ComponentMeta = {
     {
       title: "Variants",
       description:
-        "All eight variants including inverted styles. Icons with data-icon adjust padding automatically.",
+        "All eight variants including soft styles. Icons with data-icon adjust padding automatically.",
       code: ButtonVariantsDemoSource,
       rawCode: ButtonVariantsDemoRaw,
       render: () => <ButtonVariantsDemo />,
@@ -67,7 +67,7 @@ export const buttonMeta: ComponentMeta = {
   props: [
     {
       name: "variant",
-      type: '"primary" | "primary-inverted" | "secondary" | "outline" | "ghost" | "destructive" | "destructive-inverted" | "link"',
+      type: '"primary" | "primary-soft" | "secondary" | "outline" | "ghost" | "destructive" | "destructive-soft" | "link"',
       default: '"primary"',
       description: "Visual style of the button.",
     },

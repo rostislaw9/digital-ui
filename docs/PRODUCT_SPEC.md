@@ -1,4 +1,4 @@
-# IonBit UI
+# Ionbit UI
 
 ## Working Description
 
@@ -56,7 +56,7 @@ than production-ready application primitives.
 
 Production-ready but frequently visually conservative.
 
-IonBit UI should combine these strengths.
+Ionbit UI should combine these strengths.
 
 ---
 
@@ -69,7 +69,7 @@ IonBit UI should combine these strengths.
 
 ## Design Position
 
-IonBit UI should feel:
+Ionbit UI should feel:
 
 - precise;
 - responsive;

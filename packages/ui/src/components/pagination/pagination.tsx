@@ -134,7 +134,7 @@ export const PaginationPrevious = forwardRef<
       className={cn("pl-1.5", className)}
       {...props}
     >
-      <ChevronLeft data-icon="inline-start" className="size-4" />
+      <ChevronLeft data-icon="inline-start" />
       <span className="hidden sm:block">{text}</span>
     </PaginationLink>
   );
@@ -164,7 +164,7 @@ export const PaginationNext = forwardRef<
       {...props}
     >
       <span className="hidden sm:block">{text}</span>
-      <ChevronRight data-icon="inline-end" className="size-4" />
+      <ChevronRight data-icon="inline-end" />
     </PaginationLink>
   );
 });
@@ -190,7 +190,7 @@ export const PaginationEllipsis = forwardRef<
       className={cn("flex size-8 items-center justify-center", className)}
       {...props}
     >
-      <MoreHorizontal className="size-4" />
+      <MoreHorizontal className="size-4 text-foreground-subtle" />
       <span className="sr-only">More pages</span>
     </span>
   );

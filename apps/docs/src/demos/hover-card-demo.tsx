@@ -14,7 +14,7 @@ export function HoverCardDemo() {
       <HoverCardContent>
         <div className="flex flex-col gap-1">
           <span className="text-sm font-semibold text-foreground">
-            IonBit UI
+            Ionbit UI
           </span>
           <span className="text-xs text-foreground-muted">
             A React component library with a distinctive digital visual

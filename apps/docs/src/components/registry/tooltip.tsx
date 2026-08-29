@@ -40,7 +40,7 @@ export const tooltipMeta: ComponentMeta = {
     },
     {
       name: "variant",
-      type: '"default" | "inverted"',
+      type: '"default"',
       default: '"default"',
       description: "Visual variant.",
     },

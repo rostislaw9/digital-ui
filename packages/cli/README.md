@@ -1,6 +1,6 @@
-# IonBit UI CLI
+# Ionbit UI CLI
 
-A CLI for installing [IonBit UI](https://github.com/rostislaw9/ionbit-ui) components into your React project.
+A CLI for installing [Ionbit UI](https://github.com/rostislaw9/ionbit-ui) components into your React project.
 
 ## Quick start
 
@@ -13,7 +13,7 @@ npx ionbit-ui@latest add button
 
 ### `init`
 
-Initialize IonBit UI in your project. Creates a config file, sets up directories, installs base utilities and design tokens, and adds CSS imports.
+Initialize Ionbit UI in your project. Creates a config file, sets up directories, installs base utilities and design tokens, and adds CSS imports.
 
 ```bash
 npx ionbit-ui@latest init

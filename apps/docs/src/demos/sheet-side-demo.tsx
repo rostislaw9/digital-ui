@@ -38,7 +38,7 @@ export function SheetSideDemo() {
                   key={index}
                   className="mb-2 text-sm leading-relaxed text-foreground-muted"
                 >
-                  IonBit UI ships with semantic design tokens mapped to CSS
+                  Ionbit UI ships with semantic design tokens mapped to CSS
                   custom properties. Override colors, spacing, and motion by
                   editing a single tokens file — no component source changes
                   required.

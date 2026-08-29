@@ -12,7 +12,7 @@ export function AccordionBasicDemo() {
         <AccordionTrigger>Installation</AccordionTrigger>
         <AccordionContent>
           <p className="text-sm text-foreground-muted leading-relaxed">
-            IonBit UI is designed for source ownership. Install individual
+            Ionbit UI is designed for source ownership. Install individual
             components on demand using the CLI — no global dependency lock-in.
             Run{" "}
             <code className="text-foreground">npx ionbit-ui add button</code> to

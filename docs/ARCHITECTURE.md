@@ -1,6 +1,6 @@
-# IonBit UI — Architecture
+# Ionbit UI — Architecture
 
-This document defines the technical architecture for IonBit UI. It is
+This document defines the technical architecture for Ionbit UI. It is
 the authoritative reference for repository structure, package layout,
 styling, motion, testing, build, the registry, and the CLI.
 
@@ -25,7 +25,7 @@ new information.
    state changes. Use Motion only for spring physics, pointer tracking,
    and gesture-driven effects that CSS cannot express.
 3. **Accessibility is non-negotiable.** Complex interactive components
-   layer on top of Radix Primitives. IonBit UI owns the reduced-motion
+   layer on top of Radix Primitives. Ionbit UI owns the reduced-motion
    and motion-a11y story on top.
 4. **Tokens as the contract.** Components reference semantic design
    tokens (`bg-surface`, `text-foreground`, `border-border`) via
@@ -53,7 +53,7 @@ ionbit-ui/
 │   ├── ui/                    # Component library (source-owned + npm published)
 │   ├── motion/                # Motion primitives (npm published)
 │   ├── tokens/                # Design tokens as CSS (npm published)
-│   └── cli/                   # IonBit UI CLI (npm published)
+│   └── cli/                   # Ionbit UI CLI (npm published)
 ├── registry/                  # Source registry build scripts
 ├── registry.json              # Generated source registry (shadcn-compatible)
 ├── docs/                      # Project documentation (spec, rules, design system)
@@ -660,7 +660,7 @@ yarn typecheck   # tsc --noEmit across packages
 ### 13.1 Goal
 
 A `registry.json` describing each component, its source files, its npm
-dependencies, and its registry dependencies (other IonBit UI
+dependencies, and its registry dependencies (other Ionbit UI
 components/utilities it relies on). Compatible in spirit with the
 shadcn registry schema so consumers familiar with shadcn find the DX
 natural.
@@ -720,7 +720,7 @@ Tabs, Dropdown Menu, Checkbox, Switch, Slider) wrap Radix Primitives.
 We do not reimplement focus trapping, ARIA roles, or keyboard
 navigation.
 
-### 15.2 What IonBit UI owns
+### 15.2 What Ionbit UI owns
 
 - **Focus-visible treatment:** a consistent, token-driven focus ring
   across all components, layered on top of Radix's focus management.
@@ -795,7 +795,7 @@ with the same tokens and components as a consumer would use.
 | `tailwind-variants`                    | Rejected                           | `cva` + `cn()` is clearer and more widely understood.                                                         |
 | `playwright`                           | Deferred                           | Needed for registry/CLI E2E, not for the foundation.                                                          |
 | `changesets`                           | Deferred                           | Add at first release prep.                                                                                    |
-| `sonner`                               | Adopted (Toast only)               | Toast re-exports Sonner and maps IonBit UI tokens to Sonner's CSS variables. Credit: Emil Kowalski.           |
+| `sonner`                               | Adopted (Toast only)               | Toast re-exports Sonner and maps Ionbit UI tokens to Sonner's CSS variables. Credit: Emil Kowalski.           |
 | `lucide-react`                         | Not a hard dependency              | Icons are consumer-chosen. Docs app may use it for demos, but it is not a runtime dependency of `ui`.         |
 
 ---

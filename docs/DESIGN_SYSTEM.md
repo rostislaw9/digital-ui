@@ -1,8 +1,8 @@
-# IonBit UI Design System
+# Ionbit UI Design System
 
 ## 1. Design Concept
 
-IonBit UI represents a modern digital interface system where UI elements
+Ionbit UI represents a modern digital interface system where UI elements
 respond to user interaction with controlled energy, light, depth, and motion.
 
 The system should feel like:

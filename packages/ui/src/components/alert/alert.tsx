@@ -14,10 +14,10 @@ export const alertVariants = cva(
         success: "border-success/30 bg-success/10 text-foreground [&_svg]:text-success",
         warning: "border-warning/30 bg-warning/10 text-foreground [&_svg]:text-warning",
         error: "border-error/30 bg-error/10 text-foreground [&_svg]:text-error",
-        "accent-inverted": "border-border bg-surface text-accent [&_svg]:text-accent",
-        "success-inverted": "border-border bg-surface text-success [&_svg]:text-success",
-        "warning-inverted": "border-border bg-surface text-warning [&_svg]:text-warning",
-        "error-inverted": "border-border bg-surface text-error [&_svg]:text-error",
+        "accent-soft": "border-border bg-surface text-accent [&_svg]:text-accent",
+        "success-soft": "border-border bg-surface text-success [&_svg]:text-success",
+        "warning-soft": "border-border bg-surface text-warning [&_svg]:text-warning",
+        "error-soft": "border-border bg-surface text-error [&_svg]:text-error",
       },
     },
     defaultVariants: {
@@ -48,8 +48,8 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
     role ??
     (variant === "error" ||
     variant === "warning" ||
-    variant === "error-inverted" ||
-    variant === "warning-inverted"
+    variant === "error-soft" ||
+    variant === "warning-soft"
       ? "alert"
       : "status");
   return (

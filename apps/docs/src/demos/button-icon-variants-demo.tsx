@@ -16,7 +16,7 @@ export function ButtonIconVariantsDemo() {
       <Button variant="primary" size="icon" aria-label="Add">
         <Plus />
       </Button>
-      <Button variant="primary-inverted" size="icon" aria-label="User profile">
+      <Button variant="primary-soft" size="icon" aria-label="User profile">
         <User2 />
       </Button>
       <Button variant="secondary" size="icon" aria-label="Settings">
@@ -31,7 +31,7 @@ export function ButtonIconVariantsDemo() {
       <Button variant="destructive" size="icon" aria-label="Delete">
         <Trash2 />
       </Button>
-      <Button variant="destructive-inverted" size="icon" aria-label="Power off">
+      <Button variant="destructive-soft" size="icon" aria-label="Power off">
         <Power />
       </Button>
     </div>

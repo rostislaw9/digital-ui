@@ -20,7 +20,7 @@
       "name": "tokens",
       "type": "registry:base",
       "title": "Design Tokens",
-      "description": "IonBit UI design tokens \u2014 OKLCH colors, shadows, motion durations, easings, and Tailwind v4 theme mapping.",
+      "description": "Ionbit UI design tokens \u2014 OKLCH colors, shadows, motion durations, easings, and Tailwind v4 theme mapping.",
       "files": [
         {
           "path": "packages/tokens/src/tokens.css",
@@ -303,7 +303,7 @@
       "name": "toast",
       "type": "registry:ui",
       "title": "Toast",
-      "description": "Sonner-based toast notifications with IonBit UI-compatible CSS variables.",
+      "description": "Sonner-based toast notifications with Ionbit UI-compatible CSS variables.",
       "dependencies": ["sonner", "clsx", "tailwind-merge"],
       "registryDependencies": ["cn"],
       "files": [

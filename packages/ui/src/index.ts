@@ -47,7 +47,7 @@ export type {
   BreadcrumbSeparatorProps,
 } from "./components/breadcrumb/index";
 
-export { Button, buttonVariants } from "./components/button/index";
+export { Button, buttonVariants, Slottable } from "./components/button/index";
 export type { ButtonProps } from "./components/button/index";
 
 export { Input } from "./components/input/index";

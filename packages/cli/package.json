@@ -1,7 +1,7 @@
 {
   "name": "ionbit-ui",
   "version": "0.1.0",
-  "description": "IonBit UI CLI — install source-owned components from the IonBit UI registry.",
+  "description": "Ionbit UI CLI — install source-owned components from the Ionbit UI registry.",
   "type": "module",
   "license": "MIT",
   "author": "Rostislav Rudometov",

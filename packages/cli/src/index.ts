@@ -9,14 +9,14 @@ const program = new Command();
 program
   .name("ionbit-ui")
   .description(
-    "IonBit UI CLI — install source-owned components from the IonBit UI registry.",
+    "Ionbit UI CLI — install source-owned components from the Ionbit UI registry.",
   )
   .version("0.0.1");
 
 program
   .command("init")
   .description(
-    "Initialize IonBit UI in your project. Creates a ionbit-ui.config.json and installs design tokens.",
+    "Initialize Ionbit UI in your project. Creates a ionbit-ui.config.json and installs design tokens.",
   )
   .option("-y, --yes", "Skip prompts and use defaults")
   .option(

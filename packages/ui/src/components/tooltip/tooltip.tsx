@@ -23,7 +23,7 @@ const slideInBySide: Record<NonNullable<TooltipProps["side"]>, string> = {
 };
 
 /**
- * Tooltip — a Radix-based tooltip with IonBit UI styling.
+ * Tooltip — a Radix-based tooltip with Ionbit UI styling.
  *
  * Built on `@radix-ui/react-tooltip`, shadcn-inspired. Wraps Provider,
  * Root, Trigger, Portal, and Content into a single component for

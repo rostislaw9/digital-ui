@@ -1,9 +1,9 @@
-# IonBit UI — Competitive Research
+# Ionbit UI — Competitive Research
 
 ## Purpose
 
 This document records concrete findings about the current React UI
-ecosystem and identifies a meaningful differentiation for IonBit UI.
+ecosystem and identifies a meaningful differentiation for Ionbit UI.
 
 It is intentionally opinionated. Generic descriptions of "what each
 library does" are kept short. The focus is on:
@@ -14,7 +14,7 @@ library does" are kept short. The focus is on:
 - accessibility approach;
 - visual identity;
 - concrete weaknesses;
-- what IonBit UI can do differently.
+- what Ionbit UI can do differently.
 
 ---
 
@@ -307,7 +307,7 @@ itself as "the perfect companion for shadcn/ui".
 
 ### Patterns to avoid
 
-- Building a library of disconnected "wow" effects. IonBit UI must be
+- Building a library of disconnected "wow" effects. Ionbit UI must be
   a system, not a scrapbook.
 - Defaulting to constant/infinite animations.
 - Ignoring reduced motion.
@@ -401,7 +401,7 @@ Tailwind CSS by Julien Thibeaut (`ibelick`). Distributed via a CLI
 ### Motion system
 
 - Motion throughout. This is the closest existing project to what
-  IonBit UI's motion layer aspires to be: small, composable,
+  Ionbit UI's motion layer aspires to be: small, composable,
   effect-focused primitives.
 
 ### Accessibility
@@ -430,7 +430,7 @@ Tailwind CSS by Julien Thibeaut (`ibelick`). Distributed via a CLI
 
 ### Patterns to avoid
 
-- Treating motion primitives as the entire product. IonBit UI needs
+- Treating motion primitives as the entire product. Ionbit UI needs
   real components underneath the motion.
 
 ---
@@ -508,19 +508,19 @@ primitives (Data Grid, Kanban, Gantt, Event Calendar, Filters, etc.).
 
 No widely adopted project sits in the middle: **production-quality
 primitives + a coherent motion system + a distinctive visual
-identity**. That is the gap IonBit UI targets.
+identity**. That is the gap Ionbit UI targets.
 
 ### Motion is treated as decoration, not system
 
 In every animation-focused library surveyed, motion is per-component
 and per-demo. There is no shared motion token system (timing, easing,
 intensity, reduced-motion policy) enforced across the library. This is
-the single biggest design opportunity for IonBit UI.
+the single biggest design opportunity for Ionbit UI.
 
 ### Accessibility is outsourced, not owned
 
 The production libraries outsource a11y to Radix/Base UI/React Aria.
-The animation libraries ignore it. IonBit UI should outsource the
+The animation libraries ignore it. Ionbit UI should outsource the
 heavy a11y lifting to a headless primitive (Radix) but **own the
 reduced-motion and motion-a11y story ourselves**, because no headless
 library does that.
@@ -529,7 +529,7 @@ library does that.
 
 Every successful recent project (shadcn, Magic UI, Aceternity, Motion
 Primitives, ReUI) uses copy-paste source ownership. npm-only component
-libraries are losing mindshare. IonBit UI should adopt source
+libraries are losing mindshare. Ionbit UI should adopt source
 ownership from day one, with an npm package only for shared utilities,
 tokens, and motion primitives that are not meant to be customized per
 project.
@@ -543,7 +543,7 @@ worth following closely for interoperability.
 
 ---
 
-## Proposed differentiation for IonBit UI
+## Proposed differentiation for Ionbit UI
 
 1. **A coherent motion system as a first-class design layer.**
    Shared timing, easing, intensity, and reduced-motion tokens enforced
@@ -561,7 +561,7 @@ worth following closely for interoperability.
    define them.
 
 4. **Accessibility owned, not just inherited.**
-   Radix provides the headless a11y base. IonBit UI owns the
+   Radix provides the headless a11y base. Ionbit UI owns the
    reduced-motion, focus-visible, and motion-a11y story on top.
 
 5. **Source ownership with a small runtime core.**
@@ -580,13 +580,13 @@ worth following closely for interoperability.
 
 ## Exit criteria
 
-A clear statement of why IonBit UI should exist:
+A clear statement of why Ionbit UI should exist:
 
-> IonBit UI should exist because no widely adopted React UI library
+> Ionbit UI should exist because no widely adopted React UI library
 > combines production-quality accessible primitives, a coherent
 > system-level motion language, and a distinctive restrained digital
 > visual identity. The ecosystem is split between visually generic
 > primitive libraries and visually loud but production-weak animation
-> collections. IonBit UI occupies the middle: a real component system
+> collections. Ionbit UI occupies the middle: a real component system
 > that feels alive without sacrificing usability, accessibility, or
 > taste.

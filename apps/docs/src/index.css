@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /*
- * IonBit UI tokens + base layer.
+ * Ionbit UI tokens + base layer.
  * In a real consumer app this is the only required "config":
  *   @import "@ionbit-ui/tokens/css";
  *   @import "@ionbit-ui/tokens/base";
@@ -21,8 +21,6 @@
  */
 @source "../../../packages/ui/src/components";
 @source "../../../packages/motion/src";
-@source "./tailwind-classes.ts";
-
 /*
  * Tailwind v4 switched from cursor: pointer to cursor: default for
  * buttons. We restore pointer cursor for interactive elements.

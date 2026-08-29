@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "IonBit UI — a production-quality React UI component system with a distinctive digital visual language and integrated motion/interaction primitives.",
+  "description": "Ionbit UI — a production-quality React UI component system with a distinctive digital visual language and integrated motion/interaction primitives.",
   "license": "MIT",
   "workspaces": [
     "apps/*",

@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -29,7 +30,7 @@ export function ComponentsPage() {
           <h1 className="text-3xl font-semibold tracking-tight text-foreground">
             All components
           </h1>
-          <p className="max-w-2xl text-foreground-muted">
+          <p className="text-sm text-foreground-muted">
             {componentRegistry.length} production-ready primitives. Click any
             component for live previews, code, and API details.
           </p>
@@ -37,12 +38,12 @@ export function ComponentsPage() {
       </Reveal>
 
       <Reveal direction="up">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <Input
             placeholder="Search components..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full max-w-xs"
+            className="w-full sm:max-w-xs"
           />
           <div className="flex flex-wrap gap-1">
             {["All", ...componentCategories].map((cat) => (
@@ -64,7 +65,7 @@ export function ComponentsPage() {
         </div>
       </Reveal>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {filtered.map((comp, i) => (
           <Reveal key={comp.name} direction="up" delay={(i % 3) * 60}>
             <Link
@@ -90,7 +91,7 @@ export function ComponentsPage() {
                   {comp.examples.length} example
                   {comp.examples.length > 1 ? "s" : ""}
                 </span>
-                <span>→</span>
+                <ArrowRight className="size-3" />
               </div>
             </Link>
           </Reveal>

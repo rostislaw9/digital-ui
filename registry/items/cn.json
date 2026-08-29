@@ -11,7 +11,7 @@
     {
       "path": "lib/utils.ts",
       "type": "registry:lib",
-      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\n/**\n * IonBit UI class-merging utility.\n *\n * `clsx` flattens conditional inputs; `tailwind-merge` resolves conflicting\n * Tailwind classes (last wins). Together they let consumers pass a `className`\n * prop that overrides variant defaults predictably.\n */\nexport function cn(...inputs: ClassValue[]): string {\n  return twMerge(clsx(inputs));\n}\n"
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\n/**\n * Ionbit UI class-merging utility.\n *\n * `clsx` flattens conditional inputs; `tailwind-merge` resolves conflicting\n * Tailwind classes (last wins). Together they let consumers pass a `className`\n * prop that overrides variant defaults predictably.\n */\nexport function cn(...inputs: ClassValue[]): string {\n  return twMerge(clsx(inputs));\n}\n"
     }
   ]
 }

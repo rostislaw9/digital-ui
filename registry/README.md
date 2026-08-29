@@ -1,6 +1,6 @@
 # registry/
 
-The IonBit UI source registry, compatible with the [shadcn registry schema](https://ui.shadcn.com/schema/registry.json).
+The Ionbit UI source registry, compatible with the [shadcn registry schema](https://ui.shadcn.com/schema/registry.json).
 
 ## Structure
 

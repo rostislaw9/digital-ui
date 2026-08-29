@@ -1,6 +1,6 @@
-# Contributing to IonBit UI
+# Contributing to Ionbit UI
 
-Thank you for your interest in contributing to IonBit UI! This document
+Thank you for your interest in contributing to Ionbit UI! This document
 describes the development workflow and conventions.
 
 ## Prerequisites
@@ -23,7 +23,7 @@ apps/docs/        Documentation & component playground (Vite + React)
 packages/tokens/  Design tokens as CSS (@ionbit-ui/tokens)
 packages/motion/  Motion primitives (@ionbit-ui/motion)
 packages/ui/      Component library (@ionbit-ui/ui)
-packages/cli/     IonBit UI CLI (ionbit-ui)
+packages/cli/     Ionbit UI CLI (ionbit-ui)
 registry/         Source registry build scripts
 docs/             Project spec, architecture, design system docs
 ```

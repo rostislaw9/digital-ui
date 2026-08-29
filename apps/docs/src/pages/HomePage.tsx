@@ -1,10 +1,72 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { Glow, Magnetic, Reveal, Spotlight } from "@ionbit-ui/motion";
-import { Button, Input, Progress, Switch } from "@ionbit-ui/ui";
+import { Glow, Magnetic, Reveal } from "@ionbit-ui/motion";
+import { Button } from "@ionbit-ui/ui";
 
 import { componentRegistry } from "../components/registry";
+import {
+  ActivityCard,
+  AnalyticsCard,
+  ApiKeyCard,
+  BillingCard,
+  CommandCard,
+  DeployCard,
+  FeedbackCard,
+  IntegrationCard,
+  InviteCard,
+  LoginCard,
+  NewsletterCard,
+  NotificationsCard,
+  PricingCard,
+  ProfileCard,
+  SearchCard,
+  SecurityCard,
+  SettingsCard,
+  StatsCard,
+  StorageCard,
+  TaskCard,
+  TeamCard,
+  UptimeCard,
+  WebhookCard,
+} from "../showcase";
+
+const showcaseCards = [
+  LoginCard,
+  ActivityCard,
+  PricingCard,
+  StatsCard,
+  NewsletterCard,
+  AnalyticsCard,
+  SettingsCard,
+  TeamCard,
+  FeedbackCard,
+  BillingCard,
+  ApiKeyCard,
+  DeployCard,
+  ProfileCard,
+  TaskCard,
+  NotificationsCard,
+  CommandCard,
+  StorageCard,
+  UptimeCard,
+  SearchCard,
+  InviteCard,
+  SecurityCard,
+  WebhookCard,
+  IntegrationCard,
+];
+
+// Mobile: split into vertical columns for horizontal scroll.
+// 2 columns fully visible + a peek of the 3rd.
+const mobileCardsPerColumn = 8;
+const mobileColumns = Array.from(
+  { length: Math.ceil(showcaseCards.length / mobileCardsPerColumn) },
+  (_, i) =>
+    showcaseCards.slice(
+      i * mobileCardsPerColumn,
+      (i + 1) * mobileCardsPerColumn,
+    ),
+);
 
 export function HomePage() {
   return (
@@ -17,7 +79,7 @@ export function HomePage() {
           </p>
         </Reveal>
         <Reveal direction="up" delay={60}>
-          <h1 className="max-w-2xl text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-6xl">
+          <h1 className="max-w-5xl text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-6xl">
             Production interfaces that feel{" "}
             <Glow always variant="text" intensity={0.7}>
               <span className="text-accent">alive</span>
@@ -25,12 +87,13 @@ export function HomePage() {
           </h1>
         </Reveal>
         <Reveal direction="up" delay={120}>
-          <p className="max-w-2xl text-lg text-foreground-muted leading-relaxed">
-            IonBit UI is a React component system with a distinctive digital
+          <p className="max-w-5xl text-lg text-foreground-muted leading-relaxed">
+            Ionbit UI is a React component system with a distinctive digital
             visual language and a coherent motion system. Inspired by
             shadcn&apos;s source-ownership model, extended with a motion layer
-            and a restrained digital identity. Real primitives, polished
-            interaction, restrained taste.
+            and a restrained digital identity — real primitives, polished
+            interaction, and the kind of restrained taste that lets your product
+            do the talking.
           </p>
         </Reveal>
         <Reveal direction="up" delay={180}>
@@ -51,158 +114,43 @@ export function HomePage() {
         </Reveal>
       </section>
 
-      {/* Live demo strip */}
-      <section className="grid gap-4 sm:grid-cols-3">
-        <Reveal direction="up">
-          <DemoCard label="Switch" to="/components/switch">
-            <SwitchDemo />
-          </DemoCard>
-        </Reveal>
-        <Reveal direction="up" delay={60}>
-          <DemoCard label="Progress" to="/components/progress" fullWidth>
-            <ProgressDemo />
-          </DemoCard>
-        </Reveal>
-        <Reveal direction="up" delay={120}>
-          <DemoCard label="Input" to="/components/input">
-            <InputDemo />
-          </DemoCard>
-        </Reveal>
-      </section>
-
-      {/* Feature grid */}
-      <section className="grid gap-4 sm:grid-cols-3">
-        {[
-          {
-            label: "Production primitives",
-            body: "Button, Card, Dialog, Tabs, Toast — the components real apps are built from.",
-          },
-          {
-            label: "Coherent motion",
-            body: "Shared timing, easing, and reduced-motion tokens enforced across the library.",
-          },
-          {
-            label: "Restrained identity",
-            body: "Dark, technical, sophisticated. Hierarchy and typography, not neon and particles.",
-          },
-        ].map((f, i) => (
-          <Reveal key={f.label} direction="up" delay={i * 60}>
-            <div className="rounded-lg border border-border bg-surface p-5 h-full">
-              <h3 className="text-sm font-semibold text-foreground">
-                {f.label}
-              </h3>
-              <p className="mt-2 text-sm text-foreground-muted leading-relaxed">
-                {f.body}
-              </p>
+      {/* Showcase — mobile: horizontal scroll, desktop: masonry columns */}
+      <section className="relative max-h-[calc(100vh-12rem)] overflow-hidden lg:max-h-[calc(100vh-16rem)]">
+        {/* Mobile — horizontal columns, 2 visible + peek of 3rd */}
+        <div className="flex gap-6 overflow-x-auto pb-4 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {mobileColumns.map((column, colIdx) => (
+            <div key={colIdx} className="flex w-[42vw] shrink-0 flex-col gap-8">
+              {column.map((Card, i) => (
+                <Card key={i} />
+              ))}
             </div>
-          </Reveal>
-        ))}
+          ))}
+        </div>
+
+        {/* Desktop — masonry columns, section clips overflow with fade */}
+        <div className="hidden lg:block">
+          <div className="columns-3 gap-8 xl:columns-4 2xl:columns-5">
+            {showcaseCards.map((Card, i) => (
+              <div key={i} className="break-inside-avoid pb-8">
+                <Card />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom fade shadow — gives the feeling of a limitless list */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </section>
 
       {/* Component count */}
-      <section className="flex flex-col items-center gap-6 py-8">
+      <section className="flex flex-col items-center gap-4 py-8 text-center">
         <Reveal direction="up">
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-            {componentRegistry.length} components, ready to use
-          </h2>
+          <p className="text-sm text-foreground-muted">
+            {componentRegistry.length} components, ready to use. Source-owned,
+            accessible, and production-tested.
+          </p>
         </Reveal>
-        <div className="flex flex-wrap justify-center gap-2">
-          {componentRegistry.map((c) => (
-            <Link
-              key={c.name}
-              to={`/components/${c.name}`}
-              className="rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground-muted transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:border-border-strong hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              {c.label}
-            </Link>
-          ))}
-        </div>
       </section>
     </div>
-  );
-}
-
-function DemoCard({
-  label,
-  to,
-  children,
-  fullWidth = false,
-}: {
-  label: string;
-  to: string;
-  children: React.ReactNode;
-  fullWidth?: boolean;
-}) {
-  const navigate = useNavigate();
-  return (
-    <Spotlight intensity={0.4} proximity={220}>
-      {}
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={() => navigate(to)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            navigate(to);
-          }
-        }}
-        className="group flex flex-col gap-4 rounded-lg border border-border bg-surface p-6 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      >
-        <div className="flex min-h-[80px] items-center justify-center">
-          {/* eslint-disable jsx-a11y/no-static-element-interactions -- stop navigation only on the showcased component, not the card padding around it */}
-          <div
-            className={fullWidth ? "flex w-full" : "inline-flex"}
-            onClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => e.stopPropagation()}
-          >
-            {children}
-          </div>
-        </div>
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
-            {label}
-          </span>
-          <span className="text-xs text-foreground-subtle group-hover:text-foreground transition-colors">
-            →
-          </span>
-        </div>
-      </div>
-    </Spotlight>
-  );
-}
-
-function SwitchDemo() {
-  const [on, setOn] = useState(true);
-  return (
-    <div className="flex items-center gap-3">
-      <Switch checked={on} onCheckedChange={setOn} />
-      <span className="text-sm text-foreground-muted">{on ? "On" : "Off"}</span>
-    </div>
-  );
-}
-
-function ProgressDemo() {
-  const [value, setValue] = useState(13);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setValue((prev) => {
-        const next = prev + Math.random() * 15;
-        return next >= 100 ? 13 : next;
-      });
-    }, 800);
-    return () => clearInterval(interval);
-  }, []);
-  return <Progress value={value} className="w-full" />;
-}
-
-function InputDemo() {
-  const [val, setVal] = useState("");
-  return (
-    <Input
-      placeholder="Try typing..."
-      value={val}
-      onChange={(e) => setVal(e.target.value)}
-    />
   );
 }

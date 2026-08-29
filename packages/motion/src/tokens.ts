@@ -1,5 +1,5 @@
 /**
- * IonBit UI — Motion tokens
+ * Ionbit UI — Motion tokens
  *
  * The single source of truth for timing, easing, spring, and intensity.
  * Components and primitives reference these; they do not hardcode values.

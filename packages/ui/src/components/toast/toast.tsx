@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import { Toaster as SonnerToaster, toast as sonnerToast } from "sonner";
 
 /**
- * Token bridge — maps IonBit UI semantic tokens to Sonner's CSS variables.
+ * Token bridge — maps Ionbit UI semantic tokens to Sonner's CSS variables.
  * Applied as inline `style` on the Toaster so Sonner's internal styles
  * resolve to our colors.
  */
@@ -45,7 +45,7 @@ export interface IonBitToasterProps extends ToasterProps {
 }
 
 /**
- * Toaster — the toast container, Sonner re-exported with IonBit UI token mapping.
+ * Toaster — the toast container, Sonner re-exported with Ionbit UI token mapping.
  *
  * Built on [Sonner](https://sonner.emilkowal.ski) by
  * [Emil Kowalski](https://twitter.com/emilkowalski), following the

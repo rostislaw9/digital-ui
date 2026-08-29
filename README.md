@@ -1,4 +1,4 @@
-# IonBit UI
+# Ionbit UI
 
 A production-quality React UI component system with a distinctive digital
 visual language and an integrated motion/interaction system.
@@ -8,7 +8,7 @@ visual language and an integrated motion/interaction system.
 
 ## What this is
 
-IonBit UI is **not**:
+Ionbit UI is **not**:
 
 - a collection of copied Magic UI components;
 - a collection of flashy landing-page effects;
@@ -84,7 +84,7 @@ import { Spotlight, Glow, Magnetic, Pulse, Reveal } from "@ionbit-ui/motion";
 
 // Glow — accent-colored box-shadow / text-shadow halo
 <Glow variant="text">
-  <h1>IonBit UI</h1>
+  <h1>Ionbit UI</h1>
 </Glow>
 
 // Magnetic — element subtly translates toward the cursor
@@ -97,7 +97,7 @@ All motion primitives respect `prefers-reduced-motion` automatically.
 
 ## Design tokens
 
-IonBit UI uses a semantic token system mapped to Tailwind v4 utilities:
+Ionbit UI uses a semantic token system mapped to Tailwind v4 utilities:
 
 ```text
 --background    --surface    --surface-elevated    --surface-hover
@@ -124,7 +124,7 @@ apps/docs/        Vite + React documentation app
 packages/tokens/  Design tokens as CSS (@ionbit-ui/tokens)
 packages/motion/  Motion primitives (@ionbit-ui/motion)
 packages/ui/      Component library (@ionbit-ui/ui)
-packages/cli/     IonBit UI CLI (ionbit-ui)
+packages/cli/     Ionbit UI CLI (ionbit-ui)
 registry/         Source registry build scripts
 docs/             Project spec, architecture, design system docs
 ```
@@ -154,7 +154,7 @@ See `CONTRIBUTING.md` for the full development workflow.
 
 ## Acknowledgments
 
-IonBit UI stands on the shoulders of several excellent projects:
+Ionbit UI stands on the shoulders of several excellent projects:
 
 - [shadcn/ui](https://ui.shadcn.com) — the source-ownership model and
   component composition patterns that inspired this project.

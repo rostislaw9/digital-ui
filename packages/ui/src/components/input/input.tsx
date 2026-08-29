@@ -8,7 +8,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 /**
- * Input — a text input field with the IonBit UI visual language.
+ * Input — a text input field with the Ionbit UI visual language.
  *
  * Uses semantic tokens only. The focus state uses an accent-tinted ring
  * plus a subtle border shift. Invalid state switches the border to error.

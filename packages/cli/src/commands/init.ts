@@ -101,7 +101,7 @@ export async function init(options: {
   }
 
   console.log("");
-  console.log(chalk.bold("IonBit UI initialized!"));
+  console.log(chalk.bold("Ionbit UI initialized!"));
   console.log("");
   console.log(chalk.dim("Next steps:"));
   console.log(`  ${chalk.cyan("ionbit-ui add button")}    — add a component`);

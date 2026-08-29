@@ -3,23 +3,24 @@ import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 
 import { cn, Toaster } from "@ionbit-ui/ui";
 
-import { HomePage } from "./pages/HomePage";
-
+const HomePage = lazy(() =>
+  import("./pages/HomePage").then((m) => ({ default: m.HomePage })),
+);
 const ComponentsPage = lazy(() =>
-  import("./pages/ComponentsPage.js").then((m) => ({
+  import("./pages/ComponentsPage").then((m) => ({
     default: m.ComponentsPage,
   })),
 );
 const ComponentDetailPage = lazy(() =>
-  import("./pages/ComponentDetailPage.js").then((m) => ({
+  import("./pages/ComponentDetailPage").then((m) => ({
     default: m.ComponentDetailPage,
   })),
 );
 const TokensPage = lazy(() =>
-  import("./pages/TokensPage.js").then((m) => ({ default: m.TokensPage })),
+  import("./pages/TokensPage").then((m) => ({ default: m.TokensPage })),
 );
 const NotFoundPage = lazy(() =>
-  import("./pages/NotFoundPage.js").then((m) => ({ default: m.NotFoundPage })),
+  import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })),
 );
 
 function PageLoader() {
@@ -38,12 +39,26 @@ function ScrollToTop() {
   return null;
 }
 
+/** Full-width layout for homepage and 404. */
+function FullWidthLayout({ children }: { children: React.ReactNode }) {
+  return <div className="w-full px-6 py-12">{children}</div>;
+}
+
+/** Centered content layout for /components and /tokens (no sidebar). */
+function CenteredLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex justify-center px-6 py-8">
+      <div className="w-full max-w-4xl">{children}</div>
+    </div>
+  );
+}
+
 export function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScrollToTop />
       <header className="sticky top-0 z-20 border-b border-border bg-surface/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="flex w-full items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-2">
             <span className="font-mono text-md font-semibold tracking-tight text-foreground">
               ionbit
@@ -57,14 +72,25 @@ export function App() {
           </nav>
         </div>
       </header>
-      <main className="mx-auto max-w-7xl px-6 py-12">
+      <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <FullWidthLayout>
+                  <HomePage />
+                </FullWidthLayout>
+              </Suspense>
+            }
+          />
           <Route
             path="/components"
             element={
               <Suspense fallback={<PageLoader />}>
-                <ComponentsPage />
+                <CenteredLayout>
+                  <ComponentsPage />
+                </CenteredLayout>
               </Suspense>
             }
           />
@@ -80,7 +106,9 @@ export function App() {
             path="/tokens"
             element={
               <Suspense fallback={<PageLoader />}>
-                <TokensPage />
+                <CenteredLayout>
+                  <TokensPage />
+                </CenteredLayout>
               </Suspense>
             }
           />
@@ -88,7 +116,9 @@ export function App() {
             path="*"
             element={
               <Suspense fallback={<PageLoader />}>
-                <NotFoundPage />
+                <FullWidthLayout>
+                  <NotFoundPage />
+                </FullWidthLayout>
               </Suspense>
             }
           />

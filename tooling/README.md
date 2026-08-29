@@ -1,6 +1,6 @@
 # tooling/
 
-Placeholder for the future IonBit UI CLI and shared build tooling.
+Placeholder for the future Ionbit UI CLI and shared build tooling.
 
 Planned CLI surface:
 

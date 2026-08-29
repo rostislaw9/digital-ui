@@ -1,4 +1,4 @@
-# IonBit UI — Agent Rules
+# Ionbit UI — Agent Rules
 
 ## 1. Project Overview
 

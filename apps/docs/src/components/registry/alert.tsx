@@ -3,9 +3,9 @@ import type { ComponentMeta } from "./types";
 import { AlertDescriptionDemo } from "../../demos/alert-description-demo";
 import AlertDescriptionDemoSource from "../../demos/alert-description-demo.tsx?highlighted";
 import AlertDescriptionDemoRaw from "../../demos/alert-description-demo.tsx?raw";
-import { AlertInvertedDemo } from "../../demos/alert-inverted-demo";
-import AlertInvertedDemoSource from "../../demos/alert-inverted-demo.tsx?highlighted";
-import AlertInvertedDemoRaw from "../../demos/alert-inverted-demo.tsx?raw";
+import { AlertSoftDemo } from "../../demos/alert-soft-demo";
+import AlertSoftDemoSource from "../../demos/alert-soft-demo.tsx?highlighted";
+import AlertSoftDemoRaw from "../../demos/alert-soft-demo.tsx?raw";
 import { AlertVariantsDemo } from "../../demos/alert-variants-demo";
 import AlertVariantsDemoSource from "../../demos/alert-variants-demo.tsx?highlighted";
 import AlertVariantsDemoRaw from "../../demos/alert-variants-demo.tsx?raw";
@@ -25,12 +25,12 @@ export const alertMeta: ComponentMeta = {
       render: () => <AlertVariantsDemo />,
     },
     {
-      title: "Inverted",
+      title: "Soft",
       description:
         "Solid background with contrasting text — accent, success, warning, and error.",
-      code: AlertInvertedDemoSource,
-      rawCode: AlertInvertedDemoRaw,
-      render: () => <AlertInvertedDemo />,
+      code: AlertSoftDemoSource,
+      rawCode: AlertSoftDemoRaw,
+      render: () => <AlertSoftDemo />,
     },
     {
       title: "With Description",
@@ -53,7 +53,7 @@ export const alertMeta: ComponentMeta = {
   props: [
     {
       name: "variant",
-      type: '"default" | "accent" | "success" | "warning" | "error" | "accent-inverted" | "success-inverted" | "warning-inverted" | "error-inverted"',
+      type: '"default" | "accent" | "success" | "warning" | "error" | "accent-soft" | "success-soft" | "warning-soft" | "error-soft"',
       default: '"default"',
       description: "Visual variant of the alert.",
     },

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to IonBit UI will be documented in this file.
+All notable changes to Ionbit UI will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -8,6 +8,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- **Variant renaming:** renamed all `-inverted` button and alert variants
+  to `-soft` for shorter, clearer naming (`primary-inverted` →
+  `primary-soft`, `destructive-inverted` → `destructive-soft`,
+  `accent-inverted` → `accent-soft`, `success-inverted` →
+  `success-soft`, `warning-inverted` → `warning-soft`, `error-inverted`
+  → `error-soft`). Updated source, registry, demos, tests, and docs.
+- **Arrow icons:** replaced all `←`/`→` text arrows with Lucide icons
+  (`ArrowLeft`, `ArrowRight`) across the docs app. Icons are placed
+  inside `Button` with `Slottable` and `data-icon` attributes for
+  correct spacing. Re-exported `Slottable` from `@ionbit-ui/ui`.
+- **ComponentsSidebar:** redesigned as a flat list using `ScrollArea`
+  with hidden scrollbar, vertical gradient line, top/bottom fade shadows
+  that appear/disappear based on scroll position, and `Reveal` entrance
+  animation. Hidden on mobile (`lg:hidden` back link shown instead).
+- **PrevNextNav:** changed from link buttons with text labels to
+  outline buttons with arrow icons, no "Previous"/"Next" labels.
+- **Homepage hero:** widened hero text from `max-w-2xl` to `max-w-5xl`
+  and reworded the description to fill the wider layout evenly.
+- **Homepage showcase:** extracted 12 inline showcase cards into
+  separate files under `apps/docs/src/showcase/`. Added 6 new cards
+  (TeamCard, BillingCard, NotificationsCard, SearchCard, SecurityCard,
+  IntegrationCard) and 5 more (ApiKeyCard, WebhookCard, AnalyticsCard,
+  CommandCard, UptimeCard) for 23 total. All cards are now purely
+  visual (no state/effects). Removed the feature grid section.
+  Lazy-loaded `HomePage` as a separate chunk.
+- **Tooltip registry:** removed stale `inverted` variant from Tooltip
+  API docs (the component never had it).
+- **Vite plugin fix:** added `this.addWatchFile()` to the Shiki
+  highlight plugin so `?highlighted` imports update on HMR.
+
+### Known Issues
+
+- **Homepage showcase grid** needs to be moved into a separate
+  component and adjusted for better responsive UI — column alignment,
+  mobile scaling, and card distribution require further work.
+- **ComponentsSidebar** does not auto-scroll to the currently active
+  component when navigating via the sidebar or URL — the active item
+  can become not visible if it is outside the scroll viewport.
+- **Performance optimizations needed:** chunk sizes require
+  investigation (ComponentDetailPage chunk is ~678 kB), code quality
+  review needed (reuse of components, large source files, hierarchy
+  issues).
 
 - **Documentation comments:** added `/** */` doc comments to all 14
   components that were missing them (AlertDialog, Button, Checkbox,
@@ -99,8 +142,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `--border-error` token (light + dark) and
   `--color-border-error` Tailwind mapping. Fixes `--shadow-glow-error`
   being silently dropped because `--border-error` was undefined.
-- Added inverted Alert variants (`accent-inverted`, `success-inverted`,
-  `warning-inverted`, `error-inverted`) with `bg-surface` and colored
+- Added soft Alert variants (`accent-soft`, `success-soft`,
+  `warning-soft`, `error-soft`) with `bg-surface` and colored
   text/icons. Removed hardcoded `text-foreground` from `AlertTitle` and
   `text-foreground-muted` from `AlertDescription` so they inherit the
   alert's variant color.
