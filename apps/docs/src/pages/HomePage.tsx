@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Glow, Magnetic, Reveal, Spotlight } from "@ionbit-ui/motion";
 import { Button, Input, Progress, Switch } from "@ionbit-ui/ui";
 
-import { componentRegistry } from "../components/registry.js";
+import { componentRegistry } from "../components/registry";
 
 export function HomePage() {
   return (

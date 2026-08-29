@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { AccordionBasicDemo } from "../../demos/accordion-basic-demo.js";
+import { AccordionBasicDemo } from "../../demos/accordion-basic-demo";
 import AccordionBasicDemoSource from "../../demos/accordion-basic-demo.tsx?highlighted";
 import AccordionBasicDemoRaw from "../../demos/accordion-basic-demo.tsx?raw";
 

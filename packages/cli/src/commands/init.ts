@@ -1,13 +1,13 @@
-import type { Config, RegistryItem } from "../config.js";
+import type { Config, RegistryItem } from "../config";
 
 import chalk from "chalk";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { relative, resolve } from "node:path";
 
-import { CONFIG_FILE, DEFAULT_CONFIG } from "../config.js";
-import { resolveTargetPath, saveConfig, writeFile } from "../utils/fs.js";
-import { installNpmDeps } from "../utils/npm.js";
-import { fetchRegistryItems } from "../utils/registry.js";
+import { CONFIG_FILE, DEFAULT_CONFIG } from "../config";
+import { resolveTargetPath, saveConfig, writeFile } from "../utils/fs";
+import { installNpmDeps } from "../utils/npm";
+import { fetchRegistryItems } from "../utils/registry";
 
 const CURSOR_CSS = `@layer base {
   button:not(:disabled),

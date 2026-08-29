@@ -1,8 +1,8 @@
 import { Command } from "commander";
 
-import { add } from "./commands/add.js";
-import { init } from "./commands/init.js";
-import { list } from "./commands/list.js";
+import { add } from "./commands/add";
+import { init } from "./commands/init";
+import { list } from "./commands/list";
 
 const program = new Command();
 

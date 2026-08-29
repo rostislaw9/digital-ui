@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { TextareaBasicDemo } from "../../demos/textarea-basic-demo.js";
+import { TextareaBasicDemo } from "../../demos/textarea-basic-demo";
 import TextareaBasicDemoSource from "../../demos/textarea-basic-demo.tsx?highlighted";
 import TextareaBasicDemoRaw from "../../demos/textarea-basic-demo.tsx?raw";
-import { TextareaInvalidDemo } from "../../demos/textarea-invalid-demo.js";
+import { TextareaInvalidDemo } from "../../demos/textarea-invalid-demo";
 import TextareaInvalidDemoSource from "../../demos/textarea-invalid-demo.tsx?highlighted";
 import TextareaInvalidDemoRaw from "../../demos/textarea-invalid-demo.tsx?raw";
 

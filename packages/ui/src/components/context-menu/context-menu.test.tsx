@@ -7,7 +7,7 @@ import {
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "./context-menu.js";
+} from "./context-menu";
 
 describe("ContextMenu", () => {
   it("opens on right-click", async () => {

@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { SpotlightBasicDemo } from "../../demos/spotlight-basic-demo.js";
+import { SpotlightBasicDemo } from "../../demos/spotlight-basic-demo";
 import SpotlightBasicDemoSource from "../../demos/spotlight-basic-demo.tsx?highlighted";
 import SpotlightBasicDemoRaw from "../../demos/spotlight-basic-demo.tsx?raw";
-import { SpotlightProximityDemo } from "../../demos/spotlight-proximity-demo.js";
+import { SpotlightProximityDemo } from "../../demos/spotlight-proximity-demo";
 import SpotlightProximityDemoSource from "../../demos/spotlight-proximity-demo.tsx?highlighted";
 import SpotlightProximityDemoRaw from "../../demos/spotlight-proximity-demo.tsx?raw";
 

@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { CommandDemo } from "../../demos/command-demo.js";
+import { CommandDemo } from "../../demos/command-demo";
 import CommandDemoSource from "../../demos/command-demo.tsx?highlighted";
 import CommandDemoRaw from "../../demos/command-demo.tsx?raw";
 

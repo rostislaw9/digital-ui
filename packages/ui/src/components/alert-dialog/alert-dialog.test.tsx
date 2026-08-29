@@ -10,7 +10,7 @@ import {
   AlertDialogDescription,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "./alert-dialog.js";
+} from "./alert-dialog";
 
 describe("AlertDialog", () => {
   it("opens on trigger click", async () => {

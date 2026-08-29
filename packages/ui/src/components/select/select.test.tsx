@@ -8,7 +8,7 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-} from "./select.js";
+} from "./select";
 
 describe("Select", () => {
   it("renders the trigger", () => {

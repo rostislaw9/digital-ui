@@ -1,10 +1,10 @@
-import type { ComponentMeta } from "../registry.js";
+import type { ComponentMeta } from "../registry";
 
 import { Link } from "react-router-dom";
 
 import { Button } from "@ionbit-ui/ui";
 
-import { getPrevNext } from "../../lib/getPrevNext.js";
+import { getPrevNext } from "../../lib/getPrevNext";
 
 export function PrevNextNav({
   current,

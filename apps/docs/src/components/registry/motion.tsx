@@ -1,27 +1,27 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { GlowAlwaysDemo } from "../../demos/glow-always-demo.js";
+import { GlowAlwaysDemo } from "../../demos/glow-always-demo";
 import GlowAlwaysDemoSource from "../../demos/glow-always-demo.tsx?highlighted";
 import GlowAlwaysDemoRaw from "../../demos/glow-always-demo.tsx?raw";
-import { GlowDemo } from "../../demos/glow-demo.js";
+import { GlowDemo } from "../../demos/glow-demo";
 import GlowDemoSource from "../../demos/glow-demo.tsx?highlighted";
 import GlowDemoRaw from "../../demos/glow-demo.tsx?raw";
-import { GlowLinkDemo } from "../../demos/glow-link-demo.js";
+import { GlowLinkDemo } from "../../demos/glow-link-demo";
 import GlowLinkDemoSource from "../../demos/glow-link-demo.tsx?highlighted";
 import GlowLinkDemoRaw from "../../demos/glow-link-demo.tsx?raw";
-import { GlowTextDemo } from "../../demos/glow-text-demo.js";
+import { GlowTextDemo } from "../../demos/glow-text-demo";
 import GlowTextDemoSource from "../../demos/glow-text-demo.tsx?highlighted";
 import GlowTextDemoRaw from "../../demos/glow-text-demo.tsx?raw";
-import { MagneticDemo } from "../../demos/magnetic-demo.js";
+import { MagneticDemo } from "../../demos/magnetic-demo";
 import MagneticDemoSource from "../../demos/magnetic-demo.tsx?highlighted";
 import MagneticDemoRaw from "../../demos/magnetic-demo.tsx?raw";
-import { PulseDemo } from "../../demos/pulse-demo.js";
+import { PulseDemo } from "../../demos/pulse-demo";
 import PulseDemoSource from "../../demos/pulse-demo.tsx?highlighted";
 import PulseDemoRaw from "../../demos/pulse-demo.tsx?raw";
-import { PulseTextDemo } from "../../demos/pulse-text-demo.js";
+import { PulseTextDemo } from "../../demos/pulse-text-demo";
 import PulseTextDemoSource from "../../demos/pulse-text-demo.tsx?highlighted";
 import PulseTextDemoRaw from "../../demos/pulse-text-demo.tsx?raw";
-import { RevealDemo } from "../../demos/reveal-demo.js";
+import { RevealDemo } from "../../demos/reveal-demo";
 import RevealDemoSource from "../../demos/reveal-demo.tsx?highlighted";
 import RevealDemoRaw from "../../demos/reveal-demo.tsx?raw";
 

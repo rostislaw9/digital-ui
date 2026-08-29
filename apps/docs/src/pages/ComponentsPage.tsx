@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Badge, Button, cn, Input } from "@ionbit-ui/ui";
 
-import {
-  componentCategories,
-  componentRegistry,
-} from "../components/registry.js";
+import { componentCategories, componentRegistry } from "../components/registry";
 
 export function ComponentsPage() {
   const [query, setQuery] = useState("");

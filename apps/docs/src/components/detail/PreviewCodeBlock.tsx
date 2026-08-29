@@ -3,8 +3,8 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 import { Button, ScrollArea } from "@ionbit-ui/ui";
 
-import { CopyButton } from "./CopyButton.js";
-import { HighlightedCode } from "./HighlightedCode.js";
+import { CopyButton } from "./CopyButton";
+import { HighlightedCode } from "./HighlightedCode";
 
 const MAX_CODE_HEIGHT = 400;
 

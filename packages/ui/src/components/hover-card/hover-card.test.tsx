@@ -2,7 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card.js";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
 
 describe("HoverCard", () => {
   it("shows content on hover", async () => {

@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { InputBasicDemo } from "../../demos/input-basic-demo.js";
+import { InputBasicDemo } from "../../demos/input-basic-demo";
 import InputBasicDemoSource from "../../demos/input-basic-demo.tsx?highlighted";
 import InputBasicDemoRaw from "../../demos/input-basic-demo.tsx?raw";
-import { InputInvalidDemo } from "../../demos/input-invalid-demo.js";
+import { InputInvalidDemo } from "../../demos/input-invalid-demo";
 import InputInvalidDemoSource from "../../demos/input-invalid-demo.tsx?highlighted";
 import InputInvalidDemoRaw from "../../demos/input-invalid-demo.tsx?raw";
 

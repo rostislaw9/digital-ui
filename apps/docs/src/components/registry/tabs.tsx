@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { TabsBasicDemo } from "../../demos/tabs-basic-demo.js";
+import { TabsBasicDemo } from "../../demos/tabs-basic-demo";
 import TabsBasicDemoSource from "../../demos/tabs-basic-demo.tsx?highlighted";
 import TabsBasicDemoRaw from "../../demos/tabs-basic-demo.tsx?raw";
 

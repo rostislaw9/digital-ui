@@ -8,7 +8,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "./card.js";
+} from "./card";
 
 describe("Card", () => {
   it("renders all sub-components", () => {

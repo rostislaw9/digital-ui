@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "./index.js";
+} from "./index";
 
 describe("Breadcrumb", () => {
   it("renders nav with aria-label breadcrumb", () => {

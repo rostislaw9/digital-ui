@@ -7,7 +7,7 @@ import {
   DialogContent,
   DialogDescription,
   DialogTitle,
-} from "./dialog.js";
+} from "./dialog";
 
 describe("Dialog", () => {
   it("does not render content when closed", () => {

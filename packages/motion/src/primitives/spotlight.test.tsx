@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import { Spotlight } from "./spotlight.js";
+import { Spotlight } from "./spotlight";
 
 describe("Spotlight", () => {
   it("renders children", () => {

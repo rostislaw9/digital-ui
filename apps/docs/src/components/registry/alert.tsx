@@ -1,12 +1,12 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { AlertDescriptionDemo } from "../../demos/alert-description-demo.js";
+import { AlertDescriptionDemo } from "../../demos/alert-description-demo";
 import AlertDescriptionDemoSource from "../../demos/alert-description-demo.tsx?highlighted";
 import AlertDescriptionDemoRaw from "../../demos/alert-description-demo.tsx?raw";
-import { AlertInvertedDemo } from "../../demos/alert-inverted-demo.js";
+import { AlertInvertedDemo } from "../../demos/alert-inverted-demo";
 import AlertInvertedDemoSource from "../../demos/alert-inverted-demo.tsx?highlighted";
 import AlertInvertedDemoRaw from "../../demos/alert-inverted-demo.tsx?raw";
-import { AlertVariantsDemo } from "../../demos/alert-variants-demo.js";
+import { AlertVariantsDemo } from "../../demos/alert-variants-demo";
 import AlertVariantsDemoSource from "../../demos/alert-variants-demo.tsx?highlighted";
 import AlertVariantsDemoRaw from "../../demos/alert-variants-demo.tsx?raw";
 

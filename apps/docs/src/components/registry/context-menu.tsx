@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { ContextMenuDemo } from "../../demos/context-menu-demo.js";
+import { ContextMenuDemo } from "../../demos/context-menu-demo";
 import ContextMenuDemoSource from "../../demos/context-menu-demo.tsx?highlighted";
 import ContextMenuDemoRaw from "../../demos/context-menu-demo.tsx?raw";
 

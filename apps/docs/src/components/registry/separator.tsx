@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { SeparatorHorizontalDemo } from "../../demos/separator-horizontal-demo.js";
+import { SeparatorHorizontalDemo } from "../../demos/separator-horizontal-demo";
 import SeparatorHorizontalDemoSource from "../../demos/separator-horizontal-demo.tsx?highlighted";
 import SeparatorHorizontalDemoRaw from "../../demos/separator-horizontal-demo.tsx?raw";
-import { SeparatorVerticalDemo } from "../../demos/separator-vertical-demo.js";
+import { SeparatorVerticalDemo } from "../../demos/separator-vertical-demo";
 import SeparatorVerticalDemoSource from "../../demos/separator-vertical-demo.tsx?highlighted";
 import SeparatorVerticalDemoRaw from "../../demos/separator-vertical-demo.tsx?raw";
 

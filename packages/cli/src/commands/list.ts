@@ -1,6 +1,6 @@
 import chalk from "chalk";
 
-import { fetchRegistry } from "../utils/registry.js";
+import { fetchRegistry } from "../utils/registry";
 
 export async function list(): Promise<void> {
   const registry = await fetchRegistry();

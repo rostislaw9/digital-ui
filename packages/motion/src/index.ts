@@ -1,19 +1,19 @@
-export { motionTokens } from "./tokens.js";
-export type { MotionTokens } from "./tokens.js";
+export { motionTokens } from "./tokens";
+export type { MotionTokens } from "./tokens";
 
-export { Spotlight } from "./primitives/spotlight.js";
-export type { SpotlightProps } from "./primitives/spotlight.js";
+export { Spotlight } from "./primitives/spotlight";
+export type { SpotlightProps } from "./primitives/spotlight";
 
-export { Magnetic } from "./primitives/magnetic.js";
-export type { MagneticProps } from "./primitives/magnetic.js";
+export { Magnetic } from "./primitives/magnetic";
+export type { MagneticProps } from "./primitives/magnetic";
 
-export { Glow } from "./primitives/glow.js";
-export type { GlowProps } from "./primitives/glow.js";
+export { Glow } from "./primitives/glow";
+export type { GlowProps } from "./primitives/glow";
 
-export { Pulse } from "./primitives/pulse.js";
-export type { PulseProps } from "./primitives/pulse.js";
+export { Pulse } from "./primitives/pulse";
+export type { PulseProps } from "./primitives/pulse";
 
-export { Reveal } from "./primitives/reveal.js";
-export type { RevealProps } from "./primitives/reveal.js";
+export { Reveal } from "./primitives/reveal";
+export type { RevealProps } from "./primitives/reveal";
 
-export { useReducedMotion } from "./hooks/use-reduced-motion.js";
+export { useReducedMotion } from "./hooks/use-reduced-motion";

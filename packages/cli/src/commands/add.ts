@@ -1,11 +1,11 @@
-import type { Config, RegistryItem } from "../config.js";
+import type { Config, RegistryItem } from "../config";
 
 import chalk from "chalk";
 import { existsSync } from "node:fs";
 
-import { loadConfig, resolveTargetPath, writeFile } from "../utils/fs.js";
-import { installNpmDeps } from "../utils/npm.js";
-import { fetchRegistry, fetchRegistryItems } from "../utils/registry.js";
+import { loadConfig, resolveTargetPath, writeFile } from "../utils/fs";
+import { installNpmDeps } from "../utils/npm";
+import { fetchRegistry, fetchRegistryItems } from "../utils/registry";
 
 export async function add(
   components: string[],

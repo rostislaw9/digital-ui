@@ -1,10 +1,10 @@
-import type { Registry, RegistryItem } from "../config.js";
+import type { Registry, RegistryItem } from "../config";
 
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { REGISTRY_ITEM_URL, REGISTRY_URL } from "../config.js";
+import { REGISTRY_ITEM_URL, REGISTRY_URL } from "../config";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

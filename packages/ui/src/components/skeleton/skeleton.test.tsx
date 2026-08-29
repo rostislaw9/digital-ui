@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import { Skeleton } from "./skeleton.js";
+import { Skeleton } from "./skeleton";
 
 describe("Skeleton", () => {
   it("renders with default classes", () => {

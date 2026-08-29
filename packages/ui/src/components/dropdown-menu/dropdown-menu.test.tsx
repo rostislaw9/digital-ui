@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./dropdown-menu.js";
+} from "./dropdown-menu";
 
 describe("DropdownMenu", () => {
   it("renders the trigger", () => {

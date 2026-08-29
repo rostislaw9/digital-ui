@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { Slider } from "./slider.js";
+import { Slider } from "./slider";
 
 describe("Slider", () => {
   it("renders with default value", () => {

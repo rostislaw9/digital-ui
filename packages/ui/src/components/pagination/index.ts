@@ -6,7 +6,7 @@ export {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "./pagination.js";
+} from "./pagination";
 export type {
   PaginationContentProps,
   PaginationEllipsisProps,
@@ -15,4 +15,4 @@ export type {
   PaginationNextProps,
   PaginationPreviousProps,
   PaginationProps,
-} from "./pagination.js";
+} from "./pagination";

@@ -1,4 +1,4 @@
-import type { ComponentMeta } from "../components/registry.js";
+import type { ComponentMeta } from "../components/registry";
 
 export function getPrevNext(
   current: ComponentMeta,

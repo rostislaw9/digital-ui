@@ -8,7 +8,7 @@ export {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "./command.js";
+} from "./command";
 export type {
   CommandDialogProps,
   CommandEmptyProps,
@@ -19,4 +19,4 @@ export type {
   CommandProps,
   CommandSeparatorProps,
   CommandShortcutProps,
-} from "./command.js";
+} from "./command";

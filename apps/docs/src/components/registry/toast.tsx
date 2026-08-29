@@ -1,18 +1,18 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { ToastActionDemo } from "../../demos/toast-action-demo.js";
+import { ToastActionDemo } from "../../demos/toast-action-demo";
 import ToastActionDemoSource from "../../demos/toast-action-demo.tsx?highlighted";
 import ToastActionDemoRaw from "../../demos/toast-action-demo.tsx?raw";
-import { ToastDemo } from "../../demos/toast-demo.js";
+import { ToastDemo } from "../../demos/toast-demo";
 import ToastDemoSource from "../../demos/toast-demo.tsx?highlighted";
 import ToastDemoRaw from "../../demos/toast-demo.tsx?raw";
-import { ToastDescriptionDemo } from "../../demos/toast-description-demo.js";
+import { ToastDescriptionDemo } from "../../demos/toast-description-demo";
 import ToastDescriptionDemoSource from "../../demos/toast-description-demo.tsx?highlighted";
 import ToastDescriptionDemoRaw from "../../demos/toast-description-demo.tsx?raw";
-import { ToastPositionsDemo } from "../../demos/toast-positions-demo.js";
+import { ToastPositionsDemo } from "../../demos/toast-positions-demo";
 import ToastPositionsDemoSource from "../../demos/toast-positions-demo.tsx?highlighted";
 import ToastPositionsDemoRaw from "../../demos/toast-positions-demo.tsx?raw";
-import { ToastTypesDemo } from "../../demos/toast-types-demo.js";
+import { ToastTypesDemo } from "../../demos/toast-types-demo";
 import ToastTypesDemoSource from "../../demos/toast-types-demo.tsx?highlighted";
 import ToastTypesDemoRaw from "../../demos/toast-types-demo.tsx?raw";
 

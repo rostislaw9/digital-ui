@@ -1,12 +1,12 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { AvatarFallbackDemo } from "../../demos/avatar-fallback-demo.js";
+import { AvatarFallbackDemo } from "../../demos/avatar-fallback-demo";
 import AvatarFallbackDemoSource from "../../demos/avatar-fallback-demo.tsx?highlighted";
 import AvatarFallbackDemoRaw from "../../demos/avatar-fallback-demo.tsx?raw";
-import { AvatarSizesDemo } from "../../demos/avatar-sizes-demo.js";
+import { AvatarSizesDemo } from "../../demos/avatar-sizes-demo";
 import AvatarSizesDemoSource from "../../demos/avatar-sizes-demo.tsx?highlighted";
 import AvatarSizesDemoRaw from "../../demos/avatar-sizes-demo.tsx?raw";
-import { AvatarStatusDemo } from "../../demos/avatar-status-demo.js";
+import { AvatarStatusDemo } from "../../demos/avatar-status-demo";
 import AvatarStatusDemoSource from "../../demos/avatar-status-demo.tsx?highlighted";
 import AvatarStatusDemoRaw from "../../demos/avatar-status-demo.tsx?raw";
 

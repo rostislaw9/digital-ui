@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { Glow } from "./primitives/glow.js";
-import { Pulse } from "./primitives/pulse.js";
-import { Spotlight } from "./primitives/spotlight.js";
+import { Glow } from "./primitives/glow";
+import { Pulse } from "./primitives/pulse";
+import { Spotlight } from "./primitives/spotlight";
 
 // Helper to toggle matchMedia for prefers-reduced-motion
 function setReducedMotion(enabled: boolean) {

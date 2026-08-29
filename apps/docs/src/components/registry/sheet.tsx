@@ -1,12 +1,12 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { SheetBasicDemo } from "../../demos/sheet-basic-demo.js";
+import { SheetBasicDemo } from "../../demos/sheet-basic-demo";
 import SheetBasicDemoSource from "../../demos/sheet-basic-demo.tsx?highlighted";
 import SheetBasicDemoRaw from "../../demos/sheet-basic-demo.tsx?raw";
-import { SheetNoCloseDemo } from "../../demos/sheet-no-close-demo.js";
+import { SheetNoCloseDemo } from "../../demos/sheet-no-close-demo";
 import SheetNoCloseDemoSource from "../../demos/sheet-no-close-demo.tsx?highlighted";
 import SheetNoCloseDemoRaw from "../../demos/sheet-no-close-demo.tsx?raw";
-import { SheetSideDemo } from "../../demos/sheet-side-demo.js";
+import { SheetSideDemo } from "../../demos/sheet-side-demo";
 import SheetSideDemoSource from "../../demos/sheet-side-demo.tsx?highlighted";
 import SheetSideDemoRaw from "../../demos/sheet-side-demo.tsx?raw";
 

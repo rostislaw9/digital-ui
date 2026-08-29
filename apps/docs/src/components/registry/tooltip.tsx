@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { TooltipPositionsDemo } from "../../demos/tooltip-positions-demo.js";
+import { TooltipPositionsDemo } from "../../demos/tooltip-positions-demo";
 import TooltipPositionsDemoSource from "../../demos/tooltip-positions-demo.tsx?highlighted";
 import TooltipPositionsDemoRaw from "../../demos/tooltip-positions-demo.tsx?raw";
 

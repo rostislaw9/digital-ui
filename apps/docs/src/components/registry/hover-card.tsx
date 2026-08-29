@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { HoverCardDemo } from "../../demos/hover-card-demo.js";
+import { HoverCardDemo } from "../../demos/hover-card-demo";
 import HoverCardDemoSource from "../../demos/hover-card-demo.tsx?highlighted";
 import HoverCardDemoRaw from "../../demos/hover-card-demo.tsx?raw";
 

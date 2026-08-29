@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import { Tooltip } from "./tooltip.js";
+import { Tooltip } from "./tooltip";
 
 describe("Tooltip", () => {
   it("renders children when disabled", () => {

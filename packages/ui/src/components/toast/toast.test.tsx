@@ -2,7 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { Toaster, toast } from "./toast.js";
+import { Toaster, toast } from "./toast";
 
 describe("Toast", () => {
   it("shows toast on trigger", async () => {

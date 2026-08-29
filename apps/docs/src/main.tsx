@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import { App } from "./App.js";
+import { App } from "./App";
 import "./index.css";
 // Imported solely so Tailwind's content scanner detects component class
 // strings in dev mode. The file has no runtime exports and is tree-shaken

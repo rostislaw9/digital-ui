@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { CardBasicDemo } from "../../demos/card-basic-demo.js";
+import { CardBasicDemo } from "../../demos/card-basic-demo";
 import CardBasicDemoSource from "../../demos/card-basic-demo.tsx?highlighted";
 import CardBasicDemoRaw from "../../demos/card-basic-demo.tsx?raw";
-import { CardSpotlightDemo } from "../../demos/card-spotlight-demo.js";
+import { CardSpotlightDemo } from "../../demos/card-spotlight-demo";
 import CardSpotlightDemoSource from "../../demos/card-spotlight-demo.tsx?highlighted";
 import CardSpotlightDemoRaw from "../../demos/card-spotlight-demo.tsx?raw";
 

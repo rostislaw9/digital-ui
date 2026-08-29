@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { Glow } from "./glow.js";
+import { Glow } from "./glow";
 
 describe("Glow", () => {
   it("renders children when disabled", () => {

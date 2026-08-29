@@ -7,7 +7,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./accordion.js";
+} from "./accordion";
 
 describe("Accordion", () => {
   it("renders with items", () => {

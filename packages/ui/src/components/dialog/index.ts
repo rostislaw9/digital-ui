@@ -7,7 +7,7 @@ export {
   DialogFooter,
   DialogTitle,
   DialogTrigger,
-} from "./dialog.js";
+} from "./dialog";
 export type {
   DialogActionProps,
   DialogCloseProps,
@@ -17,4 +17,4 @@ export type {
   DialogProps,
   DialogTitleProps,
   DialogTriggerProps,
-} from "./dialog.js";
+} from "./dialog";

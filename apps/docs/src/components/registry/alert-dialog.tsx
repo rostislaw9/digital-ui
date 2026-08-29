@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { AlertDialogDemo } from "../../demos/alert-dialog-demo.js";
+import { AlertDialogDemo } from "../../demos/alert-dialog-demo";
 import AlertDialogDemoSource from "../../demos/alert-dialog-demo.tsx?highlighted";
 import AlertDialogDemoRaw from "../../demos/alert-dialog-demo.tsx?raw";
 

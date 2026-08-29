@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { PaginationDemo } from "../../demos/pagination-demo.js";
+import { PaginationDemo } from "../../demos/pagination-demo";
 import PaginationDemoSource from "../../demos/pagination-demo.tsx?highlighted";
 import PaginationDemoRaw from "../../demos/pagination-demo.tsx?raw";
 

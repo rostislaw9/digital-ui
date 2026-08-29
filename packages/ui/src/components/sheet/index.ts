@@ -7,7 +7,7 @@ export {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./sheet.js";
+} from "./sheet";
 export type {
   SheetCloseProps,
   SheetContentProps,
@@ -17,4 +17,4 @@ export type {
   SheetProps,
   SheetTitleProps,
   SheetTriggerProps,
-} from "./sheet.js";
+} from "./sheet";

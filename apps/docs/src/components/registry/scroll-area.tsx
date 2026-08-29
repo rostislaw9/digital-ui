@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { ScrollAreaDemo } from "../../demos/scroll-area-demo.js";
+import { ScrollAreaDemo } from "../../demos/scroll-area-demo";
 import ScrollAreaDemoSource from "../../demos/scroll-area-demo.tsx?highlighted";
 import ScrollAreaDemoRaw from "../../demos/scroll-area-demo.tsx?raw";
 

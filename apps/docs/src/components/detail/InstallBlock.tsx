@@ -4,8 +4,8 @@ import highlightedInline from "virtual:highlighted-inline";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ionbit-ui/ui";
 
-import { CopyButton } from "./CopyButton.js";
-import { HighlightedCode } from "./HighlightedCode.js";
+import { CopyButton } from "./CopyButton";
+import { HighlightedCode } from "./HighlightedCode";
 
 interface InstallBlockProps {
   /** Component name, e.g. "button" — used to build the `add` command. */

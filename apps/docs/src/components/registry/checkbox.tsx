@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { CheckboxBasicDemo } from "../../demos/checkbox-basic-demo.js";
+import { CheckboxBasicDemo } from "../../demos/checkbox-basic-demo";
 import CheckboxBasicDemoSource from "../../demos/checkbox-basic-demo.tsx?highlighted";
 import CheckboxBasicDemoRaw from "../../demos/checkbox-basic-demo.tsx?raw";
 

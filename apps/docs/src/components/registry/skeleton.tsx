@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { SkeletonBasicDemo } from "../../demos/skeleton-basic-demo.js";
+import { SkeletonBasicDemo } from "../../demos/skeleton-basic-demo";
 import SkeletonBasicDemoSource from "../../demos/skeleton-basic-demo.tsx?highlighted";
 import SkeletonBasicDemoRaw from "../../demos/skeleton-basic-demo.tsx?raw";
 

@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { DropdownMenuBasicDemo } from "../../demos/dropdown-menu-basic-demo.js";
+import { DropdownMenuBasicDemo } from "../../demos/dropdown-menu-basic-demo";
 import DropdownMenuBasicDemoSource from "../../demos/dropdown-menu-basic-demo.tsx?highlighted";
 import DropdownMenuBasicDemoRaw from "../../demos/dropdown-menu-basic-demo.tsx?raw";
 

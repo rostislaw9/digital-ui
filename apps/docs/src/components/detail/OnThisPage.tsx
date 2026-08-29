@@ -1,4 +1,4 @@
-import type { Section } from "../../hooks/useScrollSpy.js";
+import type { Section } from "../../hooks/useScrollSpy";
 import type { ReactNode } from "react";
 
 import { cn } from "@ionbit-ui/ui";

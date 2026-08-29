@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { ProgressDemo } from "../../demos/progress-demo.js";
+import { ProgressDemo } from "../../demos/progress-demo";
 import ProgressDemoSource from "../../demos/progress-demo.tsx?highlighted";
 import ProgressDemoRaw from "../../demos/progress-demo.tsx?raw";
 

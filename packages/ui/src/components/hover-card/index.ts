@@ -1,6 +1,6 @@
-export { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card.js";
+export { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
 export type {
   HoverCardContentProps,
   HoverCardProps,
   HoverCardTriggerProps,
-} from "./hover-card.js";
+} from "./hover-card";

@@ -7,7 +7,7 @@ export {
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "./alert-dialog.js";
+} from "./alert-dialog";
 export type {
   AlertDialogActionProps,
   AlertDialogCancelProps,
@@ -17,4 +17,4 @@ export type {
   AlertDialogProps,
   AlertDialogTitleProps,
   AlertDialogTriggerProps,
-} from "./alert-dialog.js";
+} from "./alert-dialog";

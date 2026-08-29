@@ -12,7 +12,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "./command.js";
+} from "./command";
 
 describe("Command", () => {
   it("renders items when open in dialog", async () => {

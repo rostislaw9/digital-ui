@@ -5,18 +5,18 @@ import { Link, useParams } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Button, cn } from "@ionbit-ui/ui";
 
-import { AccessibilityList } from "../components/detail/AccessibilityList.js";
-import { ApiTable } from "../components/detail/ApiTable.js";
-import { CompositionSection } from "../components/detail/CompositionSection.js";
-import { CursorSection } from "../components/detail/CursorSection.js";
-import { InstallBlock } from "../components/detail/InstallBlock.js";
-import { OnThisPage } from "../components/detail/OnThisPage.js";
-import { PreviewCodeBlock } from "../components/detail/PreviewCodeBlock.js";
-import { PrevNextNav } from "../components/detail/PrevNextNav.js";
-import { UsageSection } from "../components/detail/UsageSection.js";
-import { componentRegistry } from "../components/registry.js";
-import { useScrollSpy, type Section } from "../hooks/useScrollSpy.js";
-import { getPrevNext } from "../lib/getPrevNext.js";
+import { AccessibilityList } from "../components/detail/AccessibilityList";
+import { ApiTable } from "../components/detail/ApiTable";
+import { CompositionSection } from "../components/detail/CompositionSection";
+import { CursorSection } from "../components/detail/CursorSection";
+import { InstallBlock } from "../components/detail/InstallBlock";
+import { OnThisPage } from "../components/detail/OnThisPage";
+import { PreviewCodeBlock } from "../components/detail/PreviewCodeBlock";
+import { PrevNextNav } from "../components/detail/PrevNextNav";
+import { UsageSection } from "../components/detail/UsageSection";
+import { componentRegistry } from "../components/registry";
+import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
+import { getPrevNext } from "../lib/getPrevNext";
 
 function toSectionId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, "-");

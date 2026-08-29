@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { SwitchDemo } from "../../demos/switch-demo.js";
+import { SwitchDemo } from "../../demos/switch-demo";
 import SwitchDemoSource from "../../demos/switch-demo.tsx?highlighted";
 import SwitchDemoRaw from "../../demos/switch-demo.tsx?raw";
 

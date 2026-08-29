@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { Magnetic } from "./magnetic.js";
+import { Magnetic } from "./magnetic";
 
 describe("Magnetic", () => {
   it("renders children when disabled", () => {

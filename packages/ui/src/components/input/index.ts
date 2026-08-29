@@ -1,2 +1,2 @@
-export { Input } from "./input.js";
-export type { InputProps } from "./input.js";
+export { Input } from "./input";
+export type { InputProps } from "./input";

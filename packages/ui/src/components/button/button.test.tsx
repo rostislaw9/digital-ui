@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { Button } from "./button.js";
+import { Button } from "./button";
 
 describe("Button", () => {
   it("renders with the default variant and size classes", () => {

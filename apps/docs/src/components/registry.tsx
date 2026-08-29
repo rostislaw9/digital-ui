@@ -1,7 +1,7 @@
-export { componentCategories, componentRegistry } from "./registry/index.js";
+export { componentCategories, componentRegistry } from "./registry/index";
 export type {
   ComponentExample,
   ComponentMeta,
   PrimitiveMeta,
   PropMeta,
-} from "./registry/types.js";
+} from "./registry/types";

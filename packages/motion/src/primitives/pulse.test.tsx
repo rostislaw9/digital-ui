@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import { Pulse } from "./pulse.js";
+import { Pulse } from "./pulse";
 
 describe("Pulse", () => {
   it("renders children when disabled", () => {

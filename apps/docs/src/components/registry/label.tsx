@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { LabelDefaultDemo } from "../../demos/label-default-demo.js";
+import { LabelDefaultDemo } from "../../demos/label-default-demo";
 import LabelDefaultDemoSource from "../../demos/label-default-demo.tsx?highlighted";
 import LabelDefaultDemoRaw from "../../demos/label-default-demo.tsx?raw";
-import { LabelDisabledDemo } from "../../demos/label-disabled-demo.js";
+import { LabelDisabledDemo } from "../../demos/label-disabled-demo";
 import LabelDisabledDemoSource from "../../demos/label-disabled-demo.tsx?highlighted";
 import LabelDisabledDemoRaw from "../../demos/label-disabled-demo.tsx?raw";
 

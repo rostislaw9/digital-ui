@@ -14,7 +14,7 @@ export {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "./context-menu.js";
+} from "./context-menu";
 export type {
   ContextMenuCheckboxItemProps,
   ContextMenuContentProps,
@@ -31,4 +31,4 @@ export type {
   ContextMenuSubProps,
   ContextMenuSubTriggerProps,
   ContextMenuTriggerProps,
-} from "./context-menu.js";
+} from "./context-menu";

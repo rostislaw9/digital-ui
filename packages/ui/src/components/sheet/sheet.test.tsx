@@ -8,7 +8,7 @@ import {
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-} from "./sheet.js";
+} from "./sheet";
 
 describe("Sheet", () => {
   it("opens on trigger click", async () => {

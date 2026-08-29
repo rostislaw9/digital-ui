@@ -5,7 +5,7 @@ export {
   CardDescription,
   CardContent,
   CardFooter,
-} from "./card.js";
+} from "./card";
 export type {
   CardProps,
   CardHeaderProps,
@@ -13,4 +13,4 @@ export type {
   CardDescriptionProps,
   CardContentProps,
   CardFooterProps,
-} from "./card.js";
+} from "./card";

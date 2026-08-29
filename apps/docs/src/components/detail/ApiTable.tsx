@@ -1,4 +1,4 @@
-import type { PropMeta } from "../registry.js";
+import type { PropMeta } from "../registry";
 
 export function ApiTable({ props }: { props: PropMeta[] }) {
   return (

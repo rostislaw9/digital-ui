@@ -10,7 +10,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "./pagination.js";
+} from "./pagination";
 
 describe("Pagination", () => {
   it("renders pagination with links", () => {

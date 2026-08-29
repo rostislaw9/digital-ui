@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { Avatar, AvatarFallback, AvatarImage, AvatarStatus } from "./index.js";
+import { Avatar, AvatarFallback, AvatarImage, AvatarStatus } from "./index";
 
 describe("Avatar", () => {
   it("renders fallback when image fails", () => {

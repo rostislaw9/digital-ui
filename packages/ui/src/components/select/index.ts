@@ -6,7 +6,7 @@ export {
   SelectItem,
   SelectLabel,
   SelectSeparator,
-} from "./select.js";
+} from "./select";
 export type {
   SelectProps,
   SelectTriggerProps,
@@ -15,4 +15,4 @@ export type {
   SelectItemProps,
   SelectLabelProps,
   SelectSeparatorProps,
-} from "./select.js";
+} from "./select";

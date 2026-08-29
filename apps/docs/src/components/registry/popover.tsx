@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { PopoverBasicDemo } from "../../demos/popover-basic-demo.js";
+import { PopoverBasicDemo } from "../../demos/popover-basic-demo";
 import PopoverBasicDemoSource from "../../demos/popover-basic-demo.tsx?highlighted";
 import PopoverBasicDemoRaw from "../../demos/popover-basic-demo.tsx?raw";
 

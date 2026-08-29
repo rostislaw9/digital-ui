@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { BreadcrumbCustomSeparatorDemo } from "../../demos/breadcrumb-custom-separator-demo.js";
+import { BreadcrumbCustomSeparatorDemo } from "../../demos/breadcrumb-custom-separator-demo";
 import BreadcrumbCustomSeparatorDemoSource from "../../demos/breadcrumb-custom-separator-demo.tsx?highlighted";
 import BreadcrumbCustomSeparatorDemoRaw from "../../demos/breadcrumb-custom-separator-demo.tsx?raw";
-import { BreadcrumbDefaultDemo } from "../../demos/breadcrumb-default-demo.js";
+import { BreadcrumbDefaultDemo } from "../../demos/breadcrumb-default-demo";
 import BreadcrumbDefaultDemoSource from "../../demos/breadcrumb-default-demo.tsx?highlighted";
 import BreadcrumbDefaultDemoRaw from "../../demos/breadcrumb-default-demo.tsx?raw";
 

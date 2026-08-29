@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
 import { describe, it, expect } from "vitest";
 
-import { Textarea } from "./textarea.js";
+import { Textarea } from "./textarea";
 
 describe("Textarea", () => {
   it("renders with default classes", () => {

@@ -1,32 +1,32 @@
-export { cn } from "./lib/utils.js";
+export { cn } from "./lib/utils";
 
 export {
   Alert,
   AlertDescription,
   AlertTitle,
   alertVariants,
-} from "./components/alert/index.js";
+} from "./components/alert/index";
 export type {
   AlertDescriptionProps,
   AlertProps,
   AlertTitleProps,
-} from "./components/alert/index.js";
+} from "./components/alert/index";
 
 export {
   Avatar,
   AvatarFallback,
   AvatarImage,
   AvatarStatus,
-} from "./components/avatar/index.js";
+} from "./components/avatar/index";
 export type {
   AvatarFallbackProps,
   AvatarImageProps,
   AvatarProps,
   AvatarStatusProps,
-} from "./components/avatar/index.js";
+} from "./components/avatar/index";
 
-export { Badge, badgeVariants } from "./components/badge/index.js";
-export type { BadgeProps } from "./components/badge/index.js";
+export { Badge, badgeVariants } from "./components/badge/index";
+export type { BadgeProps } from "./components/badge/index";
 
 export {
   Breadcrumb,
@@ -36,7 +36,7 @@ export {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "./components/breadcrumb/index.js";
+} from "./components/breadcrumb/index";
 export type {
   BreadcrumbEllipsisProps,
   BreadcrumbItemProps,
@@ -45,19 +45,19 @@ export type {
   BreadcrumbPageProps,
   BreadcrumbProps,
   BreadcrumbSeparatorProps,
-} from "./components/breadcrumb/index.js";
+} from "./components/breadcrumb/index";
 
-export { Button, buttonVariants } from "./components/button/index.js";
-export type { ButtonProps } from "./components/button/index.js";
+export { Button, buttonVariants } from "./components/button/index";
+export type { ButtonProps } from "./components/button/index";
 
-export { Input } from "./components/input/index.js";
-export type { InputProps } from "./components/input/index.js";
+export { Input } from "./components/input/index";
+export type { InputProps } from "./components/input/index";
 
-export { Label } from "./components/label/index.js";
-export type { LabelProps } from "./components/label/index.js";
+export { Label } from "./components/label/index";
+export type { LabelProps } from "./components/label/index";
 
-export { Textarea } from "./components/textarea/index.js";
-export type { TextareaProps } from "./components/textarea/index.js";
+export { Textarea } from "./components/textarea/index";
+export type { TextareaProps } from "./components/textarea/index";
 
 export {
   Card,
@@ -66,7 +66,7 @@ export {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./components/card/index.js";
+} from "./components/card/index";
 export type {
   CardContentProps,
   CardDescriptionProps,
@@ -74,49 +74,49 @@ export type {
   CardHeaderProps,
   CardProps,
   CardTitleProps,
-} from "./components/card/index.js";
+} from "./components/card/index";
 
-export { Tooltip } from "./components/tooltip/index.js";
-export type { TooltipProps } from "./components/tooltip/index.js";
+export { Tooltip } from "./components/tooltip/index";
+export type { TooltipProps } from "./components/tooltip/index";
 
 export {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "./components/popover/index.js";
+} from "./components/popover/index";
 export type {
   PopoverContentProps,
   PopoverProps,
   PopoverTriggerProps,
-} from "./components/popover/index.js";
+} from "./components/popover/index";
 
 export {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "./components/tabs/index.js";
+} from "./components/tabs/index";
 export type {
   TabsContentProps,
   TabsListProps,
   TabsProps,
   TabsTriggerProps,
-} from "./components/tabs/index.js";
+} from "./components/tabs/index";
 
-export { Switch } from "./components/switch/index.js";
-export type { SwitchProps } from "./components/switch/index.js";
+export { Switch } from "./components/switch/index";
+export type { SwitchProps } from "./components/switch/index";
 
-export { Slider } from "./components/slider/index.js";
-export type { SliderProps } from "./components/slider/index.js";
+export { Slider } from "./components/slider/index";
+export type { SliderProps } from "./components/slider/index";
 
-export { Checkbox } from "./components/checkbox/index.js";
-export type { CheckboxProps } from "./components/checkbox/index.js";
+export { Checkbox } from "./components/checkbox/index";
+export type { CheckboxProps } from "./components/checkbox/index";
 
-export { Progress } from "./components/progress/index.js";
-export type { ProgressProps } from "./components/progress/index.js";
+export { Progress } from "./components/progress/index";
+export type { ProgressProps } from "./components/progress/index";
 
-export { Skeleton } from "./components/skeleton/index.js";
-export type { SkeletonProps } from "./components/skeleton/index.js";
+export { Skeleton } from "./components/skeleton/index";
+export type { SkeletonProps } from "./components/skeleton/index";
 
 export {
   Dialog,
@@ -127,7 +127,7 @@ export {
   DialogFooter,
   DialogTitle,
   DialogTrigger,
-} from "./components/dialog/index.js";
+} from "./components/dialog/index";
 export type {
   DialogActionProps,
   DialogCloseProps,
@@ -137,7 +137,7 @@ export type {
   DialogProps,
   DialogTitleProps,
   DialogTriggerProps,
-} from "./components/dialog/index.js";
+} from "./components/dialog/index";
 
 export {
   DropdownMenu,
@@ -146,7 +146,7 @@ export {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./components/dropdown-menu/index.js";
+} from "./components/dropdown-menu/index";
 export type {
   DropdownMenuContentProps,
   DropdownMenuItemProps,
@@ -154,7 +154,7 @@ export type {
   DropdownMenuProps,
   DropdownMenuSeparatorProps,
   DropdownMenuTriggerProps,
-} from "./components/dropdown-menu/index.js";
+} from "./components/dropdown-menu/index";
 
 export {
   Select,
@@ -164,7 +164,7 @@ export {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "./components/select/index.js";
+} from "./components/select/index";
 export type {
   SelectContentProps,
   SelectItemProps,
@@ -173,26 +173,26 @@ export type {
   SelectSeparatorProps,
   SelectTriggerProps,
   SelectValueProps,
-} from "./components/select/index.js";
+} from "./components/select/index";
 
-export { Separator } from "./components/separator/index.js";
-export type { SeparatorProps } from "./components/separator/index.js";
+export { Separator } from "./components/separator/index";
+export type { SeparatorProps } from "./components/separator/index";
 
 export {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./components/accordion/index.js";
+} from "./components/accordion/index";
 export type {
   AccordionContentProps,
   AccordionItemProps,
   AccordionProps,
   AccordionTriggerProps,
-} from "./components/accordion/index.js";
+} from "./components/accordion/index";
 
-export { toast, Toaster } from "./components/toast/index.js";
-export type { IonBitToasterProps } from "./components/toast/index.js";
+export { toast, Toaster } from "./components/toast/index";
+export type { IonBitToasterProps } from "./components/toast/index";
 
 export {
   AlertDialog,
@@ -203,7 +203,7 @@ export {
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "./components/alert-dialog/index.js";
+} from "./components/alert-dialog/index";
 export type {
   AlertDialogActionProps,
   AlertDialogCancelProps,
@@ -213,7 +213,7 @@ export type {
   AlertDialogProps,
   AlertDialogTitleProps,
   AlertDialogTriggerProps,
-} from "./components/alert-dialog/index.js";
+} from "./components/alert-dialog/index";
 
 export {
   Command,
@@ -225,7 +225,7 @@ export {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "./components/command/index.js";
+} from "./components/command/index";
 export type {
   CommandDialogProps,
   CommandEmptyProps,
@@ -236,7 +236,7 @@ export type {
   CommandProps,
   CommandSeparatorProps,
   CommandShortcutProps,
-} from "./components/command/index.js";
+} from "./components/command/index";
 
 export {
   ContextMenu,
@@ -254,7 +254,7 @@ export {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "./components/context-menu/index.js";
+} from "./components/context-menu/index";
 export type {
   ContextMenuCheckboxItemProps,
   ContextMenuContentProps,
@@ -271,18 +271,18 @@ export type {
   ContextMenuSubProps,
   ContextMenuSubTriggerProps,
   ContextMenuTriggerProps,
-} from "./components/context-menu/index.js";
+} from "./components/context-menu/index";
 
 export {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "./components/hover-card/index.js";
+} from "./components/hover-card/index";
 export type {
   HoverCardContentProps,
   HoverCardProps,
   HoverCardTriggerProps,
-} from "./components/hover-card/index.js";
+} from "./components/hover-card/index";
 
 export {
   Pagination,
@@ -292,7 +292,7 @@ export {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "./components/pagination/index.js";
+} from "./components/pagination/index";
 export type {
   PaginationContentProps,
   PaginationEllipsisProps,
@@ -301,19 +301,19 @@ export type {
   PaginationNextProps,
   PaginationPreviousProps,
   PaginationProps,
-} from "./components/pagination/index.js";
+} from "./components/pagination/index";
 
-export { RadioGroup, RadioGroupItem } from "./components/radio-group/index.js";
+export { RadioGroup, RadioGroupItem } from "./components/radio-group/index";
 export type {
   RadioGroupItemProps,
   RadioGroupProps,
-} from "./components/radio-group/index.js";
+} from "./components/radio-group/index";
 
-export { ScrollArea, ScrollBar } from "./components/scroll-area/index.js";
+export { ScrollArea, ScrollBar } from "./components/scroll-area/index";
 export type {
   ScrollAreaProps,
   ScrollBarProps,
-} from "./components/scroll-area/index.js";
+} from "./components/scroll-area/index";
 
 export {
   Sheet,
@@ -324,7 +324,7 @@ export {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./components/sheet/index.js";
+} from "./components/sheet/index";
 export type {
   SheetCloseProps,
   SheetContentProps,
@@ -334,4 +334,4 @@ export type {
   SheetProps,
   SheetTitleProps,
   SheetTriggerProps,
-} from "./components/sheet/index.js";
+} from "./components/sheet/index";

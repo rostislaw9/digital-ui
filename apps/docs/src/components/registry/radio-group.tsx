@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { RadioGroupBasicDemo } from "../../demos/radio-group-basic-demo.js";
+import { RadioGroupBasicDemo } from "../../demos/radio-group-basic-demo";
 import RadioGroupBasicDemoSource from "../../demos/radio-group-basic-demo.tsx?highlighted";
 import RadioGroupBasicDemoRaw from "../../demos/radio-group-basic-demo.tsx?raw";
 

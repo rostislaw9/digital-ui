@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { DialogDemo } from "../../demos/dialog-demo.js";
+import { DialogDemo } from "../../demos/dialog-demo";
 import DialogDemoSource from "../../demos/dialog-demo.tsx?highlighted";
 import DialogDemoRaw from "../../demos/dialog-demo.tsx?raw";
 

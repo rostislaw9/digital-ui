@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { SelectBasicDemo } from "../../demos/select-basic-demo.js";
+import { SelectBasicDemo } from "../../demos/select-basic-demo";
 import SelectBasicDemoSource from "../../demos/select-basic-demo.tsx?highlighted";
 import SelectBasicDemoRaw from "../../demos/select-basic-demo.tsx?raw";
 

@@ -3,7 +3,7 @@ import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 
 import { cn, Toaster } from "@ionbit-ui/ui";
 
-import { HomePage } from "./pages/HomePage.js";
+import { HomePage } from "./pages/HomePage";
 
 const ComponentsPage = lazy(() =>
   import("./pages/ComponentsPage.js").then((m) => ({

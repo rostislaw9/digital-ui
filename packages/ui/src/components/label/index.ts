@@ -1,2 +1,2 @@
-export { Label } from "./label.js";
-export type { LabelProps } from "./label.js";
+export { Label } from "./label";
+export type { LabelProps } from "./label";

@@ -1,9 +1,9 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { BadgeIconDemo } from "../../demos/badge-icon-demo.js";
+import { BadgeIconDemo } from "../../demos/badge-icon-demo";
 import BadgeIconDemoSource from "../../demos/badge-icon-demo.tsx?highlighted";
 import BadgeIconDemoRaw from "../../demos/badge-icon-demo.tsx?raw";
-import { BadgeVariantsDemo } from "../../demos/badge-variants-demo.js";
+import { BadgeVariantsDemo } from "../../demos/badge-variants-demo";
 import BadgeVariantsDemoSource from "../../demos/badge-variants-demo.tsx?highlighted";
 import BadgeVariantsDemoRaw from "../../demos/badge-variants-demo.tsx?raw";
 

@@ -1,6 +1,6 @@
-import type { ComponentMeta } from "./types.js";
+import type { ComponentMeta } from "./types";
 
-import { SliderBasicDemo } from "../../demos/slider-basic-demo.js";
+import { SliderBasicDemo } from "../../demos/slider-basic-demo";
 import SliderBasicDemoSource from "../../demos/slider-basic-demo.tsx?highlighted";
 import SliderBasicDemoRaw from "../../demos/slider-basic-demo.tsx?raw";
 

@@ -1,4 +1,4 @@
-import { InlineCode } from "./InlineCode.js";
+import { InlineCode } from "./InlineCode";
 
 export function CompositionSection({
   tree,
