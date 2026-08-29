@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -15,6 +16,7 @@ import { PrevNextNav } from "../components/detail/PrevNextNav.js";
 import { UsageSection } from "../components/detail/UsageSection.js";
 import { componentRegistry } from "../components/registry.js";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy.js";
+import { getPrevNext } from "../lib/getPrevNext.js";
 
 function toSectionId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, "-");
@@ -74,6 +76,8 @@ export function ComponentDetailPage() {
   const example = comp.examples[activeExample] ?? comp.examples[0];
   if (!example) return null;
 
+  const { prev, next } = getPrevNext(comp, componentRegistry);
+
   return (
     <>
       <div className="flex gap-12">
@@ -81,31 +85,69 @@ export function ComponentDetailPage() {
         <div className="min-w-0 flex-1">
           <div className="flex flex-col gap-8">
             <Reveal direction="up">
-              <div className="flex flex-col gap-2">
-                <Button
-                  asChild
-                  variant="link"
-                  size="sm"
-                  className="self-start h-auto p-0"
-                >
-                  <Link to="/components">← Components</Link>
-                </Button>
-                <div className="flex items-center gap-3">
-                  <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-                    {comp.label}
-                  </h1>
-                  <span className="font-mono text-[10px] uppercase tracking-wider rounded bg-accent-muted text-accent px-2 py-0.5">
-                    {comp.category}
-                  </span>
-                  {comp.radixBased && (
-                    <span className="font-mono text-[10px] uppercase tracking-wider rounded border border-border text-foreground-subtle px-2 py-0.5">
-                      Radix
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex flex-col gap-2">
+                  <Button
+                    asChild
+                    variant="link"
+                    size="sm"
+                    className="self-start h-auto p-0"
+                  >
+                    <Link to="/components">← Components</Link>
+                  </Button>
+                  <div className="flex items-center gap-3">
+                    <h1 className="text-3xl font-semibold tracking-tight text-foreground">
+                      {comp.label}
+                    </h1>
+                    <span className="font-mono text-[10px] uppercase tracking-wider rounded bg-accent-muted text-accent px-2 py-0.5">
+                      {comp.category}
                     </span>
-                  )}
+                    {comp.radixBased && (
+                      <span className="font-mono text-[10px] uppercase tracking-wider rounded border border-border text-foreground-subtle px-2 py-0.5">
+                        Radix
+                      </span>
+                    )}
+                  </div>
+                  <p className="max-w-2xl text-foreground-muted">
+                    {comp.description}
+                  </p>
                 </div>
-                <p className="max-w-2xl text-foreground-muted">
-                  {comp.description}
-                </p>
+                <div className="flex items-center gap-1 pt-6">
+                  <Button
+                    asChild={!!prev}
+                    variant="outline"
+                    size="icon-sm"
+                    disabled={!prev}
+                    aria-label={
+                      prev ? `Previous: ${prev.label}` : "No previous component"
+                    }
+                  >
+                    {prev ? (
+                      <Link to={`/components/${prev.name}`}>
+                        <ChevronLeft />
+                      </Link>
+                    ) : (
+                      <ChevronLeft />
+                    )}
+                  </Button>
+                  <Button
+                    asChild={!!next}
+                    variant="outline"
+                    size="icon-sm"
+                    disabled={!next}
+                    aria-label={
+                      next ? `Next: ${next.label}` : "No next component"
+                    }
+                  >
+                    {next ? (
+                      <Link to={`/components/${next.name}`}>
+                        <ChevronRight />
+                      </Link>
+                    ) : (
+                      <ChevronRight />
+                    )}
+                  </Button>
+                </div>
               </div>
             </Reveal>
 
