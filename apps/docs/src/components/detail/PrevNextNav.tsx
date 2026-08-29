@@ -2,6 +2,8 @@ import type { ComponentMeta } from "../registry.js";
 
 import { Link } from "react-router-dom";
 
+import { Button } from "@ionbit-ui/ui";
+
 export function PrevNextNav({
   current,
   registry,
@@ -16,25 +18,22 @@ export function PrevNextNav({
   return (
     <div className="flex items-center justify-between border-t border-border pt-6">
       {prev ? (
-        <Link to={`/components/${prev.name}`} className="flex flex-col">
+        <div className="flex flex-col items-start gap-1">
           <span className="text-xs text-foreground-subtle">Previous</span>
-          <span className="text-sm text-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
-            ← {prev.label}
-          </span>
-        </Link>
+          <Button asChild variant="link" size="sm" className="h-auto p-0">
+            <Link to={`/components/${prev.name}`}>← {prev.label}</Link>
+          </Button>
+        </div>
       ) : (
         <span />
       )}
       {next ? (
-        <Link
-          to={`/components/${next.name}`}
-          className="flex flex-col items-end"
-        >
+        <div className="flex flex-col items-end gap-1">
           <span className="text-xs text-foreground-subtle">Next</span>
-          <span className="text-sm text-foreground hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
-            {next.label} →
-          </span>
-        </Link>
+          <Button asChild variant="link" size="sm" className="h-auto p-0">
+            <Link to={`/components/${next.name}`}>{next.label} →</Link>
+          </Button>
+        </div>
       ) : (
         <span />
       )}
