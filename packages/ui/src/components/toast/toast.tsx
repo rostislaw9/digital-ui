@@ -70,13 +70,16 @@ export interface IonBitToasterProps extends ToasterProps {
  * ```
  */
 export const Toaster = forwardRef<HTMLElement, IonBitToasterProps>(
-  function Toaster({ style, closeButton = false, ...props }, ref) {
+  function Toaster(
+    { style, closeButton = false, richColors = true, theme = "dark", ...props },
+    ref,
+  ) {
     return (
       <SonnerToaster
         ref={ref}
         closeButton={closeButton}
-        richColors
-        theme="dark"
+        richColors={richColors}
+        theme={theme}
         style={{ ...tokenBridge, ...style }}
         {...props}
       />

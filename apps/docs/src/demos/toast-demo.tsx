@@ -6,53 +6,9 @@ export function ToastDemo() {
     <div className="flex flex-wrap gap-3">
       <Button
         variant="secondary"
-        onClick={() =>
-          toast("Default", {
-            description: "A simple notification.",
-          })
-        }
+        onClick={() => toast("Event has been created.")}
       >
-        Default
-      </Button>
-      <Button
-        variant="secondary"
-        onClick={() =>
-          toast.info("Info", {
-            description: "Something to know.",
-          })
-        }
-      >
-        Info
-      </Button>
-      <Button
-        variant="secondary"
-        onClick={() =>
-          toast.success("Success!", {
-            description: "Operation completed.",
-          })
-        }
-      >
-        Success
-      </Button>
-      <Button
-        variant="secondary"
-        onClick={() =>
-          toast.warning("Warning", {
-            description: "Check before proceeding.",
-          })
-        }
-      >
-        Warning
-      </Button>
-      <Button
-        variant="destructive"
-        onClick={() =>
-          toast.error("Error", {
-            description: "Something went wrong.",
-          })
-        }
-      >
-        Error
+        Show toast
       </Button>
     </div>
   );

@@ -33,6 +33,8 @@ export interface ComponentMeta {
   examples: ComponentExample[];
   /** Props table for the API reference section. */
   props?: PropMeta[];
+  /** External API reference link (shown instead of the props table when present). */
+  apiReference?: { label: string; url: string };
   /** Accessibility notes. */
   accessibility?: string[];
   /** Whether this component is built on Radix UI. */

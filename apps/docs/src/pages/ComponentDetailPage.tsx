@@ -40,6 +40,7 @@ export function ComponentDetailPage() {
     sections.push({ id: "composition", label: "Composition" });
   if (comp?.props && comp.props.length > 0)
     sections.push({ id: "api", label: "API Reference" });
+  if (comp?.apiReference) sections.push({ id: "api", label: "API Reference" });
   if (comp?.accessibility && comp.accessibility.length > 0)
     sections.push({ id: "accessibility", label: "Accessibility" });
   if (comp?.primitives) {
@@ -204,7 +205,29 @@ export function ComponentDetailPage() {
               </Reveal>
             )}
 
-            {comp.props && comp.props.length > 0 && (
+            {comp.apiReference && (
+              <Reveal direction="up">
+                <section id="api" className="flex flex-col gap-3 scroll-mt-24">
+                  <h2 className="text-sm font-semibold text-foreground">
+                    API Reference
+                  </h2>
+                  <p className="text-sm text-foreground-muted">
+                    See the{" "}
+                    <a
+                      href={comp.apiReference.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:underline"
+                    >
+                      {comp.apiReference.label}
+                    </a>{" "}
+                    for more information.
+                  </p>
+                </section>
+              </Reveal>
+            )}
+
+            {!comp.apiReference && comp.props && comp.props.length > 0 && (
               <Reveal direction="up">
                 <section id="api" className="flex flex-col gap-3 scroll-mt-24">
                   <h2 className="text-sm font-semibold text-foreground">

@@ -1,11 +1,20 @@
 import type { ComponentMeta } from "./types.js";
 
+import { ToastActionDemo } from "../../demos/toast-action-demo.js";
+import ToastActionDemoSource from "../../demos/toast-action-demo.tsx?highlighted";
+import ToastActionDemoRaw from "../../demos/toast-action-demo.tsx?raw";
 import { ToastDemo } from "../../demos/toast-demo.js";
 import ToastDemoSource from "../../demos/toast-demo.tsx?highlighted";
 import ToastDemoRaw from "../../demos/toast-demo.tsx?raw";
+import { ToastDescriptionDemo } from "../../demos/toast-description-demo.js";
+import ToastDescriptionDemoSource from "../../demos/toast-description-demo.tsx?highlighted";
+import ToastDescriptionDemoRaw from "../../demos/toast-description-demo.tsx?raw";
 import { ToastPositionsDemo } from "../../demos/toast-positions-demo.js";
 import ToastPositionsDemoSource from "../../demos/toast-positions-demo.tsx?highlighted";
 import ToastPositionsDemoRaw from "../../demos/toast-positions-demo.tsx?raw";
+import { ToastTypesDemo } from "../../demos/toast-types-demo.js";
+import ToastTypesDemoSource from "../../demos/toast-types-demo.tsx?highlighted";
+import ToastTypesDemoRaw from "../../demos/toast-types-demo.tsx?raw";
 
 export const toastMeta: ComponentMeta = {
   name: "toast",
@@ -38,14 +47,37 @@ export const toastMeta: ComponentMeta = {
   category: "Feedback",
   examples: [
     {
-      title: "Variants",
-      description: "Default, info, success, warning, and error toasts.",
+      title: "Simple",
+      description: "A basic toast notification.",
       code: ToastDemoSource,
       rawCode: ToastDemoRaw,
       render: () => <ToastDemo />,
     },
     {
-      title: "Positions",
+      title: "Types",
+      description:
+        "Default, info, success, warning, error, and loading toasts. Set the type option to render a status icon.",
+      code: ToastTypesDemoSource,
+      rawCode: ToastTypesDemoRaw,
+      render: () => <ToastTypesDemo />,
+    },
+    {
+      title: "Description",
+      description: "Add a description for additional context.",
+      code: ToastDescriptionDemoSource,
+      rawCode: ToastDescriptionDemoRaw,
+      render: () => <ToastDescriptionDemo />,
+    },
+    {
+      title: "Action",
+      description:
+        "Pass an action button to the toast for inline interactions.",
+      code: ToastActionDemoSource,
+      rawCode: ToastActionDemoRaw,
+      render: () => <ToastActionDemo />,
+    },
+    {
+      title: "Position",
       description:
         "Position each toast individually — top-left, top-center, top-right, bottom-left, bottom-center, bottom-right.",
       code: ToastPositionsDemoSource,
@@ -54,20 +86,11 @@ export const toastMeta: ComponentMeta = {
     },
   ],
   usageImport: `import { toast } from "@/components/ui/toast";`,
-  usageCode: `toast("Settings saved", { variant: "success" });`,
-  props: [
-    {
-      name: "position",
-      type: '"top-left" | "top-center" | "top-right" | "bottom-left" | "bottom-center" | "bottom-right"',
-      description: "Toast position.",
-    },
-    {
-      name: "richColors",
-      type: "boolean",
-      default: "false",
-      description: "Use rich color variants.",
-    },
-  ],
+  usageCode: `toast("Event has been created.");`,
+  apiReference: {
+    label: "Sonner API Reference",
+    url: "https://sonner.emilkowal.ski/getting-started",
+  },
   accessibility: [
     'aria-live="polite" for announcements',
     "Screen readers read toast content",
