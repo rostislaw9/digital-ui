@@ -82,12 +82,14 @@ export function ComponentDetailPage() {
           <div className="flex flex-col gap-8">
             <Reveal direction="up">
               <div className="flex flex-col gap-2">
-                <Link
-                  to="/components"
-                  className="text-sm text-foreground-muted hover:text-foreground transition-colors"
+                <Button
+                  asChild
+                  variant="link"
+                  size="sm"
+                  className="self-start h-auto p-0"
                 >
-                  ← Components
-                </Link>
+                  <Link to="/components">← Components</Link>
+                </Button>
                 <div className="flex items-center gap-3">
                   <h1 className="text-3xl font-semibold tracking-tight text-foreground">
                     {comp.label}
