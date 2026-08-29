@@ -1,7 +1,7 @@
 import highlightedInline from "virtual:highlighted-inline";
 
-import { CopyButton } from "../CopyButton.js";
-import { HighlightedCode } from "../HighlightedCode.js";
+import { CopyButton } from "./CopyButton.js";
+import { HighlightedCode } from "./HighlightedCode.js";
 
 export function UsageSection({
   componentName,

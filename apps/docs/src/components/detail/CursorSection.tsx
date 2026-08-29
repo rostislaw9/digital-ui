@@ -1,6 +1,6 @@
 import highlightedInline from "virtual:highlighted-inline";
 
-import { HighlightedCode } from "../HighlightedCode.js";
+import { HighlightedCode } from "./HighlightedCode.js";
 import { InlineCode } from "./InlineCode.js";
 
 export function CursorSection() {

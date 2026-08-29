@@ -8,11 +8,11 @@ import { AccessibilityList } from "../components/detail/AccessibilityList.js";
 import { ApiTable } from "../components/detail/ApiTable.js";
 import { CompositionSection } from "../components/detail/CompositionSection.js";
 import { CursorSection } from "../components/detail/CursorSection.js";
+import { InstallBlock } from "../components/detail/InstallBlock.js";
 import { OnThisPage } from "../components/detail/OnThisPage.js";
+import { PreviewCodeBlock } from "../components/detail/PreviewCodeBlock.js";
 import { PrevNextNav } from "../components/detail/PrevNextNav.js";
 import { UsageSection } from "../components/detail/UsageSection.js";
-import { InstallBlock } from "../components/InstallBlock.js";
-import { PreviewCodeBlock } from "../components/PreviewCodeBlock.js";
 import { componentRegistry } from "../components/registry.js";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy.js";
 
