@@ -1,0 +1,134 @@
+import type { ComponentMeta } from "../components/registry/types";
+
+/**
+ * Convert a ComponentMeta object into a markdown document suitable for
+ * pasting into AI agent context. Includes description, install command,
+ * usage, examples with source code, API props, accessibility, and
+ * composition tree.
+ */
+export function componentToMarkdown(comp: ComponentMeta): string {
+  const lines: string[] = [];
+
+  lines.push(`# ${comp.label}`);
+  lines.push("");
+  lines.push(`> ${comp.description}`);
+  lines.push("");
+
+  // Category / tags
+  const tags: string[] = [comp.category];
+  if (comp.radixBased) tags.push("Radix UI");
+  lines.push(`**Tags:** ${tags.join(", ")}`);
+  lines.push("");
+
+  // Installation
+  lines.push("## Installation");
+  lines.push("");
+  lines.push("```bash");
+  lines.push(`npx ionbit-ui@latest add ${comp.name}`);
+  lines.push("```");
+  lines.push("");
+
+  // Usage
+  if (comp.usageImport && comp.usageCode) {
+    lines.push("## Usage");
+    lines.push("");
+    lines.push("```tsx");
+    lines.push(comp.usageImport);
+    lines.push("");
+    lines.push(comp.usageCode);
+    lines.push("```");
+    lines.push("");
+  }
+
+  // Examples
+  if (comp.examples.length > 0) {
+    lines.push("## Examples");
+    lines.push("");
+    for (const ex of comp.examples) {
+      lines.push(`### ${ex.title}`);
+      lines.push("");
+      lines.push(`${ex.description}`);
+      lines.push("");
+      lines.push("```tsx");
+      lines.push(ex.rawCode);
+      lines.push("```");
+      lines.push("");
+    }
+  }
+
+  // API Reference — external link
+  if (comp.apiReference) {
+    lines.push("## API Reference");
+    lines.push("");
+    lines.push(`See [${comp.apiReference.label}](${comp.apiReference.url}).`);
+    lines.push("");
+  }
+
+  // API Reference — props table
+  if (!comp.apiReference && comp.props && comp.props.length > 0) {
+    lines.push("## API Reference");
+    lines.push("");
+    lines.push("| Prop | Type | Default | Description |");
+    lines.push("| --- | --- | --- | --- |");
+    for (const prop of comp.props) {
+      const def = prop.default ?? "—";
+      lines.push(
+        `| \`${prop.name}\` | \`${prop.type}\` | \`${def}\` | ${prop.description} |`,
+      );
+    }
+    lines.push("");
+  }
+
+  // Accessibility
+  if (comp.accessibility && comp.accessibility.length > 0) {
+    lines.push("## Accessibility");
+    lines.push("");
+    for (const note of comp.accessibility) {
+      lines.push(`- ${note}`);
+    }
+    lines.push("");
+  }
+
+  // Primitives (e.g. motion)
+  if (comp.primitives) {
+    for (const prim of comp.primitives) {
+      lines.push(`## ${prim.name} API`);
+      lines.push("");
+      lines.push(`${prim.description}`);
+      lines.push("");
+      if (prim.props.length > 0) {
+        lines.push("| Prop | Type | Default | Description |");
+        lines.push("| --- | --- | --- | --- |");
+        for (const prop of prim.props) {
+          const def = prop.default ?? "—";
+          lines.push(
+            `| \`${prop.name}\` | \`${prop.type}\` | \`${def}\` | ${prop.description} |`,
+          );
+        }
+        lines.push("");
+      }
+      if (prim.accessibility.length > 0) {
+        lines.push(`### ${prim.name} Accessibility`);
+        lines.push("");
+        for (const note of prim.accessibility) {
+          lines.push(`- ${note}`);
+        }
+        lines.push("");
+      }
+    }
+  }
+
+  // Composition
+  if (comp.composition && comp.composition.length > 0) {
+    lines.push("## Composition");
+    lines.push("");
+    lines.push("```");
+    for (const line of comp.composition) {
+      lines.push(line);
+    }
+    lines.push("```");
+    lines.push("");
+  }
+
+  return lines.join("\n").trim() + "\n";
+}

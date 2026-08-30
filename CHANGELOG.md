@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Copy Page button:** added a "Copy Page" button next to the prev/next
+  chevrons on the component detail page. Copies the full component
+  documentation as markdown (description, installation, usage, examples
+  with source code, API props table, accessibility notes, composition
+  tree) so consumers can paste it into AI agent context.
+
 ### Changed
 
 - **Demo improvements:** updated 14 component demos with real-world

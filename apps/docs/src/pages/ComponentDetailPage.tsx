@@ -1,6 +1,12 @@
 import type { ComponentMeta } from "../components/registry/types";
 
-import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowLeft,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Copy,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -21,6 +27,7 @@ import { PrevNextNav } from "../components/detail/PrevNextNav";
 import { UsageSection } from "../components/detail/UsageSection";
 import { componentManifest } from "../components/registry/manifest";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
+import { componentToMarkdown } from "../lib/component-to-markdown";
 import { getPrevNext } from "../lib/getPrevNext";
 
 // Lazy-load registry files — only the requested component's metadata
@@ -63,6 +70,16 @@ export function ComponentDetailPage() {
   const [comp, setComp] = useState<ComponentMeta | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [activeExample, setActiveExample] = useState(0);
+  const [pageCopied, setPageCopied] = useState(false);
+
+  const handleCopyPage = () => {
+    if (!comp) return;
+    const md = componentToMarkdown(comp);
+    navigator.clipboard?.writeText(md).then(() => {
+      setPageCopied(true);
+      setTimeout(() => setPageCopied(false), 2000);
+    });
+  };
 
   // Dynamically import only the requested component's registry data.
   // Keep old content visible while loading to avoid flicker.
@@ -173,6 +190,21 @@ export function ComponentDetailPage() {
                     </p>
                   </div>
                   <div className="flex items-center gap-1">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleCopyPage}
+                      aria-label={
+                        pageCopied ? "Copied" : "Copy page as markdown"
+                      }
+                    >
+                      {pageCopied ? (
+                        <Check data-icon="inline-start" />
+                      ) : (
+                        <Copy data-icon="inline-start" />
+                      )}
+                      {pageCopied ? "Copied" : "Copy Page"}
+                    </Button>
                     <Button
                       asChild={!!prev}
                       variant="outline"
