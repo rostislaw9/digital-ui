@@ -108,6 +108,8 @@ export default defineConfig({
             "@radix-ui/react-tooltip",
           ],
           "vendor-motion": ["motion/react", "sonner"],
+          "vendor-lucide": ["lucide-react"],
+          "vendor-cmdk": ["cmdk"],
         },
       },
     },

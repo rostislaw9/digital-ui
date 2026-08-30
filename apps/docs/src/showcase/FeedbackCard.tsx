@@ -41,7 +41,7 @@ export function FeedbackCard() {
         <Button
           variant="primary"
           className="w-full"
-          onClick={() => toast.success("Feedback sent (demo)")}
+          onClick={() => toast.success("Feedback sent")}
         >
           Send feedback
         </Button>

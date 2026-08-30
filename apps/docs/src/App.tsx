@@ -1,7 +1,8 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 
-import { cn, Toaster } from "@ionbit-ui/ui";
+import { Toaster } from "@/components/ui/toast";
+import { cn } from "@/lib/utils";
 
 const HomePage = lazy(() =>
   import("./pages/HomePage").then((m) => ({ default: m.HomePage })),

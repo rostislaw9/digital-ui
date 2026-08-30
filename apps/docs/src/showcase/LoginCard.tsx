@@ -48,7 +48,7 @@ export function LoginCard() {
         <Button
           variant="primary"
           className="w-full"
-          onClick={() => toast.success("Signed in (demo)")}
+          onClick={() => toast.success("Signed in")}
         >
           Sign in
         </Button>

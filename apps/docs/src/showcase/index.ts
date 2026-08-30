@@ -16,6 +16,7 @@ export { SearchCard } from "./SearchCard";
 export { SecurityCard } from "./SecurityCard";
 export { SettingsCard } from "./SettingsCard";
 export { ShowcaseCard } from "./ShowcaseCard";
+export { ShowcaseGrid } from "./ShowcaseGrid";
 export { StatsCard } from "./StatsCard";
 export { StorageCard } from "./StorageCard";
 export { TaskCard } from "./TaskCard";

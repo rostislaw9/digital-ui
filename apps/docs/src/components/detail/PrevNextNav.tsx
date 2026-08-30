@@ -1,4 +1,4 @@
-import type { ComponentMeta } from "../registry";
+import type { ComponentManifestEntry } from "../registry/manifest";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -13,8 +13,8 @@ export function PrevNextNav({
   current,
   registry,
 }: {
-  current: ComponentMeta;
-  registry: ComponentMeta[];
+  current: { name: string };
+  registry: ComponentManifestEntry[];
 }) {
   const { prev, next } = getPrevNext(current, registry);
 

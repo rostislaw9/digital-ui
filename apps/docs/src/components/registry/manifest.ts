@@ -1,0 +1,261 @@
+/**
+ * Lightweight component manifest — contains only the metadata needed by
+ * the sidebar and components list (name, label, category, description,
+ * example count). This avoids pulling in all demo components, ?raw, and
+ * ?highlighted strings that the full registry files import.
+ */
+export interface ComponentManifestEntry {
+  name: string;
+  label: string;
+  category:
+    "Form" | "Layout" | "Overlay" | "Feedback" | "Navigation" | "Motion";
+  description: string;
+  exampleCount: number;
+  isNew?: boolean;
+}
+
+export const componentManifest: ComponentManifestEntry[] = [
+  {
+    name: "accordion",
+    label: "Accordion",
+    category: "Layout",
+    description: "Collapsible sections with chevron indicator.",
+    exampleCount: 1,
+  },
+  {
+    name: "alert",
+    label: "Alert",
+    category: "Feedback",
+    description:
+      "Callout for surfacing status messages with semantic variants.",
+    exampleCount: 3,
+  },
+  {
+    name: "alert-dialog",
+    label: "Alert Dialog",
+    category: "Overlay",
+    description: "Modal confirmation dialog.",
+    exampleCount: 1,
+  },
+  {
+    name: "avatar",
+    label: "Avatar",
+    category: "Layout",
+    description: "Avatar with image and fallback support.",
+    exampleCount: 3,
+  },
+  {
+    name: "badge",
+    label: "Badge",
+    category: "Feedback",
+    description: "Small status indicator with semantic variants.",
+    exampleCount: 2,
+  },
+  {
+    name: "breadcrumb",
+    label: "Breadcrumb",
+    category: "Navigation",
+    description: "Navigation trail showing the user's location in a hierarchy.",
+    exampleCount: 2,
+  },
+  {
+    name: "button",
+    label: "Button",
+    category: "Form",
+    description:
+      "Triggers an action. Eight variants, icon support, accent glow.",
+    exampleCount: 5,
+  },
+  {
+    name: "card",
+    label: "Card",
+    category: "Layout",
+    description: "Container with header, content, and footer sections.",
+    exampleCount: 2,
+  },
+  {
+    name: "checkbox",
+    label: "Checkbox",
+    category: "Form",
+    description: "Binary selector with indeterminate state.",
+    exampleCount: 1,
+  },
+  {
+    name: "command",
+    label: "Command",
+    category: "Overlay",
+    description: "Command palette built on cmdk.",
+    exampleCount: 1,
+  },
+  {
+    name: "context-menu",
+    label: "Context Menu",
+    category: "Overlay",
+    description: "Right-click menu.",
+    exampleCount: 1,
+  },
+  {
+    name: "dialog",
+    label: "Dialog",
+    category: "Overlay",
+    description: "Modal window with overlay.",
+    exampleCount: 1,
+  },
+  {
+    name: "dropdown-menu",
+    label: "Dropdown Menu",
+    category: "Overlay",
+    description: "Menu triggered by a button.",
+    exampleCount: 1,
+  },
+  {
+    name: "hover-card",
+    label: "Hover Card",
+    category: "Overlay",
+    description: "Card that appears on hover.",
+    exampleCount: 1,
+  },
+  {
+    name: "input",
+    label: "Input",
+    category: "Form",
+    description: "Text input field.",
+    exampleCount: 2,
+  },
+  {
+    name: "label",
+    label: "Label",
+    category: "Form",
+    description: "Accessible form label.",
+    exampleCount: 2,
+  },
+  {
+    name: "pagination",
+    label: "Pagination",
+    category: "Navigation",
+    description: "Page navigation controls.",
+    exampleCount: 1,
+  },
+  {
+    name: "popover",
+    label: "Popover",
+    category: "Overlay",
+    description: "Floating content triggered by click.",
+    exampleCount: 1,
+  },
+  {
+    name: "progress",
+    label: "Progress",
+    category: "Feedback",
+    description: "Progress bar.",
+    exampleCount: 1,
+  },
+  {
+    name: "radio-group",
+    label: "Radio Group",
+    category: "Form",
+    description: "Single-choice option group.",
+    exampleCount: 1,
+  },
+  {
+    name: "scroll-area",
+    label: "Scroll Area",
+    category: "Layout",
+    description: "Custom-styled scrollable region.",
+    exampleCount: 1,
+  },
+  {
+    name: "select",
+    label: "Select",
+    category: "Form",
+    description: "Dropdown select input.",
+    exampleCount: 1,
+  },
+  {
+    name: "separator",
+    label: "Separator",
+    category: "Layout",
+    description: "Visual divider.",
+    exampleCount: 2,
+  },
+  {
+    name: "sheet",
+    label: "Sheet",
+    category: "Overlay",
+    description: "Side panel that slides in.",
+    exampleCount: 3,
+  },
+  {
+    name: "skeleton",
+    label: "Skeleton",
+    category: "Feedback",
+    description: "Loading placeholder.",
+    exampleCount: 1,
+  },
+  {
+    name: "slider",
+    label: "Slider",
+    category: "Form",
+    description: "Range input slider.",
+    exampleCount: 1,
+  },
+  {
+    name: "spotlight",
+    label: "Spotlight",
+    category: "Motion",
+    description: "Pointer-following radial highlight.",
+    exampleCount: 2,
+  },
+  {
+    name: "switch",
+    label: "Switch",
+    category: "Form",
+    description: "Toggle switch.",
+    exampleCount: 1,
+  },
+  {
+    name: "tabs",
+    label: "Tabs",
+    category: "Navigation",
+    description: "Tabbed content sections.",
+    exampleCount: 1,
+  },
+  {
+    name: "textarea",
+    label: "Textarea",
+    category: "Form",
+    description: "Multi-line text input.",
+    exampleCount: 2,
+  },
+  {
+    name: "toast",
+    label: "Toast",
+    category: "Feedback",
+    description: "Transient notification. Built on Sonner.",
+    exampleCount: 5,
+  },
+  {
+    name: "tooltip",
+    label: "Tooltip",
+    category: "Overlay",
+    description: "Hover-triggered label.",
+    exampleCount: 1,
+  },
+  {
+    name: "motion",
+    label: "Motion Primitives",
+    category: "Motion",
+    description:
+      "Magnetic, Glow, Pulse, and Reveal. Composable motion wrappers.",
+    exampleCount: 8,
+  },
+];
+
+export const componentCategories = [
+  "Form",
+  "Layout",
+  "Overlay",
+  "Feedback",
+  "Navigation",
+  "Motion",
+] as const;

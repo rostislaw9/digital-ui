@@ -3,11 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 
 import { Button, ScrollArea, cn } from "@ionbit-ui/ui";
 
-import { componentRegistry } from "./registry";
+import { componentManifest } from "./registry/manifest";
 
 export function ComponentsSidebar() {
   const { pathname } = useLocation();
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const activeRef = useRef<HTMLAnchorElement | null>(null);
   const [showTopFade, setShowTopFade] = useState(false);
   const [showBottomFade, setShowBottomFade] = useState(true);
 
@@ -36,6 +37,21 @@ export function ComponentsSidebar() {
     };
   }, []);
 
+  // Auto-scroll the active item into view with padding from the faded edges.
+  useEffect(() => {
+    const el = activeRef.current;
+    const viewport = rootRef.current?.querySelector<HTMLElement>(
+      "[data-radix-scroll-area-viewport]",
+    );
+    if (!el || !viewport) return;
+    const pad = 48;
+    const top = el.offsetTop - viewport.scrollTop;
+    const bottom = top + el.offsetHeight;
+    if (top < pad) viewport.scrollTop += top - pad;
+    else if (bottom > viewport.clientHeight - pad)
+      viewport.scrollTop += bottom - viewport.clientHeight + pad;
+  }, [pathname]);
+
   return (
     <div className="relative h-full">
       <div className="absolute top-12 right-2 bottom-0 w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)]" />
@@ -47,7 +63,7 @@ export function ComponentsSidebar() {
           <span className="px-2.5 py-1 text-xs font-semibold text-foreground-subtle">
             Components
           </span>
-          {componentRegistry.map((comp) => {
+          {componentManifest.map((comp) => {
             const isActive = pathname === `/components/${comp.name}`;
             return (
               <Button
@@ -61,7 +77,12 @@ export function ComponentsSidebar() {
                     "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent",
                 )}
               >
-                <Link to={`/components/${comp.name}`}>{comp.label}</Link>
+                <Link
+                  ref={isActive ? activeRef : undefined}
+                  to={`/components/${comp.name}`}
+                >
+                  {comp.label}
+                </Link>
               </Button>
             );
           })}

@@ -1,3 +1,5 @@
+import type { ComponentMeta } from "../components/registry/types";
+
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -17,9 +19,40 @@ import { OnThisPage } from "../components/detail/OnThisPage";
 import { PreviewCodeBlock } from "../components/detail/PreviewCodeBlock";
 import { PrevNextNav } from "../components/detail/PrevNextNav";
 import { UsageSection } from "../components/detail/UsageSection";
-import { componentRegistry } from "../components/registry";
+import { componentManifest } from "../components/registry/manifest";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
 import { getPrevNext } from "../lib/getPrevNext";
+
+// Lazy-load registry files — only the requested component's metadata
+// (with demos, ?raw, ?highlighted) is imported, not the entire registry.
+const registryModules = import.meta.glob<Record<string, ComponentMeta>>(
+  "../components/registry/*.tsx",
+  { eager: false },
+);
+
+// Map component names to their glob keys for O(1) lookup.
+// The glob returns keys like "../components/registry/button.tsx".
+const registryKeyMap: Record<string, string> = {};
+for (const key of Object.keys(registryModules)) {
+  const match = key.match(/\/([^/]+)\.tsx$/);
+  if (match && match[1]) registryKeyMap[match[1]] = key;
+}
+
+// Registry files export named consts (e.g. `buttonMeta`).
+// Find the ComponentMeta value in the module.
+function findMeta(mod: Record<string, unknown>): ComponentMeta | null {
+  for (const value of Object.values(mod)) {
+    if (
+      value &&
+      typeof value === "object" &&
+      "name" in value &&
+      "examples" in value
+    ) {
+      return value as ComponentMeta;
+    }
+  }
+  return null;
+}
 
 function toSectionId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, "-");
@@ -27,11 +60,28 @@ function toSectionId(name: string): string {
 
 export function ComponentDetailPage() {
   const { name } = useParams<{ name: string }>();
-  const comp = componentRegistry.find((c) => c.name === name);
+  const [comp, setComp] = useState<ComponentMeta | null>(null);
+  const [notFound, setNotFound] = useState(false);
   const [activeExample, setActiveExample] = useState(0);
 
+  // Dynamically import only the requested component's registry data.
+  // Keep old content visible while loading to avoid flicker.
   useEffect(() => {
+    const key = name ? registryKeyMap[name] : undefined;
+    if (!key || !registryModules[key]) {
+      setNotFound(true);
+      return;
+    }
+    setNotFound(false);
     setActiveExample(0);
+    let cancelled = false;
+    registryModules[key]().then((mod) => {
+      if (cancelled) return;
+      setComp(findMeta(mod));
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [name]);
 
   // Build the "On this page" sections dynamically
@@ -60,7 +110,7 @@ export function ComponentDetailPage() {
     sections.map((s) => s.id).join(","),
   );
 
-  if (!comp) {
+  if (notFound) {
     return (
       <div className="flex flex-col items-center gap-4 py-20 text-center">
         <h1 className="text-2xl font-semibold text-foreground">
@@ -79,10 +129,12 @@ export function ComponentDetailPage() {
     );
   }
 
+  if (!comp) return null;
+
   const example = comp.examples[activeExample] ?? comp.examples[0];
   if (!example) return null;
 
-  const { prev, next } = getPrevNext(comp, componentRegistry);
+  const { prev, next } = getPrevNext(comp, componentManifest);
 
   return (
     <>
@@ -339,7 +391,7 @@ export function ComponentDetailPage() {
                   );
                 })}
 
-              <PrevNextNav current={comp} registry={componentRegistry} />
+              <PrevNextNav current={comp} registry={componentManifest} />
             </div>
           </div>
         </div>

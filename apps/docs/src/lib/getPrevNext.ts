@@ -1,9 +1,12 @@
-import type { ComponentMeta } from "../components/registry";
+import type { ComponentManifestEntry } from "../components/registry/manifest";
 
 export function getPrevNext(
-  current: ComponentMeta,
-  registry: ComponentMeta[],
-): { prev: ComponentMeta | null; next: ComponentMeta | null } {
+  current: { name: string },
+  registry: ComponentManifestEntry[],
+): {
+  prev: ComponentManifestEntry | null;
+  next: ComponentManifestEntry | null;
+} {
   const idx = registry.findIndex((c) => c.name === current.name);
   const prev = idx > 0 ? (registry[idx - 1] ?? null) : null;
   const next = idx < registry.length - 1 ? (registry[idx + 1] ?? null) : null;

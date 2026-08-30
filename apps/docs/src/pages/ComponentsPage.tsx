@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Badge, Button, cn, Input } from "@ionbit-ui/ui";
 
-import { componentCategories, componentRegistry } from "../components/registry";
+import {
+  componentCategories,
+  componentManifest,
+} from "../components/registry/manifest";
 
 export function ComponentsPage() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const filtered = componentRegistry.filter((c) => {
+  const filtered = componentManifest.filter((c) => {
     const matchesQuery =
       c.label.toLowerCase().includes(query.toLowerCase()) ||
       c.description.toLowerCase().includes(query.toLowerCase());
@@ -31,7 +34,7 @@ export function ComponentsPage() {
             All components
           </h1>
           <p className="text-sm text-foreground-muted">
-            {componentRegistry.length} production-ready primitives. Click any
+            {componentManifest.length} production-ready primitives. Click any
             component for live previews, code, and API details.
           </p>
         </header>
@@ -88,8 +91,8 @@ export function ComponentsPage() {
               </p>
               <div className="mt-auto flex items-center gap-1 text-xs text-foreground-subtle">
                 <span>
-                  {comp.examples.length} example
-                  {comp.examples.length > 1 ? "s" : ""}
+                  {comp.exampleCount} example
+                  {comp.exampleCount > 1 ? "s" : ""}
                 </span>
                 <ArrowRight className="size-3" />
               </div>

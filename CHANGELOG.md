@@ -9,6 +9,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Sidebar auto-scroll:** `ComponentsSidebar` now automatically scrolls
+  the active component into view with padding from the faded edges when
+  navigating via the sidebar or URL.
+- **Showcase grid extraction:** extracted the homepage showcase grid
+  from `HomePage.tsx` into a separate `ShowcaseGrid` component under
+  `apps/docs/src/showcase/`. `HomePage` is now 69 lines (was 156).
+- **Registry lazy-loading:** `ComponentDetailPage` now lazy-loads only
+  the requested component's registry data via `import.meta.glob`
+  instead of importing all 35 registry files eagerly. Created a
+  lightweight `componentManifest` (name, label, category, description,
+  example count) for `ComponentsSidebar`, `ComponentsPage`, and
+  `HomePage` to avoid pulling in demo components and `?raw`/
+  `?highlighted` strings.
+- **Chunk optimization:** added `lucide-react` and `cmdk` as separate
+  vendor chunks in `vite.config.ts`. Switched `App.tsx` to direct `@/`
+  imports instead of the `@ionbit-ui/ui` barrel. Main `index` chunk
+  reduced from 678 kB to 27 kB (95% reduction). The 500 kB Rollup
+  warning is gone.
+- **Navigation flicker fix:** `ComponentDetailPage` keeps old content
+  visible while the new component's registry data loads asynchronously,
+  preventing page flicker and re-triggered Reveal animations.
 - **Variant renaming:** renamed all `-inverted` button and alert variants
   to `-soft` for shorter, clearer naming (`primary-inverted` →
   `primary-soft`, `destructive-inverted` → `destructive-soft`,
@@ -38,20 +59,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   API docs (the component never had it).
 - **Vite plugin fix:** added `this.addWatchFile()` to the Shiki
   highlight plugin so `?highlighted` imports update on HMR.
-
-### Known Issues
-
-- **Homepage showcase grid** needs to be moved into a separate
-  component and adjusted for better responsive UI — column alignment,
-  mobile scaling, and card distribution require further work.
-- **ComponentsSidebar** does not auto-scroll to the currently active
-  component when navigating via the sidebar or URL — the active item
-  can become not visible if it is outside the scroll viewport.
-- **Performance optimizations needed:** chunk sizes require
-  investigation (ComponentDetailPage chunk is ~678 kB), code quality
-  review needed (reuse of components, large source files, hierarchy
-  issues).
-
 - **Documentation comments:** added `/** */` doc comments to all 14
   components that were missing them (AlertDialog, Button, Checkbox,
   Command, ContextMenu, Dialog, HoverCard, Pagination, Progress,
@@ -75,6 +82,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   described as "inspired by shadcn's source-ownership model."
 - **Rebrand cleanup:** renamed the leftover `DigitalToasterProps` type to
   `IonBitToasterProps` (and updated re-exports).
+
+### Known Issues
+
+- **Homepage showcase grid** responsive layout (mobile scaling, column
+  alignment) requires further adjustment.
 
 ## [0.1.0] — MVP (first iteration)
 

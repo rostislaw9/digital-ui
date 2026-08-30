@@ -756,7 +756,25 @@ on MDX tooling.
 - The motion primitives with interactive demos.
 - Installation instructions (CLI-based).
 
-### 16.3 Why it matters
+### 16.3 Code splitting and registry loading
+
+The docs app uses a two-tier registry pattern to keep chunks small:
+
+1. **`componentManifest`** (`registry/manifest.ts`) — a lightweight
+   array with only `name`, `label`, `category`, `description`, and
+   `exampleCount`. Used by `ComponentsSidebar`, `ComponentsPage`, and
+   `HomePage` so they don't pull in demo components or `?raw`/
+   `?highlighted` source strings.
+2. **Full registry files** (`registry/*.tsx`) — contain the complete
+   `ComponentMeta` with examples, props, accessibility notes, and
+   demo imports. `ComponentDetailPage` lazy-loads only the requested
+   component's file via `import.meta.glob`, not the entire registry.
+
+Vendor chunks: `vendor-react`, `vendor-radix`, `vendor-motion`,
+`vendor-lucide`, `vendor-cmdk` are split in `vite.config.ts` for
+cacheability.
+
+### 16.4 Why it matters
 
 The docs app is the primary integration test of the public packages
 and the most visible proof of the visual identity. It must be built

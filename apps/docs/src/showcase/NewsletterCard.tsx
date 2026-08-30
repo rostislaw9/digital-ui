@@ -25,7 +25,7 @@ export function NewsletterCard() {
         <Button
           variant="primary"
           className="w-full"
-          onClick={() => toast.success("Subscribed (demo)")}
+          onClick={() => toast.success("Subscribed")}
         >
           Subscribe
         </Button>
