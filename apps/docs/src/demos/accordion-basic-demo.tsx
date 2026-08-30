@@ -8,49 +8,43 @@ import {
 export function AccordionBasicDemo() {
   return (
     <Accordion className="w-full max-w-md">
-      <AccordionItem value="installation">
-        <AccordionTrigger>Installation</AccordionTrigger>
+      <AccordionItem value="billing">
+        <AccordionTrigger>How does billing work?</AccordionTrigger>
         <AccordionContent>
           <p className="text-sm text-foreground-muted leading-relaxed">
-            Ionbit UI is designed for source ownership. Install individual
-            components on demand using the CLI — no global dependency lock-in.
-            Run{" "}
-            <code className="text-foreground">npx ionbit-ui add button</code> to
-            drop the component source directly into your project.
+            You&apos;re billed on the first of each month for your active plan.
+            Upgrades are prorated automatically. Download past invoices from the
+            billing page.
           </p>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="theming">
-        <AccordionTrigger>Theming & tokens</AccordionTrigger>
+      <AccordionItem value="team">
+        <AccordionTrigger>Can I add team members mid-cycle?</AccordionTrigger>
         <AccordionContent>
           <p className="text-sm text-foreground-muted leading-relaxed">
-            All components are styled with semantic design tokens mapped to CSS
-            custom properties. Override colors, spacing, and motion by editing a
-            single tokens file — no component source changes required. Dark mode
-            is built in via token-level overrides.
+            Yes. Invite teammates at any time. Seats are prorated to your
+            billing date and you&apos;ll see the adjusted charge on your next
+            invoice.
           </p>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="accessibility">
-        <AccordionTrigger>Accessibility</AccordionTrigger>
+      <AccordionItem value="data">
+        <AccordionTrigger>Where is my data stored?</AccordionTrigger>
         <AccordionContent>
           <p className="text-sm text-foreground-muted leading-relaxed">
-            Every component ships with ARIA attributes, keyboard navigation, and
-            focus management out of the box. Radix UI primitives handle the
-            heavy lifting — arrow keys, focus traps, and screen reader
-            announcements are all included by default.
+            All data is encrypted at rest and stored in the region you selected
+            during sign-up. You can change your data residency at any time from
+            workspace settings.
           </p>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="motion">
-        <AccordionTrigger>Motion primitives</AccordionTrigger>
+      <AccordionItem value="cancel">
+        <AccordionTrigger>What happens when I cancel?</AccordionTrigger>
         <AccordionContent>
           <p className="text-sm text-foreground-muted leading-relaxed">
-            The motion package provides reusable interaction primitives —
-            Magnetic, Glow, Pulse, and Reveal — that compose with any component.
-            Each primitive respects{" "}
-            <code className="text-foreground">prefers-reduced-motion</code> and
-            degrades gracefully when motion is disabled.
+            Your workspace remains read-only for 30 days. After that, all data
+            is permanently deleted. You can reactivate at any time during the
+            grace period.
           </p>
         </AccordionContent>
       </AccordionItem>

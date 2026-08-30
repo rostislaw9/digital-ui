@@ -10,6 +10,14 @@ export function ToastPositionsDemo() {
     "bottom-center",
     "bottom-right",
   ] as const;
+  const labels: Record<(typeof positions)[number], string> = {
+    "top-left": "Top Left",
+    "top-center": "Top Center",
+    "top-right": "Top Right",
+    "bottom-left": "Bottom Left",
+    "bottom-center": "Bottom Center",
+    "bottom-right": "Bottom Right",
+  };
   return (
     <div className="flex flex-wrap gap-3">
       {positions.map((pos) => (
@@ -18,13 +26,13 @@ export function ToastPositionsDemo() {
           variant="secondary"
           size="sm"
           onClick={() =>
-            toast.info(pos, {
-              description: `Positioned ${pos}.`,
+            toast.info(labels[pos], {
+              description: `Positioned ${pos}`,
               position: pos,
             })
           }
         >
-          {pos}
+          {labels[pos]}
         </Button>
       ))}
     </div>

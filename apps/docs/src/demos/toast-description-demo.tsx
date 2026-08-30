@@ -28,7 +28,7 @@ export function ToastDescriptionDemo() {
         variant="destructive"
         onClick={() =>
           toast.error("Deploy failed", {
-            description: "Check the build logs and try again.",
+            description: "Check the build logs and try again",
           })
         }
       >

@@ -8,7 +8,7 @@ export function ToastTypesDemo() {
         variant="secondary"
         onClick={() =>
           toast("Default", {
-            description: "A simple notification.",
+            description: "A simple notification",
           })
         }
       >
@@ -18,7 +18,7 @@ export function ToastTypesDemo() {
         variant="secondary"
         onClick={() =>
           toast.info("Info", {
-            description: "Something to know.",
+            description: "Something to know",
           })
         }
       >
@@ -28,7 +28,7 @@ export function ToastTypesDemo() {
         variant="secondary"
         onClick={() =>
           toast.success("Success!", {
-            description: "Operation completed.",
+            description: "Operation completed",
           })
         }
       >
@@ -38,7 +38,7 @@ export function ToastTypesDemo() {
         variant="secondary"
         onClick={() =>
           toast.warning("Warning", {
-            description: "Check before proceeding.",
+            description: "Check before proceeding",
           })
         }
       >
@@ -48,7 +48,7 @@ export function ToastTypesDemo() {
         variant="destructive"
         onClick={() =>
           toast.error("Error", {
-            description: "Something went wrong.",
+            description: "Something went wrong",
           })
         }
       >

@@ -4,16 +4,25 @@ export function SeparatorHorizontalDemo() {
   return (
     <div className="flex max-w-sm flex-col gap-4 text-sm">
       <div className="flex flex-col gap-1.5">
-        <div className="font-medium leading-none">Installation</div>
+        <div className="font-medium leading-none">Account</div>
         <div className="text-foreground-muted">
-          Source-owned components installed via CLI
+          Manage your profile and sign-in preferences
         </div>
       </div>
       <Separator />
-      <div className="text-foreground-muted">
-        Add individual components on demand with{" "}
-        <code className="text-foreground">npx ionbit-ui add button</code> — no
-        global dependency lock-in, full control over your source.
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <span className="text-foreground">Display name</span>
+          <span className="text-foreground-muted">Alex Rivera</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-foreground">Email</span>
+          <span className="text-foreground-muted">alex@example.com</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-foreground">Time zone</span>
+          <span className="text-foreground-muted">UTC−05:00</span>
+        </div>
       </div>
     </div>
   );

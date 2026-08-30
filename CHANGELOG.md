@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Demo improvements:** updated 14 component demos with real-world
+  wording and examples. Accordion now shows a billing FAQ. Alert
+  "with description" demo includes both success and error variants.
+  Alert Dialog reworded to "Discard changes?" with "Open Dialog"
+  trigger. Checkbox demo shows an email notifications preferences
+  form. Context Menu reworded to a file manager (Open, Rename,
+  Duplicate, Share, Move to trash). Dialog description spacing fixed
+  to match AlertDialog (added `mt-2`). Dropdown Menu trigger is now
+  "Open Menu". Popover trigger is "Open Popover" with a scheduled
+  maintenance card. ScrollArea shows a notifications list instead of
+  version tags. Separator shows an account settings layout. Sheet
+  trigger is "Open Sheet". Spotlight basic demo wording fixed (no
+  proximity threshold — activates on hover, not "near"). Tabs shows
+  a profile/security/billing/API keys settings layout. Toast trigger
+  is "Show Toast" and position buttons are capitalized ("Top Left",
+  "Top Right", etc.).
 - **Sidebar auto-scroll:** `ComponentsSidebar` now automatically scrolls
   the active component into view with padding from the faded edges when
   navigating via the sidebar or URL.

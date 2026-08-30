@@ -14,24 +14,24 @@ export function AlertDialogDemo() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">Delete account</Button>
+        <Button variant="destructive">Open Dialog</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
-        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+        <AlertDialogTitle>Discard changes?</AlertDialogTitle>
         <AlertDialogDescription>
-          This action cannot be undone. This will permanently delete your
-          account and remove your data from our servers.
+          You have unsaved edits on this page. Discarding will return you to the
+          previous view and your changes will be lost.
         </AlertDialogDescription>
         <AlertDialogFooter>
           {/* AlertDialogCancel auto-closes the dialog. Add onClick for side effects. */}
-          <AlertDialogCancel onClick={() => {}}>Cancel</AlertDialogCancel>
+          <AlertDialogCancel onClick={() => {}}>Keep editing</AlertDialogCancel>
           {/* AlertDialogAction auto-closes the dialog. Add onClick to perform the action. */}
           <AlertDialogAction
             onClick={() => {
               // Perform the destructive action here
             }}
           >
-            Delete
+            Discard
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

@@ -17,7 +17,7 @@ export function DialogDemo() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="primary">Open Dialog</Button>
+        <Button variant="secondary">Open Dialog</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogTitle>Confirm action</DialogTitle>

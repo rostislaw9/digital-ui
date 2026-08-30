@@ -9,63 +9,63 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function TabsBasicDemo() {
   return (
-    <Tabs defaultValue="deployments" className="w-[400px]">
+    <Tabs defaultValue="profile" className="w-140">
       <TabsList>
-        <TabsTrigger value="deployments">Deployments</TabsTrigger>
-        <TabsTrigger value="branches">Branches</TabsTrigger>
-        <TabsTrigger value="logs">Logs</TabsTrigger>
-        <TabsTrigger value="domains">Domains</TabsTrigger>
+        <TabsTrigger value="profile">Profile</TabsTrigger>
+        <TabsTrigger value="security">Security</TabsTrigger>
+        <TabsTrigger value="billing">Billing</TabsTrigger>
+        <TabsTrigger value="api">API Keys</TabsTrigger>
       </TabsList>
-      <TabsContent value="deployments">
+      <TabsContent value="profile">
         <Card>
           <CardHeader>
-            <CardTitle>Deployments</CardTitle>
+            <CardTitle>Profile</CardTitle>
             <CardDescription>
-              Production and preview deployments for this project.
+              Your public profile and display preferences.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-foreground-muted">
-            Last deployment succeeded 4 minutes ago — commit{" "}
-            <code className="text-foreground">a3f9c2e</code>.
+            Display name: Alex Rivera. Avatar last updated 3 days ago.
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value="branches">
+      <TabsContent value="security">
         <Card>
           <CardHeader>
-            <CardTitle>Branches</CardTitle>
+            <CardTitle>Security</CardTitle>
             <CardDescription>
-              Active Git branches with recent commit history.
+              Two-factor authentication and active sessions.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-foreground-muted">
-            6 branches open — main, develop, and 4 feature branches.
+            2FA enabled via authenticator app. 2 active sessions on desktop and
+            mobile.
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value="logs">
+      <TabsContent value="billing">
         <Card>
           <CardHeader>
-            <CardTitle>Logs</CardTitle>
+            <CardTitle>Billing</CardTitle>
             <CardDescription>
-              Real-time build and runtime logs for all environments.
+              Plan, payment method, and invoice history.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-foreground-muted">
-            No errors in the last 24 hours. 3 warnings from deprecated APIs.
+            Pro plan — renews on the 15th. Visa ending in 4242.
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value="domains">
+      <TabsContent value="api">
         <Card>
           <CardHeader>
-            <CardTitle>Domains</CardTitle>
+            <CardTitle>API Keys</CardTitle>
             <CardDescription>
-              Custom domains and DNS configuration for your deployments.
+              Manage tokens for programmatic access.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-sm text-foreground-muted">
-            2 domains connected — both pointing to production.
+            3 active keys. Last used 2 hours ago from IP 203.0.113.42.
           </CardContent>
         </Card>
       </TabsContent>

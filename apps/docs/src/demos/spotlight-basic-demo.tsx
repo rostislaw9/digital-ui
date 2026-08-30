@@ -14,14 +14,13 @@ export function SpotlightBasicDemo() {
         <CardHeader>
           <CardTitle>Spotlight</CardTitle>
           <CardDescription>
-            Move the cursor near this card — the highlight starts before you
-            touch it.
+            Move the cursor over this card — the highlight follows the pointer.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-foreground-muted">
-            The radial gradient follows the pointer with a 20px proximity
-            threshold.
+            The radial gradient tracks the cursor position within the element
+            bounds.
           </p>
         </CardContent>
       </Card>

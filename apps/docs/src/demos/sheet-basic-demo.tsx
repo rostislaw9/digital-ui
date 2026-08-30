@@ -16,7 +16,7 @@ export function SheetBasicDemo() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="secondary">Open panel</Button>
+        <Button variant="secondary">Open Sheet</Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
