@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 import { Button } from "@ionbit-ui/ui";
 
-import { Slottable } from "@/components/ui/button";
-
 import { getPrevNext } from "../../lib/getPrevNext";
 
 export function PrevNextNav({
@@ -22,20 +20,18 @@ export function PrevNextNav({
     <div className="flex items-center justify-between border-t border-border pt-6">
       {prev ? (
         <Button asChild variant="outline" size="sm">
-          <ArrowLeft data-icon="inline-start" />
-          <Slottable>
-            <Link to={`/components/${prev.name}`}>{prev.label}</Link>
-          </Slottable>
+          <Link to={`/components/${prev.name}`}>
+            <ArrowLeft data-icon="inline-start" /> {prev.label}
+          </Link>
         </Button>
       ) : (
         <span />
       )}
       {next ? (
         <Button asChild variant="outline" size="sm">
-          <Slottable>
-            <Link to={`/components/${next.name}`}>{next.label}</Link>
-          </Slottable>
-          <ArrowRight data-icon="inline-end" />
+          <Link to={`/components/${next.name}`}>
+            {next.label} <ArrowRight data-icon="inline-end" />
+          </Link>
         </Button>
       ) : (
         <span />

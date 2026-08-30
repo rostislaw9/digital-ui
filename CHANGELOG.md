@@ -62,8 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   → `error-soft`). Updated source, registry, demos, tests, and docs.
 - **Arrow icons:** replaced all `←`/`→` text arrows with Lucide icons
   (`ArrowLeft`, `ArrowRight`) across the docs app. Icons are placed
-  inside `Button` with `Slottable` and `data-icon` attributes for
-  correct spacing. Re-exported `Slottable` from `@ionbit-ui/ui`.
+  inside `Button` with `data-icon` attributes for correct spacing.
 - **ComponentsSidebar:** redesigned as a flat list using `ScrollArea`
   with hidden scrollbar, vertical gradient line, top/bottom fade shadows
   that appear/disappear based on scroll position, and `Reveal` entrance

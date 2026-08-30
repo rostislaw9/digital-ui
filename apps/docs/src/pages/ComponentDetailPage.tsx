@@ -13,8 +13,6 @@ import { Link, useParams } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Button, cn } from "@ionbit-ui/ui";
 
-import { Slottable } from "@/components/ui/button";
-
 import { ComponentsSidebar } from "../components/ComponentsSidebar";
 import { AccessibilityList } from "../components/detail/AccessibilityList";
 import { ApiTable } from "../components/detail/ApiTable";
@@ -137,10 +135,9 @@ export function ComponentDetailPage() {
           No component named &quot;{name}&quot;.
         </p>
         <Button asChild variant="outline">
-          <ArrowLeft data-icon="inline-start" />
-          <Slottable>
-            <Link to="/components">Back to all components</Link>
-          </Slottable>
+          <Link to="/components">
+            <ArrowLeft data-icon="inline-start" /> Back to all components
+          </Link>
         </Button>
       </div>
     );
