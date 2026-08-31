@@ -100,6 +100,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   its author Emil Kowalski. The Toast docs page has a new "About" section
   with the same credit, and the README has an "Acknowledgments" section
   listing shadcn/ui, Radix UI, Sonner, cmdk, and Tailwind CSS.
+- **Command attribution:** the Command docs page now has an "About"
+  section crediting `cmdk` by Paco Coursey, matching the Toast
+  attribution pattern.
 - **Shadcn framing:** removed "not a shadcn clone" language from the
   README, homepage hero, and competitive research. The project is now
   described as "inspired by shadcn's source-ownership model."

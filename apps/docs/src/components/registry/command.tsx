@@ -8,6 +8,29 @@ export const commandMeta: ComponentMeta = {
   name: "command",
   label: "Command Palette",
   description: "Cmd+k command palette with search input, groups, and items.",
+  about: (
+    <>
+      Built on{" "}
+      <a
+        href="https://github.com/pacocoursey/cmdk"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:underline"
+      >
+        cmdk
+      </a>{" "}
+      by{" "}
+      <a
+        href="https://paco.sh"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:underline"
+      >
+        Paco Coursey
+      </a>
+      .
+    </>
+  ),
   category: "Overlay",
   examples: [
     {
