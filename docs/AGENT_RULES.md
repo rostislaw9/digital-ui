@@ -602,3 +602,68 @@ A commit that changes behavior, components, structure, or public API
 without updating the changelog and related docs is incomplete. Do not
 rely on "I'll document it later" — later commits pile up and the
 changelog drifts from reality.
+
+---
+
+## 26. Commit Message Conventions
+
+All commits must follow the [Conventional Commits](https://www.conventionalcommits.org/)
+specification. This keeps the history readable, enables automated
+changelog generation, and is a prerequisite for the automated npm
+publish workflow (which is triggered by GitHub Release tags).
+
+### 26.1 Format
+
+    <type>: <subject>
+
+    <optional body>
+
+- The **subject** is lowercase, imperative mood, no trailing period.
+- The **body** (when present) is separated by a blank line and explains
+  _why_ the change was made, not just _what_ changed.
+
+### 26.2 Types
+
+| Type       | When to use                                                               |
+| ---------- | ------------------------------------------------------------------------- |
+| `feat`     | A new feature or capability (new component, new CLI command, new option)  |
+| `fix`      | A bug fix (something that was broken now works correctly)                 |
+| `refactor` | Code restructuring without behavior change (renames, extraction, cleanup) |
+| `perf`     | A change that improves performance                                        |
+| `docs`     | Documentation-only changes (docs pages, JSDoc, README, CHANGELOG)         |
+| `test`     | Adding or fixing tests                                                    |
+| `chore`    | Tooling, config, version bumps, dependency updates                        |
+| `ci`       | CI/CD pipeline changes (workflows, build scripts)                         |
+| `style`    | Formatting, whitespace, semicolons — no code logic change                 |
+| `build`    | Build system or external dependencies changes                             |
+
+### 26.3 Examples
+
+    feat: add Copy Page button to component detail page
+    fix: sidebar auto-scroll, extract showcase grid, optimize docs chunks
+    refactor: remove .js extensions from relative imports
+    docs: update component demos with real-world examples and wording
+    chore: bump version to 0.1.1 for first npm publish
+    ci: add OIDC publish workflow and version sync script
+    perf: move Shiki highlighting to build time for instant page loads
+
+### 26.4 Automated commits
+
+The publish workflow (`tooling/sync-versions.mjs` + `.github/workflows/publish.yml`)
+generates commits automatically with the `chore:` prefix:
+
+    chore: sync version to 0.1.2
+
+This is the only exception to the "agent writes the commit message"
+rule — the sync script owns these commits.
+
+### 26.5 Scope (optional)
+
+A scope may be added in parentheses for clarity when the change is
+narrowly focused:
+
+    fix(cli): auto-install deps when adding a component
+    feat(docs): add manual install tab with step markers
+
+Scopes are optional but encouraged for changes that touch a single
+package or subsystem.

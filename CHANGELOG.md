@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.1.2] — 2026-08-31
+
 ## [0.1.1] — MVP (first published release)
 
 > Note: `0.1.0` was briefly published to npm and then unpublished. npm

@@ -55,8 +55,27 @@ yarn registry:build   # build the source registry
    yarn typecheck && yarn lint && yarn test && yarn build
    ```
 
-5. Commit with a clear message. Use the conventional commit format
-   (e.g. `feat:`, `fix:`, `docs:`, `refactor:`, `test:`).
+5. Commit with a clear message using the
+   [Conventional Commits](https://www.conventionalcommits.org/) format.
+   Subject line: lowercase, imperative mood, no trailing period.
+
+   | Type       | Use for                               |
+   | ---------- | ------------------------------------- |
+   | `feat`     | New feature or capability             |
+   | `fix`      | Bug fix                               |
+   | `refactor` | Restructuring without behavior change |
+   | `perf`     | Performance improvement               |
+   | `docs`     | Documentation-only changes            |
+   | `test`     | Adding or fixing tests                |
+   | `chore`    | Tooling, config, version bumps, deps  |
+   | `ci`       | CI/CD pipeline changes                |
+   | `style`    | Formatting only — no logic change     |
+   | `build`    | Build system or external dependencies |
+
+   Example: `feat: add Copy Page button to component detail page`
+
+   See `docs/AGENT_RULES.md` §26 for the full specification.
+
 6. Open a pull request describing what changed and why.
 
 ## Code conventions

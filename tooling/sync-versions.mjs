@@ -15,7 +15,7 @@
  * patch bump is non-conventional.
  */
 import { readFileSync, writeFileSync } from "node:fs";
-import { resolve, dirname } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -23,7 +23,9 @@ const root = resolve(__dirname, "..");
 
 const args = process.argv.slice(2);
 if (args.length === 0 || args[0] === "--help" || args[0] === "-h") {
-  console.error("Usage: node tooling/sync-versions.mjs <version> [--no-changelog]");
+  console.error(
+    "Usage: node tooling/sync-versions.mjs <version> [--no-changelog]",
+  );
   process.exit(1);
 }
 
@@ -75,7 +77,9 @@ if (cliVersionRe.test(cliSrc)) {
     changed++;
   }
 } else {
-  console.error(`  ✗ packages/cli/src/index.ts — could not find .version("...") call`);
+  console.error(
+    `  ✗ packages/cli/src/index.ts — could not find .version("...") call`,
+  );
   process.exit(1);
 }
 
@@ -85,9 +89,14 @@ if (updateChangelog) {
   let md = readFileSync(changelogPath, "utf-8");
 
   // Skip if this version already has a heading
-  const headingRe = new RegExp(`^## \\[${version.replace(/[.\\]/g, "\\$&")}\\]`, "m");
+  const headingRe = new RegExp(
+    `^## \\[${version.replace(/[.\\]/g, "\\$&")}\\]`,
+    "m",
+  );
   if (headingRe.test(md)) {
-    console.log(`  · CHANGELOG.md — [${version}] heading already exists, skipping`);
+    console.log(
+      `  · CHANGELOG.md — [${version}] heading already exists, skipping`,
+    );
   } else {
     const today = new Date().toISOString().slice(0, 10);
     const newHeading = `## [${version}] — ${today}`;
@@ -100,7 +109,11 @@ if (updateChangelog) {
       if (firstHeadingIdx === -1) {
         md = md + "\n" + newHeading + "\n";
       } else {
-        md = md.slice(0, firstHeadingIdx + 1) + newHeading + "\n" + md.slice(firstHeadingIdx + 1);
+        md =
+          md.slice(0, firstHeadingIdx + 1) +
+          newHeading +
+          "\n" +
+          md.slice(firstHeadingIdx + 1);
       }
     } else {
       // Find the next "## " heading after Unreleased
@@ -113,7 +126,11 @@ if (updateChangelog) {
         // Content between [Unreleased] and the next heading stays under
         // [Unreleased] (standard Keep a Changelog flow: unreleased entries
         // accumulate there and are moved manually when releasing).
-        md = md.slice(0, afterUnreleased + 1) + newHeading + "\n" + md.slice(afterUnreleased + 1);
+        md =
+          md.slice(0, afterUnreleased + 1) +
+          newHeading +
+          "\n\n" +
+          md.slice(afterUnreleased + 1);
       }
     }
 
