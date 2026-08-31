@@ -6,7 +6,7 @@ import { InlineCode } from "./InlineCode";
 export function CursorSection() {
   return (
     <section id="cursor" className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-sm font-semibold text-foreground">Cursor</h2>
+      <h2 className="text-lg font-semibold text-foreground">Cursor</h2>
       <p className="text-sm text-foreground-muted">
         Tailwind v4{" "}
         <a

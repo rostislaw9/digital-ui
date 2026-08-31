@@ -12,3 +12,32 @@ declare module "virtual:highlighted-inline" {
   const data: Record<string, InlineEntry>;
   export default data;
 }
+
+declare module "virtual:highlighted-sources-map" {
+  interface SourceFile {
+    filename: string;
+    html: string;
+    rawCode: string;
+  }
+  interface SourceEntry {
+    sourceFiles: SourceFile[];
+    depInstall: Record<string, string>;
+  }
+  type SourceLoader = () => Promise<{ default: SourceEntry }>;
+  const data: Record<string, SourceLoader>;
+  export default data;
+}
+
+declare module "virtual:highlighted-source/*" {
+  interface SourceFile {
+    filename: string;
+    html: string;
+    rawCode: string;
+  }
+  interface SourceEntry {
+    sourceFiles: SourceFile[];
+    depInstall: Record<string, string>;
+  }
+  const data: SourceEntry;
+  export default data;
+}

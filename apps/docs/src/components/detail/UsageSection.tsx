@@ -15,7 +15,7 @@ export function UsageSection({
   const highlighted = highlightedInline[componentName]!;
   return (
     <section id="usage" className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-sm font-semibold text-foreground">Usage</h2>
+      <h2 className="text-lg font-semibold text-foreground">Usage</h2>
       <CodeBlockWithCopy rawCode={usageImport} html={highlighted.importHtml!} />
       <CodeBlockWithCopy rawCode={usageCode} html={highlighted.codeHtml!} />
     </section>

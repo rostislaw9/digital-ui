@@ -71,6 +71,68 @@ const PACKAGE_MANAGERS = [
   { id: "bun", prefix: "bunx --bun" },
 ] as const;
 
+/** Package manager `add` commands for dependency installation. */
+const PM_ADD = [
+  { id: "pnpm", cmd: "pnpm add radix-ui" },
+  { id: "npm", cmd: "npm install radix-ui" },
+  { id: "yarn", cmd: "yarn add radix-ui" },
+  { id: "bun", cmd: "bun add radix-ui" },
+] as const;
+
+/**
+ * Maps docs registry component names to registry.json item names.
+ * Most are 1:1, but `motion` groups glow/magnetic/pulse/reveal.
+ */
+const REGISTRY_NAME_MAP: Record<string, string[]> = {
+  motion: ["glow", "magnetic", "pulse", "reveal"],
+};
+
+interface RegistryItem {
+  name: string;
+  files: { path: string; type: string; target: string }[];
+  dependencies?: string[];
+}
+
+let registryCache: RegistryItem[] | null = null;
+
+function loadRegistry(): RegistryItem[] {
+  if (registryCache) return registryCache;
+  const registryPath = resolve(
+    dirname(fileURLToPath(import.meta.url)),
+    "../../registry.json",
+  );
+  const content = readFileSync(registryPath, "utf-8");
+  const data = JSON.parse(content) as { items: RegistryItem[] };
+  registryCache = data.items;
+  return registryCache;
+}
+
+/** Extract the target filename from a registry file path. */
+function targetFilename(file: {
+  path: string;
+  type: string;
+  target: string;
+}): string {
+  return file.target || file.path.split("/").pop() || "component.tsx";
+}
+
+/** Scan the registry directory and extract component names. */
+function getRegistryNames(): string[] {
+  const registryDir = resolve(
+    dirname(fileURLToPath(import.meta.url)),
+    "src/components/registry",
+  );
+  const files = readdirSync(registryDir).filter(
+    (f) => f.endsWith(".tsx") && f !== "types.tsx" && f !== "index.tsx",
+  );
+  const names: string[] = [];
+  for (const file of files) {
+    const { name } = extractUsageFields(resolve(registryDir, file));
+    if (name) names.push(name);
+  }
+  return names;
+}
+
 /**
  * Extract usageImport and usageCode from a registry .tsx file by parsing
  * the template literals. This avoids needing to execute the TSX.
@@ -106,6 +168,10 @@ function extractUsageFields(filePath: string): {
  * 2. Virtual module: `virtual:highlighted-inline` — a JSON map of
  *    component name → { importHtml, codeHtml, install } for usage examples
  *    and install commands, plus `__cursor__` for the cursor CSS block.
+ * 3. Per-component virtual module: `virtual:highlighted-source/<name>` —
+ *    returns `{ sourceFiles, depInstall }` for the manual install tab.
+ *    Dynamically imported by InstallBlock only when the Manual tab is
+ *    opened, so source code doesn't bloat the main bundle.
  *
  * This eliminates the entire Shiki runtime from the browser bundle.
  */
@@ -130,6 +196,14 @@ export function shikiHighlightPlugin(): Plugin {
       // Virtual module for inline code
       if (id === "virtual:highlighted-inline") {
         return "\0virtual:highlighted-inline";
+      }
+      // Virtual module: map of lazy import functions for source data
+      if (id === "virtual:highlighted-sources-map") {
+        return "\0virtual:highlighted-sources-map";
+      }
+      // Per-component source module: virtual:highlighted-source/<name>
+      if (id.startsWith("virtual:highlighted-source/")) {
+        return `\0${id}`;
       }
       return null;
     },
@@ -201,6 +275,77 @@ export function shikiHighlightPlugin(): Plugin {
 
         return {
           code: `export default ${JSON.stringify(result)};`,
+          map: null,
+        };
+      }
+
+      // Virtual module: map of lazy import functions for source data.
+      // This lets InstallBlock dynamically import only the requested
+      // component's source code without bundling all source into the main chunk.
+      if (id === "\0virtual:highlighted-sources-map") {
+        const names = getRegistryNames();
+
+        // Generate: { button: () => import("virtual:highlighted-source/button"), ... }
+        const lines = names.map(
+          (n) =>
+            `  ${JSON.stringify(n)}: () => import(${JSON.stringify(`virtual:highlighted-source/${n}`)}),`,
+        );
+        return {
+          code: `export default {\n${lines.join("\n")}\n};`,
+          map: null,
+        };
+      }
+
+      // Per-component source module: \0virtual:highlighted-source/<name>
+      if (id.startsWith("\0virtual:highlighted-source/")) {
+        const compName = id.slice("\0virtual:highlighted-source/".length);
+        const registryItems = loadRegistry();
+        const registryByName: Record<string, RegistryItem> = {};
+        for (const item of registryItems) {
+          registryByName[item.name] = item;
+        }
+
+        const itemNames = REGISTRY_NAME_MAP[compName] ?? [compName];
+        const sourceFiles: {
+          filename: string;
+          html: string;
+          rawCode: string;
+        }[] = [];
+
+        for (const itemName of itemNames) {
+          const item = registryByName[itemName];
+          if (!item) continue;
+          for (const f of item.files) {
+            // Only include .tsx/.ts source files, skip CSS.
+            if (!f.path.endsWith(".tsx") && !f.path.endsWith(".ts")) continue;
+            const srcPath = resolve(
+              dirname(fileURLToPath(import.meta.url)),
+              "../../",
+              f.path,
+            );
+            try {
+              const rawCode = readFileSync(srcPath, "utf-8");
+              const html = await highlight(rawCode, "tsx");
+              sourceFiles.push({
+                filename: targetFilename(f),
+                html,
+                rawCode,
+              });
+            } catch {
+              // Skip files that don't exist.
+            }
+          }
+        }
+
+        // Generate radix-ui dependency install commands.
+        const depInstall: Record<string, string> = {};
+        for (const pm of PM_ADD) {
+          depInstall[pm.id] = await highlight(pm.cmd, "bash");
+        }
+
+        const payload = { sourceFiles, depInstall };
+        return {
+          code: `export default ${JSON.stringify(payload)};`,
           map: null,
         };
       }

@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] — MVP (first iteration)
+
 ### Added
 
 - **Copy Page button:** added a "Copy Page" button next to the prev/next
@@ -103,6 +105,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Command attribution:** the Command docs page now has an "About"
   section crediting `cmdk` by Paco Coursey, matching the Toast
   attribution pattern.
+- **Manual install tab:** the Installation block now has two tabs:
+  "Command" (CLI install) and "Manual" (copy-paste source). The Manual
+  tab shows numbered steps with circled markers on a vertical line:
+  for Radix-based components, install `radix-ui` via pnpm/npm/yarn/bun;
+  then copy the component source code (expandable/collapsible code
+  blocks with filename header, FileCodeCorner icon, per-file copy
+  button, and scrollable expansion); then update import paths. The
+  selected tab and package manager persist across page navigation via
+  localStorage. Source code is lazy-loaded per component via a new
+  `virtual:highlighted-source/<name>` Vite virtual module so it
+  doesn't bloat the main bundle. The Command/Manual tabs use a
+  link-style underline variant.
+- **Section titles:** increased component detail page section titles
+  (Preview, About, Installation, API, Accessibility, Composition,
+  Usage, Cursor) from `text-sm` to `text-lg` for better hierarchy.
 - **Shadcn framing:** removed "not a shadcn clone" language from the
   README, homepage hero, and competitive research. The project is now
   described as "inspired by shadcn's source-ownership model."
@@ -114,9 +131,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Homepage showcase grid** responsive layout (mobile scaling, column
   alignment) requires further adjustment.
 
-## [0.1.0] — MVP (first iteration)
-
-### Added
+### Added (MVP foundation)
 
 - **31 UI components:** Accordion, Alert, AlertDialog, Avatar, Badge,
   Breadcrumb, Button (8 variants, 10 sizes including icon variants,
@@ -163,7 +178,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   imports; keep changelog and docs up to date on every commit).
 - `packages/cli/README.md` for the npm package page.
 
-### Changed
+### Changed (MVP foundation)
 
 - Adopted shadcn-style source-owned import paths. Component source now
   uses `import { cn } from "@/lib/utils"` with an empty line between

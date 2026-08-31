@@ -115,3 +115,46 @@
   border-radius: 0.5rem;
   padding: 1rem 1.25rem 1rem 0.5rem;
 }
+
+/*
+ * Numbered steps — used by the Manual install tab.
+ * The container has md:border-l md:pl-8 (2rem padding from the border).
+ * The step number circle (1.5rem wide) sits centered on the border line.
+ * Circle center = border position (0), so left = -(2rem + 0.75rem) = -2.75rem.
+ */
+.step {
+  counter-increment: step;
+  position: relative;
+}
+
+/* Outer circle — opaque surface color, hides the vertical line behind the marker */
+.step::before {
+  content: "";
+  position: absolute;
+  left: calc(-2.75rem - 3px);
+  top: calc(0px - 3px);
+  width: calc(1.5rem + 6px);
+  height: calc(1.5rem + 6px);
+  border-radius: 9999px;
+  background: var(--background);
+}
+
+/* Inner circle — the actual marker with the step number */
+.step::after {
+  content: counter(step);
+  position: absolute;
+  left: -2.75rem;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--accent-muted);
+  color: var(--accent);
+  line-height: 1.5rem;
+  text-align: center;
+}

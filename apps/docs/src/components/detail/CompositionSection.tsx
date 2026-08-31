@@ -10,7 +10,7 @@ export function CompositionSection({
   const article = /^[aeiou]/i.test(label) ? "an" : "a";
   return (
     <section id="composition" className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-sm font-semibold text-foreground">Composition</h2>
+      <h2 className="text-lg font-semibold text-foreground">Composition</h2>
       <p className="text-sm text-foreground-muted">
         Use the following composition to build {article}{" "}
         <InlineCode>{label}</InlineCode>:

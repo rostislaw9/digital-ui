@@ -268,7 +268,7 @@ export function ComponentDetailPage() {
                   id="preview"
                   className="flex flex-col gap-3 scroll-mt-24"
                 >
-                  <h2 className="text-sm font-semibold text-foreground">
+                  <h2 className="text-lg font-semibold text-foreground">
                     {example.title}
                   </h2>
                   <p className="text-sm text-foreground-muted">
@@ -289,7 +289,7 @@ export function ComponentDetailPage() {
                     id="about"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-sm font-semibold text-foreground">
+                    <h2 className="text-lg font-semibold text-foreground">
                       About
                     </h2>
                     <p className="text-sm text-foreground-muted">
@@ -304,16 +304,10 @@ export function ComponentDetailPage() {
                   id="installation"
                   className="flex flex-col gap-3 scroll-mt-24"
                 >
-                  <h2 className="text-sm font-semibold text-foreground">
+                  <h2 className="text-lg font-semibold text-foreground">
                     Installation
                   </h2>
-                  <InstallBlock name={comp.name} />
-                  {comp.radixBased && (
-                    <p className="text-xs text-foreground-subtle">
-                      Built on Radix UI — npm dependencies will be installed
-                      automatically.
-                    </p>
-                  )}
+                  <InstallBlock name={comp.name} radixBased={comp.radixBased} />
                 </section>
               </Reveal>
 
@@ -348,7 +342,7 @@ export function ComponentDetailPage() {
                     id="api"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-sm font-semibold text-foreground">
+                    <h2 className="text-lg font-semibold text-foreground">
                       API Reference
                     </h2>
                     <p className="text-sm text-foreground-muted">
@@ -373,7 +367,7 @@ export function ComponentDetailPage() {
                     id="api"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-sm font-semibold text-foreground">
+                    <h2 className="text-lg font-semibold text-foreground">
                       API Reference
                     </h2>
                     <ApiTable props={comp.props} />
@@ -387,7 +381,7 @@ export function ComponentDetailPage() {
                     id="accessibility"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-sm font-semibold text-foreground">
+                    <h2 className="text-lg font-semibold text-foreground">
                       Accessibility
                     </h2>
                     <AccessibilityList notes={comp.accessibility} />
@@ -404,7 +398,7 @@ export function ComponentDetailPage() {
                         id={sectionId}
                         className="flex flex-col gap-3 scroll-mt-24"
                       >
-                        <h2 className="text-sm font-semibold text-foreground">
+                        <h2 className="text-lg font-semibold text-foreground">
                           {primitive.name} API
                         </h2>
                         <p className="text-sm text-foreground-muted">
