@@ -11,7 +11,7 @@ program
   .description(
     "Ionbit UI CLI — install source-owned components from the Ionbit UI registry.",
   )
-  .version("0.1.0");
+  .version("0.1.1");
 
 program
   .command("init")
