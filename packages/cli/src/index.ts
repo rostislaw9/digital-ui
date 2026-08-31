@@ -18,7 +18,8 @@ program
   .description(
     "Initialize Ionbit UI in your project. Creates a ionbit-ui.config.json and installs design tokens.",
   )
-  .option("-y, --yes", "Skip prompts and use defaults")
+  .option("-y, --yes", "Skip confirmation prompts and use defaults")
+  .option("-f, --force", "Force overwrite of existing configuration")
   .option(
     "--pointer",
     "Add cursor: pointer CSS for buttons (Tailwind v4 defaults to cursor: default)",

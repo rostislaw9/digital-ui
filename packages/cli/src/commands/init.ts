@@ -21,15 +21,16 @@ const BASE_ITEMS = ["cn", "tokens"];
 
 export async function init(options: {
   yes?: boolean;
+  force?: boolean;
   pointer?: boolean;
 }): Promise<void> {
   const cwd = process.cwd();
   const configPath = resolve(cwd, CONFIG_FILE);
 
-  if (existsSync(configPath) && !options.yes) {
+  if (existsSync(configPath) && !options.force) {
     console.log(
       chalk.yellow(
-        `${CONFIG_FILE} already exists. Use --overwrite to reinitialize.`,
+        `${CONFIG_FILE} already exists. Use --force to reinitialize.`,
       ),
     );
     return;

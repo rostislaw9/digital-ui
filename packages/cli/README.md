@@ -21,7 +21,8 @@ npx ionbit-ui@latest init
 
 Options:
 
-- `--yes` — skip confirmation prompts
+- `--yes` — skip confirmation prompts and use defaults
+- `--force` — force overwrite of existing configuration
 - `--pointer` — add `cursor: pointer` to buttons (Tailwind v4 changed the default)
 
 ### `add <component...>`
