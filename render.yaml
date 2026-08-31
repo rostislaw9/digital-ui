@@ -1,0 +1,25 @@
+# Render Blueprint — deploys the Ionbit UI docs site as a static site.
+# https://render.com/docs/blueprint-spec
+#
+# The SPA rewrite rule is required so direct links to any route (e.g.
+# /components/button) serve index.html and let react-router handle routing.
+# Without it, Render returns 404 for every non-root path.
+
+services:
+  - type: web
+    name: ionbit-ui
+    runtime: static
+    # Build from the monorepo root so Yarn workspaces resolve correctly.
+    buildCommand: yarn install --immutable && yarn build
+    staticPublishPath: ./apps/docs/dist
+    pullRequestPreviewsEnabled: true
+    routes:
+      # SPA catch-all — serve index.html for all client-side routes.
+      # Render skips this rule when a real file exists at the path (assets).
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
