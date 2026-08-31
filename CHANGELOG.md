@@ -125,6 +125,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   described as "inspired by shadcn's source-ownership model."
 - **Rebrand cleanup:** renamed the leftover `DigitalToasterProps` type to
   `IonBitToasterProps` (and updated re-exports).
+- **Accordion last item border:** `AccordionItem` no longer renders a
+  bottom border on the last item (`last:border-b-0`).
+- **Install block refactor:** extracted `SourceCodeBlock` and
+  `PmCommandBlock` into separate files under
+  `apps/docs/src/components/detail/` for better separation of concerns.
 
 ### Known Issues
 
