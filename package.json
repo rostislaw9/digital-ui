@@ -22,7 +22,8 @@
     "typecheck": "yarn workspaces foreach -A run typecheck",
     "test": "vitest run",
     "test:watch": "vitest",
-    "registry:build": "node registry/build.mjs"
+    "registry:build": "node registry/build.mjs",
+    "sync-versions": "node tooling/sync-versions.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.0",
