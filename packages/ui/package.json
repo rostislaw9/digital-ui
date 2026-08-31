@@ -7,7 +7,7 @@
   "author": "Rostislav Rudometov",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rostislaw9/ionbit-ui.git",
+    "url": "https://github.com/rostislaw9/ionbit-ui",
     "directory": "packages/ui"
   },
   "homepage": "https://github.com/rostislaw9/ionbit-ui#readme",

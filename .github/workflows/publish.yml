@@ -61,8 +61,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
+
+      # npm Trusted Publisher (OIDC) requires npm >= 11.5.1.
+      # Node 24 ships with npm 11.x, but we upgrade explicitly to be safe.
+      - name: Upgrade npm for OIDC support
+        run: |
+          npm install -g npm@latest
+          npm --version
+
+      - name: Verify OIDC token availability
+        run: |
+          if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" ]; then
+            echo "::error::OIDC token NOT available — check workflow has id-token: write permission"
+            exit 1
+          fi
+          echo "OIDC token available"
 
       - name: Enable Corepack (Yarn 4)
         run: corepack enable
