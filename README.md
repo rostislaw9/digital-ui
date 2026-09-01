@@ -1,9 +1,9 @@
 # Ionbit UI
 
-A production-quality React UI component system with a distinctive digital
-visual language and an integrated motion/interaction system.
+A React UI component system with a distinctive digital visual language
+and an integrated motion/interaction system.
 
-> Build production interfaces that feel alive without having to design every
+> Build interfaces that feel alive without having to design every
 > interaction from scratch.
 
 ## What this is
@@ -17,7 +17,7 @@ Ionbit UI is **not**:
 
 It **is**:
 
-- a small set of production-quality, accessible React primitives;
+- a set of accessible React primitives;
 - a coherent motion system with shared timing, easing, intensity, and
   reduced-motion tokens;
 - a restrained, dark, technical visual identity built on hierarchy,
@@ -25,19 +25,11 @@ It **is**:
 - source-owned — you own the components you install, inspired by the
   shadcn/ui source-ownership model.
 
-## Status
-
-This is the first MVP iteration. The source, registry, CLI, and
-documentation app are complete and validated locally, but **no
-`@ionbit-ui/*` package has been published to npm yet**. Publishing is
-a follow-up task. Until then, use the components via the source-owned
-CLI workflow or directly from this repository.
-
 ## Packages
 
 | Package             | Description                                                    |
 | ------------------- | -------------------------------------------------------------- |
-| `@ionbit-ui/ui`     | 31 production-quality React components                         |
+| `@ionbit-ui/ui`     | 31 React components                                            |
 | `@ionbit-ui/motion` | 5 motion primitives (Glow, Pulse, Spotlight, Magnetic, Reveal) |
 | `@ionbit-ui/tokens` | Design tokens as CSS with Tailwind v4 mapping                  |
 | `ionbit-ui`         | CLI for source-owned component installation                    |
@@ -54,19 +46,15 @@ Switch, Tabs, Textarea, Toast, Tooltip.
 
 ## Quick start
 
-> Packages are not published yet. Until the first npm release, use the
-> source-owned CLI workflow below, or copy components directly from
-> `packages/ui/src/components/`.
-
 ### Source-owned installation (CLI)
 
 Install components as source files into your project — you own the code:
 
 ```bash
-npx ionbit-ui init
-npx ionbit-ui add button
-npx ionbit-ui add accordion
-npx ionbit-ui list
+npx ionbit-ui@latest init
+npx ionbit-ui@latest add button
+npx ionbit-ui@latest add accordion
+npx ionbit-ui@latest list
 ```
 
 This copies the component source into `src/components/ui/`, resolves registry

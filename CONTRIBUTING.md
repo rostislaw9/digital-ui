@@ -126,22 +126,9 @@ yarn registry:build   # build the source registry
 2. Add tests at `packages/motion/src/primitives/<name>.test.tsx`.
 3. Export from `packages/motion/src/index.ts`.
 4. Add to `registry.json` and the docs registry.
-5. Add documentation to the motion page.
-
-## Release process
-
-> No package has been published yet. The workflow below describes the
-> intended process for the first npm release and subsequent releases.
-
-1. Update `CHANGELOG.md` with the changes since the last release.
-2. Bump versions in all publishable packages
-   (`@ionbit-ui/ui`, `@ionbit-ui/motion`, `@ionbit-ui/tokens`,
-   `ionbit-ui`).
-3. Run all checks: `yarn typecheck && yarn lint && yarn test && yarn build`.
-4. Build the registry: `yarn registry:build`.
-5. Publish packages in dependency order: tokens → motion → ui → cli.
-6. Tag the release: `git tag v0.x.0`.
-7. Push tags and the changelog update.
+5. Add documentation to the docs app — create a per-component metadata
+   file at `apps/docs/src/components/registry/<name>.tsx` and re-export
+   it from `apps/docs/src/components/registry/index.ts`.
 
 ## License
 
