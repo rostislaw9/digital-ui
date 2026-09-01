@@ -79,14 +79,6 @@ const PM_ADD = [
   { id: "bun", cmd: "bun add radix-ui" },
 ] as const;
 
-/**
- * Maps docs registry component names to registry.json item names.
- * Most are 1:1, but `motion` groups glow/magnetic/pulse/reveal.
- */
-const REGISTRY_NAME_MAP: Record<string, string[]> = {
-  motion: ["glow", "magnetic", "pulse", "reveal"],
-};
-
 interface RegistryItem {
   name: string;
   files: { path: string; type: string; target: string }[];
@@ -305,16 +297,14 @@ export function shikiHighlightPlugin(): Plugin {
           registryByName[item.name] = item;
         }
 
-        const itemNames = REGISTRY_NAME_MAP[compName] ?? [compName];
         const sourceFiles: {
           filename: string;
           html: string;
           rawCode: string;
         }[] = [];
 
-        for (const itemName of itemNames) {
-          const item = registryByName[itemName];
-          if (!item) continue;
+        const item = registryByName[compName];
+        if (item) {
           for (const f of item.files) {
             // Only include .tsx/.ts source files, skip CSS.
             if (!f.path.endsWith(".tsx") && !f.path.endsWith(".ts")) continue;

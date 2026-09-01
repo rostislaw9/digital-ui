@@ -4,7 +4,6 @@ import sourceLoaders from "virtual:highlighted-sources-map";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ionbit-ui/ui";
 
-import { CopyButton } from "./CopyButton";
 import { PACKAGE_MANAGERS, PmCommandBlock } from "./PmCommandBlock";
 import { SourceCodeBlock, type SourceFile } from "./SourceCodeBlock";
 
@@ -130,15 +129,11 @@ export function InstallBlock({ name, radixBased }: InstallBlockProps) {
               </h3>
               <div className="flex flex-col gap-3">
                 {sourceFiles.map((file) => (
-                  <SourceCodeBlock key={file.filename} file={file} />
+                  <SourceCodeBlock
+                    key={`${name}/${file.filename}`}
+                    file={file}
+                  />
                 ))}
-                {sourceFiles.length > 1 && (
-                  <div className="flex justify-end">
-                    <CopyButton
-                      text={sourceFiles.map((f) => f.rawCode).join("\n\n")}
-                    />
-                  </div>
-                )}
               </div>
             </>
           )}

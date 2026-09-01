@@ -109,6 +109,13 @@ export const componentManifest: ComponentManifestEntry[] = [
     exampleCount: 1,
   },
   {
+    name: "glow",
+    label: "Glow",
+    category: "Motion",
+    description: "State-driven accent halo on hover/focus.",
+    exampleCount: 4,
+  },
+  {
     name: "hover-card",
     label: "Hover Card",
     category: "Overlay",
@@ -128,6 +135,13 @@ export const componentManifest: ComponentManifestEntry[] = [
     category: "Form",
     description: "Accessible form label.",
     exampleCount: 2,
+  },
+  {
+    name: "magnetic",
+    label: "Magnetic",
+    category: "Motion",
+    description: "Spring-based cursor attraction.",
+    exampleCount: 1,
   },
   {
     name: "pagination",
@@ -151,10 +165,24 @@ export const componentManifest: ComponentManifestEntry[] = [
     exampleCount: 1,
   },
   {
+    name: "pulse",
+    label: "Pulse",
+    category: "Motion",
+    description: "Periodic accent halo for active status.",
+    exampleCount: 2,
+  },
+  {
     name: "radio-group",
     label: "Radio Group",
     category: "Form",
     description: "Single-choice option group.",
+    exampleCount: 1,
+  },
+  {
+    name: "reveal",
+    label: "Reveal",
+    category: "Motion",
+    description: "In-view entrance animation.",
     exampleCount: 1,
   },
   {
@@ -240,14 +268,6 @@ export const componentManifest: ComponentManifestEntry[] = [
     category: "Overlay",
     description: "Hover-triggered label.",
     exampleCount: 1,
-  },
-  {
-    name: "motion",
-    label: "Motion Primitives",
-    category: "Motion",
-    description:
-      "Magnetic, Glow, Pulse, and Reveal. Composable motion wrappers.",
-    exampleCount: 8,
   },
 ];
 

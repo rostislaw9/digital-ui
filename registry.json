@@ -423,11 +423,6 @@
           "target": "components/motion/spotlight.tsx"
         },
         {
-          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
-          "type": "registry:lib",
-          "target": "components/motion/hooks/use-inherited-radius.ts"
-        },
-        {
           "path": "packages/motion/src/hooks/use-reduced-motion.ts",
           "type": "registry:lib",
           "target": "components/motion/hooks/use-reduced-motion.ts"
@@ -458,11 +453,6 @@
           "target": "components/motion/hooks/use-inherited-radius.ts"
         },
         {
-          "path": "packages/motion/src/hooks/use-reduced-motion.ts",
-          "type": "registry:lib",
-          "target": "components/motion/hooks/use-reduced-motion.ts"
-        },
-        {
           "path": "packages/motion/src/tokens.ts",
           "type": "registry:lib",
           "target": "components/motion/tokens.ts"
@@ -481,11 +471,6 @@
           "path": "packages/motion/src/primitives/magnetic.tsx",
           "type": "registry:ui",
           "target": "components/motion/magnetic.tsx"
-        },
-        {
-          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
-          "type": "registry:lib",
-          "target": "components/motion/hooks/use-inherited-radius.ts"
         },
         {
           "path": "packages/motion/src/hooks/use-reduced-motion.ts",
@@ -518,11 +503,6 @@
           "target": "components/motion/hooks/use-inherited-radius.ts"
         },
         {
-          "path": "packages/motion/src/hooks/use-reduced-motion.ts",
-          "type": "registry:lib",
-          "target": "components/motion/hooks/use-reduced-motion.ts"
-        },
-        {
           "path": "packages/motion/src/tokens.ts",
           "type": "registry:lib",
           "target": "components/motion/tokens.ts"
@@ -541,11 +521,6 @@
           "path": "packages/motion/src/primitives/reveal.tsx",
           "type": "registry:ui",
           "target": "components/motion/reveal.tsx"
-        },
-        {
-          "path": "packages/motion/src/hooks/use-inherited-radius.ts",
-          "type": "registry:lib",
-          "target": "components/motion/hooks/use-inherited-radius.ts"
         },
         {
           "path": "packages/motion/src/hooks/use-reduced-motion.ts",

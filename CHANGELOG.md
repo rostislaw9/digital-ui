@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Favicon:** added an SVG favicon with the `i_` monogram using the
   design system's surface, foreground, and accent colors in monospace
   font. Wired into index.html.
+- **Motion primitives separated into individual pages:** Glow, Magnetic,
+  Pulse, and Reveal now each have their own component detail page (like
+  Spotlight), instead of being combined into a single "Motion Primitives"
+  page. Each page shows its own demos, props, and manual install source.
 
 ### Fixed
 
@@ -36,6 +40,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   preventing code from scrolling sideways on narrow screens. Removed
   the `needsScroll` measurement logic since native overflow handles
   both axes automatically.
+- **Duplicate source files in manual install:** the vite-plugin-shiki
+  source loader now deduplicates files by path. Previously, shared
+  hooks (e.g. `use-inherited-radius.ts`, `use-reduced-motion.ts`,
+  `tokens.ts`) appeared multiple times when a page aggregated multiple
+  registry items.
+- **Incorrect registry dependencies for motion primitives:** each
+  primitive now only lists the hooks it actually imports. Previously,
+  all motion primitives included both `use-inherited-radius.ts` and
+  `use-reduced-motion.ts` regardless of usage. Spotlight, Magnetic,
+  and Reveal no longer include `use-inherited-radius.ts`; Glow and
+  Pulse no longer include `use-reduced-motion.ts`.
+- **Extra copy-all button in manual install:** removed the standalone
+  "copy all" button that appeared after source file blocks. Each
+  SourceCodeBlock already has its own copy button.
 
 ## [0.1.3] — 2026-08-31
 

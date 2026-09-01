@@ -13,14 +13,17 @@ import { commandMeta } from "./command";
 import { contextMenuMeta } from "./context-menu";
 import { dialogMeta } from "./dialog";
 import { dropdownMenuMeta } from "./dropdown-menu";
+import { glowMeta } from "./glow";
 import { hoverCardMeta } from "./hover-card";
 import { inputMeta } from "./input";
 import { labelMeta } from "./label";
-import { motionMeta } from "./motion";
+import { magneticMeta } from "./magnetic";
 import { paginationMeta } from "./pagination";
 import { popoverMeta } from "./popover";
 import { progressMeta } from "./progress";
+import { pulseMeta } from "./pulse";
 import { radioGroupMeta } from "./radio-group";
+import { revealMeta } from "./reveal";
 import { scrollAreaMeta } from "./scroll-area";
 import { selectMeta } from "./select";
 import { separatorMeta } from "./separator";
@@ -48,13 +51,17 @@ export const componentRegistry: ComponentMeta[] = [
   contextMenuMeta,
   dialogMeta,
   dropdownMenuMeta,
+  glowMeta,
   hoverCardMeta,
   inputMeta,
   labelMeta,
+  magneticMeta,
   paginationMeta,
   popoverMeta,
   progressMeta,
+  pulseMeta,
   radioGroupMeta,
+  revealMeta,
   scrollAreaMeta,
   selectMeta,
   separatorMeta,
@@ -67,7 +74,6 @@ export const componentRegistry: ComponentMeta[] = [
   textareaMeta,
   toastMeta,
   tooltipMeta,
-  motionMeta,
 ];
 
 export const componentCategories = [
