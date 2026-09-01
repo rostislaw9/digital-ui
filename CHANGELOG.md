@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   blocks now inherit the parent's background color on mobile (via
   `bg-inherit`) instead of being fully transparent, making them visible
   over horizontally scrollable code. Reverts to transparent on desktop.
+- **Dialog and AlertDialog edge spacing on mobile:** dialog cards now
+  use `w-[calc(100%-2rem)]` instead of `w-full`, ensuring 1rem of
+  padding on each side so the card never touches the screen edges on
+  narrow viewports. Desktop layout is unchanged (max-w-lg still caps
+  the width).
 
 ## [0.1.3] — 2026-08-31
 

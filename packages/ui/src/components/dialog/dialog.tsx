@@ -87,7 +87,7 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
         <DialogPrimitive.Content
           ref={ref}
           // prettier-ignore
-          className={cn("fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg rounded-lg border border-border-strong bg-surface-elevated shadow-lg p-6 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 duration-[var(--duration-normal)] ease-[var(--ease-standard)] focus-visible:outline-none", className)}
+          className={cn("fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg rounded-lg border border-border-strong bg-surface-elevated shadow-lg p-6 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 duration-[var(--duration-normal)] ease-[var(--ease-standard)] focus-visible:outline-none", className)}
           {...props}
         >
           {children}
