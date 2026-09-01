@@ -1,6 +1,6 @@
 {
   "name": "@ionbit-ui/motion",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Reusable motion primitives for Ionbit UI — Glow, Spotlight, Magnetic, Pulse, Reveal.",
   "license": "MIT",
   "type": "module",
