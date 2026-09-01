@@ -39,8 +39,8 @@ export function SourceCodeBlock({ file }: SourceCodeBlockProps) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
       {/* Filename header + expand/collapse + separator + copy buttons */}
-      <div className="flex items-center justify-between border-b border-border px-4 py-2">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between border-b border-border px-2.5 py-2">
+        <div className="flex items-center gap-2 ml-1.5">
           <FileCodeCorner className="size-3.5 text-foreground-subtle" />
           <span className="font-mono text-xs text-foreground-muted">
             {file.filename}

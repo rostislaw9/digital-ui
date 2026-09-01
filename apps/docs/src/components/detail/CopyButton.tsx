@@ -30,6 +30,7 @@ export function CopyButton({ text }: { text: string }) {
     <Button
       variant="ghost"
       size="icon"
+      className="bg-inherit"
       aria-label={copied ? "Copied" : "Copy code"}
       onClick={handleCopy}
     >

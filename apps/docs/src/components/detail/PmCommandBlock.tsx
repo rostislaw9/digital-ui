@@ -40,9 +40,9 @@ export function PmCommandBlock({
         onValueChange={onPmChange}
         className="flex flex-col gap-0"
       >
-        <div className="flex items-center justify-between border-b border-border px-3 py-1.5">
+        <div className="flex items-center justify-between border-b border-border px-2.5 py-1.5">
           <div className="flex items-center gap-2">
-            <div className="flex size-4 items-center justify-center rounded-[1px] bg-foreground opacity-70">
+            <div className="flex ml-1.5 size-4 items-center justify-center rounded-[1px] bg-foreground opacity-70">
               <Terminal className="size-3 text-background" />
             </div>
             <TabsList className="bg-transparent border-0">

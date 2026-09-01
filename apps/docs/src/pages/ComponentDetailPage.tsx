@@ -1,12 +1,6 @@
 import type { ComponentMeta } from "../components/registry/types";
 
-import {
-  ArrowLeft,
-  Check,
-  ChevronLeft,
-  ChevronRight,
-  Copy,
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -20,6 +14,7 @@ import { CompositionSection } from "../components/detail/CompositionSection";
 import { CursorSection } from "../components/detail/CursorSection";
 import { InstallBlock } from "../components/detail/InstallBlock";
 import { OnThisPage } from "../components/detail/OnThisPage";
+import { PageActions } from "../components/detail/PageActions";
 import { PreviewCodeBlock } from "../components/detail/PreviewCodeBlock";
 import { PrevNextNav } from "../components/detail/PrevNextNav";
 import { UsageSection } from "../components/detail/UsageSection";
@@ -167,77 +162,39 @@ export function ComponentDetailPage() {
           <div className="w-full max-w-4xl">
             <div className="flex flex-col gap-8">
               <Reveal direction="up">
-                <div className="flex items-start justify-between gap-2">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-3">
-                      <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-                        {comp.label}
-                      </h1>
-                      <span className="font-mono text-[10px] uppercase tracking-wider rounded bg-accent-muted text-accent px-2 py-0.5">
-                        {comp.category}
-                      </span>
-                      {comp.radixBased && (
-                        <span className="font-mono text-[10px] uppercase tracking-wider rounded border border-border text-foreground-subtle px-2 py-0.5">
-                          Radix
-                        </span>
-                      )}
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                        <h1 className="order-2 text-3xl font-semibold tracking-tight text-foreground sm:order-1">
+                          {comp.label}
+                        </h1>
+                        <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
+                          <span className="font-mono text-[10px] uppercase tracking-wider rounded bg-accent-muted text-accent px-2 py-0.5">
+                            {comp.category}
+                          </span>
+                          {comp.radixBased && (
+                            <span className="font-mono text-[10px] uppercase tracking-wider rounded border border-border text-foreground-subtle px-2 py-0.5">
+                              Radix
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1 sm:hidden">
+                        <PageActions prev={prev} next={next} />
+                      </div>
                     </div>
                     <p className="max-w-2xl text-foreground-muted">
                       {comp.description}
                     </p>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={handleCopyPage}
-                      aria-label={
-                        pageCopied ? "Copied" : "Copy page as markdown"
-                      }
-                    >
-                      {pageCopied ? (
-                        <Check data-icon="inline-start" />
-                      ) : (
-                        <Copy data-icon="inline-start" />
-                      )}
-                      {pageCopied ? "Copied" : "Copy Page"}
-                    </Button>
-                    <Button
-                      asChild={!!prev}
-                      variant="outline"
-                      size="icon-sm"
-                      disabled={!prev}
-                      aria-label={
-                        prev
-                          ? `Previous: ${prev.label}`
-                          : "No previous component"
-                      }
-                    >
-                      {prev ? (
-                        <Link to={`/components/${prev.name}`}>
-                          <ChevronLeft />
-                        </Link>
-                      ) : (
-                        <ChevronLeft />
-                      )}
-                    </Button>
-                    <Button
-                      asChild={!!next}
-                      variant="outline"
-                      size="icon-sm"
-                      disabled={!next}
-                      aria-label={
-                        next ? `Next: ${next.label}` : "No next component"
-                      }
-                    >
-                      {next ? (
-                        <Link to={`/components/${next.name}`}>
-                          <ChevronRight />
-                        </Link>
-                      ) : (
-                        <ChevronRight />
-                      )}
-                    </Button>
+                  <div className="hidden items-center gap-1 sm:flex sm:shrink-0">
+                    <PageActions
+                      prev={prev}
+                      next={next}
+                      pageCopied={pageCopied}
+                      onCopyPage={handleCopyPage}
+                    />
                   </div>
                 </div>
               </Reveal>

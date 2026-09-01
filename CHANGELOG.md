@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Component detail header responsive layout:** restructured the header
+  so that on mobile, badges and action buttons (Copy Page, prev/next
+  navigation) share the first row, with the title and description
+  stacked below. On desktop, the original layout is preserved — title,
+  badges, and action buttons on a single row. Long component names
+  (e.g. "Dropdown Menu") no longer overflow on narrow screens.
+
+### Fixed
+
+- **CopyButton visibility on mobile:** copy buttons in code/usage/command
+  blocks now inherit the parent's background color on mobile (via
+  `bg-inherit`) instead of being fully transparent, making them visible
+  over horizontally scrollable code. Reverts to transparent on desktop.
+
 ## [0.1.3] — 2026-08-31
 
 ## [0.1.2] — 2026-08-31

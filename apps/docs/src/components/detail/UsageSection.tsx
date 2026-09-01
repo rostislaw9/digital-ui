@@ -31,7 +31,7 @@ function CodeBlockWithCopy({
 }) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
-      <div className="absolute right-3 top-3 z-10">
+      <div className="absolute right-2.5 top-2.5 z-10 bg-inherit">
         <CopyButton text={rawCode} />
       </div>
       <HighlightedCode html={html} className="shiki-wrapper" />
