@@ -603,6 +603,14 @@ without updating the changelog and related docs is incomplete. Do not
 rely on "I'll document it later" — later commits pile up and the
 changelog drifts from reality.
 
+### 25.3 Rebuild the registry after component changes
+
+When modifying any component source under `packages/ui/src/`
+or `packages/motion/src/`, always run `yarn registry:build` before
+committing. The registry JSON files in `registry/items/` are generated
+from the component source and must stay in sync. A component change
+without a registry rebuild leaves the CLI shipping stale source code.
+
 ---
 
 ## 26. Commit Message Conventions
