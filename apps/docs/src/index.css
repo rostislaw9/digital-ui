@@ -118,38 +118,27 @@
 
 /*
  * Numbered steps — used by the Manual install tab.
- * The container has md:border-l md:pl-8 (2rem padding from the border).
- * The step number circle (1.5rem wide) sits centered on the border line.
- * Circle center = border position (0), so left = -(2rem + 0.75rem) = -2.75rem.
+ * Mobile: markers are inline before the heading text.
+ * md+: the container has md:border-l md:pl-8 (2rem padding from the
+ * border). The step number circle (1.5rem wide) sits centered on the
+ * border line. Circle center = border position (0), so left =
+ * -(2rem + 0.75rem) = -2.75rem.
  */
 .step {
   counter-increment: step;
   position: relative;
 }
 
-/* Outer circle — opaque surface color, hides the vertical line behind the marker */
+/* Marker — the step number circle. Inline before text on mobile,
+   absolutely positioned on the border line at md+. */
 .step::before {
-  content: "";
-  position: absolute;
-  left: calc(-2.75rem - 3px);
-  top: calc(0px - 3px);
-  width: calc(1.5rem + 6px);
-  height: calc(1.5rem + 6px);
-  border-radius: 9999px;
-  background: var(--background);
-}
-
-/* Inner circle — the actual marker with the step number */
-.step::after {
   content: counter(step);
-  position: absolute;
-  left: -2.75rem;
-  top: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 1.5rem;
   height: 1.5rem;
+  margin-right: 0.5rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -157,4 +146,30 @@
   color: var(--accent);
   line-height: 1.5rem;
   text-align: center;
+  vertical-align: middle;
+}
+
+/* md+: switch to absolutely positioned markers on the border line.
+   ::after is an opaque circle behind the marker that masks the
+   vertical line (the marker background is semi-transparent). */
+@media (min-width: 768px) {
+  .step::before {
+    position: absolute;
+    left: -2.75rem;
+    top: 0;
+    margin-right: 0;
+    z-index: 1;
+  }
+
+  .step::after {
+    content: "";
+    position: absolute;
+    left: calc(-2.75rem - 3px);
+    top: -3px;
+    width: calc(1.5rem + 6px);
+    height: calc(1.5rem + 6px);
+    border-radius: 9999px;
+    background: var(--background);
+    z-index: 0;
+  }
 }

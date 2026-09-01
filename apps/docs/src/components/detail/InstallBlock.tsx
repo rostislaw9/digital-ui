@@ -88,7 +88,7 @@ export function InstallBlock({ name, radixBased }: InstallBlockProps) {
       </TabsList>
 
       {/* ─── Command tab ─── */}
-      <TabsContent value="command" className="mt-0">
+      <TabsContent value="command">
         <PmCommandBlock
           activePm={activePm}
           onPmChange={handlePmChange}
@@ -104,12 +104,12 @@ export function InstallBlock({ name, radixBased }: InstallBlockProps) {
       </TabsContent>
 
       {/* ─── Manual tab ─── */}
-      <TabsContent value="manual" className="mt-0">
-        <div className="steps [counter-reset:step] md:ml-4 md:border-l md:pl-8 mb-0 pt-2 flex flex-col gap-6">
+      <TabsContent value="manual">
+        <div className="steps [counter-reset:step] md:ml-4 md:border-l md:pl-8 flex flex-col gap-6">
           {/* Step 1 (radix only): Install dependencies */}
           {radixBased && depInstall && (
             <>
-              <h3 className="step text-sm font-semibold text-foreground">
+              <h3 className="step text-lg md:text-sm font-semibold text-foreground">
                 Install the following dependencies:
               </h3>
               <PmCommandBlock
@@ -124,7 +124,7 @@ export function InstallBlock({ name, radixBased }: InstallBlockProps) {
           {/* Step: Copy and paste the following code */}
           {sourceFiles && sourceFiles.length > 0 && (
             <>
-              <h3 className="step text-sm font-semibold text-foreground">
+              <h3 className="step text-lg md:text-sm font-semibold text-foreground">
                 Copy and paste the following code into your project.
               </h3>
               <div className="flex flex-col gap-3">
@@ -140,7 +140,7 @@ export function InstallBlock({ name, radixBased }: InstallBlockProps) {
 
           {/* Final step: Update import paths */}
           {sourceData && (
-            <h3 className="step text-sm font-semibold text-foreground">
+            <h3 className="step text-lg md:text-sm font-semibold text-foreground">
               Update the import paths to match your project setup.
             </h3>
           )}

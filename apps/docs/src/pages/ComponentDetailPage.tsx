@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { Reveal } from "@ionbit-ui/motion";
-import { Button, cn } from "@ionbit-ui/ui";
+import { Badge, Button, cn } from "@ionbit-ui/ui";
 
 import { ComponentsSidebar } from "../components/ComponentsSidebar";
 import { AccessibilityList } from "../components/detail/AccessibilityList";
@@ -170,13 +170,19 @@ export function ComponentDetailPage() {
                           {comp.label}
                         </h1>
                         <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
-                          <span className="font-mono text-[10px] uppercase tracking-wider rounded bg-accent-muted text-accent px-2 py-0.5">
+                          <Badge
+                            variant="accent"
+                            className="font-mono text-[10px] uppercase tracking-wider"
+                          >
                             {comp.category}
-                          </span>
+                          </Badge>
                           {comp.radixBased && (
-                            <span className="font-mono text-[10px] uppercase tracking-wider rounded border border-border text-foreground-subtle px-2 py-0.5">
+                            <Badge
+                              variant="outline"
+                              className="font-mono text-[10px] uppercase tracking-wider"
+                            >
                               Radix
-                            </span>
+                            </Badge>
                           )}
                         </div>
                       </div>
@@ -225,10 +231,10 @@ export function ComponentDetailPage() {
                   id="preview"
                   className="flex flex-col gap-3 scroll-mt-24"
                 >
-                  <h2 className="text-lg font-semibold text-foreground">
+                  <h2 className="text-xl md:text-lg font-semibold text-foreground">
                     {example.title}
                   </h2>
-                  <p className="text-sm text-foreground-muted">
+                  <p className="text-base md:text-sm text-foreground-muted">
                     {example.description}
                   </p>
                   <PreviewCodeBlock
@@ -246,7 +252,7 @@ export function ComponentDetailPage() {
                     id="about"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-lg font-semibold text-foreground">
+                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
                       About
                     </h2>
                     <p className="text-sm text-foreground-muted">
@@ -261,7 +267,7 @@ export function ComponentDetailPage() {
                   id="installation"
                   className="flex flex-col gap-3 scroll-mt-24"
                 >
-                  <h2 className="text-lg font-semibold text-foreground">
+                  <h2 className="text-xl md:text-lg font-semibold text-foreground">
                     Installation
                   </h2>
                   <InstallBlock name={comp.name} radixBased={comp.radixBased} />
@@ -299,7 +305,7 @@ export function ComponentDetailPage() {
                     id="api"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-lg font-semibold text-foreground">
+                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
                       API Reference
                     </h2>
                     <p className="text-sm text-foreground-muted">
@@ -324,7 +330,7 @@ export function ComponentDetailPage() {
                     id="api"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-lg font-semibold text-foreground">
+                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
                       API Reference
                     </h2>
                     <ApiTable props={comp.props} />
@@ -338,7 +344,7 @@ export function ComponentDetailPage() {
                     id="accessibility"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-lg font-semibold text-foreground">
+                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
                       Accessibility
                     </h2>
                     <AccessibilityList notes={comp.accessibility} />
@@ -355,7 +361,7 @@ export function ComponentDetailPage() {
                         id={sectionId}
                         className="flex flex-col gap-3 scroll-mt-24"
                       >
-                        <h2 className="text-lg font-semibold text-foreground">
+                        <h2 className="text-xl md:text-lg font-semibold text-foreground">
                           {primitive.name} API
                         </h2>
                         <p className="text-sm text-foreground-muted">
