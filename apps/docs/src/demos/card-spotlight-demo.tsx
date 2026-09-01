@@ -10,7 +10,7 @@ import {
 export function CardSpotlightDemo() {
   return (
     <Spotlight intensity={0.5}>
-      <Card elevated className="w-80">
+      <Card elevated className="max-w-sm">
         <CardHeader>
           <CardTitle>Spotlight</CardTitle>
           <CardDescription>Move the cursor across this card.</CardDescription>

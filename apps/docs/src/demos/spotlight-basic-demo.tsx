@@ -10,7 +10,7 @@ import {
 export function SpotlightBasicDemo() {
   return (
     <Spotlight intensity={0.5}>
-      <Card elevated className="w-80">
+      <Card elevated className="max-w-sm">
         <CardHeader>
           <CardTitle>Spotlight</CardTitle>
           <CardDescription>

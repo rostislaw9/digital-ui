@@ -5,7 +5,7 @@ import { Tooltip } from "@/components/ui/tooltip";
 
 export function TooltipPositionsDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-6">
+    <div className="flex flex-wrap items-center gap-2 md:gap-6">
       <Tooltip content="Settings" side="left">
         <Button variant="ghost" size="icon" aria-label="Settings">
           <Settings />

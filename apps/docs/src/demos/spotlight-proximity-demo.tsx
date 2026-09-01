@@ -10,7 +10,7 @@ import {
 export function SpotlightProximityDemo() {
   return (
     <Spotlight intensity={0.5} proximity={220}>
-      <Card elevated className="w-80">
+      <Card elevated className="max-w-sm">
         <CardHeader>
           <CardTitle>Wide proximity</CardTitle>
           <CardDescription>

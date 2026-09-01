@@ -10,7 +10,7 @@ import {
 
 export function CardBasicDemo() {
   return (
-    <Card className="w-80">
+    <Card className="max-w-sm">
       <CardHeader>
         <CardTitle>Surface depth</CardTitle>
         <CardDescription>
