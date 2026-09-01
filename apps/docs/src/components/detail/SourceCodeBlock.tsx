@@ -1,7 +1,7 @@
 import { ChevronDown, FileCodeCorner } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
-import { Button, ScrollArea, Separator } from "@ionbit-ui/ui";
+import { Button, Separator } from "@ionbit-ui/ui";
 
 import { CopyButton } from "./CopyButton";
 import { HighlightedCode } from "./HighlightedCode";
@@ -11,8 +11,6 @@ export interface SourceFile {
   html: string;
   rawCode: string;
 }
-
-const MAX_CODE_HEIGHT = 400;
 
 interface SourceCodeBlockProps {
   file: SourceFile;
@@ -24,17 +22,10 @@ interface SourceCodeBlockProps {
  * - Copy button is always visible in the header.
  * - Expand/collapse button in the header toggles the code area.
  * - Collapsed: shows a gradient overlay with an "Expand" button at the bottom.
- * - Expanded: shows full code in a scrollable ScrollArea (max 400px).
+ * - Expanded: shows full code in a scrollable container (max 400px).
  */
 export function SourceCodeBlock({ file }: SourceCodeBlockProps) {
   const [expanded, setExpanded] = useState(false);
-  const [needsScroll, setNeedsScroll] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!expanded || !contentRef.current) return;
-    setNeedsScroll(contentRef.current.scrollHeight > MAX_CODE_HEIGHT);
-  }, [expanded, file.html]);
 
   return (
     <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
@@ -61,11 +52,9 @@ export function SourceCodeBlock({ file }: SourceCodeBlockProps) {
       </div>
 
       {expanded ? (
-        <ScrollArea className={needsScroll ? "h-[400px]" : ""}>
-          <div ref={contentRef}>
-            <HighlightedCode html={file.html} className="shiki-wrapper" />
-          </div>
-        </ScrollArea>
+        <div className="max-h-[400px] overflow-auto">
+          <HighlightedCode html={file.html} className="shiki-wrapper" />
+        </div>
       ) : (
         <div className="relative max-h-32 overflow-hidden">
           <HighlightedCode html={file.html} className="shiki-wrapper" />

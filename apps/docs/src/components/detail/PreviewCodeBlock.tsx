@@ -1,12 +1,10 @@
 import { Code2 } from "lucide-react";
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
-import { Button, ScrollArea } from "@ionbit-ui/ui";
+import { Button } from "@ionbit-ui/ui";
 
 import { CopyButton } from "./CopyButton";
 import { HighlightedCode } from "./HighlightedCode";
-
-const MAX_CODE_HEIGHT = 400;
 
 interface PreviewCodeBlockProps {
   /** The live preview element. */
@@ -32,15 +30,6 @@ export function PreviewCodeBlock({
   rawCode,
 }: PreviewCodeBlockProps) {
   const [codeExpanded, setCodeExpanded] = useState(false);
-  const [needsScroll, setNeedsScroll] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  // Measure content height to decide whether ScrollArea needs a fixed height
-  useLayoutEffect(() => {
-    if (!codeExpanded || !contentRef.current) return;
-    const height = contentRef.current.scrollHeight;
-    setNeedsScroll(height > MAX_CODE_HEIGHT);
-  }, [codeExpanded, code]);
 
   return (
     <div className="overflow-hidden rounded-lg border border-border">
@@ -59,11 +48,9 @@ export function PreviewCodeBlock({
         )}
 
         {codeExpanded ? (
-          <ScrollArea className={needsScroll ? "h-[400px]" : ""}>
-            <div ref={contentRef}>
-              <HighlightedCode html={code} className="shiki-wrapper" />
-            </div>
-          </ScrollArea>
+          <div className="max-h-[400px] overflow-auto">
+            <HighlightedCode html={code} className="shiki-wrapper" />
+          </div>
         ) : (
           <div className="relative max-h-32 overflow-hidden">
             <HighlightedCode html={code} className="shiki-wrapper" />

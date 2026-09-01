@@ -30,6 +30,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   padding on each side so the card never touches the screen edges on
   narrow viewports. Desktop layout is unchanged (max-w-lg still caps
   the width).
+- **Code block horizontal scroll:** replaced Radix ScrollArea with
+  native `overflow-auto` in PreviewCodeBlock, SourceCodeBlock, and
+  UsageSection. ScrollArea's Viewport clips horizontal overflow,
+  preventing code from scrolling sideways on narrow screens. Removed
+  the `needsScroll` measurement logic since native overflow handles
+  both axes automatically.
 
 ## [0.1.3] — 2026-08-31
 
