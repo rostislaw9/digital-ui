@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   stacked below. On desktop, the original layout is preserved — title,
   badges, and action buttons on a single row. Long component names
   (e.g. "Dropdown Menu") no longer overflow on narrow screens.
+- **Favicon:** added an SVG favicon with the `i_` monogram using the
+  design system's surface, foreground, and accent colors in monospace
+  font. Wired into index.html.
 
 ### Fixed
 
