@@ -55,6 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   "copy all" button that appeared after source file blocks. Each
   SourceCodeBlock already has its own copy button.
 
+## [0.1.6] — 2026-09-02
+
 ## [0.1.5] — 2026-09-02
 
 ## [0.1.4] — 2026-09-01
