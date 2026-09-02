@@ -8,6 +8,7 @@ import {
 } from "react";
 
 import { useReducedMotion } from "../hooks/use-reduced-motion";
+import { observeIntersection } from "../intersection-observer-pool";
 import { ensureMotionStyles } from "../styles";
 import { motionTokens } from "../tokens";
 
@@ -65,25 +66,19 @@ export const Reveal = forwardRef<HTMLDivElement, RevealProps>(function Reveal(
   useEffect(() => {
     if (!enabled) return;
     const el = innerRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      // No IO support — show immediately.
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute("data-revealed", "true");
-            if (once) io.unobserve(entry.target);
-          } else if (!once) {
-            entry.target.removeAttribute("data-revealed");
-          }
+    if (!el) return;
+    return observeIntersection(
+      el,
+      threshold,
+      (isIntersecting, target) => {
+        if (isIntersecting) {
+          target.setAttribute("data-revealed", "true");
+        } else if (!once) {
+          target.removeAttribute("data-revealed");
         }
       },
-      { threshold },
+      once,
     );
-    io.observe(el);
-    return () => io.disconnect();
   }, [enabled, once, threshold]);
 
   const initialTransform = (() => {

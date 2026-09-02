@@ -54,8 +54,9 @@ export function InstallBlock({ name, radixBased }: InstallBlockProps) {
     localStorage.setItem(INSTALL_PM_KEY, value);
   };
 
-  // Load source files on mount so the Manual tab is ready immediately.
+  // Load source files only when the Manual tab is opened, not on mount.
   useEffect(() => {
+    if (activeTab !== "manual") return;
     const loader = sourceLoaders[name];
     if (!loader) return;
     let cancelled = false;
@@ -67,7 +68,7 @@ export function InstallBlock({ name, radixBased }: InstallBlockProps) {
     return () => {
       cancelled = true;
     };
-  }, [name]);
+  }, [name, activeTab]);
 
   const sourceFiles = sourceData?.sourceFiles;
   const depInstall = sourceData?.depInstall;

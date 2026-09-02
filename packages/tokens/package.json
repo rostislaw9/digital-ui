@@ -40,6 +40,7 @@
     "typecheck": "echo \"@ionbit-ui/tokens: no TypeScript sources, skipping\""
   },
   "devDependencies": {
+    "lightningcss": "^1.32.0",
     "typescript": "^5.6.2"
   }
 }

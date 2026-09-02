@@ -22,6 +22,8 @@ export function useScrollSpy(sectionIds: string[], depKey: string) {
     const HEADER_OFFSET = 120;
     const BOTTOM_MARGIN = 4;
 
+    let rafId: number | null = null;
+
     const updateActive = () => {
       if (isScrollingRef.current) return;
 
@@ -59,12 +61,21 @@ export function useScrollSpy(sectionIds: string[], depKey: string) {
       setActiveSection(current);
     };
 
+    const scheduleUpdate = () => {
+      if (rafId != null) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        updateActive();
+      });
+    };
+
     updateActive();
-    window.addEventListener("scroll", updateActive, { passive: true });
-    window.addEventListener("resize", updateActive, { passive: true });
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate, { passive: true });
     return () => {
-      window.removeEventListener("scroll", updateActive);
-      window.removeEventListener("resize", updateActive);
+      if (rafId != null) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- depKey encodes section identity
   }, [depKey]);

@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Reveal } from "@ionbit-ui/motion";
@@ -10,18 +10,23 @@ import {
   componentManifest,
 } from "../components/registry/manifest";
 
+const categories = ["All", ...componentCategories];
+
 export function ComponentsPage() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const filtered = componentManifest.filter((c) => {
-    const matchesQuery =
-      c.label.toLowerCase().includes(query.toLowerCase()) ||
-      c.description.toLowerCase().includes(query.toLowerCase());
-    const matchesCategory =
-      activeCategory === "All" || c.category === activeCategory;
-    return matchesQuery && matchesCategory;
-  });
+  const filtered = useMemo(() => {
+    const q = query.toLowerCase();
+    return componentManifest.filter((c) => {
+      const matchesQuery =
+        c.label.toLowerCase().includes(q) ||
+        c.description.toLowerCase().includes(q);
+      const matchesCategory =
+        activeCategory === "All" || c.category === activeCategory;
+      return matchesQuery && matchesCategory;
+    });
+  }, [query, activeCategory]);
 
   return (
     <div className="flex flex-col gap-8">
@@ -49,7 +54,7 @@ export function ComponentsPage() {
             className="w-full sm:max-w-xs"
           />
           <div className="flex flex-wrap gap-1">
-            {["All", ...componentCategories].map((cat) => (
+            {categories.map((cat) => (
               <Button
                 key={cat}
                 variant="ghost"

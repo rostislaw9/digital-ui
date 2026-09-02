@@ -548,6 +548,11 @@
           "target": "components/motion/hooks/use-reduced-motion.ts"
         },
         {
+          "path": "packages/motion/src/intersection-observer-pool.ts",
+          "type": "registry:lib",
+          "target": "components/motion/intersection-observer-pool.ts"
+        },
+        {
           "path": "packages/motion/src/styles.ts",
           "type": "registry:lib",
           "target": "components/motion/styles.ts"

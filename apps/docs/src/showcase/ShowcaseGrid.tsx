@@ -80,7 +80,14 @@ export function ShowcaseGrid() {
       <div className="hidden lg:block">
         <div className="columns-3 gap-8 xl:columns-4 2xl:columns-5">
           {showcaseCards.map((Card, i) => (
-            <div key={i} className="break-inside-avoid pb-8">
+            <div
+              key={i}
+              className="break-inside-avoid pb-8"
+              style={{
+                contentVisibility: "auto",
+                containIntrinsicSize: "300px",
+              }}
+            >
               <Card />
             </div>
           ))}

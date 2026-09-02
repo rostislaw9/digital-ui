@@ -47,13 +47,18 @@ for (const item of registry.items) {
       !target.includes("/hooks/") &&
       !target.endsWith("/tokens.ts") &&
       !target.endsWith("/styles.ts") &&
-      !target.endsWith("/pointer-coordinator.ts")
+      !target.endsWith("/pointer-coordinator.ts") &&
+      !target.endsWith("/intersection-observer-pool.ts")
     ) {
       content = content
         .replace(/\.\.\/hooks\//g, "./hooks/")
         .replace(/\.\.\/tokens/g, "./tokens")
         .replace(/\.\.\/styles/g, "./styles")
-        .replace(/\.\.\/pointer-coordinator/g, "./pointer-coordinator");
+        .replace(/\.\.\/pointer-coordinator/g, "./pointer-coordinator")
+        .replace(
+          /\.\.\/intersection-observer-pool/g,
+          "./intersection-observer-pool",
+        );
     }
 
     itemWithContent.files.push({
