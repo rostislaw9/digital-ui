@@ -12,7 +12,7 @@ export const alertDialogMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Confirmation",
+      title: "Basic",
       description:
         "Destructive action confirmation with cancel and action buttons.",
       code: AlertDialogDemoSource,
@@ -24,7 +24,6 @@ export const alertDialogMeta: ComponentMeta = {
   AlertDialog,
   AlertDialogTrigger,
   AlertDialogContent,
-  AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
@@ -34,10 +33,8 @@ export const alertDialogMeta: ComponentMeta = {
   usageCode: `<AlertDialog>
   <AlertDialogTrigger>Delete</AlertDialogTrigger>
   <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-      <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
-    </AlertDialogHeader>
+    <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+    <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
     <AlertDialogFooter>
       <AlertDialogCancel>Cancel</AlertDialogCancel>
       <AlertDialogAction>Delete</AlertDialogAction>
@@ -48,9 +45,8 @@ export const alertDialogMeta: ComponentMeta = {
     "AlertDialog",
     "├── AlertDialogTrigger",
     "└── AlertDialogContent",
-    "    ├── AlertDialogHeader",
-    "    │   ├── AlertDialogTitle",
-    "    │   └── AlertDialogDescription",
+    "    ├── AlertDialogTitle",
+    "    ├── AlertDialogDescription",
     "    └── AlertDialogFooter",
     "        ├── AlertDialogCancel",
     "        └── AlertDialogAction",

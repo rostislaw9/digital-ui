@@ -56,12 +56,6 @@ export const tabsMeta: ComponentMeta = {
       type: "function",
       description: "Called when the active tab changes.",
     },
-    {
-      name: "orientation",
-      type: '"horizontal" | "vertical"',
-      default: '"horizontal"',
-      description: "Tab orientation.",
-    },
   ],
   accessibility: [
     "Radix manages roving tabindex",

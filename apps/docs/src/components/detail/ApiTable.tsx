@@ -1,47 +1,52 @@
 import type { PropMeta } from "../registry";
 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@ionbit-ui/ui";
+
+const headClass =
+  "h-auto px-4 py-2 font-mono text-xs uppercase tracking-wider text-foreground-subtle";
+const cellBase = "px-4 py-2 font-mono text-xs";
+
 export function ApiTable({ props }: { props: PropMeta[] }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-border">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="border-b border-border bg-surface">
-            <th className="px-4 py-2 text-left font-mono text-xs uppercase tracking-wider text-foreground-subtle">
-              Prop
-            </th>
-            <th className="px-4 py-2 text-left font-mono text-xs uppercase tracking-wider text-foreground-subtle">
-              Type
-            </th>
-            <th className="px-4 py-2 text-left font-mono text-xs uppercase tracking-wider text-foreground-subtle">
-              Default
-            </th>
-            <th className="px-4 py-2 text-left font-mono text-xs uppercase tracking-wider text-foreground-subtle">
-              Description
-            </th>
-          </tr>
-        </thead>
-        <tbody>
+    <div className="overflow-hidden rounded-lg border border-border">
+      <Table className="text-sm">
+        <TableHeader>
+          <TableRow className="border-border bg-surface hover:bg-surface">
+            <TableHead className={headClass}>Prop</TableHead>
+            <TableHead className={headClass}>Type</TableHead>
+            <TableHead className={headClass}>Default</TableHead>
+            <TableHead className={headClass}>Description</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {props.map((prop) => (
-            <tr
+            <TableRow
               key={prop.name}
-              className="border-b border-border last:border-0"
+              className="border-border hover:bg-surface"
             >
-              <td className="px-4 py-2 font-mono text-xs text-accent">
+              <TableCell className={`${cellBase} text-accent`}>
                 {prop.name}
-              </td>
-              <td className="px-4 py-2 font-mono text-xs text-foreground-muted">
+              </TableCell>
+              <TableCell className={`${cellBase} text-foreground-muted`}>
                 {prop.type}
-              </td>
-              <td className="px-4 py-2 font-mono text-xs text-foreground-subtle">
+              </TableCell>
+              <TableCell className={`${cellBase} text-foreground-subtle`}>
                 {prop.default ?? "—"}
-              </td>
-              <td className="px-4 py-2 text-xs text-foreground-muted">
+              </TableCell>
+              <TableCell className="px-4 py-2 text-xs text-foreground-muted">
                 {prop.description}
-              </td>
-            </tr>
+              </TableCell>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </div>
   );
 }

@@ -14,7 +14,7 @@ export const breadcrumbMeta: ComponentMeta = {
   category: "Layout",
   examples: [
     {
-      title: "Default",
+      title: "Basic",
       description: "Home > Components > Button (current page).",
       code: BreadcrumbDefaultDemoSource,
       rawCode: BreadcrumbDefaultDemoRaw,
@@ -30,9 +30,12 @@ export const breadcrumbMeta: ComponentMeta = {
   ],
   usageImport: `import {
   Breadcrumb,
+  BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbPage,
   BreadcrumbSeparator,
+  BreadcrumbEllipsis,
 } from "@/components/ui/breadcrumb";`,
   usageCode: `<Breadcrumb>
   <BreadcrumbList>
@@ -41,7 +44,15 @@ export const breadcrumbMeta: ComponentMeta = {
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>
+      <BreadcrumbEllipsis label="More" />
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
       <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Button</BreadcrumbPage>
     </BreadcrumbItem>
   </BreadcrumbList>
 </Breadcrumb>`,
@@ -51,7 +62,8 @@ export const breadcrumbMeta: ComponentMeta = {
     "    ├── BreadcrumbItem",
     "    │   ├── BreadcrumbLink",
     "    │   └── BreadcrumbPage",
-    "    └── BreadcrumbSeparator",
+    "    ├── BreadcrumbSeparator",
+    "    └── BreadcrumbEllipsis",
   ],
   props: [
     {
@@ -81,6 +93,12 @@ export const breadcrumbMeta: ComponentMeta = {
       name: "BreadcrumbSeparator.children",
       type: "ReactNode",
       description: "Custom separator content.",
+    },
+    {
+      name: "BreadcrumbEllipsis.label",
+      type: "string",
+      default: '"More"',
+      description: "Accessible label for the ellipsis.",
     },
   ],
   accessibility: [

@@ -34,8 +34,8 @@ export function ComponentsPage() {
             All components
           </h1>
           <p className="text-sm text-foreground-muted">
-            {componentManifest.length} production-ready primitives. Click any
-            component for live previews, code, and API details.
+            {componentManifest.length} primitives. Click any component for live
+            previews, code, and API details.
           </p>
         </header>
       </Reveal>

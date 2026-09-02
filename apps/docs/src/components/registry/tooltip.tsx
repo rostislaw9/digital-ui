@@ -19,13 +19,17 @@ export const tooltipMeta: ComponentMeta = {
       render: () => <TooltipPositionsDemo />,
     },
   ],
-  usageImport: `import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";`,
-  usageCode: `<Tooltip>
-  <TooltipTrigger>Hover me</TooltipTrigger>
-  <TooltipContent>Tooltip text</TooltipContent>
+  usageImport: `import { Button } from "@/components/ui/button";
+import { Tooltip } from "@/components/ui/tooltip";`,
+  usageCode: `<Tooltip content="Tooltip text">
+  <Button>Hover me</Button>
 </Tooltip>`,
-  composition: ["Tooltip", "├── TooltipTrigger", "└── TooltipContent"],
   props: [
+    {
+      name: "content",
+      type: "ReactNode",
+      description: "Tooltip text or JSX content.",
+    },
     {
       name: "side",
       type: '"top" | "right" | "bottom" | "left"',
@@ -33,16 +37,16 @@ export const tooltipMeta: ComponentMeta = {
       description: "Side the tooltip appears on.",
     },
     {
-      name: "delay",
+      name: "delayDuration",
       type: "number",
-      default: "300",
+      default: "200",
       description: "Delay before showing in ms.",
     },
     {
-      name: "variant",
-      type: '"default"',
-      default: '"default"',
-      description: "Visual variant.",
+      name: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disable the tooltip.",
     },
   ],
   accessibility: [

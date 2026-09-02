@@ -192,6 +192,11 @@
       "import": "./dist/sheet.js",
       "require": "./dist/sheet.cjs"
     },
+    "./table": {
+      "types": "./dist/table.d.ts",
+      "import": "./dist/table.js",
+      "require": "./dist/table.cjs"
+    },
     "./utils": {
       "types": "./dist/utils.d.ts",
       "import": "./dist/utils.js",

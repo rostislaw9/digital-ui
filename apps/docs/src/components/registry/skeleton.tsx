@@ -11,7 +11,7 @@ export const skeletonMeta: ComponentMeta = {
   category: "Feedback",
   examples: [
     {
-      title: "Profile card",
+      title: "Basic",
       description:
         "A loading profile card with avatar, title, subtitle, and text lines.",
       code: SkeletonBasicDemoSource,

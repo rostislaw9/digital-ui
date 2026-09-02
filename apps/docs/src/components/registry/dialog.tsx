@@ -23,7 +23,6 @@ export const dialogMeta: ComponentMeta = {
   Dialog,
   DialogTrigger,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogDescription,
   DialogFooter,
@@ -33,10 +32,8 @@ export const dialogMeta: ComponentMeta = {
   usageCode: `<Dialog>
   <DialogTrigger>Open</DialogTrigger>
   <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Title</DialogTitle>
-      <DialogDescription>Description</DialogDescription>
-    </DialogHeader>
+    <DialogTitle>Title</DialogTitle>
+    <DialogDescription>Description</DialogDescription>
     <DialogFooter>
       <DialogClose>Cancel</DialogClose>
       <DialogAction>Confirm</DialogAction>
@@ -47,9 +44,8 @@ export const dialogMeta: ComponentMeta = {
     "Dialog",
     "├── DialogTrigger",
     "└── DialogContent",
-    "    ├── DialogHeader",
-    "    │   ├── DialogTitle",
-    "    │   └── DialogDescription",
+    "    ├── DialogTitle",
+    "    ├── DialogDescription",
     "    └── DialogFooter",
     "        ├── DialogClose",
     "        └── DialogAction",
@@ -65,6 +61,12 @@ export const dialogMeta: ComponentMeta = {
       name: "onOpenChange",
       type: "function",
       description: "Called when the open state changes.",
+    },
+    {
+      name: "modal",
+      type: "boolean",
+      default: "true",
+      description: "Close when clicking outside.",
     },
   ],
   accessibility: [

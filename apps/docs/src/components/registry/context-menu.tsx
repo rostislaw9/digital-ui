@@ -23,27 +23,75 @@ export const contextMenuMeta: ComponentMeta = {
   ContextMenuTrigger,
   ContextMenuContent,
   ContextMenuItem,
+  ContextMenuCheckboxItem,
+  ContextMenuRadioItem,
+  ContextMenuRadioGroup,
+  ContextMenuSub,
+  ContextMenuSubTrigger,
+  ContextMenuSubContent,
+  ContextMenuLabel,
   ContextMenuSeparator,
+  ContextMenuGroup,
+  ContextMenuPortal,
+  ContextMenuShortcut,
 } from "@/components/ui/context-menu";`,
   usageCode: `<ContextMenu>
   <ContextMenuTrigger>Right-click me</ContextMenuTrigger>
   <ContextMenuContent>
-    <ContextMenuItem>Copy</ContextMenuItem>
+    <ContextMenuGroup>
+      <ContextMenuItem inset>Copy</ContextMenuItem>
+      <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
+    </ContextMenuGroup>
     <ContextMenuSeparator />
-    <ContextMenuItem>Delete</ContextMenuItem>
+    <ContextMenuLabel inset>Options</ContextMenuLabel>
+    <ContextMenuCheckboxItem checked>Show toolbar</ContextMenuCheckboxItem>
+    <ContextMenuRadioGroup value="default">
+      <ContextMenuRadioItem value="default">Default</ContextMenuRadioItem>
+      <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
+    </ContextMenuRadioGroup>
+    <ContextMenuSeparator />
+    <ContextMenuSub>
+      <ContextMenuSubTrigger>Share</ContextMenuSubTrigger>
+      <ContextMenuSubContent>
+        <ContextMenuItem>Twitter</ContextMenuItem>
+        <ContextMenuItem>Email</ContextMenuItem>
+      </ContextMenuSubContent>
+    </ContextMenuSub>
+    <ContextMenuSeparator />
+    <ContextMenuItem>
+      Preferences
+      <ContextMenuShortcut>⌘,</ContextMenuShortcut>
+    </ContextMenuItem>
   </ContextMenuContent>
 </ContextMenu>`,
   composition: [
     "ContextMenu",
     "├── ContextMenuTrigger",
     "└── ContextMenuContent",
-    "    ├── ContextMenuItem",
+    "    ├── ContextMenuGroup",
+    "    │   └── ContextMenuItem",
+    "    ├── ContextMenuCheckboxItem",
+    "    ├── ContextMenuRadioGroup",
+    "    │   └── ContextMenuRadioItem",
+    "    ├── ContextMenuSub",
+    "    │   ├── ContextMenuSubTrigger",
+    "    │   └── ContextMenuSubContent",
+    "    ├── ContextMenuLabel",
     "    ├── ContextMenuSeparator",
-    "    └── ContextMenuSub",
-    "        ├── ContextMenuSubTrigger",
-    "        └── ContextMenuSubContent",
+    "    ├── ContextMenuPortal",
+    "    └── ContextMenuShortcut",
   ],
   props: [
+    {
+      name: "open",
+      type: "boolean",
+      description: "Controlled open state.",
+    },
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: "Uncontrolled default open state.",
+    },
     {
       name: "onOpenChange",
       type: "function",
@@ -54,6 +102,36 @@ export const contextMenuMeta: ComponentMeta = {
       type: "boolean",
       default: "true",
       description: "Whether menu is modal.",
+    },
+    {
+      name: "ContextMenuItem.inset",
+      type: "boolean",
+      default: "false",
+      description: "Indent the item to align with icon items.",
+    },
+    {
+      name: "ContextMenuItem.variant",
+      type: '"default" | "destructive"',
+      default: '"default"',
+      description: "Visual variant of the item.",
+    },
+    {
+      name: "ContextMenuCheckboxItem.inset",
+      type: "boolean",
+      default: "false",
+      description: "Indent the item to align with icon items.",
+    },
+    {
+      name: "ContextMenuRadioItem.inset",
+      type: "boolean",
+      default: "false",
+      description: "Indent the item to align with icon items.",
+    },
+    {
+      name: "ContextMenuLabel.inset",
+      type: "boolean",
+      default: "false",
+      description: "Indent the label to align with icon items.",
     },
   ],
   accessibility: [

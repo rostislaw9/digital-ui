@@ -27,8 +27,21 @@ import { Magnetic } from "@/components/motion/magnetic";`,
     {
       name: "intensity",
       type: "number (0-1)",
-      default: "0.35",
+      default: "0.25",
       description: "Pull strength toward cursor.",
+    },
+    {
+      name: "proximity",
+      type: "number",
+      default: "20",
+      description:
+        "Proximity radius in px. The pull activates before the cursor touches the element.",
+    },
+    {
+      name: "as",
+      type: '"div" | "span" | "button"',
+      default: '"div"',
+      description: "Render as a different element.",
     },
     {
       name: "disabled",

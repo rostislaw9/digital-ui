@@ -4,11 +4,12 @@
  * example count). This avoids pulling in all demo components, ?raw, and
  * ?highlighted strings that the full registry files import.
  */
+import type { ComponentCategory } from "./types";
+
 export interface ComponentManifestEntry {
   name: string;
   label: string;
-  category:
-    "Form" | "Layout" | "Overlay" | "Feedback" | "Navigation" | "Motion";
+  category: ComponentCategory;
   description: string;
   exampleCount: number;
   isNew?: boolean;
@@ -242,6 +243,14 @@ export const componentManifest: ComponentManifestEntry[] = [
     exampleCount: 1,
   },
   {
+    name: "table",
+    label: "Table",
+    category: "Data",
+    description:
+      "Responsive table with header, body, footer, rows, cells, and caption.",
+    exampleCount: 1,
+  },
+  {
     name: "tabs",
     label: "Tabs",
     category: "Navigation",
@@ -271,11 +280,12 @@ export const componentManifest: ComponentManifestEntry[] = [
   },
 ];
 
-export const componentCategories = [
+export const componentCategories: ComponentCategory[] = [
   "Form",
   "Layout",
   "Overlay",
   "Feedback",
   "Navigation",
+  "Data",
   "Motion",
-] as const;
+];

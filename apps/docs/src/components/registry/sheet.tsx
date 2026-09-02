@@ -84,13 +84,13 @@ export const sheetMeta: ComponentMeta = {
       description: "Called when open state changes.",
     },
     {
-      name: "side",
+      name: "SheetContent.side",
       type: '"top" | "right" | "bottom" | "left"',
       default: '"right"',
       description: "Which edge the sheet slides from.",
     },
     {
-      name: "showCloseButton",
+      name: "SheetContent.showCloseButton",
       type: "boolean",
       default: "true",
       description: "Whether to show the close button in the top-right corner.",

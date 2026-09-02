@@ -62,10 +62,11 @@ export const cardMeta: ComponentMeta = {
       description: "Uses surface-elevated + shadow for depth.",
     },
     {
-      name: "asChild",
+      name: "interactive",
       type: "boolean",
       default: "false",
-      description: "Render as child element on each sub-component.",
+      description:
+        "Adds hover surface and border highlight for interactive cards.",
     },
   ],
   accessibility: [

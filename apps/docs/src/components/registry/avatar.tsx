@@ -43,30 +43,37 @@ export const avatarMeta: ComponentMeta = {
   Avatar,
   AvatarImage,
   AvatarFallback,
+  AvatarStatus,
 } from "@/components/ui/avatar";`,
   usageCode: `<Avatar>
   <AvatarImage src="/avatar.jpg" alt="User" />
   <AvatarFallback>JD</AvatarFallback>
+  <AvatarStatus variant="online" position="bottom-right" />
 </Avatar>`,
-  composition: ["Avatar", "├── AvatarImage", "└── AvatarFallback"],
+  composition: [
+    "Avatar",
+    "├── AvatarImage",
+    "├── AvatarFallback",
+    "└── AvatarStatus",
+  ],
   props: [
     {
-      name: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as child element.",
+      name: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Avatar size.",
     },
     {
-      name: "variant",
+      name: "AvatarStatus.variant",
       type: '"online" | "offline" | "busy" | "away"',
       default: '"online"',
-      description: "Status indicator color (AvatarStatus).",
+      description: "Status indicator color.",
     },
     {
-      name: "position",
+      name: "AvatarStatus.position",
       type: '"top-left" | "top-right" | "bottom-left" | "bottom-right"',
       default: '"bottom-right"',
-      description: "Position of the status indicator (AvatarStatus).",
+      description: "Position of the status indicator.",
     },
   ],
   accessibility: [

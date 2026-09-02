@@ -24,6 +24,7 @@ export const dropdownMenuMeta: ComponentMeta = {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";`,
   usageCode: `<DropdownMenu>
@@ -39,6 +40,7 @@ export const dropdownMenuMeta: ComponentMeta = {
     "├── DropdownMenuTrigger",
     "└── DropdownMenuContent",
     "    ├── DropdownMenuItem",
+    "    ├── DropdownMenuLabel",
     "    └── DropdownMenuSeparator",
   ],
   props: [

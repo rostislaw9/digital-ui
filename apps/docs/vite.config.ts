@@ -66,6 +66,7 @@ export default defineConfig({
       "@/components/ui/skeleton": resolve(ui, "components/skeleton/index.ts"),
       "@/components/ui/slider": resolve(ui, "components/slider/index.ts"),
       "@/components/ui/switch": resolve(ui, "components/switch/index.ts"),
+      "@/components/ui/table": resolve(ui, "components/table/index.ts"),
       "@/components/ui/tabs": resolve(ui, "components/tabs/index.ts"),
       "@/components/ui/textarea": resolve(ui, "components/textarea/index.ts"),
       "@/components/ui/toast": resolve(ui, "components/toast/index.ts"),

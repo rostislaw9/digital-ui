@@ -18,10 +18,15 @@ export const scrollAreaMeta: ComponentMeta = {
       render: () => <ScrollAreaDemo />,
     },
   ],
-  usageImport: `import { ScrollArea } from "@/components/ui/scroll-area";`,
+  usageImport: `import {
+  ScrollArea,
+  ScrollBar,
+} from "@/components/ui/scroll-area";`,
   usageCode: `<ScrollArea className="h-72 w-48">
   <div>Long content...</div>
+  <ScrollBar orientation="vertical" />
 </ScrollArea>`,
+  composition: ["ScrollArea", "└── ScrollBar"],
   props: [
     {
       name: "className",

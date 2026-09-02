@@ -14,7 +14,7 @@ export const labelMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Default",
+      title: "Basic",
       description: "A Label associated with an Input via htmlFor.",
       code: LabelDefaultDemoSource,
       rawCode: LabelDefaultDemoRaw,

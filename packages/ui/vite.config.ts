@@ -61,6 +61,7 @@ export default defineConfig({
           "src/components/scroll-area/index.ts",
         ),
         sheet: resolve(__dirname, "src/components/sheet/index.ts"),
+        table: resolve(__dirname, "src/components/table/index.ts"),
         utils: resolve(__dirname, "src/lib/utils.ts"),
       },
       formats: ["es", "cjs"],

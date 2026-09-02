@@ -29,18 +29,18 @@ It **is**:
 
 | Package             | Description                                                    |
 | ------------------- | -------------------------------------------------------------- |
-| `@ionbit-ui/ui`     | 31 React components                                            |
+| `@ionbit-ui/ui`     | 32 React components                                            |
 | `@ionbit-ui/motion` | 5 motion primitives (Glow, Pulse, Spotlight, Magnetic, Reveal) |
 | `@ionbit-ui/tokens` | Design tokens as CSS with Tailwind v4 mapping                  |
 | `ionbit-ui`         | CLI for source-owned component installation                    |
 
 ## Components
 
-**UI (31):** Accordion, Alert, AlertDialog, Avatar, Badge, Breadcrumb,
+**UI (32):** Accordion, Alert, AlertDialog, Avatar, Badge, Breadcrumb,
 Button, Card, Checkbox, Command, ContextMenu, Dialog, DropdownMenu,
 HoverCard, Input, Label, Pagination, Popover, Progress,
 RadioGroup, ScrollArea, Select, Separator, Sheet, Skeleton, Slider,
-Switch, Tabs, Textarea, Toast, Tooltip.
+Switch, Table, Tabs, Textarea, Toast, Tooltip.
 
 **Motion (5):** Glow, Pulse, Spotlight, Magnetic, Reveal.
 

@@ -179,6 +179,27 @@ export { Separator } from "./components/separator/index";
 export type { SeparatorProps } from "./components/separator/index";
 
 export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./components/table/index";
+export type {
+  TableBodyProps,
+  TableCaptionProps,
+  TableCellProps,
+  TableFooterProps,
+  TableHeaderProps,
+  TableHeadProps,
+  TableProps,
+  TableRowProps,
+} from "./components/table/index";
+
+export {
   Accordion,
   AccordionContent,
   AccordionItem,

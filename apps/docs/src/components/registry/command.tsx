@@ -43,11 +43,14 @@ export const commandMeta: ComponentMeta = {
   ],
   usageImport: `import {
   Command,
+  CommandDialog,
   CommandInput,
   CommandList,
+  CommandEmpty,
   CommandGroup,
   CommandItem,
-  CommandEmpty,
+  CommandSeparator,
+  CommandShortcut,
 } from "@/components/ui/command";`,
   usageCode: `<Command>
   <CommandInput placeholder="Search..." />
@@ -55,23 +58,53 @@ export const commandMeta: ComponentMeta = {
     <CommandEmpty>No results.</CommandEmpty>
     <CommandGroup heading="Actions">
       <CommandItem>Action 1</CommandItem>
+      <CommandItem>Action 2</CommandItem>
+      <CommandShortcut>⌘A</CommandShortcut>
     </CommandGroup>
+    <CommandSeparator />
   </CommandList>
-</Command>`,
+</Command>
+
+<CommandDialog open={open} onOpenChange={setOpen}>
+  <Command>
+    <CommandInput placeholder="Search..." />
+    <CommandList>
+      <CommandEmpty>No results.</CommandEmpty>
+      <CommandGroup heading="Actions">
+        <CommandItem>Action 1</CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </Command>
+</CommandDialog>`,
   composition: [
     "Command",
     "├── CommandInput",
     "└── CommandList",
     "    ├── CommandGroup",
-    "    │   └── CommandItem",
-    "    └── CommandEmpty",
+    "    │   ├── CommandItem",
+    "    │   └── CommandShortcut",
+    "    ├── CommandEmpty",
+    "    └── CommandSeparator",
+    "",
+    "CommandDialog",
+    "└── Command (wrapped in Dialog)",
   ],
   props: [
-    { name: "open", type: "boolean", description: "Controlled open state." },
     {
-      name: "onOpenChange",
+      name: "CommandDialog.open",
+      type: "boolean",
+      description: "Controlled open state of the dialog wrapper.",
+    },
+    {
+      name: "CommandDialog.onOpenChange",
       type: "function",
-      description: "Called when open state changes.",
+      description: "Called when the dialog open state changes.",
+    },
+    {
+      name: "CommandDialog.className",
+      type: "string",
+      default: "—",
+      description: "Additional classes for the dialog content.",
     },
   ],
   accessibility: [

@@ -36,6 +36,24 @@ export const revealMeta: ComponentMeta = {
       description: "Delay before animation in ms.",
     },
     {
+      name: "distance",
+      type: "number",
+      default: "12",
+      description: "Offset distance in px for the reveal animation.",
+    },
+    {
+      name: "once",
+      type: "boolean",
+      default: "true",
+      description: "Animate only once or every time it enters the viewport.",
+    },
+    {
+      name: "threshold",
+      type: "number",
+      default: "0.15",
+      description: "Intersection ratio at which the animation triggers (0-1).",
+    },
+    {
       name: "disabled",
       type: "boolean",
       default: "false",

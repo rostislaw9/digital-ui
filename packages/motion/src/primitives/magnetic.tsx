@@ -27,7 +27,7 @@ export interface MagneticProps {
    * Proximity radius in pixels. The magnetic pull activates when the cursor
    * is within this distance of the element's bounding box, before actually
    * touching it. Set to 0 to only activate on hover.
-   * @default 80
+   * @default 20
    */
   proximity?: number;
   /** Disable the effect entirely (keeps the wrapper DOM). @default false */

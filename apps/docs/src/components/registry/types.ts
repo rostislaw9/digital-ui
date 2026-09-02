@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
 
+export type ComponentCategory =
+  "Form" | "Layout" | "Overlay" | "Feedback" | "Navigation" | "Data" | "Motion";
+
 export interface ComponentExample {
   title: string;
   description: string;
@@ -28,8 +31,7 @@ export interface ComponentMeta {
   name: string;
   label: string;
   description: string;
-  category:
-    "Form" | "Layout" | "Overlay" | "Feedback" | "Navigation" | "Motion";
+  category: ComponentCategory;
   examples: ComponentExample[];
   /** Props table for the API reference section. */
   props?: PropMeta[];

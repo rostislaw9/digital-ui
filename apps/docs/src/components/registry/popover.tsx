@@ -43,7 +43,7 @@ export const popoverMeta: ComponentMeta = {
     {
       name: "modal",
       type: "boolean",
-      default: "false",
+      default: "true",
       description: "Whether the popover is modal.",
     },
   ],

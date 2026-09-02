@@ -32,6 +32,7 @@ import { skeletonMeta } from "./skeleton";
 import { sliderMeta } from "./slider";
 import { spotlightMeta } from "./spotlight";
 import { switchMeta } from "./switch";
+import { tableMeta } from "./table";
 import { tabsMeta } from "./tabs";
 import { textareaMeta } from "./textarea";
 import { toastMeta } from "./toast";
@@ -70,17 +71,11 @@ export const componentRegistry: ComponentMeta[] = [
   sliderMeta,
   spotlightMeta,
   switchMeta,
+  tableMeta,
   tabsMeta,
   textareaMeta,
   toastMeta,
   tooltipMeta,
 ];
 
-export const componentCategories = [
-  "Form",
-  "Layout",
-  "Overlay",
-  "Feedback",
-  "Navigation",
-  "Motion",
-] as const;
+export { componentCategories } from "./manifest";

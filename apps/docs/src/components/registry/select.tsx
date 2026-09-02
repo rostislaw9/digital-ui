@@ -22,21 +22,32 @@ export const selectMeta: ComponentMeta = {
   usageImport: `import {
   Select,
   SelectTrigger,
+  SelectValue,
   SelectContent,
   SelectItem,
+  SelectLabel,
+  SelectSeparator,
 } from "@/components/ui/select";`,
   usageCode: `<Select defaultValue="a">
-  <SelectTrigger>Select an option</SelectTrigger>
+  <SelectTrigger>
+    <SelectValue placeholder="Select an option" />
+  </SelectTrigger>
   <SelectContent>
+    <SelectLabel>Options</SelectLabel>
     <SelectItem value="a">Option A</SelectItem>
     <SelectItem value="b">Option B</SelectItem>
+    <SelectSeparator />
+    <SelectItem value="c">Option C</SelectItem>
   </SelectContent>
 </Select>`,
   composition: [
     "Select",
     "├── SelectTrigger",
+    "│   └── SelectValue",
     "└── SelectContent",
-    "    └── SelectItem",
+    "    ├── SelectItem",
+    "    ├── SelectLabel",
+    "    └── SelectSeparator",
   ],
   props: [
     {

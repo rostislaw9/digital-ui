@@ -31,6 +31,11 @@ export const hoverCardMeta: ComponentMeta = {
   props: [
     { name: "open", type: "boolean", description: "Controlled open state." },
     {
+      name: "defaultOpen",
+      type: "boolean",
+      description: "Uncontrolled default open state.",
+    },
+    {
       name: "onOpenChange",
       type: "function",
       description: "Called when open state changes.",

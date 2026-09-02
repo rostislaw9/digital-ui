@@ -47,7 +47,7 @@ export const toastMeta: ComponentMeta = {
   category: "Feedback",
   examples: [
     {
-      title: "Simple",
+      title: "Basic",
       description: "A basic toast notification.",
       code: ToastDemoSource,
       rawCode: ToastDemoRaw,
@@ -85,8 +85,11 @@ export const toastMeta: ComponentMeta = {
       render: () => <ToastPositionsDemo />,
     },
   ],
-  usageImport: `import { toast } from "@/components/ui/toast";`,
-  usageCode: `toast("Event has been created.");`,
+  usageImport: `import { toast, Toaster } from "@/components/ui/toast";`,
+  usageCode: `toast("Event has been created.");
+
+// Mount the Toaster once in your app root:
+<Toaster closeButton />`,
   apiReference: {
     label: "Sonner API Reference",
     url: "https://sonner.emilkowal.ski/getting-started",

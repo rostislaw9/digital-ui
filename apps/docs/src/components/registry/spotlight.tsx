@@ -32,14 +32,14 @@ export const spotlightMeta: ComponentMeta = {
     },
   ],
   usageImport: `import { Spotlight } from "@/components/motion/spotlight";`,
-  usageCode: `<Spotlight intensity={0.5} radius={220}>
+  usageCode: `<Spotlight intensity={0.4} radius={220}>
   <div className="surface">Hover me</div>
 </Spotlight>`,
   props: [
     {
       name: "intensity",
       type: "number",
-      default: "0.5",
+      default: "0.4",
       description: "Highlight intensity (0-1).",
     },
     {
@@ -59,6 +59,12 @@ export const spotlightMeta: ComponentMeta = {
       type: "boolean",
       default: "false",
       description: "Disables the effect.",
+    },
+    {
+      name: "as",
+      type: '"div" | "section" | "article" | "li" | "button"',
+      default: '"div"',
+      description: "Render as a different element.",
     },
   ],
   accessibility: [

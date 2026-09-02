@@ -21,13 +21,12 @@ export const radioGroupMeta: ComponentMeta = {
   usageImport: `import {
   RadioGroup,
   RadioGroupItem,
-  Label,
 } from "@/components/ui/radio-group";`,
   usageCode: `<RadioGroup defaultValue="a">
   <RadioGroupItem value="a" id="r1" />
   <Label htmlFor="r1">Option A</Label>
 </RadioGroup>`,
-  composition: ["RadioGroup", "├── RadioGroupItem", "└── Label"],
+  composition: ["RadioGroup", "└── RadioGroupItem"],
   props: [
     {
       name: "value",
