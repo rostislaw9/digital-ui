@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
   type ReactNode,
@@ -134,8 +135,13 @@ export function Tabs({
     measure();
   }, [measure]);
 
+  const contextValue = useMemo<TabsContextValue>(
+    () => ({ indicator, listRef, direction }),
+    [indicator, direction],
+  );
+
   return (
-    <TabsContext.Provider value={{ indicator, listRef, direction }}>
+    <TabsContext.Provider value={contextValue}>
       <TabsPrimitive.Root
         defaultValue={defaultValue}
         value={value}

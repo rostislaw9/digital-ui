@@ -1,9 +1,11 @@
 import type { Section } from "../../hooks/useScrollSpy";
 import type { ReactNode } from "react";
 
+import { memo } from "react";
+
 import { cn } from "@ionbit-ui/ui";
 
-export function OnThisPage({
+export const OnThisPage = memo(function OnThisPage({
   sections,
   activeSection,
   onSectionClick,
@@ -32,7 +34,7 @@ export function OnThisPage({
       </ul>
     </nav>
   );
-}
+});
 
 function SidebarLink({
   href,

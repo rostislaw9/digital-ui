@@ -1,7 +1,7 @@
 import type { ComponentMeta } from "../components/registry/types";
 
 import { ArrowLeft } from "lucide-react";
-import { useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { Reveal } from "@ionbit-ui/motion";
@@ -58,6 +58,68 @@ function toSectionId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, "-");
 }
 
+/**
+ * Example switcher + preview area.
+ *
+ * Extracted into its own component so that changing `activeExample`
+ * only re-renders this subtree, not the entire ComponentDetailPage
+ * (which includes expensive static sections like API tables, usage,
+ * installation, etc.).
+ */
+const ExampleSwitcher = memo(function ExampleSwitcher({
+  examples,
+  activeExample,
+  onSelect,
+}: {
+  examples: ComponentMeta["examples"];
+  activeExample: number;
+  onSelect: (index: number) => void;
+}) {
+  const example = examples[activeExample] ?? examples[0];
+  if (!example) return null;
+
+  return (
+    <>
+      {examples.length > 1 && (
+        <Reveal direction="up">
+          <div className="flex flex-wrap gap-1">
+            {examples.map((ex, i) => (
+              <Button
+                key={ex.title}
+                variant="ghost"
+                size="sm"
+                onClick={() => onSelect(i)}
+                className={cn(
+                  activeExample === i &&
+                    "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent",
+                )}
+              >
+                {ex.title}
+              </Button>
+            ))}
+          </div>
+        </Reveal>
+      )}
+
+      <Reveal direction="up" delay={60}>
+        <section id="preview" className="flex flex-col gap-3 scroll-mt-24">
+          <h2 className="text-xl md:text-lg font-semibold text-foreground">
+            {example.title}
+          </h2>
+          <p className="text-base md:text-sm text-foreground-muted">
+            {example.description}
+          </p>
+          <PreviewCodeBlock
+            preview={example.render()}
+            code={example.code}
+            rawCode={example.rawCode}
+          />
+        </section>
+      </Reveal>
+    </>
+  );
+});
+
 export function ComponentDetailPage() {
   const { name } = useParams<{ name: string }>();
   const [comp, setComp] = useState<ComponentMeta | null>(null);
@@ -65,14 +127,14 @@ export function ComponentDetailPage() {
   const [activeExample, setActiveExample] = useState(0);
   const [pageCopied, setPageCopied] = useState(false);
 
-  const handleCopyPage = () => {
+  const handleCopyPage = useCallback(() => {
     if (!comp) return;
     const md = componentToMarkdown(comp);
     navigator.clipboard?.writeText(md).then(() => {
       setPageCopied(true);
       setTimeout(() => setPageCopied(false), 2000);
     });
-  };
+  }, [comp]);
 
   // Dynamically import only the requested component's registry data.
   // Keep old content visible while loading to avoid flicker.
@@ -94,30 +156,38 @@ export function ComponentDetailPage() {
     };
   }, [name]);
 
-  // Build the "On this page" sections dynamically
-  const sections: Section[] = [{ id: "preview", label: "Preview" }];
-  if (comp?.about) sections.push({ id: "about", label: "About" });
-  sections.push({ id: "installation", label: "Installation" });
-  if (comp?.usageImport && comp.usageCode)
-    sections.push({ id: "usage", label: "Usage" });
-  if (comp?.cursor) sections.push({ id: "cursor", label: "Cursor" });
-  if (comp?.composition)
-    sections.push({ id: "composition", label: "Composition" });
-  if (comp?.props && comp.props.length > 0)
-    sections.push({ id: "api", label: "API Reference" });
-  if (comp?.apiReference) sections.push({ id: "api", label: "API Reference" });
-  if (comp?.accessibility && comp.accessibility.length > 0)
-    sections.push({ id: "accessibility", label: "Accessibility" });
-  if (comp?.primitives) {
-    for (const primitive of comp.primitives) {
-      const id = `primitive-${toSectionId(primitive.name)}`;
-      sections.push({ id, label: `${primitive.name} API` });
+  // Build the "On this page" sections dynamically — memoized so the
+  // array identity is stable across re-renders (e.g. when activeExample
+  // changes), preventing unnecessary useScrollSpy / OnThisPage re-renders.
+  const sections = useMemo<Section[]>(() => {
+    const result: Section[] = [{ id: "preview", label: "Preview" }];
+    if (comp?.about) result.push({ id: "about", label: "About" });
+    result.push({ id: "installation", label: "Installation" });
+    if (comp?.usageImport && comp.usageCode)
+      result.push({ id: "usage", label: "Usage" });
+    if (comp?.cursor) result.push({ id: "cursor", label: "Cursor" });
+    if (comp?.composition)
+      result.push({ id: "composition", label: "Composition" });
+    if (comp?.apiReference) result.push({ id: "api", label: "API Reference" });
+    if (comp?.props && comp.props.length > 0)
+      result.push({ id: "api", label: "API Reference" });
+    if (comp?.accessibility && comp.accessibility.length > 0)
+      result.push({ id: "accessibility", label: "Accessibility" });
+    if (comp?.primitives) {
+      for (const primitive of comp.primitives) {
+        const id = `primitive-${toSectionId(primitive.name)}`;
+        result.push({ id, label: `${primitive.name} API` });
+      }
     }
-  }
+    return result;
+  }, [comp]);
+
+  const sectionIds = useMemo(() => sections.map((s) => s.id), [sections]);
+  const depKey = useMemo(() => sectionIds.join(","), [sectionIds]);
 
   const { activeSection, handleSectionClick } = useScrollSpy(
-    sections.map((s) => s.id),
-    sections.map((s) => s.id).join(","),
+    sectionIds,
+    depKey,
   );
 
   if (notFound) {
@@ -139,9 +209,6 @@ export function ComponentDetailPage() {
   }
 
   if (!comp) return null;
-
-  const example = comp.examples[activeExample] ?? comp.examples[0];
-  if (!example) return null;
 
   const { prev, next } = getPrevNext(comp, componentManifest);
 
@@ -205,46 +272,11 @@ export function ComponentDetailPage() {
                 </div>
               </Reveal>
 
-              {comp.examples.length > 1 && (
-                <Reveal direction="up">
-                  <div className="flex flex-wrap gap-1">
-                    {comp.examples.map((ex, i) => (
-                      <Button
-                        key={ex.title}
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => setActiveExample(i)}
-                        className={cn(
-                          activeExample === i &&
-                            "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent",
-                        )}
-                      >
-                        {ex.title}
-                      </Button>
-                    ))}
-                  </div>
-                </Reveal>
-              )}
-
-              <Reveal direction="up" delay={60}>
-                <section
-                  id="preview"
-                  className="flex flex-col gap-3 scroll-mt-24"
-                >
-                  <h2 className="text-xl md:text-lg font-semibold text-foreground">
-                    {example.title}
-                  </h2>
-                  <p className="text-base md:text-sm text-foreground-muted">
-                    {example.description}
-                  </p>
-                  <PreviewCodeBlock
-                    key={`${name}-${activeExample}`}
-                    preview={example.render()}
-                    code={example.code}
-                    rawCode={example.rawCode}
-                  />
-                </section>
-              </Reveal>
+              <ExampleSwitcher
+                examples={comp.examples}
+                activeExample={activeExample}
+                onSelect={setActiveExample}
+              />
 
               {comp.about && (
                 <Reveal direction="up" delay={120}>
@@ -377,7 +409,7 @@ export function ComponentDetailPage() {
                   );
                 })}
 
-              <PrevNextNav current={comp} registry={componentManifest} />
+              <PrevNextNav prev={prev} next={next} />
             </div>
           </div>
         </div>

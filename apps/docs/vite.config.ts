@@ -92,25 +92,22 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          "vendor-react": ["react", "react-dom", "react-router-dom"],
-          "vendor-radix": [
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-checkbox",
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-dropdown-menu",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-progress",
-            "@radix-ui/react-select",
-            "@radix-ui/react-slider",
-            "@radix-ui/react-slot",
-            "@radix-ui/react-switch",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-tooltip",
-          ],
-          "vendor-motion": ["motion/react", "sonner"],
-          "vendor-lucide": ["lucide-react"],
-          "vendor-cmdk": ["cmdk"],
+        manualChunks(id) {
+          if (id.includes("node_modules/")) {
+            if (id.includes("node_modules/@radix-ui/")) return "vendor-radix";
+            if (
+              id.includes("node_modules/react/") ||
+              id.includes("node_modules/react-dom/") ||
+              id.includes("node_modules/react-router") ||
+              id.includes("node_modules/scheduler/")
+            )
+              return "vendor-react";
+            if (id.includes("node_modules/motion/")) return "vendor-motion";
+            if (id.includes("node_modules/sonner/")) return "vendor-sonner";
+            if (id.includes("node_modules/lucide-react/"))
+              return "vendor-lucide";
+            if (id.includes("node_modules/cmdk/")) return "vendor-cmdk";
+          }
         },
       },
     },

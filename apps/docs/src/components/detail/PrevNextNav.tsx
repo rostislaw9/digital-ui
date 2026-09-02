@@ -5,17 +5,13 @@ import { Link } from "react-router-dom";
 
 import { Button } from "@ionbit-ui/ui";
 
-import { getPrevNext } from "../../lib/getPrevNext";
-
 export function PrevNextNav({
-  current,
-  registry,
+  prev,
+  next,
 }: {
-  current: { name: string };
-  registry: ComponentManifestEntry[];
+  prev: ComponentManifestEntry | null;
+  next: ComponentManifestEntry | null;
 }) {
-  const { prev, next } = getPrevNext(current, registry);
-
   return (
     <div className="flex items-center justify-between border-t border-border pt-6">
       {prev ? (
