@@ -84,6 +84,23 @@ export default defineConfig({
         "tailwind-merge",
         "cmdk",
       ],
+      // Preserve entry signatures so subpath exports map to stable files.
+      preserveEntrySignatures: "strict",
+      output: {
+        // Group shared internal modules into named chunks so that, e.g.,
+        // Button is not duplicated into dialog, sheet, alert-dialog, and
+        // pagination. The chunks get content-hashed filenames but are
+        // internal (referenced by relative path from entry chunks) and
+        // shipped inside dist/.
+        manualChunks(id) {
+          if (id.includes("src/components/button/button.tsx")) {
+            return "button-shared";
+          }
+          if (id.includes("src/components/dialog/dialog.tsx")) {
+            return "dialog-shared";
+          }
+        },
+      },
     },
   },
 });

@@ -1,9 +1,4 @@
-import {
-  useEffect,
-  useRef,
-  type CSSProperties,
-  type MutableRefObject,
-} from "react";
+import { useEffect, useRef, type MutableRefObject } from "react";
 
 /**
  * Reads the first child's computed border-radius and applies it to the
@@ -13,9 +8,9 @@ import {
  *
  * @returns A ref to attach to the wrapper element.
  */
-export function useInheritedRadius<T extends HTMLElement = HTMLElement>(
-  style?: CSSProperties,
-): MutableRefObject<T | null> {
+export function useInheritedRadius<
+  T extends HTMLElement = HTMLElement,
+>(): MutableRefObject<T | null> {
   const ref = useRef<T | null>(null);
 
   useEffect(() => {
@@ -29,7 +24,7 @@ export function useInheritedRadius<T extends HTMLElement = HTMLElement>(
     if (childRadius && childRadius !== "0px") {
       el.style.borderRadius = childRadius;
     }
-  }, [style]);
+  }, []);
 
   return ref;
 }

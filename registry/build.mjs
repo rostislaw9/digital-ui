@@ -37,18 +37,23 @@ for (const item of registry.items) {
     let content = readFileSync(resolve(root, file.path), "utf-8");
 
     // Motion primitives live in packages/motion/src/primitives/ and import
-    // from ../hooks/ and ../tokens. When installed to components/motion/
-    // (flattened, no primitives/ subdir), these must become ./hooks/ and
-    // ./tokens.
+    // from ../hooks/, ../tokens, ../styles, and ../pointer-coordinator.
+    // When installed to components/motion/ (flattened, no primitives/
+    // subdir), these must become ./hooks/, ./tokens, ./styles, and
+    // ./pointer-coordinator.
     const target = file.target ?? file.path;
     if (
       target.startsWith("components/motion/") &&
       !target.includes("/hooks/") &&
-      !target.endsWith("/tokens.ts")
+      !target.endsWith("/tokens.ts") &&
+      !target.endsWith("/styles.ts") &&
+      !target.endsWith("/pointer-coordinator.ts")
     ) {
       content = content
         .replace(/\.\.\/hooks\//g, "./hooks/")
-        .replace(/\.\.\/tokens/g, "./tokens");
+        .replace(/\.\.\/tokens/g, "./tokens")
+        .replace(/\.\.\/styles/g, "./styles")
+        .replace(/\.\.\/pointer-coordinator/g, "./pointer-coordinator");
     }
 
     itemWithContent.files.push({

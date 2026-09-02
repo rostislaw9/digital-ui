@@ -1,6 +1,7 @@
-import { forwardRef, useId, type CSSProperties, type ReactNode } from "react";
+import { forwardRef, type CSSProperties, type ReactNode } from "react";
 
 import { useInheritedRadius } from "../hooks/use-inherited-radius";
+import { ensureMotionStyles } from "../styles";
 import { motionTokens } from "../tokens";
 
 export interface GlowProps {
@@ -62,9 +63,9 @@ export const Glow = forwardRef<HTMLSpanElement, GlowProps>(function Glow(
   },
   ref,
 ) {
-  const id = useId().replace(/[:]/g, "");
-  const scope = `digital-glow-${id}`;
-  const radiusRef = useInheritedRadius<HTMLSpanElement>(style);
+  const radiusRef = useInheritedRadius<HTMLSpanElement>();
+
+  ensureMotionStyles();
 
   // Merge refs
   const setRef = (el: HTMLSpanElement | null) => {
@@ -93,33 +94,26 @@ export const Glow = forwardRef<HTMLSpanElement, GlowProps>(function Glow(
   const wrapperStyle: CSSProperties = {
     display: "inline-flex",
     transition: `${transitionProp} ${motionTokens.duration.fast}ms var(--ease-standard, ease-out)`,
+    ...(onHover || onFocus
+      ? isText
+        ? { ["--glow-text-shadow" as string]: shadow }
+        : { ["--glow-shadow" as string]: shadow }
+      : {}),
     ...(always ? { [transitionPropCamel]: shadow } : {}),
     ...style,
   };
 
-  const selectors: string[] = [];
-  if (onHover) selectors.push(`.${scope}:hover`);
-  if (onFocus) selectors.push(`.${scope}:focus-within`);
-  const selectorStr = selectors.length > 0 ? selectors.join(", ") : null;
-
   return (
-    <>
-      {selectorStr && (
-        <style>{`
-          .${scope}:hover,
-          .${scope}:focus-within {
-            ${transitionProp}: ${shadow};
-          }
-        `}</style>
-      )}
-      <span ref={setRef} className={cn(scope, className)} style={wrapperStyle}>
-        {children}
-      </span>
-    </>
+    <span
+      ref={setRef}
+      className={className}
+      style={wrapperStyle}
+      data-digital-glow=""
+      data-glow-variant={variant}
+      data-glow-hover={onHover ? "true" : "false"}
+      data-glow-focus={onFocus ? "true" : "false"}
+    >
+      {children}
+    </span>
   );
 });
-
-// Local cn to avoid pulling tailwind-merge into the motion package.
-function cn(...classes: (string | false | null | undefined)[]): string {
-  return classes.filter(Boolean).join(" ");
-}

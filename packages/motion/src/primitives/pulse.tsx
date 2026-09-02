@@ -1,6 +1,7 @@
-import { forwardRef, useId, type CSSProperties, type ReactNode } from "react";
+import { forwardRef, type CSSProperties, type ReactNode } from "react";
 
 import { useInheritedRadius } from "../hooks/use-inherited-radius";
+import { ensureMotionStyles } from "../styles";
 import { motionTokens } from "../tokens";
 
 export interface PulseProps {
@@ -57,9 +58,9 @@ export const Pulse = forwardRef<HTMLSpanElement, PulseProps>(function Pulse(
   },
   ref,
 ) {
-  const id = useId().replace(/:/g, "");
-  const keyframeName = `ionbit-ui-pulse-${id}`;
-  const radiusRef = useInheritedRadius<HTMLSpanElement>(style);
+  const radiusRef = useInheritedRadius<HTMLSpanElement>();
+
+  ensureMotionStyles();
 
   // Merge refs
   const setRef = (el: HTMLSpanElement | null) => {
@@ -76,36 +77,21 @@ export const Pulse = forwardRef<HTMLSpanElement, PulseProps>(function Pulse(
   const maxAlpha = Math.round(100 * intensity);
   const maxSpread = Math.round(6 * intensity);
 
+  const keyframeName = isText ? "ionbit-ui-pulse-text" : "ionbit-ui-pulse-halo";
+
   const wrapperStyle: CSSProperties = {
     display: "inline-flex",
     animation: `${keyframeName} ${duration}ms var(--ease-standard, ease-in-out) infinite`,
+    ["--pulse-color" as string]: pulseColor,
+    ["--pulse-blur" as string]: `${maxBlur}px`,
+    ["--pulse-spread" as string]: `${maxSpread}px`,
+    ["--pulse-alpha" as string]: `${maxAlpha}%`,
     ...style,
   };
 
-  const keyframes = isText
-    ? `@keyframes ${keyframeName} {
-        0%, 100% {
-          text-shadow: 0 0 0 color-mix(in oklab, ${pulseColor} 0%, transparent);
-        }
-        50% {
-          text-shadow: 0 0 ${maxBlur}px color-mix(in oklab, ${pulseColor} ${maxAlpha}%, transparent);
-        }
-      }`
-    : `@keyframes ${keyframeName} {
-        0%, 100% {
-          box-shadow: 0 0 0 0 color-mix(in oklab, ${pulseColor} 0%, transparent);
-        }
-        50% {
-          box-shadow: 0 0 ${maxBlur}px ${maxSpread}px color-mix(in oklab, ${pulseColor} ${maxAlpha}%, transparent);
-        }
-      }`;
-
   return (
-    <>
-      <style>{keyframes}</style>
-      <span ref={setRef} className={className} style={wrapperStyle}>
-        {children}
-      </span>
-    </>
+    <span ref={setRef} className={className} style={wrapperStyle}>
+      {children}
+    </span>
   );
 });

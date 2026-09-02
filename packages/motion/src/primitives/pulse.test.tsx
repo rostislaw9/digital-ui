@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { Pulse } from "./pulse";
 
@@ -39,8 +39,8 @@ describe("Pulse", () => {
         <span>LIVE</span>
       </Pulse>,
     );
-    const styleTag = container.querySelector("style");
-    expect(styleTag?.textContent).toContain("text-shadow");
+    const wrapper = container.querySelector("span");
+    expect(wrapper?.style.animation).toContain("ionbit-ui-pulse-text");
   });
 
   it("uses box-shadow keyframes for halo variant", () => {
@@ -49,8 +49,8 @@ describe("Pulse", () => {
         <span>●</span>
       </Pulse>,
     );
-    const styleTag = container.querySelector("style");
-    expect(styleTag?.textContent).toContain("box-shadow");
+    const wrapper = container.querySelector("span");
+    expect(wrapper?.style.animation).toContain("ionbit-ui-pulse-halo");
   });
 
   it("respects custom duration", () => {

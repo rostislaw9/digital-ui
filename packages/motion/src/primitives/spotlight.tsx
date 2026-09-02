@@ -9,6 +9,7 @@ import {
 } from "react";
 
 import { useReducedMotion } from "../hooks/use-reduced-motion";
+import { subscribePointerMove } from "../pointer-coordinator";
 import { motionTokens } from "../tokens";
 
 export interface SpotlightProps extends Omit<
@@ -121,14 +122,11 @@ export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
     useEffect(() => {
       if (!enabled) return;
       refreshRect();
-      const handleMove = (e: PointerEvent) => {
-        updateSpotlight(e.clientX, e.clientY);
-      };
-      window.addEventListener("pointermove", handleMove, { passive: true });
+      const unsubscribe = subscribePointerMove(updateSpotlight);
       window.addEventListener("scroll", refreshRect, { passive: true });
       window.addEventListener("resize", refreshRect, { passive: true });
       return () => {
-        window.removeEventListener("pointermove", handleMove);
+        unsubscribe();
         window.removeEventListener("scroll", refreshRect);
         window.removeEventListener("resize", refreshRect);
         if (frame.current != null) cancelAnimationFrame(frame.current);
@@ -139,11 +137,9 @@ export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
     // The wrapper has overflow:hidden, so the overlay is clipped to the
     // wrapper's radius. We read the content's radius and apply it to the
     // wrapper so the clip matches the visual shape of the wrapped element.
-    useEffect(() => {
+    const syncRadius = useCallback(() => {
       const el = innerRef.current;
       if (!el) return;
-      // The content wrapper is the last child span (display:contents).
-      // Its first child is the actual user content (e.g. Card).
       const contentWrapper = el.lastElementChild as HTMLElement | null;
       if (!contentWrapper) return;
       const contentChild =
@@ -153,7 +149,13 @@ export const Spotlight = forwardRef<HTMLDivElement, SpotlightProps>(
       if (childRadius && childRadius !== "0px") {
         el.style.borderRadius = childRadius;
       }
-    }, [children]);
+    }, []);
+
+    useEffect(() => {
+      syncRadius();
+      window.addEventListener("resize", syncRadius, { passive: true });
+      return () => window.removeEventListener("resize", syncRadius);
+    }, [syncRadius]);
 
     const handlePointerMove = useCallback(
       (e: React.PointerEvent<HTMLDivElement>) => {

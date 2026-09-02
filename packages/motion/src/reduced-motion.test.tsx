@@ -2,7 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { Glow } from "./primitives/glow";
+import { Magnetic } from "./primitives/magnetic";
 import { Pulse } from "./primitives/pulse";
+import { Reveal } from "./primitives/reveal";
 import { Spotlight } from "./primitives/spotlight";
 
 // Helper to toggle matchMedia for prefers-reduced-motion
@@ -67,5 +69,33 @@ describe("Reduced motion behavior", () => {
       </Pulse>,
     );
     expect(screen.getByText("●")).toBeInTheDocument();
+  });
+
+  it("Magnetic does not apply spring transforms when reduced motion is active", () => {
+    setReducedMotion(true);
+    const { container } = render(
+      <Magnetic>
+        <button>Magnetic</button>
+      </Magnetic>,
+    );
+    const wrapper = container.querySelector("div");
+    expect(wrapper).toBeTruthy();
+    // Motion values x/y should not be set on the style
+    expect(wrapper?.style.transform).toBe("");
+  });
+
+  it("Reveal shows content immediately when reduced motion is active", () => {
+    setReducedMotion(true);
+    const { container } = render(
+      <Reveal>
+        <div>Revealed content</div>
+      </Reveal>,
+    );
+    const wrapper = container.querySelector(
+      "[data-digital-reveal]",
+    ) as HTMLElement | null;
+    expect(wrapper).toBeTruthy();
+    expect(wrapper?.style.opacity).toBe("1");
+    expect(screen.getByText("Revealed content")).toBeInTheDocument();
   });
 });

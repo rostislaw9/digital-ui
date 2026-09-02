@@ -14,6 +14,7 @@ import {
 } from "react";
 
 import { useReducedMotion } from "../hooks/use-reduced-motion";
+import { subscribePointerMove } from "../pointer-coordinator";
 import { motionTokens } from "../tokens";
 
 export interface MagneticProps {
@@ -127,14 +128,11 @@ export const Magnetic = forwardRef<HTMLDivElement, MagneticProps>(
     useEffect(() => {
       if (!enabled) return;
       refreshRect();
-      const handleMove = (e: PointerEvent) => {
-        updateMagnetic(e.clientX, e.clientY);
-      };
-      window.addEventListener("pointermove", handleMove, { passive: true });
+      const unsubscribe = subscribePointerMove(updateMagnetic);
       window.addEventListener("scroll", refreshRect, { passive: true });
       window.addEventListener("resize", refreshRect, { passive: true });
       return () => {
-        window.removeEventListener("pointermove", handleMove);
+        unsubscribe();
         window.removeEventListener("scroll", refreshRect);
         window.removeEventListener("resize", refreshRect);
         x.set(0);

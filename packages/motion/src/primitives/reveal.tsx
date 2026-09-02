@@ -8,6 +8,7 @@ import {
 } from "react";
 
 import { useReducedMotion } from "../hooks/use-reduced-motion";
+import { ensureMotionStyles } from "../styles";
 import { motionTokens } from "../tokens";
 
 export interface RevealProps extends Omit<
@@ -59,6 +60,8 @@ export const Reveal = forwardRef<HTMLDivElement, RevealProps>(function Reveal(
   const enabled = !disabled && !reduced;
   const innerRef = useRef<HTMLDivElement | null>(null);
 
+  ensureMotionStyles();
+
   useEffect(() => {
     if (!enabled) return;
     const el = innerRef.current;
@@ -103,7 +106,6 @@ export const Reveal = forwardRef<HTMLDivElement, RevealProps>(function Reveal(
     opacity: enabled ? 0 : 1,
     transform: initialTransform,
     transition: `opacity ${motionTokens.duration.normal}ms var(--ease-standard, ease-out) ${delay}ms, transform ${motionTokens.duration.normal}ms var(--ease-standard, ease-out) ${delay}ms`,
-    willChange: enabled ? "opacity, transform" : "auto",
     ...style,
   };
 
@@ -113,25 +115,17 @@ export const Reveal = forwardRef<HTMLDivElement, RevealProps>(function Reveal(
   };
 
   return (
-    <>
-      <style>{`
-        [data-digital-reveal][data-revealed="true"] {
-          opacity: 1 !important;
-          transform: none !important;
-        }
-      `}</style>
-      <div
-        {...rest}
-        ref={(node) => {
-          innerRef.current = node;
-          if (typeof ref === "function") ref(node);
-          else if (ref) ref.current = node;
-        }}
-        data-digital-reveal=""
-        style={enabled ? baseStyle : { ...baseStyle, ...revealedStyle }}
-      >
-        {children}
-      </div>
-    </>
+    <div
+      {...rest}
+      ref={(node) => {
+        innerRef.current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
+      }}
+      data-digital-reveal=""
+      style={enabled ? baseStyle : { ...baseStyle, ...revealedStyle }}
+    >
+      {children}
+    </div>
   );
 });
