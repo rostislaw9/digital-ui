@@ -14,12 +14,18 @@ export type {
 
 export {
   Avatar,
+  AvatarBadge,
   AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
   AvatarImage,
   AvatarStatus,
 } from "./components/avatar/index";
 export type {
+  AvatarBadgeProps,
   AvatarFallbackProps,
+  AvatarGroupCountProps,
+  AvatarGroupProps,
   AvatarImageProps,
   AvatarProps,
   AvatarStatusProps,

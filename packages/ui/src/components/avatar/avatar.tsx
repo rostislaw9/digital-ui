@@ -17,12 +17,13 @@ export interface AvatarProps extends React.ComponentProps<
 }
 
 /**
- * Avatar — an image element with fallback and status indicator support.
+ * Avatar — an image element with fallback, status, and badge support.
  *
  * Accessibility: Radix handles alt text via the `alt` prop on `AvatarImage`.
  * When the image fails to load, `AvatarFallback` is shown. Provide a
  * meaningful fallback (initials or icon). Use `AvatarStatus` to show a
- * presence indicator (online/offline/busy).
+ * presence indicator (online/offline/busy) or `AvatarBadge` for custom
+ * badges (icons, labels). Wrap multiple avatars in `AvatarGroup`.
  */
 export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
   { className, size = "md", ...props },
@@ -31,6 +32,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
   return (
     <AvatarPrimitive.Root
       ref={ref}
+      data-slot="avatar"
       // prettier-ignore
       className={cn("relative flex shrink-0 rounded-full", avatarSizes[size], className)}
       {...props}
@@ -131,6 +133,73 @@ export const AvatarStatus = forwardRef<HTMLSpanElement, AvatarStatusProps>(
         role="img"
         // prettier-ignore
         className={cn("absolute z-10 size-3.5 rounded-full border-2 border-background ring-2 ring-background/50 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]", statusColors[variant], statusPositions[position], className)}
+        {...props}
+      />
+    );
+  },
+);
+
+export type AvatarGroupProps = HTMLAttributes<HTMLDivElement>;
+
+/**
+ * AvatarGroup — overlapping avatars in a horizontal row.
+ *
+ * Children should be `Avatar` elements. Use `AvatarGroupCount` as the
+ * last child to show a "+N" overflow indicator. Avatars overlap via
+ * negative spacing and each gets a ring matching the background to
+ * separate them visually.
+ */
+export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
+  function AvatarGroup({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        // prettier-ignore
+        className={cn("flex -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background", className)}
+        {...props}
+      />
+    );
+  },
+);
+
+export type AvatarGroupCountProps = HTMLAttributes<HTMLDivElement>;
+
+/**
+ * AvatarGroupCount — overflow count shown at the end of an AvatarGroup.
+ *
+ * Renders as a circular element matching avatar sizing. Place as the
+ * last child of `AvatarGroup`.
+ */
+export const AvatarGroupCount = forwardRef<
+  HTMLDivElement,
+  AvatarGroupCountProps
+>(function AvatarGroupCount({ className, ...props }, ref) {
+  return (
+    <div
+      ref={ref}
+      // prettier-ignore
+      className={cn("relative flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-surface-elevated text-sm font-medium text-foreground-muted ring-2 ring-background", className)}
+      {...props}
+    />
+  );
+});
+
+export type AvatarBadgeProps = HTMLAttributes<HTMLSpanElement>;
+
+/**
+ * AvatarBadge — a small status badge overlaid on the avatar corner.
+ *
+ * Similar to `AvatarStatus` but accepts arbitrary children (icon, dot).
+ * Positioned at the bottom-right by default. Use color utilities on
+ * the badge to convey meaning (e.g. `bg-success`).
+ */
+export const AvatarBadge = forwardRef<HTMLSpanElement, AvatarBadgeProps>(
+  function AvatarBadge({ className, ...props }, ref) {
+    return (
+      <span
+        ref={ref}
+        // prettier-ignore
+        className={cn("absolute bottom-0 right-0 z-10 flex items-center justify-center rounded-full ring-2 ring-background", className)}
         {...props}
       />
     );
