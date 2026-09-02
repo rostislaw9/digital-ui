@@ -1,29 +1,33 @@
-# Publish ionbit-ui (CLI) to npm on GitHub Release.
+# Release ionbit-ui — publish CLI to npm and deploy docs to Render.
 #
-# Uses npm Trusted Publisher (OIDC) — no long-lived NPM_TOKEN secret required.
+# Triggered when a GitHub Release is published. The workflow:
+#   1. Syncs all version references in the repo to match the release tag.
+#   2. Builds and publishes the CLI to npm with provenance (OIDC).
+#   3. Triggers a Render deploy hook to rebuild the docs site.
+#
+# npm Trusted Publisher (OIDC) — no long-lived NPM_TOKEN secret required.
 # Before this workflow can publish, configure the Trusted Publisher on npm:
 #   https://www.npmjs.com/package/ionbit-ui/access → Trusted Publisher
 #
 # Form values:
 #   Organization or user:  rostislaw9
 #   Repository:            ionbit-ui
-#   Workflow filename:     publish.yml
+#   Workflow filename:     release.yml
 #   Environment name:      npm
 #   Allowed actions:       publish
 #
-# The git tag (e.g. v0.1.2) is the source of truth for the version. The
-# workflow syncs all version references in the repo to match the tag, commits
-# the sync to main, builds the CLI, and publishes with provenance attestation.
+# Render deploy hook:
+#   RENDER_DEPLOY_HOOK_URL repository secret triggers a docs rebuild.
 
-name: Publish
+name: Publish package and deploy docs
 
 on:
   release:
     types: [published]
 
-# Prevent concurrent publishes racing on the same version.
+# Prevent concurrent releases racing on the same version.
 concurrency:
-  group: publish-${{ github.event.release.tag_name }}
+  group: release-${{ github.event.release.tag_name }}
   cancel-in-progress: false
 
 permissions:
@@ -31,8 +35,8 @@ permissions:
   id-token: write # request an OIDC token for npm Trusted Publisher
 
 jobs:
-  publish:
-    name: Publish ionbit-ui to npm
+  release:
+    name: Publish to npm and deploy docs
     runs-on: ubuntu-latest
     environment: npm
 
@@ -48,7 +52,7 @@ jobs:
             exit 1
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
-          echo "Publishing version $version"
+          echo "Releasing version $version"
 
       - name: Checkout main
         uses: actions/checkout@v5
@@ -57,6 +61,9 @@ jobs:
           # A token with write access is needed to push the version-sync commit.
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+
+      - name: Enable Corepack (Yarn 4)
+        run: corepack enable
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -79,9 +86,6 @@ jobs:
           fi
           echo "OIDC token available"
 
-      - name: Enable Corepack (Yarn 4)
-        run: corepack enable
-
       - name: Install dependencies
         run: yarn install --immutable
 
@@ -98,7 +102,7 @@ jobs:
           else
             git commit -m "chore: sync version to ${{ steps.version.outputs.version }}
 
-            Auto-synced by the Publish workflow on Release ${{ github.event.release.tag_name }}."
+            Auto-synced by the Release workflow on Release ${{ github.event.release.tag_name }}."
             git push origin main
           fi
 
@@ -118,3 +122,18 @@ jobs:
       - name: Publish to npm with provenance
         run: npm publish --provenance --access public
         working-directory: packages/cli
+
+      - name: Trigger Render docs deploy
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$deploy_url" ]; then
+            echo "::warning::RENDER_DEPLOY_HOOK_URL secret is not set — skipping docs deploy"
+            exit 0
+          fi
+          echo "Triggering Render deploy hook..."
+          curl -fsS -X POST "$deploy_url" || {
+            echo "::error::Render deploy hook request failed"
+            exit 1
+          }
+          echo "Render deploy triggered successfully"
