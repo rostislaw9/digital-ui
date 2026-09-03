@@ -31,6 +31,11 @@
           "path": "packages/tokens/src/base.css",
           "type": "registry:file",
           "target": "styles/base.css"
+        },
+        {
+          "path": "packages/tokens/src/utilities.css",
+          "type": "registry:file",
+          "target": "styles/utilities.css"
         }
       ]
     },

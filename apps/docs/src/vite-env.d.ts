@@ -7,6 +7,10 @@ declare module "virtual:highlighted-inline" {
   interface InlineEntry {
     importHtml?: string;
     codeHtml?: string;
+    rawCode?: string;
+    setupHtml?: string;
+    setupRawCode?: string;
+    setupFilename?: string;
     install: Record<string, string>;
   }
   const data: Record<string, InlineEntry>;

@@ -2,16 +2,9 @@ import { Terminal } from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ionbit-ui/ui";
 
+import { PACKAGE_MANAGERS } from "../lib/package-managers";
 import { CopyButton } from "./CopyButton";
 import { HighlightedCode } from "./HighlightedCode";
-
-/** Package manager IDs and CLI prefixes for install commands. */
-export const PACKAGE_MANAGERS = [
-  { id: "pnpm", prefix: "pnpm dlx" },
-  { id: "npm", prefix: "npx" },
-  { id: "yarn", prefix: "yarn dlx" },
-  { id: "bun", prefix: "bunx --bun" },
-] as const;
 
 interface PmCommandBlockProps {
   activePm: string;

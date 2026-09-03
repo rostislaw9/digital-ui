@@ -20,9 +20,9 @@ yarn install
 
 ```text
 apps/docs/        Documentation & component playground (Vite + React)
-packages/tokens/  Design tokens as CSS (@ionbit-ui/tokens)
-packages/motion/  Motion primitives (@ionbit-ui/motion)
-packages/ui/      Component library (@ionbit-ui/ui)
+packages/tokens/  Design tokens as CSS (shipped via ionbit-ui)
+packages/motion/  Motion primitives (shipped via ionbit-ui)
+packages/ui/      Component library (shipped via ionbit-ui)
 packages/cli/     Ionbit UI CLI (ionbit-ui)
 registry/         Source registry build scripts
 docs/             Project spec, architecture, design system docs

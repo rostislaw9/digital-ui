@@ -1,4 +1,4 @@
-import type { ComponentMeta } from "../components/registry/types";
+import type { ComponentMeta } from "../registry/components/types";
 
 /**
  * Convert a ComponentMeta object into a markdown document suitable for

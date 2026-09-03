@@ -58,7 +58,7 @@ export interface IonBitToasterProps extends ToasterProps {
  *
  * Usage:
  * ```tsx
- * import { Toaster, toast } from "@ionbit-ui/ui";
+ * import { Toaster, toast } from "@/components/ui/toast";
  *
  * <App>
  *   <Toaster />

@@ -1,11 +1,13 @@
-import type { ComponentManifestEntry } from "../components/registry/manifest";
+import type { ManifestEntry } from "../registry/manifest";
+
+import { docsManifest } from "../registry/manifest";
 
 export function getPrevNext(
   current: { name: string },
-  registry: ComponentManifestEntry[],
+  registry: ManifestEntry[] = docsManifest,
 ): {
-  prev: ComponentManifestEntry | null;
-  next: ComponentManifestEntry | null;
+  prev: ManifestEntry | null;
+  next: ManifestEntry | null;
 } {
   const idx = registry.findIndex((c) => c.name === current.name);
   const prev = idx > 0 ? (registry[idx - 1] ?? null) : null;

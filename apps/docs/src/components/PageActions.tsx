@@ -1,13 +1,18 @@
-import type { ComponentManifestEntry } from "../registry/manifest";
+import type { ManifestEntry } from "../registry/manifest";
 
 import { Check, ChevronLeft, ChevronRight, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { Button } from "@ionbit-ui/ui";
 
+function docPath(entry: ManifestEntry): string {
+  const section = entry.kind === "util" ? "utils" : "components";
+  return `/docs/${section}/${entry.name}`;
+}
+
 export interface PageActionsProps {
-  prev: ComponentManifestEntry | null;
-  next: ComponentManifestEntry | null;
+  prev: ManifestEntry | null;
+  next: ManifestEntry | null;
   pageCopied?: boolean;
   onCopyPage?: () => void;
 }
@@ -40,10 +45,10 @@ export function PageActions({
         variant="outline"
         size="icon-sm"
         disabled={!prev}
-        aria-label={prev ? `Previous: ${prev.label}` : "No previous component"}
+        aria-label={prev ? `Previous: ${prev.label}` : "No previous page"}
       >
         {prev ? (
-          <Link to={`/components/${prev.name}`}>
+          <Link to={docPath(prev)}>
             <ChevronLeft />
           </Link>
         ) : (
@@ -55,10 +60,10 @@ export function PageActions({
         variant="outline"
         size="icon-sm"
         disabled={!next}
-        aria-label={next ? `Next: ${next.label}` : "No next component"}
+        aria-label={next ? `Next: ${next.label}` : "No next page"}
       >
         {next ? (
-          <Link to={`/components/${next.name}`}>
+          <Link to={docPath(next)}>
             <ChevronRight />
           </Link>
         ) : (

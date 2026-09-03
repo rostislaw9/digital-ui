@@ -5,9 +5,10 @@ the authoritative reference for repository structure, package layout,
 styling, motion, testing, build, the registry, and the CLI.
 
 The repository is in its first MVP iteration. The source, registry,
-CLI, and documentation app are complete and validated locally. No
-`@ionbit-ui/*` package has been published to npm yet — publishing is
-a follow-up task.
+CLI, and documentation app are complete and validated locally. The
+`ionbit-ui` CLI package is published to npm; the internal
+`@ionbit-ui/*` packages are not published separately — their CSS and
+source are shipped via the `ionbit-ui` package.
 
 Decisions are stated with reasoning. Where a choice was rejected, the
 reason is recorded so future contributors do not relitigate it without
@@ -68,10 +69,10 @@ ionbit-ui/
 
 ### Why a monorepo
 
-- The docs app must consume `@ionbit-ui/ui`, `@ionbit-ui/motion`,
-  and `@ionbit-ui/tokens` as if they were published packages, so that
-  the documentation site is a faithful integration test of the public
-  API.
+- The docs app consumes the internal `@ionbit-ui/ui`,
+  `@ionbit-ui/motion`, and `@ionbit-ui/tokens` packages as if they
+  were published, so that the documentation site is a faithful
+  integration test of the public API.
 - Tokens, motion, and UI are independently versionable but co-evolve.
   A monorepo keeps them in sync without cross-repo coordination.
 - The registry and CLI read component source from `packages/ui`; a
@@ -147,14 +148,20 @@ CSS.
 
 **Contents:**
 
+- `src/tailwind.css` — entry point that imports the three layers below.
 - `src/tokens.css` — `@theme` block mapping Tailwind utility names to
-  CSS variables, plus `:root` and `.dark` variable definitions.
+  CSS variables, plus `:root` variable definitions. The default theme
+  is dark; a `.dark` class on `<html>` activates dark-mode variants in
+  utilities (e.g. shimmer's brightened highlight).
 - `src/base.css` — minimal base layer (reset-adjacent defaults: focus
   ring base, reduced-motion media query hook, font smoothing).
+- `src/utilities.css` — CSS utilities (`no-scrollbar`, `scroll-fade`,
+  `shimmer`) using Tailwind v4 `@utility` and `@property` at-rules.
 
-**Public API:** `import "@ionbit-ui/tokens/css"` resolves to the
-compiled CSS bundle. Components and the docs app import this once at
-the root.
+**Public API:** Consumers import the CSS via
+`@import "ionbit-ui/tailwind.css"` in their global CSS file. The
+`ionbit-ui` npm package ships `tailwind.css`, `tokens.css`, `base.css`,
+and `utilities.css` as static assets.
 
 **Build:** A tiny script that copies/concatenates CSS into `dist/`.
 No JS is emitted. `package.json` exports map:
@@ -162,8 +169,10 @@ No JS is emitted. `package.json` exports map:
 ```json
 {
   "exports": {
-    "./css": "./dist/tokens.css",
-    "./base": "./dist/base.css"
+    "./css": "./dist/tailwind.css",
+    "./tokens": "./dist/tokens.css",
+    "./base": "./dist/base.css",
+    "./utilities": "./dist/utilities.css"
   }
 }
 ```
@@ -192,10 +201,10 @@ easing, intensity) and reduced-motion utilities.
 **Build:** Vite library mode → ESM + CJS + types. Tree-shakable.
 
 **Why a separate package:** Motion primitives are useful independently
-of the component library. A user should be able to install
-`@ionbit-ui/motion` and wrap their own elements with `<Magnetic>`
-without adopting our Button. Bundling motion into `ui` would force
-Motion as a dependency of every component user.
+of the component library. A user should be able to copy
+`<Magnetic>` into their project without adopting our Button. Bundling
+motion into `ui` would force Motion as a dependency of every component
+user.
 
 ### 4.3 `@ionbit-ui/ui`
 
@@ -219,23 +228,23 @@ component's purpose, and include an **Accessibility** section.
 
 **Dependencies:**
 
-- Runtime: `@ionbit-ui/tokens` (peer, for CSS), `@ionbit-ui/motion`
-  (peer, only for components that use motion), `class-variance-authority`,
-  `clsx`, `tailwind-merge`, `@radix-ui/react-*` (per component, e.g.
-  `@radix-ui/react-slot` for Button, `@radix-ui/react-dialog` for
-  Dialog).
+- Runtime: `class-variance-authority`, `clsx`, `tailwind-merge`,
+  `@radix-ui/react-*` (per component, e.g. `@radix-ui/react-slot` for
+  Button, `@radix-ui/react-dialog` for Dialog), `motion` (for motion
+  primitives). The CLI resolves and reports these automatically.
 - Peer: `react`, `react-dom`.
 
 **Build:** Vite library mode → ESM + CJS + types. Each component is
 exported as a subpath so tree-shaking works even when consumed via npm:
-`import { Button } from "@ionbit-ui/ui/button"`.
+`import { Button } from "@/components/ui/button"`.
 
-**Source ownership note:** When the registry/CLI exists, the CLI will
-copy a component's `.tsx` and `.variants.ts` into the consumer's
-`components/ui/` directory. The consumer's `cn` helper and the
-`@ionbit-ui/motion` / `@ionbit-ui/tokens` packages remain npm
-dependencies. This is inspired by shadcn's source-ownership model but
-with our motion and tokens packages as the shared runtime core.
+**Source ownership note:** The CLI copies a component's `.tsx` and
+`.variants.ts` into the consumer's `components/ui/` directory. The
+consumer's `cn` helper is copied to `lib/utils.ts`. Motion primitives
+are copied to `components/motion/`. CSS (tokens, base, utilities) is
+shipped via the `ionbit-ui` npm package and imported with
+`@import "ionbit-ui/tailwind.css"`. This is inspired by shadcn's
+source-ownership model.
 
 ### 4.4 `apps/docs`
 
@@ -266,7 +275,7 @@ owns the theme.
 
 ### 5.2 Token layering
 
-`@ionbit-ui/tokens` ships `tokens.css` structured as:
+The tokens CSS (shipped via `ionbit-ui/tailwind.css`) is structured as:
 
 ```css
 /* 1. Raw variable values, themeable by the consumer */
@@ -301,8 +310,11 @@ This gives us:
   `text-accent`, etc. as first-class Tailwind utilities.
 - Retheming = overriding `--background`, `--accent`, etc. in the
   consumer's CSS. No Tailwind config edit required.
-- Dark mode = adding `.dark` to a root element. The same utilities
-  resolve to different variables.
+- Dark mode = adding `.dark` to a root element. The docs app defines
+  `@custom-variant dark` in its `index.css` so `@variant dark` in
+  utilities resolves via the `.dark` class instead of
+  `prefers-color-scheme`. Consumers must add the same directive to
+  their global CSS if they use class-based dark mode.
 - Non-Tailwind consumers can still `var(--accent)` directly.
 
 ### 5.3 Component source uses only semantic tokens
@@ -336,14 +348,11 @@ This is the standard shadcn pattern. It lets consumers pass a
 ### 5.5 What the consumer needs to use a copied component
 
 1. Install Tailwind v4 in their project.
-2. `import "@ionbit-ui/tokens/css"` once (in their root CSS or entry).
-3. Add `@ionbit-ui/tokens` to their Tailwind `@import` source list, or
-   `@import` the tokens CSS before their own Tailwind entry so the
-   `@theme` block is picked up. (We will document the exact one-line
-   setup.)
-4. Copy the component source via the CLI (`npx ionbit-ui add <name>`)
+2. `npm install ionbit-ui` and add `@import "ionbit-ui/tailwind.css"`
+   to their global CSS file (after `@import "tailwindcss"`).
+3. Copy the component source via the CLI (`npx ionbit-ui add <name>`)
    or manually.
-5. Install the component's npm dependencies (Radix primitive, cva,
+4. Install the component's npm dependencies (Radix primitive, cva,
    clsx, tailwind-merge) — the CLI resolves and reports these
    automatically.
 
@@ -373,7 +382,7 @@ usable.
 ```
 
 - `theme` — Tailwind's generated theme (from `@theme`).
-- `base` — reset and element defaults (from `@ionbit-ui/tokens/base`).
+- `base` — reset and element defaults (from `ionbit-ui/base.css`).
 - `components` — component class definitions (rare; we prefer utility
   composition via `cva` over component classes).
 - `utilities` — Tailwind utilities (always win over `components`).
@@ -389,7 +398,7 @@ classes.
 
 ### 6.3 Focus and reduced-motion base
 
-`@ionbit-ui/tokens/base.css` defines:
+`ionbit-ui/base.css` defines:
 
 - `:focus-visible` baseline (we layer component-specific focus on top).
 - `@media (prefers-reduced-motion: reduce)` global rule that disables
@@ -427,7 +436,7 @@ documented by Aceternity.
 
 ### 7.2 Motion tokens
 
-`@ionbit-ui/motion` exports:
+Motion primitives export:
 
 ```ts
 export const motionTokens = {
@@ -498,8 +507,8 @@ Example (illustrative, not final):
 - Animate `transform` and `opacity` only. Never animate `width`,
   `height`, `top`, `margin`.
 - Motion's `LazyMotion` + `m` components are used in the docs app to
-  keep the bundle small. The published `@ionbit-ui/motion` package is
-  tree-shakable so consumers only pay for primitives they import.
+  keep the bundle small. Motion primitives are source-owned — consumers
+  copy only the primitives they need.
 
 ---
 
@@ -509,7 +518,8 @@ Example (illustrative, not final):
 
 `clsx` + `tailwind-merge`. The single class-merging utility used by
 every component. Lives in `packages/ui/src/lib/utils.ts` and is also
-re-exported from `@ionbit-ui/ui` for consumers.
+re-exported from the UI barrel for internal use; consumers get it
+copied to `lib/utils.ts` by the CLI.
 
 ### 8.2 `cva`
 
@@ -628,10 +638,7 @@ yarn typecheck   # tsc --noEmit across packages
 
 ### 12.1 Packages to publish
 
-- `@ionbit-ui/tokens`
-- `@ionbit-ui/motion`
-- `@ionbit-ui/ui`
-- `ionbit-ui`
+- `ionbit-ui` (CLI + CSS)
 
 ### 12.2 Packages NOT published
 
@@ -642,16 +649,16 @@ yarn typecheck   # tsc --noEmit across packages
 - Each publishable package has `publishConfig` set to `dist/`.
 - Changesets will be adopted for versioning when the first release
   approaches. Not configured now to avoid premature tooling.
-- Scope `@ionbit-ui` must be reserved on npm. This is a follow-up
-  task; the architecture does not depend on the exact scope name.
-- No package has been published yet. The current state is the first
-  MVP iteration, validated locally.
+- The `@ionbit-ui/*` packages (tokens, motion, ui) are internal to the
+  monorepo and are not published separately. Their CSS and source are
+  shipped via the `ionbit-ui` npm package.
+- No `@ionbit-ui` npm scope is needed.
 
 ### 12.4 Peer dependencies
 
 `react` and `react-dom` are peer dependencies in `ui` and `motion`.
-`@ionbit-ui/tokens` and `@ionbit-ui/motion` are peer dependencies of
-`@ionbit-ui/ui` so consumers do not end up with multiple copies.
+Component-specific dependencies (Radix, cva, clsx, tailwind-merge,
+motion) are installed by the CLI when a component is added.
 
 ---
 
@@ -667,7 +674,7 @@ natural.
 
 ### 13.2 Current state
 
-The registry is built. `registry.json` contains 40 items (cn, tokens,
+The registry is built. `registry.json` contains 39 items (cn, tokens,
 32 components, 5 motion primitives). It is generated from
 `packages/ui/src/components/*` and `packages/motion/src/primitives/*`
 by `registry/build.mjs` (`yarn registry:build`).
@@ -760,19 +767,30 @@ on MDX tooling.
 
 The docs app uses a two-tier registry pattern to keep chunks small:
 
-1. **`componentManifest`** (`registry/manifest.ts`) — a lightweight
-   array with only `name`, `label`, `category`, `description`, and
-   `exampleCount`. Used by `ComponentsSidebar`, `ComponentsPage`, and
-   `HomePage` so they don't pull in demo components or `?raw`/
-   `?highlighted` source strings.
-2. **Full registry files** (`registry/*.tsx`) — contain the complete
-   `ComponentMeta` with examples, props, accessibility notes, and
-   demo imports. `ComponentDetailPage` lazy-loads only the requested
-   component's file via `import.meta.glob`, not the entire registry.
+1. **`componentManifest`** (`registry/components/manifest.ts`) — a
+   lightweight array with only `name`, `label`, `category`,
+   `description`, and `exampleCount`. Used by `DocsSidebar`,
+   `ComponentsPage`, and `HomePage` so they don't pull in demo
+   components or `?raw`/`?highlighted` source strings.
+2. **Full registry files** (`registry/components/*.tsx`) — contain the
+   complete `ComponentMeta` with examples, props, accessibility notes,
+   and demo imports. `ComponentDetailPage` lazy-loads only the
+   requested component's file via `import.meta.glob`, not the entire
+   registry.
+3. **Utility registry files** (`registry/utils/*.tsx`) — contain
+   `UtilMeta` with class tables, demos, and section-based
+   documentation. `UtilDetailPage` lazy-loads these the same way.
+
+Build-time syntax highlighting is handled by `vite-plugin-shiki.ts`,
+which scans the registry directories at build time and produces
+highlighted HTML via Shiki (GitHub light/dark themes). Highlighted
+output is exposed through virtual modules:
+`virtual:highlighted-inline`, `virtual:highlighted-sources-map`, and
+`virtual:highlighted-source/<name>`.
 
 Vendor chunks: `vendor-react`, `vendor-radix`, `vendor-motion`,
-`vendor-lucide`, `vendor-cmdk` are split in `vite.config.ts` for
-cacheability.
+`vendor-lucide`, `vendor-cmdk`, `vendor-sonner` are split in
+`vite.config.ts` for cacheability.
 
 ### 16.4 Why it matters
 
@@ -832,7 +850,7 @@ pass:
 - `yarn dev` starts the docs app and Tailwind classes render
   correctly.
 - The docs app renders the visual prototype (Button, Card, one motion
-  interaction) using the real `@ionbit-ui/*` packages.
+  interaction) using the real internal packages.
 
 The exact commands and results are recorded in the final report.
 
@@ -847,8 +865,10 @@ The exact commands and results are recorded in the final report.
 2. **Yarn linker (node-modules vs PnP).** node-modules is chosen for
    compatibility. If the docs app grows large, we can revisit PnP for
    dev performance.
-3. **Scope name `@ionbit-ui`.** Must be available on npm. If taken,
-   the scope changes but the architecture does not.
+3. **Single package vs scoped packages.** The `ionbit-ui` npm package
+   ships the CLI and CSS. Internal `@ionbit-ui/*` packages are not
+   published. If scoped packages are needed later, the architecture
+   does not depend on the current single-package model.
 4. **Motion vs CSS for Reveal.** CSS `animation-timeline: view()` is
    promising but not universally supported. We may ship a CSS-first
    Reveal with a Motion fallback, or a Motion-only Reveal, depending

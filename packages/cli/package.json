@@ -24,6 +24,12 @@
     "scaffold"
   ],
   "bin": "dist/index.js",
+  "exports": {
+    "./tailwind.css": "./dist/tailwind.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./base.css": "./dist/base.css",
+    "./utilities.css": "./dist/utilities.css"
+  },
   "files": [
     "dist",
     "README.md"
@@ -32,7 +38,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && node scripts/copy-css.mjs",
     "typecheck": "tsc --noEmit",
     "dev": "vite build --watch"
   },

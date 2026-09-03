@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Class-based dark mode — matches the .dark class on <html>.
+ * Required so @variant dark in utilities (e.g. shimmer) resolves
+ * via the .dark class instead of prefers-color-scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
  * Ionbit UI tokens + base layer.
  * In a real consumer app this is the only required "config":
@@ -10,6 +15,7 @@
  */
 @import "@ionbit-ui/tokens/tokens.css";
 @import "@ionbit-ui/tokens/base.css";
+@import "@ionbit-ui/tokens/utilities.css";
 
 /*
  * Component class strings live in the package source files. Tailwind v4
@@ -38,11 +44,13 @@
  * background to a darker surface and add CSS-based line numbers.
  */
 
-/* Darker background for all Shiki code blocks */
-.shiki-wrapper pre,
-.shiki-placeholder {
+/* Base styles for Shiki code blocks with padding + surface background.
+ * Line numbers are opt-in via .shiki-lines; .shiki-nolines omits them.
+ */
+.shiki-lines pre,
+.shiki-nolines pre {
   margin: 0;
-  padding: 1rem 1.25rem 1rem 0.5rem;
+  padding: 0.75rem 1rem;
   overflow-x: auto;
   font-size: 0.8125rem;
   line-height: 1.6;
@@ -50,23 +58,26 @@
   background-color: var(--surface) !important;
 }
 
-.shiki-wrapper pre code,
-.shiki-placeholder code {
+.shiki-lines pre code,
+.shiki-nolines pre code {
   font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+/* Line numbers via CSS counters — only for .shiki-lines */
+.shiki-lines pre code {
   counter-reset: line;
 }
 
-/* Line numbers via CSS counters on Shiki's .line spans */
-.shiki-wrapper pre code .line {
+.shiki-lines pre code .line {
   counter-increment: line;
   display: inline-block;
   width: 100%;
 }
 
-.shiki-wrapper pre code .line::before {
+.shiki-lines pre code .line::before {
   content: counter(line);
   display: inline-block;
-  width: 2.5rem;
+  width: 1.25rem;
   margin-right: 1rem;
   text-align: right;
   color: var(--foreground-subtle);

@@ -1,5 +1,12 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  NavLink,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 
 import { Toaster } from "@/components/ui/toast";
 import { cn } from "@/lib/utils";
@@ -12,9 +19,19 @@ const ComponentsPage = lazy(() =>
     default: m.ComponentsPage,
   })),
 );
+const UtilsPage = lazy(() =>
+  import("./pages/UtilsPage").then((m) => ({
+    default: m.UtilsPage,
+  })),
+);
 const ComponentDetailPage = lazy(() =>
   import("./pages/ComponentDetailPage").then((m) => ({
     default: m.ComponentDetailPage,
+  })),
+);
+const UtilDetailPage = lazy(() =>
+  import("./pages/UtilDetailPage").then((m) => ({
+    default: m.UtilDetailPage,
   })),
 );
 const TokensPage = lazy(() =>
@@ -45,7 +62,7 @@ function FullWidthLayout({ children }: { children: React.ReactNode }) {
   return <div className="w-full px-6 py-12">{children}</div>;
 }
 
-/** Centered content layout for /components and /tokens (no sidebar). */
+/** Centered content layout for list pages (no sidebar). */
 function CenteredLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex justify-center px-6 py-8">
@@ -68,7 +85,8 @@ export function App() {
           </Link>
           <nav className="flex items-center gap-1 text-sm">
             <NavItem to="/">Home</NavItem>
-            <NavItem to="/components">Components</NavItem>
+            <NavItem to="/docs/components">Components</NavItem>
+            <NavItem to="/docs/utils">Utils</NavItem>
             <NavItem to="/tokens">Tokens</NavItem>
           </nav>
         </div>
@@ -86,7 +104,7 @@ export function App() {
             }
           />
           <Route
-            path="/components"
+            path="/docs/components"
             element={
               <Suspense fallback={<PageLoader />}>
                 <CenteredLayout>
@@ -96,10 +114,28 @@ export function App() {
             }
           />
           <Route
-            path="/components/:name"
+            path="/docs/utils"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <CenteredLayout>
+                  <UtilsPage />
+                </CenteredLayout>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/docs/components/:name"
             element={
               <Suspense fallback={<PageLoader />}>
                 <ComponentDetailPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/docs/utils/:name"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <UtilDetailPage />
               </Suspense>
             }
           />
@@ -112,6 +148,15 @@ export function App() {
                 </CenteredLayout>
               </Suspense>
             }
+          />
+          {/* Redirects from old routes */}
+          <Route
+            path="/components"
+            element={<Navigate to="/docs/components" replace />}
+          />
+          <Route
+            path="/components/:name"
+            element={<Navigate to="/docs/components" replace />}
           />
           <Route
             path="*"

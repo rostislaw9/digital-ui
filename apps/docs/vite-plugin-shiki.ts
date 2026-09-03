@@ -6,6 +6,8 @@ import { fileURLToPath } from "node:url";
 import { createHighlighterCore, type HighlighterCore } from "shiki/core";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
+import { PACKAGE_MANAGERS, pmInstallCmd } from "./src/lib/package-managers";
+
 let highlighterPromise: Promise<HighlighterCore> | null = null;
 
 function getHighlighter(): Promise<HighlighterCore> {
@@ -26,22 +28,12 @@ function getHighlighter(): Promise<HighlighterCore> {
   return highlighterPromise;
 }
 
-const transformers = [
-  {
-    pre(node: { properties?: Record<string, unknown> }) {
-      node.properties = node.properties ?? {};
-      node.properties["data-line-numbers"] = "";
-    },
-  },
-];
-
 async function highlight(code: string, lang: string): Promise<string> {
   const hl = await getHighlighter();
   return hl.codeToHtml(code, {
     lang,
     themes: { dark: "github-dark-default", light: "github-light-default" },
     defaultColor: "dark",
-    transformers,
   });
 }
 
@@ -63,21 +55,15 @@ const CURSOR_CSS = `@layer base {
   }
 }`;
 
-/** Package manager prefixes for install commands. */
-const PACKAGE_MANAGERS = [
-  { id: "pnpm", prefix: "pnpm dlx" },
-  { id: "npm", prefix: "npx" },
-  { id: "yarn", prefix: "yarn dlx" },
-  { id: "bun", prefix: "bunx --bun" },
-] as const;
+/** Package manager `add` commands for radix-ui dependency installation. */
+const PM_ADD = pmInstallCmd("radix-ui");
 
-/** Package manager `add` commands for dependency installation. */
-const PM_ADD = [
-  { id: "pnpm", cmd: "pnpm add radix-ui" },
-  { id: "npm", cmd: "npm install radix-ui" },
-  { id: "yarn", cmd: "yarn add radix-ui" },
-  { id: "bun", cmd: "bun add radix-ui" },
-] as const;
+/** Package manager install commands for ionbit-ui (used by util pages). */
+const PM_INSTALL_IONBIT = pmInstallCmd("ionbit-ui");
+
+/** CSS import for util pages — matches shadcn pattern. */
+const UTIL_CSS_IMPORT = `@import "tailwindcss";
+@import "ionbit-ui/tailwind.css";`;
 
 interface RegistryItem {
   name: string;
@@ -108,47 +94,67 @@ function targetFilename(file: {
   return file.target || file.path.split("/").pop() || "component.tsx";
 }
 
-/** Scan the registry directory and extract component names. */
-function getRegistryNames(): string[] {
-  const registryDir = resolve(
-    dirname(fileURLToPath(import.meta.url)),
-    "src/components/registry",
-  );
-  const files = readdirSync(registryDir).filter(
-    (f) => f.endsWith(".tsx") && f !== "types.tsx" && f !== "index.tsx",
-  );
-  const names: string[] = [];
-  for (const file of files) {
-    const { name } = extractUsageFields(resolve(registryDir, file));
-    if (name) names.push(name);
-  }
-  return names;
+/**
+ * Unescape template-literal escape sequences in raw file text.
+ * readFileSync returns literal `\n` (backslash + n); JavaScript evaluation
+ * would turn these into real newlines. We do it manually so Shiki sees
+ * the same string the browser would.
+ */
+function unescapeTemplateLiteral(s: string): string {
+  return s
+    .replace(/\\n/g, "\n")
+    .replace(/\\t/g, "\t")
+    .replace(/\\`/g, "`")
+    .replace(/\\\$/g, "$")
+    .replace(/\\\\/g, "\\");
 }
 
-/**
- * Extract usageImport and usageCode from a registry .tsx file by parsing
- * the template literals. This avoids needing to execute the TSX.
- */
+/** Extract usageImport, usageCode, section code, and setup strings from a registry .tsx file. */
 function extractUsageFields(filePath: string): {
   name: string;
   usageImport?: string;
   usageCode?: string;
+  sectionCodes: string[];
+  setup?: { filename: string; code: string };
 } {
   const content = readFileSync(filePath, "utf-8");
-
-  // Extract component name: name: "button",
   const nameMatch = content.match(/name:\s*"([^"]+)"/);
   const name = nameMatch ? nameMatch[1] : "";
-
-  // Extract usageImport: `...` (template literal, may span multiple lines)
   const importMatch = content.match(/usageImport:\s*`([\s\S]*?)`\s*,/);
-  const usageImport = importMatch ? importMatch[1] : undefined;
-
-  // Extract usageCode: `...` (template literal, may span multiple lines)
+  const usageImport = importMatch
+    ? unescapeTemplateLiteral(importMatch[1])
+    : undefined;
   const codeMatch = content.match(/usageCode:\s*`([\s\S]*?)`\s*,/);
-  const usageCode = codeMatch ? codeMatch[1] : undefined;
+  const usageCode = codeMatch
+    ? unescapeTemplateLiteral(codeMatch[1])
+    : undefined;
+  const sectionCodes: string[] = [];
+  const sectionCodeRegex = /code:\s*`([\s\S]*?)`\s*,/g;
+  let sectionMatch;
+  while ((sectionMatch = sectionCodeRegex.exec(content)) !== null) {
+    sectionCodes.push(unescapeTemplateLiteral(sectionMatch[1]));
+  }
+  // Extract setup: { filename: "...", code: `...` }
+  const setupFilenameMatch = content.match(
+    /setup:\s*\{[^}]*filename:\s*"([^"]+)"/,
+  );
+  const setupCodeMatch = content.match(/setup:\s*\{[^}]*code:\s*`([\s\S]*?)`/);
+  const setup =
+    setupFilenameMatch && setupCodeMatch
+      ? {
+          filename: setupFilenameMatch[1],
+          code: unescapeTemplateLiteral(setupCodeMatch[1]),
+        }
+      : undefined;
+  return { name, usageImport, usageCode, sectionCodes, setup };
+}
 
-  return { name, usageImport, usageCode };
+/** Scan a registry directory and return extracted fields for each file. */
+function scanRegistryDir(dir: string) {
+  const files = readdirSync(dir).filter(
+    (f) => f.endsWith(".tsx") && f !== "types.tsx" && f !== "index.tsx",
+  );
+  return files.map((f) => extractUsageFields(resolve(dir, f)));
 }
 
 /**
@@ -219,51 +225,91 @@ export function shikiHighlightPlugin(): Plugin {
 
       // Virtual module: pre-highlighted inline code (usage, cursor)
       if (id === "\0virtual:highlighted-inline") {
-        const registryDir = resolve(
-          dirname(fileURLToPath(import.meta.url)),
-          "src/components/registry",
-        );
-        const files = readdirSync(registryDir).filter(
-          (f) => f.endsWith(".tsx") && f !== "types.tsx" && f !== "index.tsx",
-        );
+        const baseDir = dirname(fileURLToPath(import.meta.url));
+        const componentDir = resolve(baseDir, "src/registry/components");
+        const utilDir = resolve(baseDir, "src/registry/utils");
 
         const result: Record<
           string,
           {
             importHtml?: string;
             codeHtml?: string;
+            rawCode?: string;
+            setupHtml?: string;
+            setupRawCode?: string;
+            setupFilename?: string;
             install: Record<string, string>;
           }
         > = {};
 
-        for (const file of files) {
-          const filePath = resolve(registryDir, file);
-          const { name, usageImport, usageCode } = extractUsageFields(filePath);
+        // Components: usage import/code + install commands + setup
+        for (const { name, usageImport, usageCode, setup } of scanRegistryDir(
+          componentDir,
+        )) {
           if (!name) continue;
-
           const entry: {
             importHtml?: string;
             codeHtml?: string;
+            rawCode?: string;
+            setupHtml?: string;
+            setupRawCode?: string;
+            setupFilename?: string;
             install: Record<string, string>;
           } = { install: {} };
-          if (usageImport) {
+          if (usageImport)
             entry.importHtml = await highlight(usageImport, "tsx");
-          }
-          if (usageCode) {
-            entry.codeHtml = await highlight(usageCode, "tsx");
+          if (usageCode) entry.codeHtml = await highlight(usageCode, "tsx");
+          if (setup) {
+            entry.setupHtml = await highlight(setup.code, "tsx");
+            entry.setupRawCode = setup.code;
+            entry.setupFilename = setup.filename;
           }
           for (const pm of PACKAGE_MANAGERS) {
-            const cmd = `${pm.prefix} ionbit-ui@latest add ${name}`;
-            entry.install[pm.id] = await highlight(cmd, "bash");
+            entry.install[pm.id] = await highlight(
+              `${pm.prefix} ionbit-ui@latest add ${name}`,
+              "bash",
+            );
           }
           result[name] = entry;
         }
 
-        // Cursor CSS
+        // Static blocks: cursor CSS, util install commands, util CSS import
         result["__cursor__"] = {
           codeHtml: await highlight(CURSOR_CSS, "css"),
+          rawCode: CURSOR_CSS,
           install: {},
         };
+        const utilInstall: Record<string, string> = {};
+        for (const pm of PACKAGE_MANAGERS) {
+          utilInstall[pm.id] = await highlight(
+            PM_INSTALL_IONBIT[pm.id]!,
+            "bash",
+          );
+        }
+        result["__util_install__"] = { install: utilInstall };
+        result["__util_css__"] = {
+          codeHtml: await highlight(UTIL_CSS_IMPORT, "css"),
+          install: {},
+        };
+
+        // Utils: usage code + section code
+        for (const { name, usageCode, sectionCodes } of scanRegistryDir(
+          utilDir,
+        )) {
+          if (!name) continue;
+          if (usageCode) {
+            result[`__util_usage_${name}__`] = {
+              codeHtml: await highlight(usageCode, "tsx"),
+              install: {},
+            };
+          }
+          for (let i = 0; i < sectionCodes.length; i++) {
+            result[`__util_section_code_${name}_${i}__`] = {
+              codeHtml: await highlight(sectionCodes[i], "tsx"),
+              install: {},
+            };
+          }
+        }
 
         return {
           code: `export default ${JSON.stringify(result)};`,
@@ -275,9 +321,14 @@ export function shikiHighlightPlugin(): Plugin {
       // This lets InstallBlock dynamically import only the requested
       // component's source code without bundling all source into the main chunk.
       if (id === "\0virtual:highlighted-sources-map") {
-        const names = getRegistryNames();
+        const componentDir = resolve(
+          dirname(fileURLToPath(import.meta.url)),
+          "src/registry/components",
+        );
+        const names = scanRegistryDir(componentDir)
+          .map((f) => f.name)
+          .filter(Boolean);
 
-        // Generate: { button: () => import("virtual:highlighted-source/button"), ... }
         const lines = names.map(
           (n) =>
             `  ${JSON.stringify(n)}: () => import(${JSON.stringify(`virtual:highlighted-source/${n}`)}),`,
@@ -329,8 +380,8 @@ export function shikiHighlightPlugin(): Plugin {
 
         // Generate radix-ui dependency install commands.
         const depInstall: Record<string, string> = {};
-        for (const pm of PM_ADD) {
-          depInstall[pm.id] = await highlight(pm.cmd, "bash");
+        for (const pm of PACKAGE_MANAGERS) {
+          depInstall[pm.id] = await highlight(PM_ADD[pm.id]!, "bash");
         }
 
         const payload = { sourceFiles, depInstall };

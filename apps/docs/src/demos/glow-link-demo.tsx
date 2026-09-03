@@ -8,7 +8,7 @@ export function GlowLinkDemo() {
   return (
     <Glow variant="text" intensity={0.9}>
       <Button asChild variant="link">
-        <Link to="/components">
+        <Link to="/docs/components">
           Components <ArrowRight data-icon="inline-end" />
         </Link>
       </Button>

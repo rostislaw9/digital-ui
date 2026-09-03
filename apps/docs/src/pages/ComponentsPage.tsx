@@ -8,7 +8,7 @@ import { Badge, Button, cn, Input } from "@ionbit-ui/ui";
 import {
   componentCategories,
   componentManifest,
-} from "../components/registry/manifest";
+} from "../registry/components/manifest";
 
 const categories = ["All", ...componentCategories];
 
@@ -77,7 +77,7 @@ export function ComponentsPage() {
         {filtered.map((comp, i) => (
           <Reveal key={comp.name} direction="up" delay={(i % 3) * 60}>
             <Link
-              to={`/components/${comp.name}`}
+              to={`/docs/components/${comp.name}`}
               className="group flex h-full flex-col gap-3 rounded-lg border border-border bg-surface p-5 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:border-border-strong hover:bg-surface-hover"
             >
               <div className="flex items-center justify-between">

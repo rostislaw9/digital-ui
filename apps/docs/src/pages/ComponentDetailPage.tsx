@@ -1,4 +1,4 @@
-import type { ComponentMeta } from "../components/registry/types";
+import type { ComponentMeta } from "../registry/components/types";
 
 import { ArrowLeft } from "lucide-react";
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
@@ -7,18 +7,17 @@ import { Link, useParams } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Badge, Button, cn } from "@ionbit-ui/ui";
 
-import { ComponentsSidebar } from "../components/ComponentsSidebar";
-import { AccessibilityList } from "../components/detail/AccessibilityList";
-import { ApiTable } from "../components/detail/ApiTable";
-import { CompositionSection } from "../components/detail/CompositionSection";
-import { CursorSection } from "../components/detail/CursorSection";
-import { InstallBlock } from "../components/detail/InstallBlock";
-import { OnThisPage } from "../components/detail/OnThisPage";
-import { PageActions } from "../components/detail/PageActions";
-import { PreviewCodeBlock } from "../components/detail/PreviewCodeBlock";
-import { PrevNextNav } from "../components/detail/PrevNextNav";
-import { UsageSection } from "../components/detail/UsageSection";
-import { componentManifest } from "../components/registry/manifest";
+import { AccessibilityList } from "../components/AccessibilityList";
+import { ApiTable } from "../components/ApiTable";
+import { CompositionSection } from "../components/CompositionSection";
+import { CursorSection } from "../components/CursorSection";
+import { DocsSidebar } from "../components/DocsSidebar";
+import { InstallBlock } from "../components/InstallBlock";
+import { OnThisPage } from "../components/OnThisPage";
+import { PageActions } from "../components/PageActions";
+import { PreviewCodeBlock } from "../components/PreviewCodeBlock";
+import { PrevNextNav } from "../components/PrevNextNav";
+import { UsageSection } from "../components/UsageSection";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
 import { componentToMarkdown } from "../lib/component-to-markdown";
 import { getPrevNext } from "../lib/getPrevNext";
@@ -26,12 +25,12 @@ import { getPrevNext } from "../lib/getPrevNext";
 // Lazy-load registry files — only the requested component's metadata
 // (with demos, ?raw, ?highlighted) is imported, not the entire registry.
 const registryModules = import.meta.glob<Record<string, ComponentMeta>>(
-  "../components/registry/*.tsx",
+  "../registry/components/*.tsx",
   { eager: false },
 );
 
 // Map component names to their glob keys for O(1) lookup.
-// The glob returns keys like "../components/registry/button.tsx".
+// The glob returns keys like "../registry/components/button.tsx".
 const registryKeyMap: Record<string, string> = {};
 for (const key of Object.keys(registryModules)) {
   const match = key.match(/\/([^/]+)\.tsx$/);
@@ -200,7 +199,7 @@ export function ComponentDetailPage() {
           No component named &quot;{name}&quot;.
         </p>
         <Button asChild variant="outline">
-          <Link to="/components">
+          <Link to="/docs/components">
             <ArrowLeft data-icon="inline-start" /> Back to all components
           </Link>
         </Button>
@@ -210,7 +209,7 @@ export function ComponentDetailPage() {
 
   if (!comp) return null;
 
-  const { prev, next } = getPrevNext(comp, componentManifest);
+  const { prev, next } = getPrevNext(comp);
 
   return (
     <>
@@ -219,7 +218,7 @@ export function ComponentDetailPage() {
         <aside className="hidden w-60 shrink-0 lg:block">
           <div className="fixed top-1/2 h-[calc(100vh-16rem)] w-60 -translate-y-1/2">
             <Reveal direction="right" className="h-full">
-              <ComponentsSidebar />
+              <DocsSidebar />
             </Reveal>
           </div>
         </aside>
@@ -302,7 +301,11 @@ export function ComponentDetailPage() {
                   <h2 className="text-xl md:text-lg font-semibold text-foreground">
                     Installation
                   </h2>
-                  <InstallBlock name={comp.name} radixBased={comp.radixBased} />
+                  <InstallBlock
+                    name={comp.name}
+                    radixBased={comp.radixBased}
+                    setup={comp.setup}
+                  />
                 </section>
               </Reveal>
 

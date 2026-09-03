@@ -1,21 +1,13 @@
+import type { ManifestEntry } from "../manifest";
+import type { ComponentCategory } from "./types";
+
 /**
  * Lightweight component manifest — contains only the metadata needed by
  * the sidebar and components list (name, label, category, description,
  * example count). This avoids pulling in all demo components, ?raw, and
  * ?highlighted strings that the full registry files import.
  */
-import type { ComponentCategory } from "./types";
-
-export interface ComponentManifestEntry {
-  name: string;
-  label: string;
-  category: ComponentCategory;
-  description: string;
-  exampleCount: number;
-  isNew?: boolean;
-}
-
-export const componentManifest: ComponentManifestEntry[] = [
+export const componentManifest: ManifestEntry[] = [
   {
     name: "accordion",
     label: "Accordion",

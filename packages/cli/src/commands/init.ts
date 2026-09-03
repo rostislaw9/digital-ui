@@ -135,10 +135,11 @@ function setupCssImports(config: Config, cwd: string): void {
   // Build the import lines relative to the CSS file's directory
   const tokensImport = `@import "./${relativePath(cssPath, resolve(cwd, stylesDir, "tokens.css"))}";`;
   const baseImport = `@import "./${relativePath(cssPath, resolve(cwd, stylesDir, "base.css"))}";`;
+  const utilitiesImport = `@import "./${relativePath(cssPath, resolve(cwd, stylesDir, "utilities.css"))}";`;
 
   if (!existsSync(cssPath)) {
     // Create the CSS file with token imports
-    const content = `@import "tailwindcss";\n\n${tokensImport}\n${baseImport}\n`;
+    const content = `@import "tailwindcss";\n\n${tokensImport}\n${baseImport}\n${utilitiesImport}\n`;
     writeFileSync(cssPath, content);
     console.log(
       chalk.green(`✓ Created ${config.tailwind.css} with token imports`),
@@ -154,6 +155,9 @@ function setupCssImports(config: Config, cwd: string): void {
   }
   if (!existing.includes("base.css")) {
     lines.push(baseImport);
+  }
+  if (!existing.includes("utilities.css")) {
+    lines.push(utilitiesImport);
   }
 
   if (lines.length > 0) {

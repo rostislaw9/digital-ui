@@ -49,11 +49,11 @@ export function PreviewCodeBlock({
 
         {codeExpanded ? (
           <div className="max-h-[400px] overflow-auto">
-            <HighlightedCode html={code} className="shiki-wrapper" />
+            <HighlightedCode html={code} className="shiki-lines" />
           </div>
         ) : (
           <div className="relative max-h-32 overflow-hidden">
-            <HighlightedCode html={code} className="shiki-wrapper" />
+            <HighlightedCode html={code} className="shiki-lines" />
             <div
               className="pointer-events-none absolute inset-0"
               style={{

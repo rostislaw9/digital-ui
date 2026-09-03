@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Glow, Magnetic, Reveal } from "@ionbit-ui/motion";
 import { Button } from "@ionbit-ui/ui";
 
-import { componentManifest } from "../components/registry/manifest";
+import { componentManifest } from "../registry/components/manifest";
 import { ShowcaseGrid } from "../showcase";
 
 export function HomePage() {
   return (
     <div className="flex flex-col gap-24">
       {/* Hero */}
-      <section className="flex flex-col items-center gap-6 py-16 text-center">
+      <section className="flex flex-col items-center gap-6 py-8 sm:py-16 text-center">
         <Reveal direction="up">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
             React UI system
@@ -39,7 +39,7 @@ export function HomePage() {
             <Magnetic intensity={0.15}>
               <Glow intensity={0.7}>
                 <Button variant="primary" size="lg" asChild>
-                  <Link to="/components">Browse components</Link>
+                  <Link to="/docs/components">Browse components</Link>
                 </Button>
               </Glow>
             </Magnetic>

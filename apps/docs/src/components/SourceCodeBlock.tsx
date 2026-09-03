@@ -62,11 +62,11 @@ export function SourceCodeBlock({ file }: SourceCodeBlockProps) {
 
       {expanded ? (
         <div className="max-h-[400px] overflow-auto">
-          <HighlightedCode html={file.html} className="shiki-wrapper" />
+          <HighlightedCode html={file.html} className="shiki-lines" />
         </div>
       ) : (
         <div className="relative max-h-32 overflow-hidden">
-          <HighlightedCode html={file.html} className="shiki-wrapper" />
+          <HighlightedCode html={file.html} className="shiki-lines" />
           <div
             className="pointer-events-none absolute inset-0"
             style={{

@@ -85,11 +85,8 @@ export const toastMeta: ComponentMeta = {
       render: () => <ToastPositionsDemo />,
     },
   ],
-  usageImport: `import { toast, Toaster } from "@/components/ui/toast";`,
-  usageCode: `toast("Event has been created.");
-
-// Mount the Toaster once in your app root:
-<Toaster closeButton />`,
+  usageImport: `import { toast } from "@/components/ui/toast";`,
+  usageCode: `toast("Event has been created.");`,
   apiReference: {
     label: "Sonner API Reference",
     url: "https://sonner.emilkowal.ski/getting-started",
@@ -100,4 +97,18 @@ export const toastMeta: ComponentMeta = {
   ],
   radixBased: false,
   isNew: false,
+  setup: {
+    heading: "Add the Toaster to your app root.",
+    filename: "App.tsx",
+    code: `import { Toaster } from "@/components/ui/toast";
+
+export default function App() {
+  return (
+    <>
+      {/* your app */}
+      <Toaster />
+    </>
+  );
+}`,
+  },
 };

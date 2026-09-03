@@ -27,12 +27,9 @@ It **is**:
 
 ## Packages
 
-| Package             | Description                                                    |
-| ------------------- | -------------------------------------------------------------- |
-| `@ionbit-ui/ui`     | 32 React components                                            |
-| `@ionbit-ui/motion` | 5 motion primitives (Glow, Pulse, Spotlight, Magnetic, Reveal) |
-| `@ionbit-ui/tokens` | Design tokens as CSS with Tailwind v4 mapping                  |
-| `ionbit-ui`         | CLI for source-owned component installation                    |
+| Package     | Description                                                    |
+| ----------- | -------------------------------------------------------------- |
+| `ionbit-ui` | CLI + CSS — source-owned components, motion primitives, tokens |
 
 ## Components
 
@@ -63,7 +60,7 @@ dependencies, and tells you which npm packages to install.
 ## Motion primitives
 
 ```tsx
-import { Spotlight, Glow, Magnetic, Pulse, Reveal } from "@ionbit-ui/motion";
+import { Spotlight, Glow, Magnetic, Pulse, Reveal } from "@/components/motion";
 
 // Spotlight — cursor-following radial light on hover
 <Spotlight>
@@ -109,10 +106,10 @@ Override any token in your `:root` or `.dark` / `.light` selectors to retheme.
 
 ```text
 apps/docs/        Vite + React documentation app
-packages/tokens/  Design tokens as CSS (@ionbit-ui/tokens)
-packages/motion/  Motion primitives (@ionbit-ui/motion)
-packages/ui/      Component library (@ionbit-ui/ui)
-packages/cli/     Ionbit UI CLI (ionbit-ui)
+packages/tokens/  Design tokens as CSS (shipped via ionbit-ui)
+packages/motion/  Motion primitives (shipped via ionbit-ui)
+packages/ui/      Component library (shipped via ionbit-ui)
+packages/cli/     Ionbit UI CLI + CSS (ionbit-ui)
 registry/         Source registry build scripts
 docs/             Project spec, architecture, design system docs
 ```

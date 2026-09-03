@@ -1,0 +1,213 @@
+import { FileBracesCorner } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
+import highlightedInline from "virtual:highlighted-inline";
+import sourceLoaders from "virtual:highlighted-sources-map";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ionbit-ui/ui";
+
+import { PACKAGE_MANAGERS, pmInstallCmd } from "../lib/package-managers";
+import { CopyButton } from "./CopyButton";
+import { HighlightedCode } from "./HighlightedCode";
+import { PmCommandBlock } from "./PmCommandBlock";
+import { SourceCodeBlock, type SourceFile } from "./SourceCodeBlock";
+
+interface SourceEntry {
+  sourceFiles: SourceFile[];
+  depInstall: Record<string, string>;
+}
+
+interface SetupMeta {
+  heading: string;
+  filename: string;
+  code: string;
+}
+
+interface InstallBlockProps {
+  name: string;
+  radixBased?: boolean;
+  setup?: SetupMeta;
+}
+
+const PM_INSTALL_CMD = pmInstallCmd("radix-ui");
+
+const INSTALL_TAB_KEY = "ionbit:install-tab";
+const INSTALL_PM_KEY = "ionbit:install-pm";
+
+const LINK_TAB_CLASS =
+  "rounded-none border-0 border-b-2 border-transparent px-0 pb-1 text-sm text-foreground-muted hover:text-foreground data-[state=active]:border-accent data-[state=active]:bg-transparent data-[state=active]:text-accent data-[state=active]:shadow-none";
+
+interface Step {
+  heading: string;
+  content?: ReactNode;
+}
+
+function Steps({ steps }: { steps: Step[] }) {
+  const showMarkers = steps.length > 1;
+  const containerClass = showMarkers
+    ? "steps [counter-reset:step] md:ml-4 md:border-l md:pl-8 flex flex-col gap-6"
+    : "flex flex-col gap-4";
+  const headingClass = showMarkers
+    ? "step text-lg md:text-sm font-semibold text-foreground"
+    : "text-lg md:text-sm font-semibold text-foreground";
+
+  return (
+    <div className={containerClass}>
+      {steps.map((step, i) => (
+        <div key={i} className="flex flex-col gap-3">
+          <h3 className={headingClass}>{step.heading}</h3>
+          {step.content}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function InstallBlock({ name, radixBased, setup }: InstallBlockProps) {
+  const [activePm, setActivePm] = useState<string>(
+    () => localStorage.getItem(INSTALL_PM_KEY) ?? "npm",
+  );
+  const [activeTab, setActiveTab] = useState<string>(
+    () => localStorage.getItem(INSTALL_TAB_KEY) ?? "command",
+  );
+  const [sourceData, setSourceData] = useState<SourceEntry | null>(null);
+
+  const activeCommand = `${PACKAGE_MANAGERS.find((pm) => pm.id === activePm)!.prefix} ionbit-ui@latest add ${name}`;
+  const inline = highlightedInline[name]!;
+  const install = inline.install!;
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    localStorage.setItem(INSTALL_TAB_KEY, value);
+  };
+
+  const handlePmChange = (value: string) => {
+    setActivePm(value);
+    localStorage.setItem(INSTALL_PM_KEY, value);
+  };
+
+  useEffect(() => {
+    if (activeTab !== "manual") return;
+    const loader = sourceLoaders[name];
+    if (!loader) return;
+    let cancelled = false;
+    loader()
+      .then((mod) => {
+        if (!cancelled) setSourceData(mod.default);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [name, activeTab]);
+
+  const sourceFiles = sourceData?.sourceFiles;
+  const depInstall = sourceData?.depInstall;
+
+  // Setup step (shared by both tabs when present)
+  const setupStep: Step | null =
+    setup && inline.setupHtml
+      ? {
+          heading: setup.heading,
+          content: (
+            <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
+              <div className="flex items-center justify-between gap-2 border-b border-border pr-2.5 py-2 pl-4">
+                <div className="flex min-w-0 items-center gap-2">
+                  <FileBracesCorner className="h-4 w-4 shrink-0 text-foreground-subtle" />
+                  <span className="font-mono text-xs text-foreground-muted">
+                    {setup.filename}
+                  </span>
+                </div>
+                <CopyButton text={inline.setupRawCode!} />
+              </div>
+              <HighlightedCode
+                html={inline.setupHtml!}
+                className="shiki-nolines"
+              />
+            </div>
+          ),
+        }
+      : null;
+
+  // Build Command tab steps
+  const commandSteps: Step[] = [
+    {
+      heading: "Install the component:",
+      content: (
+        <>
+          <PmCommandBlock
+            activePm={activePm}
+            onPmChange={handlePmChange}
+            copyText={activeCommand}
+            codeHtml={install}
+          />
+          {radixBased && (
+            <p className="mt-2 text-xs text-foreground-subtle">
+              Built on Radix UI — npm dependencies will be installed
+              automatically.
+            </p>
+          )}
+        </>
+      ),
+    },
+  ];
+  if (setupStep) commandSteps.push(setupStep);
+
+  // Build Manual tab steps
+  const manualSteps: Step[] = [];
+  if (radixBased && depInstall) {
+    manualSteps.push({
+      heading: "Install the following dependencies:",
+      content: (
+        <PmCommandBlock
+          activePm={activePm}
+          onPmChange={handlePmChange}
+          copyText={PM_INSTALL_CMD[activePm]!}
+          codeHtml={depInstall}
+        />
+      ),
+    });
+  }
+  if (sourceFiles && sourceFiles.length > 0) {
+    manualSteps.push({
+      heading: "Copy and paste the following code into your project.",
+      content: (
+        <div className="flex flex-col gap-3">
+          {sourceFiles.map((file) => (
+            <SourceCodeBlock key={`${name}/${file.filename}`} file={file} />
+          ))}
+        </div>
+      ),
+    });
+  }
+  if (setupStep) manualSteps.push(setupStep);
+  if (sourceData) {
+    manualSteps.push({
+      heading: "Update the import paths to match your project setup.",
+    });
+  }
+
+  return (
+    <Tabs
+      value={activeTab}
+      onValueChange={handleTabChange}
+      className="flex flex-col gap-4"
+    >
+      <TabsList className="bg-transparent border-0 gap-6 px-0 rounded-none [&>span]:hidden">
+        <TabsTrigger value="command" className={LINK_TAB_CLASS}>
+          Command
+        </TabsTrigger>
+        <TabsTrigger value="manual" className={LINK_TAB_CLASS}>
+          Manual
+        </TabsTrigger>
+      </TabsList>
+
+      <TabsContent value="command">
+        <Steps steps={commandSteps} />
+      </TabsContent>
+
+      <TabsContent value="manual">
+        <Steps steps={manualSteps} />
+      </TabsContent>
+    </Tabs>
+  );
+}

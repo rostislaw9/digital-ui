@@ -55,4 +55,6 @@ export interface ComponentMeta {
   composition?: string[];
   /** Whether to show the Cursor section (Tailwind v4 cursor: pointer guidance). */
   cursor?: boolean;
+  /** Optional final install step (e.g. "Add the Toaster to your app root"). */
+  setup?: { heading: string; filename: string; code: string };
 }

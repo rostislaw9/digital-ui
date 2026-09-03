@@ -1,0 +1,13 @@
+/*
+ * Ionbit UI — Tailwind CSS entry point
+ *
+ * Import this in your global CSS file:
+ *   @import "tailwindcss";
+ *   @import "ionbit-ui/tailwind.css";
+ *
+ * It bundles design tokens, base styles, and CSS utilities
+ * (scroll-fade, shimmer) in a single import.
+ */
+@import "./tokens.css";
+@import "./base.css";
+@import "./utilities.css";

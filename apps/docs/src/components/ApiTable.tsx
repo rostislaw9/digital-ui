@@ -1,4 +1,4 @@
-import type { PropMeta } from "../registry";
+import type { PropMeta } from "../registry/components/types";
 
 import {
   Table,
