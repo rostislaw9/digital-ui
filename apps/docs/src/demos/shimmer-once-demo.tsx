@@ -9,7 +9,7 @@ export function ShimmerOnceDemo() {
     <div className="flex flex-col items-center gap-4">
       <p
         key={key}
-        className="shimmer shimmer-duration-1100 shimmer-once text-lg text-foreground-muted"
+        className="shimmer text-lg text-foreground-muted shimmer-duration-1100 shimmer-once"
       >
         Response generated.
       </p>

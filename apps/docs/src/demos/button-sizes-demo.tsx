@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function ButtonSizesDemo() {
   return (
-    <div className="flex flex-col items-start gap-6 sm:flex-row">
+    <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:items-start">
       <div className="flex items-center gap-2">
         <Button size="xs" variant="primary-soft">
           Extra Small

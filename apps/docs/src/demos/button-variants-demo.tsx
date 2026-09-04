@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function ButtonVariantsDemo() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap justify-center gap-3">
       <Button variant="primary">Primary</Button>
       <Button variant="primary-soft">Primary Soft</Button>
       <Button variant="secondary">Secondary</Button>

@@ -180,7 +180,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         <span
           aria-hidden="true"
           // prettier-ignore
-          className={cn("pointer-events-none absolute top-1 bottom-1 left-0 rounded bg-accent-muted transition-[transform,width,opacity] duration-[var(--duration-normal)] ease-[var(--ease-standard)] will-change-transform")}
+          className={cn("pointer-events-none absolute top-1 bottom-1 start-0 rounded bg-accent-muted transition-[transform,width,opacity] duration-[var(--duration-normal)] ease-[var(--ease-standard)] will-change-transform")}
           style={{
             width: indicator ? `${indicator.w}px` : "0px",
             transform: indicator

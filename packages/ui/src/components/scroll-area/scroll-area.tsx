@@ -59,7 +59,7 @@ export const ScrollBar = forwardRef<HTMLDivElement, ScrollBarProps>(
         className={cn("flex touch-none select-none transition-colors", orientation === "vertical" && "h-full w-2.5 border-l border-l-transparent p-px", orientation === "horizontal" && "h-2.5 flex-col border-t border-t-transparent p-px", className)}
         {...props}
       >
-        <ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-full bg-border hover:bg-border-strong transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]" />
+        <ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-full bg-border transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:bg-border-strong" />
       </ScrollAreaPrimitive.ScrollAreaScrollbar>
     );
   },

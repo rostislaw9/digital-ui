@@ -10,14 +10,14 @@ export function HomePage() {
   return (
     <div className="flex flex-col gap-24">
       {/* Hero */}
-      <section className="flex flex-col items-center gap-6 py-8 sm:py-16 text-center">
+      <section className="flex flex-col items-center gap-6 py-8 text-center sm:py-16">
         <Reveal direction="up">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">
             React UI system
           </p>
         </Reveal>
         <Reveal direction="up" delay={60}>
-          <h1 className="max-w-5xl text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-6xl">
+          <h1 className="max-w-5xl text-5xl leading-tight font-semibold tracking-tight text-foreground sm:text-6xl">
             Production interfaces that feel{" "}
             <Glow always variant="text" intensity={0.7}>
               <span className="text-accent">alive</span>
@@ -25,7 +25,7 @@ export function HomePage() {
           </h1>
         </Reveal>
         <Reveal direction="up" delay={120}>
-          <p className="max-w-5xl text-lg text-foreground-muted leading-relaxed">
+          <p className="max-w-5xl text-lg leading-relaxed text-foreground-muted">
             Ionbit UI is a React component system with a distinctive digital
             visual language and a coherent motion system. Inspired by
             shadcn&apos;s source-ownership model, extended with a motion layer

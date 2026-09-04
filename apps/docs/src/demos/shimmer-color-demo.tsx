@@ -1,10 +1,10 @@
 export function ShimmerColorDemo() {
   return (
     <div className="flex flex-col gap-2">
-      <p className="shimmer shimmer-color-blue-500/60 text-lg">
+      <p className="shimmer text-lg shimmer-color-blue-500/60">
         Generating response&hellip;
       </p>
-      <p className="shimmer shimmer-color-[#378ADD] text-lg">
+      <p className="shimmer text-lg shimmer-color-[#378ADD]">
         Generating response&hellip;
       </p>
     </div>

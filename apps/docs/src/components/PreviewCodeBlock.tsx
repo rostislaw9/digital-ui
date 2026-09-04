@@ -42,7 +42,7 @@ export function PreviewCodeBlock({
       <div className="relative border-t border-border bg-surface">
         {/* Copy button — top-right, only when expanded */}
         {codeExpanded && (
-          <div className="absolute right-2.5 top-2.5 z-10 bg-inherit">
+          <div className="absolute top-2.5 right-2.5 z-10 bg-inherit">
             <CopyButton text={rawCode} />
           </div>
         )}

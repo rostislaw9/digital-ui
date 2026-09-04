@@ -93,7 +93,7 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
           {children}
           <DialogPrimitive.Close
             // prettier-ignore
-            className={cn("absolute right-4 top-4 rounded-md p-1 text-foreground-muted hover:text-foreground hover:bg-surface-hover transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background")}
+            className={cn("absolute end-4 top-4 rounded-md p-1 text-foreground-muted hover:text-foreground hover:bg-surface-hover transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background")}
             aria-label="Close"
           >
             <X className="h-4 w-4" />
@@ -143,7 +143,7 @@ export const DialogDescription = forwardRef<
     <DialogPrimitive.Description
       ref={ref}
       className={cn(
-        "text-sm text-foreground-muted leading-relaxed mt-2",
+        "mt-2 text-sm leading-relaxed text-foreground-muted",
         className,
       )}
       {...props}

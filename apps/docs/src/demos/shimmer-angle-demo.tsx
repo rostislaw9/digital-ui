@@ -6,7 +6,7 @@ export function ShimmerAngleDemo() {
         <p className="font-mono text-xs">shimmer</p>
       </div>
       <div className="flex flex-col gap-3">
-        <p className="shimmer shimmer-angle-45 text-lg">
+        <p className="shimmer text-lg shimmer-angle-45">
           Generating response&hellip;
         </p>
         <p className="font-mono text-xs">shimmer-angle-45</p>

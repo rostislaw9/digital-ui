@@ -22,7 +22,7 @@ export function SheetNoCloseDemo() {
             dismiss.
           </SheetDescription>
         </SheetHeader>
-        <div className="scroll-fade flex-1 overflow-y-auto px-4">
+        <div className="flex-1 scroll-fade overflow-y-auto px-4">
           <p className="mb-2 text-sm leading-relaxed text-foreground">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

@@ -112,15 +112,15 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
       <SelectPrimitive.Item
         ref={ref}
         // prettier-ignore
-        className={cn("relative flex select-none items-center rounded-sm p-2 text-sm text-foreground-muted outline-none transition-colors hover:bg-surface-hover hover:text-foreground focus:bg-surface-hover focus:text-foreground data-[state=checked]:text-accent data-[disabled]:opacity-40", className)}
+        className={cn("relative flex select-none items-center rounded-sm py-2 ps-2 pe-8 text-sm text-foreground-muted outline-none transition-colors hover:bg-surface-hover hover:text-foreground focus:bg-surface-hover focus:text-foreground data-[state=checked]:text-accent data-[disabled]:opacity-40", className)}
         {...props}
       >
-        <span className="absolute left-2 flex size-4 items-center justify-center">
+        <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+        <span className="absolute end-2 flex size-4 items-center justify-center">
           <SelectPrimitive.ItemIndicator>
             <Check className="size-4" />
           </SelectPrimitive.ItemIndicator>
         </span>
-        <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
       </SelectPrimitive.Item>
     );
   },

@@ -110,7 +110,7 @@ export function InstallBlock({ name, radixBased, setup }: InstallBlockProps) {
           heading: setup.heading,
           content: (
             <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
-              <div className="flex items-center justify-between gap-2 border-b border-border pr-2.5 py-2 pl-4">
+              <div className="flex items-center justify-between gap-2 border-b border-border py-2 pr-2.5 pl-4">
                 <div className="flex min-w-0 items-center gap-2">
                   <FileBracesCorner className="h-4 w-4 shrink-0 text-foreground-subtle" />
                   <span className="font-mono text-xs text-foreground-muted">
@@ -192,7 +192,7 @@ export function InstallBlock({ name, radixBased, setup }: InstallBlockProps) {
       onValueChange={handleTabChange}
       className="flex flex-col gap-4"
     >
-      <TabsList className="bg-transparent border-0 gap-6 px-0 rounded-none [&>span]:hidden">
+      <TabsList className="gap-6 rounded-none border-0 bg-transparent px-0 [&>span]:hidden">
         <TabsTrigger value="command" className={LINK_TAB_CLASS}>
           Command
         </TabsTrigger>

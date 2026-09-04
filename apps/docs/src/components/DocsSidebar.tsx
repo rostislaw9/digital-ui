@@ -29,7 +29,7 @@ export function DocsSidebar() {
       <div className="absolute top-12 right-2 bottom-0 w-px bg-[linear-gradient(to_bottom,transparent_0%,var(--border)_10%,var(--border)_90%,transparent_100%)]" />
       <div
         ref={scrollRef}
-        className="scroll-fade scroll-fade-24 no-scrollbar h-full overflow-y-auto"
+        className="no-scrollbar h-full scroll-fade overflow-y-auto scroll-fade-24"
       >
         <nav className="flex flex-col items-start gap-1">
           <span className="px-2.5 py-1 text-xs font-semibold text-foreground-subtle">

@@ -153,7 +153,7 @@ export const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
         data-inset={inset}
         data-variant={variant}
         // prettier-ignore
-        className={cn("relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[inset]:pl-7 data-[variant=destructive]:text-error data-[variant=destructive]:focus:bg-error/10 data-[variant=destructive]:focus:text-error data-[disabled]:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", className)}
+        className={cn("relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[inset]:ps-7 data-[variant=destructive]:text-error data-[variant=destructive]:focus:bg-error/10 data-[variant=destructive]:focus:text-error data-[disabled]:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", className)}
         {...props}
       />
     );
@@ -182,11 +182,11 @@ export const ContextMenuSubTrigger = forwardRef<
       ref={ref}
       data-inset={inset}
       // prettier-ignore
-      className={cn("relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[state=open]:bg-surface-hover data-[state=open]:text-foreground data-[inset]:pl-7", className)}
+      className={cn("relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[state=open]:bg-surface-hover data-[state=open]:text-foreground data-[inset]:ps-7", className)}
       {...props}
     >
       {children}
-      <ChevronRightIcon className="ml-auto" />
+      <ChevronRightIcon className="ms-auto" />
     </ContextMenuPrimitive.SubTrigger>
   );
 });
@@ -237,10 +237,10 @@ export const ContextMenuCheckboxItem = forwardRef<
       ref={ref}
       data-inset={inset}
       // prettier-ignore
-      className={cn("relative flex select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[inset]:pl-7 data-[disabled]:opacity-40", className)}
+      className={cn("relative flex select-none items-center gap-2 rounded-sm py-1.5 ps-2 pe-8 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[inset]:ps-7 data-[disabled]:opacity-40", className)}
       {...props}
     >
-      <span className="pointer-events-none absolute right-2 flex items-center justify-center">
+      <span className="pointer-events-none absolute end-2 flex items-center justify-center">
         <ContextMenuPrimitive.ItemIndicator>
           <CheckIcon className="h-4 w-4" />
         </ContextMenuPrimitive.ItemIndicator>
@@ -271,10 +271,10 @@ export const ContextMenuRadioItem = forwardRef<
       ref={ref}
       data-inset={inset}
       // prettier-ignore
-      className={cn("relative flex select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[inset]:pl-7 data-[disabled]:opacity-40", className)}
+      className={cn("relative flex select-none items-center gap-2 rounded-sm py-1.5 ps-2 pe-8 text-sm text-foreground-muted outline-none transition-colors focus:bg-surface-hover focus:text-foreground data-[inset]:ps-7 data-[disabled]:opacity-40", className)}
       {...props}
     >
-      <span className="pointer-events-none absolute right-2 flex items-center justify-center">
+      <span className="pointer-events-none absolute end-2 flex items-center justify-center">
         <ContextMenuPrimitive.ItemIndicator>
           <CheckIcon className="h-4 w-4" />
         </ContextMenuPrimitive.ItemIndicator>
@@ -304,7 +304,7 @@ export const ContextMenuLabel = forwardRef<
       ref={ref}
       data-inset={inset}
       // prettier-ignore
-      className={cn("px-2 py-1.5 text-xs font-semibold uppercase tracking-wider text-foreground-subtle data-[inset]:pl-7", className)}
+      className={cn("px-2 py-1.5 text-xs font-semibold uppercase tracking-wider text-foreground-subtle data-[inset]:ps-7", className)}
       {...props}
     />
   );
@@ -347,7 +347,7 @@ export const ContextMenuShortcut = forwardRef<
     <span
       ref={ref}
       // prettier-ignore
-      className={cn("ml-auto text-xs tracking-widest text-foreground-subtle", className)}
+      className={cn("ms-auto text-xs tracking-widest text-foreground-subtle", className)}
       {...props}
     />
   );

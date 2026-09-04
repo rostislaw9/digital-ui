@@ -94,7 +94,7 @@ export const AlertDescription = forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("text-sm leading-relaxed opacity-70 pl-6", className)}
+      className={cn("ps-6 text-sm leading-relaxed opacity-70", className)}
       {...props}
     />
   );

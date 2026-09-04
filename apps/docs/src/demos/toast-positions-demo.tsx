@@ -19,12 +19,12 @@ export function ToastPositionsDemo() {
     "bottom-right": "Bottom Right",
   };
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
       {positions.map((pos) => (
         <Button
           key={pos}
           variant="secondary"
-          size="sm"
+          size="xs"
           onClick={() =>
             toast.info(labels[pos], {
               description: `Positioned ${pos}`,

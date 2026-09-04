@@ -6,7 +6,7 @@ export function ShimmerDurationDemo() {
         <p className="font-mono text-xs">shimmer</p>
       </div>
       <div className="flex flex-col gap-3">
-        <p className="shimmer shimmer-duration-1000 text-lg">
+        <p className="shimmer text-lg shimmer-duration-1000">
           Generating response&hellip;
         </p>
         <p className="font-mono text-xs">shimmer-duration-1000</p>

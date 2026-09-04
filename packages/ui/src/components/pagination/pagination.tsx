@@ -131,7 +131,7 @@ export const PaginationPrevious = forwardRef<
       ref={ref}
       aria-label="Go to previous page"
       size="md"
-      className={cn("pl-1.5", className)}
+      className={cn("ps-1.5", className)}
       {...props}
     >
       <ChevronLeft data-icon="inline-start" />
@@ -160,7 +160,7 @@ export const PaginationNext = forwardRef<
       ref={ref}
       aria-label="Go to next page"
       size="md"
-      className={cn("pr-1.5", className)}
+      className={cn("pe-1.5", className)}
       {...props}
     >
       <span className="hidden sm:block">{text}</span>

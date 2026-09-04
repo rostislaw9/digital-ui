@@ -87,7 +87,7 @@ export const CommandInput = forwardRef<HTMLInputElement, CommandInputProps>(
   function CommandInput({ className, ...props }, ref) {
     return (
       <div className="flex items-center border-b border-border px-3">
-        <Search className="mr-2 h-4 w-4 shrink-0 text-foreground-subtle" />
+        <Search className="me-2 h-4 w-4 shrink-0 text-foreground-subtle" />
         <CommandPrimitive.Input
           ref={ref}
           // prettier-ignore
@@ -230,7 +230,7 @@ export const CommandShortcut = forwardRef<
     <span
       ref={ref}
       // prettier-ignore
-      className={cn("ml-auto text-xs tracking-widest text-foreground-subtle", className)}
+      className={cn("ms-auto text-xs tracking-widest text-foreground-subtle", className)}
       {...props}
     />
   );

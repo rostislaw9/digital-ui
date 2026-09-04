@@ -30,7 +30,7 @@ export function SourceCodeBlock({ file }: SourceCodeBlockProps) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
       {/* Filename header + expand/collapse + separator + copy buttons */}
-      <div className="flex items-center justify-between gap-2 border-b border-border pr-2.5 py-2 pl-4">
+      <div className="flex items-center justify-between gap-2 border-b border-border py-2 pr-2.5 pl-4">
         <div className="flex min-w-0 items-center gap-2">
           <FileCodeCorner className="h-4 w-4 shrink-0 text-foreground-subtle" />
           <span className="font-mono text-xs text-foreground-muted">
@@ -55,7 +55,7 @@ export function SourceCodeBlock({ file }: SourceCodeBlockProps) {
           >
             <ChevronDown className={expanded ? "rotate-180" : ""} />
           </Button>
-          <Separator orientation="vertical" className="h-8 mx-1" />
+          <Separator orientation="vertical" className="mx-1 h-8" />
           <CopyButton text={file.rawCode} />
         </div>
       </div>

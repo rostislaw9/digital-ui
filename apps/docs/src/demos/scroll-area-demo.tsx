@@ -20,7 +20,7 @@ export function ScrollAreaDemo() {
   return (
     <ScrollArea className="h-72 w-72 rounded-md border border-border">
       <div className="p-4">
-        <h4 className="mb-4 text-sm font-medium leading-none">Notifications</h4>
+        <h4 className="mb-4 text-sm leading-none font-medium">Notifications</h4>
         {notifications.map((n) => (
           <div key={n.id}>
             <div className="flex flex-col gap-0.5 py-2">

@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Prettier Tailwind class sorting:** added `prettier-plugin-tailwindcss`
+  (official Tailwind Labs plugin) to auto-sort Tailwind classes in JSX
+  `className` and `cn()` calls on every `yarn format`. Configured with
+  `tailwindStylesheet` pointing to the docs CSS entry and
+  `tailwindFunctions: ["cn"]`.
+
+### Changed
+
+- **RTL-aware logical properties:** replaced physical `left`/`right`/`pl`/
+  `pr`/`ml`/`mr`/`text-left` utilities with logical `start`/`end`/`ps`/
+  `pe`/`ms`/`me`/`text-start` across all UI components so they flip
+  correctly in RTL layouts. Affected: Select (check indicator moved to
+  the end side), Dialog and Sheet (close button), Alert (description
+  padding), Tabs (indicator start), Table (header alignment), Pagination
+  (prev/next padding), Button (icon padding), Command (search icon and
+  shortcut), ContextMenu (inset padding, check indicator, chevron,
+  shortcut). Sheet `side`, Avatar positions, Tooltip `side`, and
+  Dialog/AlertDialog centering remain physical by design.
+- **Tokens page responsive grid:** color swatch grid now shows 2 columns
+  on landscape mobile (`md:`) instead of collapsing to 1 column until
+  the `lg` breakpoint.
+
 ## [0.1.8] — 2026-09-04
 
 ### Added

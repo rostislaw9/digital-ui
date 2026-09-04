@@ -103,9 +103,9 @@ const ExampleSwitcher = memo(function ExampleSwitcher({
       )}
 
       <Reveal direction="up" delay={60}>
-        <section id="preview" className="flex flex-col gap-3 scroll-mt-24">
+        <section id="preview" className="flex scroll-mt-24 flex-col gap-3">
           <SectionHeading id="preview">{example.title}</SectionHeading>
-          <p className="text-base md:text-sm text-foreground-muted">
+          <p className="text-base text-foreground-muted md:text-sm">
             {example.description}
           </p>
           <PreviewCodeBlock
@@ -240,14 +240,14 @@ export function ComponentDetailPage() {
                         <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
                           <Badge
                             variant="accent"
-                            className="font-mono text-[10px] uppercase tracking-wider"
+                            className="font-mono text-[10px] tracking-wider uppercase"
                           >
                             {comp.category}
                           </Badge>
                           {comp.radixBased && (
                             <Badge
                               variant="outline"
-                              className="font-mono text-[10px] uppercase tracking-wider"
+                              className="font-mono text-[10px] tracking-wider uppercase"
                             >
                               Radix
                             </Badge>
@@ -283,7 +283,7 @@ export function ComponentDetailPage() {
                 <Reveal direction="up" delay={120}>
                   <section
                     id="about"
-                    className="flex flex-col gap-3 scroll-mt-24"
+                    className="flex scroll-mt-24 flex-col gap-3"
                   >
                     <SectionHeading id="about">About</SectionHeading>
                     <p className="text-sm text-foreground-muted">
@@ -296,7 +296,7 @@ export function ComponentDetailPage() {
               <Reveal direction="up" delay={120}>
                 <section
                   id="installation"
-                  className="flex flex-col gap-3 scroll-mt-24"
+                  className="flex scroll-mt-24 flex-col gap-3"
                 >
                   <SectionHeading id="installation">
                     Installation
@@ -338,7 +338,7 @@ export function ComponentDetailPage() {
                 <Reveal direction="up">
                   <section
                     id="api"
-                    className="flex flex-col gap-3 scroll-mt-24"
+                    className="flex scroll-mt-24 flex-col gap-3"
                   >
                     <SectionHeading id="api">API Reference</SectionHeading>
                     <p className="text-sm text-foreground-muted">
@@ -361,7 +361,7 @@ export function ComponentDetailPage() {
                 <Reveal direction="up">
                   <section
                     id="api"
-                    className="flex flex-col gap-3 scroll-mt-24"
+                    className="flex scroll-mt-24 flex-col gap-3"
                   >
                     <SectionHeading id="api">API Reference</SectionHeading>
                     <ApiTable props={comp.props} />
@@ -373,7 +373,7 @@ export function ComponentDetailPage() {
                 <Reveal direction="up">
                   <section
                     id="accessibility"
-                    className="flex flex-col gap-3 scroll-mt-24"
+                    className="flex scroll-mt-24 flex-col gap-3"
                   >
                     <SectionHeading id="accessibility">
                       Accessibility
@@ -390,7 +390,7 @@ export function ComponentDetailPage() {
                     <Reveal key={primitive.name} direction="up">
                       <section
                         id={sectionId}
-                        className="flex flex-col gap-3 scroll-mt-24"
+                        className="flex scroll-mt-24 flex-col gap-3"
                       >
                         <SectionHeading id={sectionId}>
                           {primitive.name} API

@@ -37,7 +37,7 @@ export function UtilUsage({
   const cellBase = "px-4 py-2 font-mono text-xs leading-loose";
 
   return (
-    <section id="usage" className="flex flex-col gap-3 scroll-mt-24">
+    <section id="usage" className="flex scroll-mt-24 flex-col gap-3">
       <SectionHeading id="usage">Usage</SectionHeading>
       {classTable && (
         <div className="overflow-hidden rounded-lg border border-border">
@@ -52,12 +52,12 @@ export function UtilUsage({
               {classTable.map((entry) => (
                 <TableRow key={entry.className}>
                   <TableCell
-                    className={`${cellBase} text-accent whitespace-nowrap`}
+                    className={`${cellBase} whitespace-nowrap text-accent`}
                   >
                     {entry.className}
                   </TableCell>
                   <TableCell
-                    className={`${cellBase} min-w-150 text-foreground whitespace-normal`}
+                    className={`${cellBase} min-w-150 whitespace-normal text-foreground`}
                   >
                     {entry.styles}
                   </TableCell>
@@ -68,7 +68,7 @@ export function UtilUsage({
         </div>
       )}
       {usageProse && (
-        <div className="text-base md:text-sm text-foreground-muted leading-relaxed">
+        <div className="text-base leading-relaxed text-foreground-muted md:text-sm">
           {usageProse}
         </div>
       )}
@@ -81,7 +81,7 @@ export function UtilUsage({
         />
       )}
       {usageProseAfter && (
-        <div className="text-base md:text-sm text-foreground-muted leading-relaxed">
+        <div className="text-base leading-relaxed text-foreground-muted md:text-sm">
           {usageProseAfter}
         </div>
       )}

@@ -12,7 +12,7 @@ const tags = [
 export function ScrollFadeHorizontalDemo() {
   return (
     <div className="w-full max-w-xs overflow-hidden rounded-lg border border-border">
-      <div className="scroll-fade-x overflow-x-auto no-scrollbar">
+      <div className="no-scrollbar scroll-fade-x overflow-x-auto">
         <div className="flex w-max gap-2 p-2">
           {tags.map((tag) => (
             <div

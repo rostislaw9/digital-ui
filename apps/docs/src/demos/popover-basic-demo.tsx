@@ -19,8 +19,8 @@ export function PopoverBasicDemo() {
             <div className="flex size-9 items-center justify-center rounded-md bg-accent-muted">
               <Calendar className="size-4 text-accent" />
             </div>
-            <div className="flex flex-col">
-              <p className="text-sm font-medium leading-none text-foreground">
+            <div className="flex flex-col gap-1">
+              <p className="text-sm leading-none font-medium text-foreground">
                 Scheduled maintenance
               </p>
               <p className="text-xs text-foreground-muted">

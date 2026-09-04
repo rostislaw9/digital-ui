@@ -42,7 +42,7 @@ export function UtilSections({
         return (
           <div
             key={`${prefix}-${i}`}
-            className="text-base md:text-sm text-foreground-muted leading-relaxed"
+            className="text-base leading-relaxed text-foreground-muted md:text-sm"
           >
             {block.prose}
           </div>
@@ -57,11 +57,11 @@ export function UtilSections({
       <section
         key={section.title}
         id={sectionId}
-        className="flex flex-col gap-3 scroll-mt-24"
+        className="flex scroll-mt-24 flex-col gap-3"
       >
         <SectionHeading id={sectionId}>{section.title}</SectionHeading>
         {section.prose && (
-          <div className="text-base md:text-sm text-foreground-muted leading-relaxed">
+          <div className="text-base leading-relaxed text-foreground-muted md:text-sm">
             {section.prose}
           </div>
         )}

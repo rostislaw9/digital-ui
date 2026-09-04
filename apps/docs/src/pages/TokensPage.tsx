@@ -5,7 +5,7 @@ export function TokensPage() {
     <div className="flex flex-col gap-12">
       <Reveal direction="up">
         <header className="flex flex-col gap-2">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">
             Design tokens
           </p>
           <h1 className="text-3xl font-semibold tracking-tight text-foreground">
@@ -19,7 +19,7 @@ export function TokensPage() {
         </header>
       </Reveal>
 
-      <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
         <Reveal direction="up">
           <TokenGroup title="Surfaces">
             <Swatch name="background" var="--background" />

@@ -14,21 +14,21 @@ export function ScrollFadeSizeDemo() {
     <div className="mx-auto flex w-full max-w-xs flex-col gap-6">
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden rounded-lg border border-border">
-          <div className="scroll-fade scroll-fade-4 h-48 overflow-y-auto no-scrollbar">
+          <div className="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-4">
             <ScrollFadeSizeItems />
           </div>
         </div>
-        <p className="text-center font-mono text-xs text-muted-foreground">
+        <p className="text-muted-foreground text-center font-mono text-xs">
           scroll-fade-4
         </p>
       </div>
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden rounded-lg border border-border">
-          <div className="scroll-fade scroll-fade-24 h-48 overflow-y-auto no-scrollbar">
+          <div className="no-scrollbar h-48 scroll-fade overflow-y-auto scroll-fade-24">
             <ScrollFadeSizeItems />
           </div>
         </div>
-        <p className="text-center font-mono text-xs text-muted-foreground">
+        <p className="text-muted-foreground text-center font-mono text-xs">
           scroll-fade-24
         </p>
       </div>

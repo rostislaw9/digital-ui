@@ -14,7 +14,7 @@ export function UsageSection({
 }) {
   const highlighted = highlightedInline[componentName]!;
   return (
-    <section id="usage" className="flex flex-col gap-3 scroll-mt-24">
+    <section id="usage" className="flex scroll-mt-24 flex-col gap-3">
       <SectionHeading id="usage">Usage</SectionHeading>
       <CodeBlockWithCopy
         rawCode={usageImport}

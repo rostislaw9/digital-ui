@@ -12,7 +12,7 @@ import {
 
 export function AvatarOverviewDemo() {
   return (
-    <div className="flex flex-row flex-wrap items-center gap-6 md:gap-10">
+    <div className="flex flex-row flex-wrap items-center gap-3 sm:gap-6 md:gap-10">
       <Avatar>
         <AvatarImage src="https://i.pravatar.cc/150?img=12" alt="Alex Rivera" />
         <AvatarFallback>AR</AvatarFallback>

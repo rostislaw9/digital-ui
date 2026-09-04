@@ -1,7 +1,7 @@
 export function ScrollFadeDemo() {
   return (
     <div className="w-full max-w-xs rounded-lg border border-border">
-      <div className="scroll-fade h-64 overflow-y-auto no-scrollbar p-2">
+      <div className="no-scrollbar h-64 scroll-fade overflow-y-auto p-2">
         <ul className="flex flex-col gap-2">
           {Array.from({ length: 20 }, (_, i) => (
             <li

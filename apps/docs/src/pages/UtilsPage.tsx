@@ -11,7 +11,7 @@ export function UtilsPage() {
     <div className="flex flex-col gap-8">
       <Reveal direction="up">
         <header className="flex flex-col gap-2">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">
             CSS utilities
           </p>
           <h1 className="text-3xl font-semibold tracking-tight text-foreground">
@@ -33,16 +33,16 @@ export function UtilsPage() {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors duration-[var(--duration-fast)]">
+                  <h3 className="text-sm font-semibold text-foreground transition-colors duration-[var(--duration-fast)] group-hover:text-accent">
                     {util.label}
                   </h3>
                   {util.isNew && <Badge variant="accent">New</Badge>}
                 </div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-foreground-subtle">
+                <span className="font-mono text-[10px] tracking-wider text-foreground-subtle uppercase">
                   {util.category}
                 </span>
               </div>
-              <p className="text-sm text-foreground-muted leading-relaxed line-clamp-2">
+              <p className="line-clamp-2 text-sm leading-relaxed text-foreground-muted">
                 {util.description}
               </p>
               <div className="mt-auto flex items-center gap-1 text-xs text-foreground-subtle">

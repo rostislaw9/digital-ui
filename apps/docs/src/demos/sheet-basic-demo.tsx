@@ -32,7 +32,7 @@ export function SheetBasicDemo() {
             Adjust how you receive alerts. Save when you&lsquo;re done.
           </SheetDescription>
         </SheetHeader>
-        <div className="scroll-fade grid flex-1 auto-rows-min gap-6 overflow-y-auto px-4">
+        <div className="grid flex-1 scroll-fade auto-rows-min gap-6 overflow-y-auto px-4">
           <div className="grid gap-3">
             <Label htmlFor="sheet-basic-email">Email address</Label>
             <Input id="sheet-basic-email" defaultValue="user@example.com" />

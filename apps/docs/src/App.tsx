@@ -78,7 +78,7 @@ export function App() {
       <header className="sticky top-0 z-20 border-b border-border bg-surface/80 backdrop-blur-md">
         <div className="flex w-full items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-mono text-md font-semibold tracking-tight text-foreground">
+            <span className="text-md font-mono font-semibold tracking-tight text-foreground">
               ionbit
               <span className="text-accent">_ui</span>
             </span>
@@ -183,7 +183,7 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
       className={({ isActive }) =>
         cn(
           "rounded-md px-3 py-1.5 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
           isActive
             ? "bg-accent-muted text-accent"
             : "text-foreground-muted hover:bg-surface-hover hover:text-foreground",

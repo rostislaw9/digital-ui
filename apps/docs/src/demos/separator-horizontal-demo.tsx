@@ -4,7 +4,7 @@ export function SeparatorHorizontalDemo() {
   return (
     <div className="flex max-w-sm flex-col gap-4 text-sm">
       <div className="flex flex-col gap-1.5">
-        <div className="font-medium leading-none">Account</div>
+        <div className="leading-none font-medium">Account</div>
         <div className="text-foreground-muted">
           Manage your profile and sign-in preferences
         </div>

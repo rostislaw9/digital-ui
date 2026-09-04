@@ -3,7 +3,7 @@ import { toast } from "@/components/ui/toast";
 
 export function ToastTypesDemo() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap justify-center gap-2">
       <Button
         variant="secondary"
         onClick={() =>

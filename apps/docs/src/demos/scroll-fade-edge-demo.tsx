@@ -23,41 +23,41 @@ export function ScrollFadeEdgeDemo() {
     <div className="mx-auto flex w-full max-w-xs min-w-0 flex-col gap-6">
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden rounded-lg border border-border">
-          <div className="scroll-fade-t h-36 overflow-y-auto no-scrollbar">
+          <div className="no-scrollbar h-36 scroll-fade-t overflow-y-auto">
             <ScrollFadeEdgeItems />
           </div>
         </div>
-        <p className="text-center font-mono text-xs text-muted-foreground">
+        <p className="text-muted-foreground text-center font-mono text-xs">
           scroll-fade-t
         </p>
       </div>
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden rounded-lg border border-border">
-          <div className="scroll-fade-b h-36 overflow-y-auto no-scrollbar">
+          <div className="no-scrollbar h-36 scroll-fade-b overflow-y-auto">
             <ScrollFadeEdgeItems />
           </div>
         </div>
-        <p className="text-center font-mono text-xs text-muted-foreground">
+        <p className="text-muted-foreground text-center font-mono text-xs">
           scroll-fade-b
         </p>
       </div>
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden rounded-lg border border-border">
-          <div className="scroll-fade-s overflow-x-auto no-scrollbar">
+          <div className="no-scrollbar scroll-fade-s overflow-x-auto">
             <ScrollFadeEdgeTags />
           </div>
         </div>
-        <p className="text-center font-mono text-xs text-muted-foreground">
+        <p className="text-muted-foreground text-center font-mono text-xs">
           scroll-fade-s
         </p>
       </div>
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden rounded-lg border border-border">
-          <div className="scroll-fade-e overflow-x-auto no-scrollbar">
+          <div className="no-scrollbar scroll-fade-e overflow-x-auto">
             <ScrollFadeEdgeTags />
           </div>
         </div>
-        <p className="text-center font-mono text-xs text-muted-foreground">
+        <p className="text-muted-foreground text-center font-mono text-xs">
           scroll-fade-e
         </p>
       </div>

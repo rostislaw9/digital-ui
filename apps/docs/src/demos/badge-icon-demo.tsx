@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function BadgeIconDemo() {
   return (
-    <div className="flex justify-center flex-wrap gap-3">
+    <div className="flex flex-wrap justify-center gap-3">
       <Badge variant="success">
         <CheckCircle2 /> Verified
       </Badge>

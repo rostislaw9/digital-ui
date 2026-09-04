@@ -119,7 +119,7 @@ export function UtilDetailPage() {
         <h1 className="text-2xl font-semibold text-foreground">
           Utility not found
         </h1>
-        <p className="text-base md:text-sm text-foreground-muted">
+        <p className="text-base text-foreground-muted md:text-sm">
           No utility named &quot;{name}&quot;.
         </p>
         <Button asChild variant="outline">
@@ -163,7 +163,7 @@ export function UtilDetailPage() {
                         <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
                           <Badge
                             variant="accent"
-                            className="font-mono text-[10px] uppercase tracking-wider"
+                            className="font-mono text-[10px] tracking-wider uppercase"
                           >
                             {util.category}
                           </Badge>
@@ -193,7 +193,7 @@ export function UtilDetailPage() {
                 <Reveal direction="up" delay={60}>
                   <section
                     id="preview"
-                    className="flex flex-col gap-3 scroll-mt-24"
+                    className="flex scroll-mt-24 flex-col gap-3"
                   >
                     <PreviewCodeBlock
                       preview={util.heroDemo.render()}

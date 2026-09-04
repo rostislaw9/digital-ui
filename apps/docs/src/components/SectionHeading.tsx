@@ -23,7 +23,7 @@ export function SectionHeading({
   return (
     <h2
       className={cn(
-        "text-xl md:text-lg font-semibold text-foreground",
+        "text-xl font-semibold text-foreground md:text-lg",
         className,
       )}
     >

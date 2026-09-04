@@ -92,7 +92,7 @@ export const SheetContent = forwardRef<HTMLDivElement, SheetContentProps>(
               asChild
               variant="ghost"
               size="icon"
-              className={cn("absolute right-3 top-3")}
+              className={cn("absolute end-3 top-3")}
             >
               <DialogPrimitive.Close aria-label="Close">
                 <X className="h-4 w-4" />

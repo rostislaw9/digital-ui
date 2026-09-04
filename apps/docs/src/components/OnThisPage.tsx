@@ -16,7 +16,7 @@ export const OnThisPage = memo(function OnThisPage({
 }) {
   return (
     <nav className="flex flex-col gap-2">
-      <span className="text-xs font-semibold uppercase tracking-wider text-foreground-subtle">
+      <span className="text-xs font-semibold tracking-wider text-foreground-subtle uppercase">
         On this page
       </span>
       <ul className="flex flex-col gap-1.5 border-l border-border">
@@ -52,9 +52,9 @@ function SidebarLink({
       href={href}
       onClick={onClick}
       className={cn(
-        "-ml-px block border-l pl-3 text-sm transition-colors ",
+        "-ml-px block border-l pl-3 text-sm transition-colors",
         isActive
-          ? "border-accent text-foreground font-medium"
+          ? "border-accent font-medium text-foreground"
           : "border-transparent text-foreground-muted hover:border-accent hover:text-foreground",
       )}
     >
