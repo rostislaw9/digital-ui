@@ -34,7 +34,7 @@ export const commandMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Command palette with search, grouped items, and actions.",
       code: CommandDemoSource,
       rawCode: CommandDemoRaw,

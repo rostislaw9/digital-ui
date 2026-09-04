@@ -11,7 +11,7 @@ export const radioGroupMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Vertical radio group with labels.",
       code: RadioGroupBasicDemoSource,
       rawCode: RadioGroupBasicDemoRaw,

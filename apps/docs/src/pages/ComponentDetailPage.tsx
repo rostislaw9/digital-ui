@@ -165,7 +165,7 @@ export function ComponentDetailPage() {
   // array identity is stable across re-renders (e.g. when activeExample
   // changes), preventing unnecessary useScrollSpy / OnThisPage re-renders.
   const sections = useMemo<Section[]>(() => {
-    const result: Section[] = [{ id: "preview", label: "Preview" }];
+    const result: Section[] = [{ id: "preview", label: "Overview" }];
     if (comp?.about) result.push({ id: "about", label: "About" });
     result.push({ id: "installation", label: "Installation" });
     if (comp?.usageImport && comp.usageCode)

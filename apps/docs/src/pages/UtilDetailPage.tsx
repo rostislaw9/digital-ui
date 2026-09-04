@@ -90,7 +90,7 @@ export function UtilDetailPage() {
   const sections = useMemo<Section[]>(() => {
     if (!util) return [];
     const result: Section[] = [];
-    if (util.heroDemo) result.push({ id: "preview", label: "Preview" });
+    if (util.heroDemo) result.push({ id: "preview", label: "Overview" });
     result.push({ id: "installation", label: "Installation" });
     if (util.classTable || util.usageCode)
       result.push({ id: "usage", label: "Usage" });

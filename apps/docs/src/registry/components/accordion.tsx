@@ -12,7 +12,7 @@ export const accordionMeta: ComponentMeta = {
   category: "Layout",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Collapsible sections with chevron indicator.",
       code: AccordionBasicDemoSource,
       rawCode: AccordionBasicDemoRaw,

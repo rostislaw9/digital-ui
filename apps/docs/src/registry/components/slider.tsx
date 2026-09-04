@@ -12,7 +12,7 @@ export const sliderMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Adjustable single-value slider with live value display.",
       code: SliderBasicDemoSource,
       rawCode: SliderBasicDemoRaw,

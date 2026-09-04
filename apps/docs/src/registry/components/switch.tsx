@@ -11,7 +11,7 @@ export const switchMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Controlled switch with state display.",
       code: SwitchDemoSource,
       rawCode: SwitchDemoRaw,

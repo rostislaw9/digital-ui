@@ -14,7 +14,7 @@ export const breadcrumbMeta: ComponentMeta = {
   category: "Layout",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Home > Components > Button (current page).",
       code: BreadcrumbDefaultDemoSource,
       rawCode: BreadcrumbDefaultDemoRaw,

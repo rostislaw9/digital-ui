@@ -12,7 +12,7 @@ export const tabsMeta: ComponentMeta = {
   category: "Layout",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description:
         "Three tabs with sliding indicator and directional content animation.",
       code: TabsBasicDemoSource,

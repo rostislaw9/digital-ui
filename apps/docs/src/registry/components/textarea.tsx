@@ -14,7 +14,7 @@ export const textareaMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Default and disabled states.",
       code: TextareaBasicDemoSource,
       rawCode: TextareaBasicDemoRaw,

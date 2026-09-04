@@ -15,7 +15,7 @@ export const inputMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Default, with placeholder, and disabled.",
       code: InputBasicDemoSource,
       rawCode: InputBasicDemoRaw,

@@ -12,7 +12,7 @@ export const dialogMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Open a dialog with title, description, and actions.",
       code: DialogDemoSource,
       rawCode: DialogDemoRaw,

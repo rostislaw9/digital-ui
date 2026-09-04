@@ -12,7 +12,7 @@ export const selectMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Single-value select with placeholder.",
       code: SelectBasicDemoSource,
       rawCode: SelectBasicDemoRaw,

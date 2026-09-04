@@ -17,7 +17,7 @@ export const sheetMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "A right-side panel with form fields and footer actions.",
       code: SheetBasicDemoSource,
       rawCode: SheetBasicDemoRaw,

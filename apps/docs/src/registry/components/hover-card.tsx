@@ -11,7 +11,7 @@ export const hoverCardMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Preview content on hover with a delay.",
       code: HoverCardDemoSource,
       rawCode: HoverCardDemoRaw,

@@ -11,7 +11,7 @@ export const contextMenuMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Right-click to open a context menu with actions.",
       code: ContextMenuDemoSource,
       rawCode: ContextMenuDemoRaw,

@@ -47,7 +47,7 @@ export const toastMeta: ComponentMeta = {
   category: "Feedback",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "A basic toast notification.",
       code: ToastDemoSource,
       rawCode: ToastDemoRaw,

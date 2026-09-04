@@ -12,7 +12,7 @@ export const alertDialogMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description:
         "Destructive action confirmation with cancel and action buttons.",
       code: AlertDialogDemoSource,

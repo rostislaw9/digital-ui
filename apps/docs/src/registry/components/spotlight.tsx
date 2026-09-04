@@ -15,7 +15,7 @@ export const spotlightMeta: ComponentMeta = {
   category: "Motion",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description:
         "Wrap any surface to add a radial highlight that follows the cursor. The effect starts 20px before the pointer enters.",
       code: SpotlightBasicDemoSource,

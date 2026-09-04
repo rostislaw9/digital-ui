@@ -12,7 +12,7 @@ export const paginationMeta: ComponentMeta = {
   category: "Navigation",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Pagination with prev/next, page links, and ellipsis.",
       code: PaginationDemoSource,
       rawCode: PaginationDemoRaw,

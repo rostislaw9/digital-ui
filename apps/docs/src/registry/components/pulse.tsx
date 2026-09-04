@@ -15,7 +15,7 @@ export const pulseMeta: ComponentMeta = {
   category: "Motion",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Periodic accent halo for active status.",
       code: PulseDemoSource,
       rawCode: PulseDemoRaw,

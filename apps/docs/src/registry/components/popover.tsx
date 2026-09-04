@@ -11,7 +11,7 @@ export const popoverMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Click trigger to show anchored content.",
       code: PopoverBasicDemoSource,
       rawCode: PopoverBasicDemoRaw,

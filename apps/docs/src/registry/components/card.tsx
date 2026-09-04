@@ -15,7 +15,7 @@ export const cardMeta: ComponentMeta = {
   category: "Layout",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Standard card with header, content, and footer.",
       code: CardBasicDemoSource,
       rawCode: CardBasicDemoRaw,

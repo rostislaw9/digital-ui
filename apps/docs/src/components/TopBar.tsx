@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { Button } from "@ionbit-ui/ui";
+import { Button, Separator } from "@ionbit-ui/ui";
 
 import { Logo } from "./Logo";
 import { MenuButton } from "./MenuButton";
@@ -33,6 +33,7 @@ export function TopBar() {
           {/* Left: logo + nav links (desktop) / burger (mobile) */}
           <div className="flex items-center gap-4">
             <Logo size="sm" className="hidden lg:flex" />
+            <Separator orientation="vertical" className="hidden lg:block" />
             <nav className="hidden items-center gap-1 lg:flex">
               {navItems.map((item) => (
                 <Button asChild variant="ghost" key={item.to}>

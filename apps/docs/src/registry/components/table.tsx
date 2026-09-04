@@ -12,7 +12,7 @@ export const tableMeta: ComponentMeta = {
   category: "Data",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "A simple table with header and body rows.",
       code: TableBasicDemoSource,
       rawCode: TableBasicDemoRaw,

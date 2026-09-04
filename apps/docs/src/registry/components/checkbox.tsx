@@ -12,7 +12,7 @@ export const checkboxMeta: ComponentMeta = {
   category: "Form",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Default, checked, and disabled states.",
       code: CheckboxBasicDemoSource,
       rawCode: CheckboxBasicDemoRaw,

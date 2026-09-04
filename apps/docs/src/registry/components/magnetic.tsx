@@ -11,7 +11,7 @@ export const magneticMeta: ComponentMeta = {
   category: "Motion",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Spring-based cursor attraction.",
       code: MagneticDemoSource,
       rawCode: MagneticDemoRaw,

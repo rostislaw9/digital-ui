@@ -22,7 +22,7 @@ export const SidebarLink = forwardRef<
     <Button
       asChild
       variant="ghost"
-      size="sm"
+      // size="sm"
       className={cn(mobileClass, active && activeClass)}
     >
       <Link ref={ref} to={to} onClick={onClick}>

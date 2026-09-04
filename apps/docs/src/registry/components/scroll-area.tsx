@@ -11,7 +11,7 @@ export const scrollAreaMeta: ComponentMeta = {
   category: "Layout",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Custom scrollbar styling for a scrollable list.",
       code: ScrollAreaDemoSource,
       rawCode: ScrollAreaDemoRaw,

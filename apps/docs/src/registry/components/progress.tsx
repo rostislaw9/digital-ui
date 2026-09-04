@@ -11,7 +11,7 @@ export const progressMeta: ComponentMeta = {
   category: "Feedback",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Adjustable progress value.",
       code: ProgressDemoSource,
       rawCode: ProgressDemoRaw,

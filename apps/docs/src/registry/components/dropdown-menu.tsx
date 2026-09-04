@@ -12,7 +12,7 @@ export const dropdownMenuMeta: ComponentMeta = {
   category: "Overlay",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Menu with label, items, and separator.",
       code: DropdownMenuBasicDemoSource,
       rawCode: DropdownMenuBasicDemoRaw,

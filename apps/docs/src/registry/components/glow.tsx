@@ -21,7 +21,7 @@ export const glowMeta: ComponentMeta = {
   category: "Motion",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "Accent halo that appears on hover.",
       code: GlowDemoSource,
       rawCode: GlowDemoRaw,

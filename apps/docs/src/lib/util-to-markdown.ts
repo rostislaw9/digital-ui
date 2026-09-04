@@ -65,7 +65,7 @@ export function utilToMarkdown(util: UtilMeta): string {
 
   // Hero demo
   if (util.heroDemo) {
-    lines.push("## Preview");
+    lines.push("## Overview");
     lines.push("");
     lines.push("```tsx");
     lines.push(util.heroDemo.rawCode);

@@ -11,7 +11,7 @@ export const revealMeta: ComponentMeta = {
   category: "Motion",
   examples: [
     {
-      title: "Basic",
+      title: "Overview",
       description: "In-view entrance animation.",
       code: RevealDemoSource,
       rawCode: RevealDemoRaw,
