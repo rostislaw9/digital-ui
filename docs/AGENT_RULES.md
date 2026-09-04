@@ -675,3 +675,12 @@ narrowly focused:
 
 Scopes are optional but encouraged for changes that touch a single
 package or subsystem.
+
+### 26.6 Creating GitHub releases
+
+When asked to create a release, **just create the release** using
+`gh release create` with a proper message based on the `[Unreleased]`
+changelog entries. Do NOT run the version sync script — it runs
+automatically inside the release workflow. Do NOT inspect the sync
+script, bump versions manually, or do any prep work beyond reading
+the changelog and creating the release.
