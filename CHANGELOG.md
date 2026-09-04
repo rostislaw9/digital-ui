@@ -7,7 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Anchored section headings:** section titles on both component and
+  utility detail pages are now wrapped in anchor links. A muted `#`
+  symbol appears to the right of the title on hover. Clicking a heading
+  navigates to `#<section-id>` and scrolls to that section. URL hash
+  navigation (e.g. `/docs/components/tooltip#usage`) opens the page
+  scrolled to the target section.
+- **Copy Page button for utilities:** the utility detail page now has a
+  "Copy Page" button (matching the component detail page). Copies the
+  full utility documentation as markdown (description, install command,
+  CSS import, class reference table, usage code, hero demo, and all
+  content sections with prose and code blocks) via a new
+  `utilToMarkdown` helper.
+- **Scroll-to-anchor hook:** new `useScrollToAnchor` hook that scrolls
+  to the element matching the URL hash on page load, with retry logic
+  for lazy-loaded registry content.
+- **Shared scroll utility:** extracted `scrollToSection` into a shared
+  module used by both the scroll-spy (On this page sidebar) and the
+  scroll-to-anchor hook, ensuring all three scroll paths (sidebar,
+  heading links, URL hash) target the same position.
+
 ### Changed
+
+- **Unified scroll behavior:** the scroll-spy and scroll-to-anchor now
+  use the same `scrollToSection` logic. Tall sections (taller than or
+  equal to the viewport height) align the section title to the top of
+  the page with a header offset, instead of centering the section
+  midpoint. Both scroll paths apply the `section-flash` attention
+  animation.
+- **Sheet demos:** updated sheet demos with lorem ipsum text content,
+  `scroll-fade` utility on scrollable content areas, and a Select
+  component for digest frequency in the basic demo (demonstrating
+  Select usage inside a Sheet).
+- **Util class table styling:** restyled the utility class reference
+  table with monospace uppercase headers and an overflow guard.
+
+### Fixed
 
 - **Component detail header responsive layout:** restructured the header
   so that on mobile, badges and action buttons (Copy Page, prev/next
@@ -22,9 +59,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Pulse, and Reveal now each have their own component detail page (like
   Spotlight), instead of being combined into a single "Motion Primitives"
   page. Each page shows its own demos, props, and manual install source.
-
-### Fixed
-
 - **CopyButton visibility on mobile:** copy buttons in code/usage/command
   blocks now inherit the parent's background color on mobile (via
   `bg-inherit`) instead of being fully transparent, making them visible

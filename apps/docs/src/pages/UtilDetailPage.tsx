@@ -1,7 +1,7 @@
 import type { UtilMeta } from "../registry/utils/types";
 
 import { ArrowLeft } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { Reveal } from "@ionbit-ui/motion";
@@ -18,6 +18,7 @@ import { UtilUsage } from "../components/UtilUsage";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
 import { useScrollToAnchor } from "../hooks/useScrollToAnchor";
 import { getPrevNext } from "../lib/getPrevNext";
+import { utilToMarkdown } from "../lib/util-to-markdown";
 
 // Lazy-load util registry files.
 const utilRegistryModules = import.meta.glob<Record<string, UtilMeta>>(
@@ -56,11 +57,21 @@ export function UtilDetailPage() {
   const [activePm, setActivePm] = useState<string>(
     () => localStorage.getItem("ionbit:install-pm") ?? "npm",
   );
+  const [pageCopied, setPageCopied] = useState(false);
 
   const handlePmChange = (value: string) => {
     setActivePm(value);
     localStorage.setItem("ionbit:install-pm", value);
   };
+
+  const handleCopyPage = useCallback(() => {
+    if (!util) return;
+    const md = utilToMarkdown(util);
+    navigator.clipboard?.writeText(md).then(() => {
+      setPageCopied(true);
+      setTimeout(() => setPageCopied(false), 2000);
+    });
+  }, [util]);
 
   useEffect(() => {
     const key = name ? registryKeyMap[name] : undefined;
@@ -167,7 +178,12 @@ export function UtilDetailPage() {
                     </p>
                   </div>
                   <div className="hidden items-center gap-1 sm:flex sm:shrink-0">
-                    <PageActions prev={prev} next={next} />
+                    <PageActions
+                      prev={prev}
+                      next={next}
+                      pageCopied={pageCopied}
+                      onCopyPage={handleCopyPage}
+                    />
                   </div>
                 </div>
               </Reveal>

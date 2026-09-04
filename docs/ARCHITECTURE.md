@@ -760,10 +760,36 @@ on MDX tooling.
 - Each component with live preview, code panel, API table, composition
   tree, accessibility notes, and on-this-page navigation. Playground
   controls are a follow-up.
+- Each utility with class reference table, usage code, installation
+  instructions, and section-based documentation (demos, prose, code
+  blocks).
 - The motion primitives with interactive demos.
 - Installation instructions (CLI-based).
 
-### 16.3 Code splitting and registry loading
+### 16.3 Navigation and anchoring
+
+Section headings on both component and utility detail pages are
+anchored. Each heading is wrapped in a link to `#<section-id>`, with a
+muted `#` symbol appearing on hover. Three scroll paths share a single
+`scrollToSection` utility:
+
+1. **On this page sidebar** — scroll-spy tracks the active section and
+   clicks scroll to it.
+2. **Heading links** — clicking a section title updates the URL hash
+   and scrolls to the section.
+3. **URL hash navigation** — navigating to `/docs/components/tooltip#usage`
+   loads the page and scrolls to the target section (with retry logic
+   for lazy-loaded registry content).
+
+Tall sections (taller than or equal to the viewport) align the title to
+the top of the page instead of centering the midpoint. Both paths apply
+the `section-flash` attention animation.
+
+Both detail pages have a "Copy Page" button that copies the full
+documentation as markdown (`componentToMarkdown` / `utilToMarkdown`)
+for pasting into AI agent context.
+
+### 16.4 Code splitting and registry loading
 
 The docs app uses a two-tier registry pattern to keep chunks small:
 
@@ -792,7 +818,7 @@ Vendor chunks: `vendor-react`, `vendor-radix`, `vendor-motion`,
 `vendor-lucide`, `vendor-cmdk`, `vendor-sonner` are split in
 `vite.config.ts` for cacheability.
 
-### 16.4 Why it matters
+### 16.5 Why it matters
 
 The docs app is the primary integration test of the public packages
 and the most visible proof of the visual identity. It must be built
