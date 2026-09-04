@@ -19,7 +19,7 @@ export function TokensPage() {
         </header>
       </Reveal>
 
-      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <Reveal direction="up">
           <TokenGroup title="Surfaces">
             <Swatch name="background" var="--background" />
