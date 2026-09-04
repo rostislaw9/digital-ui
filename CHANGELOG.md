@@ -28,6 +28,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   module used by both the scroll-spy (On this page sidebar) and the
   scroll-to-anchor hook, ensuring all three scroll paths (sidebar,
   heading links, URL hash) target the same position.
+- **AvatarGroup, AvatarGroupCount, and AvatarBadge:** overlapping avatar
+  group support with overflow count and custom badge overlay for icons.
+  Added `data-slot` to Avatar root for group ring styling. New demos:
+  overview, group, group with count, group with icon, and badge.
+- **Shimmer utility documentation:** full docs for the shimmer utility
+  with demos for color, duration, spread, angle, play once, reverse,
+  disabling, fallback, and reduced motion sections.
+- **Toast setup step:** added Toaster setup step to toast installation
+  (both Command and Manual tabs), with shared step styling and
+  conditional step markers.
+- **Class-based dark mode for docs:** added `@custom-variant dark` to
+  docs `index.css` so `@variant dark` in utilities resolves via the
+  `.dark` class instead of `prefers-color-scheme`.
+- **Shared package-manager constants:** consolidated duplicate
+  package-manager constants into a shared `package-managers.ts` module
+  imported by the Shiki plugin and docs components.
+- **CSS minification:** tokens package now minifies CSS with lightningcss
+  instead of copying verbatim.
 
 ### Changed
 
@@ -43,63 +61,189 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Select usage inside a Sheet).
 - **Util class table styling:** restyled the utility class reference
   table with monospace uppercase headers and an overflow guard.
+- **Flattened docs component structure:** flattened
+  `components/detail/` into `components/`, relocated registry to
+  `registry/components/` and `registry/utils/`.
+- **Reduced re-renders:** extracted `ExampleSwitcher` into a memo
+  component so switching examples only re-renders the preview area.
+  Memoized sections/sectionIds/depKey to stabilize `useScrollSpy`.
+  Wrapped `OnThisPage` in `React.memo`. Memoized Tabs context value.
+- **Vendor chunk strategy:** replaced static `manualChunks` with a
+  function that routes all `@radix-ui/*` packages into `vendor-radix`
+  (8 were missing before). Split sonner into its own `vendor-sonner`
+  chunk so motion-only pages do not download sonner.
+- **Throttled listeners:** `useScrollSpy` now throttles scroll/resize
+  with `requestAnimationFrame`. `ComponentsPage` memoizes filtered list.
+  `InstallBlock` only fetches source files when the Manual tab is opened.
+- **Shared IntersectionObserver:** Reveal now shares a single
+  IntersectionObserver per threshold via `intersection-observer-pool.ts`
+  instead of one observer per instance.
+- **Content visibility:** `ShowcaseGrid` adds `content-visibility:auto`
+  to desktop cards so the browser skips rendering off-screen cards.
 
 ### Fixed
 
-- **Component detail header responsive layout:** restructured the header
-  so that on mobile, badges and action buttons (Copy Page, prev/next
-  navigation) share the first row, with the title and description
-  stacked below. On desktop, the original layout is preserved — title,
-  badges, and action buttons on a single row. Long component names
-  (e.g. "Dropdown Menu") no longer overflow on narrow screens.
-- **Favicon:** added an SVG favicon with the `i_` monogram using the
-  design system's surface, foreground, and accent colors in monospace
-  font. Wired into index.html.
-- **Motion primitives separated into individual pages:** Glow, Magnetic,
-  Pulse, and Reveal now each have their own component detail page (like
-  Spotlight), instead of being combined into a single "Motion Primitives"
-  page. Each page shows its own demos, props, and manual install source.
-- **CopyButton visibility on mobile:** copy buttons in code/usage/command
-  blocks now inherit the parent's background color on mobile (via
-  `bg-inherit`) instead of being fully transparent, making them visible
-  over horizontally scrollable code. Reverts to transparent on desktop.
-- **Dialog and AlertDialog edge spacing on mobile:** dialog cards now
-  use `w-[calc(100%-2rem)]` instead of `w-full`, ensuring 1rem of
-  padding on each side so the card never touches the screen edges on
-  narrow viewports. Desktop layout is unchanged (max-w-lg still caps
-  the width).
-- **Code block horizontal scroll:** replaced Radix ScrollArea with
-  native `overflow-auto` in PreviewCodeBlock, SourceCodeBlock, and
-  UsageSection. ScrollArea's Viewport clips horizontal overflow,
-  preventing code from scrolling sideways on narrow screens. Removed
-  the `needsScroll` measurement logic since native overflow handles
-  both axes automatically.
-- **Duplicate source files in manual install:** the vite-plugin-shiki
-  source loader now deduplicates files by path. Previously, shared
-  hooks (e.g. `use-inherited-radius.ts`, `use-reduced-motion.ts`,
-  `tokens.ts`) appeared multiple times when a page aggregated multiple
-  registry items.
-- **Incorrect registry dependencies for motion primitives:** each
-  primitive now only lists the hooks it actually imports. Previously,
-  all motion primitives included both `use-inherited-radius.ts` and
-  `use-reduced-motion.ts` regardless of usage. Spotlight, Magnetic,
-  and Reveal no longer include `use-inherited-radius.ts`; Glow and
-  Pulse no longer include `use-reduced-motion.ts`.
-- **Extra copy-all button in manual install:** removed the standalone
-  "copy all" button that appeared after source file blocks. Each
-  SourceCodeBlock already has its own copy button.
+- **Input and Textarea mobile font size:** use `text-base` (16px) on
+  mobile and `text-sm` (14px) on sm+ to prevent iOS auto-zoom on focus.
+- **Dead CSS:** removed unused `.shiki-placeholder` selector from docs
+  `index.css`.
 
 ## [0.1.7] — 2026-09-02
 
+### Changed
+
+- **Deduplicated shared chunks:** UI build now uses `manualChunks` to
+  deduplicate Button and Dialog into shared chunks referenced by all
+  consumers (dialog, sheet, alert-dialog, pagination, command). Entry
+  files shrink from ~3.3 kB to ~0.1 kB re-export wrappers.
+- **Shared motion styles:** replaced per-instance `<style>` tags in
+  Glow, Pulse, and Reveal with a single global stylesheet injected
+  once via `ensureMotionStyles()`. Instance-specific values passed
+  through CSS custom properties. Pulse uses two shared `@keyframes`
+  instead of unique keyframes per instance.
+- **Shared pointer coordinator:** replaced per-instance `pointermove`
+  listeners in Magnetic and Spotlight with a shared pointer coordinator
+  (subscribe/unsubscribe pub-sub pattern). N instances now share 1
+  listener instead of N.
+
+### Fixed
+
+- **useInheritedRadius:** removed style dependency, runs once on mount.
+- **Spotlight radius sync:** runs on mount + resize, not every render.
+- **Reveal:** removed unnecessary `willChange` hint.
+- **Glow:** uses data attributes for variant/trigger-specific CSS
+  selectors.
+- **Registry:** added `styles.ts` and `pointer-coordinator.ts` to
+  motion items, updated `build.mjs` import rewriting for flattened
+  paths.
+- **Tests:** added reduced-motion tests for Magnetic and Reveal.
+
 ## [0.1.6] — 2026-09-02
+
+### Changed
+
+- **CI workflow renamed:** `publish.yml` renamed to `release.yml`,
+  workflow renamed to "Publish package and deploy docs". The workflow
+  now both publishes the CLI to npm and triggers a docs deploy on
+  Render via the `RENDER_DEPLOY_HOOK_URL` secret. Enable Corepack
+  before setup-node to fix Yarn 4 detection on setup-node v5.
+- **GitHub Actions bumped:** `actions/checkout` and `setup-node`
+  upgraded to v5 (fixes Node.js 20 deprecation warning; both v5
+  releases run on Node 24 internally).
 
 ## [0.1.5] — 2026-09-02
 
+### Added
+
+- **Table component:** new Table component with 8 subcomponents
+  (Table, TableHeader, TableBody, TableFooter, TableRow, TableHead,
+  TableCell, TableCaption) using native HTML elements and project
+  design tokens.
+
+### Changed
+
+- **Docs API reference audit:** removed non-existent subcomponents from
+  usage imports, code, and composition. Added missing subcomponents.
+  Fixed composition trees to list all exported subcomponents. Removed
+  composition from flat components (Tooltip). Standardized prop names
+  to dot notation. Fixed incorrect defaults and removed non-existent
+  props. Added missing props. Used Table primitives in ApiTable instead
+  of raw HTML. Unified first demo title to "Basic" across all
+  components.
+- **README and CONTRIBUTING cleanup:** removed self-promotional
+  language, updated CLI commands to `npx ionbit-ui@latest`, removed
+  outdated Status section, removed maintainer-only release process from
+  CONTRIBUTING.
+
 ## [0.1.4] — 2026-09-01
+
+### Added
+
+- **SVG favicon:** 64x64 SVG favicon with the `i_` monogram using the
+  design system's surface, foreground, and accent colors in monospace
+  font.
+- **Motion primitives separated into individual pages:** Glow, Magnetic,
+  Pulse, and Reveal now each have their own component detail page
+  (like Spotlight), instead of being combined into a single "Motion
+  Primitives" page. Each page shows its own demos, props, and manual
+  install source.
+- **AGENT_RULES §25.3:** added rule requiring `yarn registry:build`
+  before committing when modifying component source.
+
+### Changed
+
+- **Mobile typography:** bumped page title to `text-3xl`, section
+  headings to `text-xl`, step headings to `text-lg`, and composition
+  description to `text-base` on mobile. Replaced custom span badges
+  with the Badge component (accent and outline variants).
+
+### Fixed
+
+- **Mobile layout:** restructured component detail page header so
+  badges and action buttons share the first row on mobile, with title
+  and description stacked below. Extracted `PageActions` into a
+  dedicated component. Improved CopyButton visibility on mobile via
+  `bg-inherit`.
+- **Source code block header:** added `shrink-0` to file icon,
+  inserted `<wbr>` after slashes for long path breaks, added `min-w-0`
+  to prevent filename from touching the expand button.
+- **Step markers:** show markers inline before heading text on mobile
+  instead of absolutely positioned off-screen. Restored opaque backing
+  circle at md+.
+- **Dialog and AlertDialog edge spacing:** replaced `w-full` with
+  `w-[calc(100%-2rem)]` so cards have 1rem padding on each side on
+  mobile.
+- **Code block horizontal scroll:** replaced Radix ScrollArea with
+  native `overflow-auto` in PreviewCodeBlock, SourceCodeBlock, and
+  UsageSection.
+- **Demo container widths:** replaced fixed-width `w-80`, `w-[60%]`
+  with responsive `max-w-sm`, `max-w-2xl` and responsive gaps.
+- **Registry dependencies for motion primitives:** each primitive now
+  only lists the hooks it actually imports.
+- **Duplicate source files in manual install:** removed the motion
+  grouping map that caused duplicate source files. Keyed
+  SourceCodeBlock by `${name}/${filename}` so expanded state doesn't
+  persist across pages sharing the same filenames.
+- **Extra copy-all button:** removed the standalone "copy all" button
+  after source file blocks.
 
 ## [0.1.3] — 2026-08-31
 
+### Added
+
+- **CLI --force flag:** separated skip-prompts (`--yes`/`-y`) from
+  overwrite (`--force`/`-f`) following shadcn's convention. The "config
+  already exists" check now uses `--force` and the error message
+  correctly references it.
+
+### Changed
+
+- **Conventional commits spec:** added section 26 to AGENT_RULES.md
+  with the full Conventional Commits specification (format, type table,
+  examples, automated commit rules, optional scope). Expanded
+  CONTRIBUTING.md commit message section with a type table.
+
+### Fixed
+
+- **Render deployment:** added `render.yaml` with a catch-all SPA
+  rewrite rule (`/* -> /index.html`) so direct links to non-root paths
+  don't return 404 on Render static sites.
+- **OIDC publish workflow:** upgraded Node 20 to 24, added explicit
+  `npm@latest` upgrade step (npm Trusted Publisher requires
+  npm >= 11.5.1), added OIDC token availability check. Removed `.git`
+  suffix from all `repository.url` fields (Sigstore provenance
+  verification requires exact match with the GitHub OIDC token).
+- **sync-versions.mjs:** fixed missing blank line after new CHANGELOG
+  heading (MD022 violation).
+
 ## [0.1.2] — 2026-08-31
+
+### Added
+
+- **OIDC publish workflow:** added GitHub Actions workflow for automated
+  npm publishing via npm Trusted Publisher (OIDC), plus the
+  `sync-versions.mjs` script for keeping all package.json versions in
+  sync across the monorepo.
 
 ## [0.1.1] — MVP (first published release)
 

@@ -83,7 +83,7 @@ if (cliVersionRe.test(cliSrc)) {
   process.exit(1);
 }
 
-// ─── CHANGELOG.md — insert new dated heading under [Unreleased] ────────────
+// ─── CHANGELOG.md — move [Unreleased] content to a new version heading ─────
 if (updateChangelog) {
   const changelogPath = resolve(root, "CHANGELOG.md");
   let md = readFileSync(changelogPath, "utf-8");
@@ -101,7 +101,6 @@ if (updateChangelog) {
     const today = new Date().toISOString().slice(0, 10);
     const newHeading = `## [${version}] — ${today}`;
 
-    // Find the [Unreleased] heading and the next ## heading after it
     const unreleasedIdx = md.indexOf("## [Unreleased]");
     if (unreleasedIdx === -1) {
       // No Unreleased section — insert at the top after the header block
@@ -116,26 +115,43 @@ if (updateChangelog) {
           md.slice(firstHeadingIdx + 1);
       }
     } else {
-      // Find the next "## " heading after Unreleased
+      // Find the next "## " heading after [Unreleased]
       const afterUnreleased = md.indexOf("\n## ", unreleasedIdx + 1);
       if (afterUnreleased === -1) {
-        // Unreleased is the only heading — append after its content
-        md = md.trimEnd() + "\n\n" + newHeading + "\n";
-      } else {
-        // Insert the new heading right before the next version heading.
-        // Content between [Unreleased] and the next heading stays under
-        // [Unreleased] (standard Keep a Changelog flow: unreleased entries
-        // accumulate there and are moved manually when releasing).
+        // [Unreleased] is the last heading — all remaining content is unreleased
+        const unreleasedContent = md
+          .slice(unreleasedIdx + "## [Unreleased]".length)
+          .trim();
         md =
-          md.slice(0, afterUnreleased + 1) +
+          md.slice(0, unreleasedIdx) +
+          "## [Unreleased]\n\n" +
           newHeading +
           "\n\n" +
+          (unreleasedContent ? unreleasedContent + "\n" : "");
+      } else {
+        // Extract content between [Unreleased] heading and the next ## heading.
+        // That content belongs to the new version. [Unreleased] is left empty.
+        const unreleasedHeader = "## [Unreleased]";
+        const contentStart = unreleasedIdx + unreleasedHeader.length;
+        const unreleasedContent = md
+          .slice(contentStart, afterUnreleased)
+          .trim();
+
+        md =
+          md.slice(0, unreleasedIdx) +
+          unreleasedHeader +
+          "\n\n" +
+          newHeading +
+          "\n\n" +
+          (unreleasedContent ? unreleasedContent + "\n\n" : "") +
           md.slice(afterUnreleased + 1);
       }
     }
 
     writeFileSync(changelogPath, md);
-    console.log(`  ✓ CHANGELOG.md → added [${version}] heading (${today})`);
+    console.log(
+      `  ✓ CHANGELOG.md → moved [Unreleased] to [${version}] (${today})`,
+    );
     changed++;
   }
 }
