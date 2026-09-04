@@ -12,11 +12,6 @@ export function HomePage() {
       {/* Hero */}
       <section className="flex flex-col items-center gap-6 py-8 text-center sm:py-16">
         <Reveal direction="up">
-          <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">
-            React UI system
-          </p>
-        </Reveal>
-        <Reveal direction="up" delay={60}>
           <h1 className="max-w-5xl text-5xl leading-tight font-semibold tracking-tight text-foreground sm:text-6xl">
             Production interfaces that feel{" "}
             <Glow always variant="text" intensity={0.7}>
@@ -24,14 +19,14 @@ export function HomePage() {
             </Glow>
           </h1>
         </Reveal>
-        <Reveal direction="up" delay={120}>
+        <Reveal direction="up" delay={60}>
           <p className="max-w-2xl text-lg leading-relaxed text-foreground-muted">
             A React component system with a coherent motion layer and a
             restrained digital identity. Source-owned, accessible, and
             production-tested.
           </p>
         </Reveal>
-        <Reveal direction="up" delay={180}>
+        <Reveal direction="up" delay={120}>
           <div className="flex flex-wrap justify-center gap-3">
             <Magnetic intensity={0.15}>
               <Glow intensity={0.7}>

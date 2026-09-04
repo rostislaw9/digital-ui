@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Top bar navigation redesign:** extracted `TopBar`, `Logo`,
+  `MenuButton`, `Sidebar`, `SidebarLink`, `SidebarSection`,
+  `SidebarLayout`, and `navItems` into separate components. Desktop
+  top bar shows nav links on the left with logo; right side reserved
+  for future features (search, theme switcher). Mobile uses a
+  two-line burger button with fullscreen blurred overlay containing
+  the sidebar.
+- **Sidebar for list pages:** Components, Utils, and Tokens pages now
+  use `SidebarLayout` with a fixed left sidebar and truly centered
+  content. Sidebar includes Menu (mobile only), Sections, Components,
+  and Utilities sections with autoscroll to active item.
+- **Unused import auto-removal:** added `eslint-plugin-unused-imports`
+  for auto-removal of unused imports via `yarn lint --fix`.
+- **Release creation rule:** added a rule to `docs/AGENT_RULES.md`
+  clarifying that creating a GitHub release should only involve
+  `gh release create` with a changelog-derived message.
+
+### Changed
+
+- **Ghost button variant:** base color changed from `text-foreground-muted`
+  to `text-foreground`.
+- **Tokens grid breakpoints:** 2-column grid now starts at `sm` instead
+  of `md`, and 4-column grid at `lg` instead of `xl`, so the layout
+  is responsive on smaller screens sooner.
+- **Homepage hero simplification:** removed the "React UI system" label
+  and adjusted reveal animation delays for a cleaner entrance.
+- **Showcase waterfall animation:** replaced the infinite loop with a
+  damped one-shot animation that slows down and stops after ~1.3s.
+  Removed per-column hover pause. Adjusted column visibility
+  breakpoints and section heights for better responsive behavior.
+
 ## [0.1.9] — 2026-09-04
 
 ### Added

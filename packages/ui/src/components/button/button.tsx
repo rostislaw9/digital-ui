@@ -14,7 +14,7 @@ export const buttonVariants = cva(
         "primary-soft": "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent hover:shadow-[var(--shadow-glow)]",
         secondary: "bg-surface-elevated text-foreground border border-border hover:bg-surface-hover hover:border-border-strong",
         outline: "bg-transparent text-foreground border border-border-strong hover:bg-accent-muted hover:border-accent hover:text-accent",
-        ghost: "bg-transparent text-foreground-muted hover:bg-surface-hover hover:text-foreground",
+        ghost: "bg-transparent text-foreground hover:bg-surface-hover",
         destructive: "bg-error text-error-foreground hover:bg-error/90 hover:shadow-[var(--shadow-glow-error)]",
         "destructive-soft": "bg-error/10 text-error hover:bg-error/10 hover:text-error hover:shadow-[var(--shadow-glow-error)]",
         link: "bg-transparent text-accent underline-offset-4 hover:underline",

@@ -4,6 +4,7 @@ import a11y from "eslint-plugin-jsx-a11y";
 import perfectionist from "eslint-plugin-perfectionist";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import unusedImports from "eslint-plugin-unused-imports";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -28,6 +29,7 @@ export default tseslint.config(
       "react-hooks": reactHooks,
       "jsx-a11y": a11y,
       perfectionist,
+      "unused-imports": unusedImports,
     },
     languageOptions: {
       parserOptions: {
@@ -79,7 +81,9 @@ export default tseslint.config(
       ...a11y.configs.recommended.rules,
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
-      "@typescript-eslint/no-unused-vars": [
+      "@typescript-eslint/no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],

@@ -7,11 +7,11 @@ import { Link, useParams } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Badge, Button } from "@ionbit-ui/ui";
 
-import { DocsSidebar } from "../components/DocsSidebar";
 import { OnThisPage } from "../components/OnThisPage";
 import { PageActions } from "../components/PageActions";
 import { PreviewCodeBlock } from "../components/PreviewCodeBlock";
 import { PrevNextNav } from "../components/PrevNextNav";
+import { Sidebar } from "../components/Sidebar";
 import { UtilInstallation } from "../components/UtilInstallation";
 import { UtilSections } from "../components/UtilSections";
 import { UtilUsage } from "../components/UtilUsage";
@@ -142,7 +142,7 @@ export function UtilDetailPage() {
         <aside className="hidden w-60 shrink-0 lg:block">
           <div className="fixed top-1/2 h-[calc(100vh-16rem)] w-60 -translate-y-1/2">
             <Reveal direction="right" className="h-full">
-              <DocsSidebar />
+              <Sidebar />
             </Reveal>
           </div>
         </aside>

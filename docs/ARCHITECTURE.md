@@ -795,7 +795,7 @@ The docs app uses a two-tier registry pattern to keep chunks small:
 
 1. **`componentManifest`** (`registry/components/manifest.ts`) — a
    lightweight array with only `name`, `label`, `category`,
-   `description`, and `exampleCount`. Used by `DocsSidebar`,
+   `description`, and `exampleCount`. Used by `Sidebar`,
    `ComponentsPage`, and `HomePage` so they don't pull in demo
    components or `?raw`/`?highlighted` source strings.
 2. **Full registry files** (`registry/components/*.tsx`) — contain the

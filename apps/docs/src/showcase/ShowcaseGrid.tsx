@@ -72,12 +72,12 @@ showcaseCards.forEach((card, i) => {
 const columnVisibility = [
   "block",
   "block",
-  "hidden sm:block",
+  "hidden md:block",
   "hidden lg:block",
-  "hidden xl:block",
+  "hidden 2xl:block",
 ];
 
-const BASE_PX_PER_SECOND = 45;
+const BASE_PX_PER_SECOND = 120;
 
 // Detect touch devices — no waterfall animation on touch.
 function isTouchDevice() {
@@ -99,7 +99,10 @@ export function ShowcaseGrid() {
 
     let rafId = 0;
     let cancelled = false;
-    const pausedColumns = new Set<number>();
+
+    // Damping: animation slows down and stops after DAMP_DURATION.
+    const DAMP_DURATION = 1300;
+    const startTime = performance.now();
 
     const start = () => {
       if (cancelled) return;
@@ -134,59 +137,41 @@ export function ShowcaseGrid() {
         const delta = now - lastTime;
         lastTime = now;
 
-        refs.forEach((el, i) => {
-          const h = heights[i];
-          const sp = speeds[i];
-          if (!el || !h || !sp) return;
-          // Skip paused columns — keep their position frozen.
-          if (pausedColumns.has(i)) return;
-          let y = (offsets[i] ?? 0) + (sp / 1000) * delta;
-          if (y >= 0) {
-            y -= h;
-          }
-          offsets[i] = y;
-          el.style.transform = `translateY(${y}px)`;
-        });
+        // Damping factor: 1 at start, 0 after DAMP_DURATION.
+        const elapsed = now - startTime;
+        const damp = Math.max(0, 1 - elapsed / DAMP_DURATION);
 
-        rafId = requestAnimationFrame(tick);
+        if (damp > 0) {
+          refs.forEach((el, i) => {
+            const h = heights[i];
+            const sp = speeds[i];
+            if (!el || !h || !sp) return;
+            let y = (offsets[i] ?? 0) + (sp / 1000) * delta * damp;
+            if (y >= 0) {
+              y -= h;
+            }
+            offsets[i] = y;
+            el.style.transform = `translateY(${y}px)`;
+          });
+          rafId = requestAnimationFrame(tick);
+        }
       };
 
       rafId = requestAnimationFrame(tick);
-
-      // Pause individual columns on hover so the user can interact
-      // with cards while other columns keep moving.
-      const cleanups: (() => void)[] = [];
-      refs.forEach((el, i) => {
-        if (!el) return;
-        const onEnter = () => pausedColumns.add(i);
-        const onLeave = () => pausedColumns.delete(i);
-        el.addEventListener("mouseenter", onEnter);
-        el.addEventListener("mouseleave", onLeave);
-        cleanups.push(() => {
-          el.removeEventListener("mouseenter", onEnter);
-          el.removeEventListener("mouseleave", onLeave);
-        });
-      });
-      return () => cleanups.forEach((fn) => fn());
     };
-
-    let cleanupStart: (() => void) | undefined;
 
     // Wait for fonts to load before measuring.
     if (document.fonts?.ready) {
       document.fonts.ready.then(() => {
-        if (!cancelled) {
-          cleanupStart = start();
-        }
+        if (!cancelled) start();
       });
     } else {
-      cleanupStart = start();
+      start();
     }
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(rafId);
-      cleanupStart?.();
       refs.forEach((el) => {
         if (el) el.style.transform = "";
       });
@@ -194,15 +179,15 @@ export function ShowcaseGrid() {
   }, [reduced]);
 
   return (
-    <section className="relative h-[500px] overflow-clip sm:h-[600px] lg:h-[700px]">
+    <section className="relative h-[800px] overflow-clip sm:h-[900px] md:h-[1000px] lg:h-[1100px] xl:h-[1200px] 2xl:h-[1300px]">
       {/* Top fade — cards appear from here */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-background to-transparent" />
 
       {/* Waterfall columns */}
-      <div className="flex items-start gap-2 px-3 sm:gap-3 sm:px-4 lg:gap-6 lg:px-6">
+      <div className="flex items-start gap-2 px-2 md:gap-3 md:px-3 xl:gap-4 xl:px-4 2xl:gap-5 2xl:px-5">
         {columns.map((column, i) => (
           <div key={i} className={cn("min-w-0 flex-1", columnVisibility[i])}>
-            <div className="[zoom:0.5] sm:[zoom:0.72] lg:[zoom:1]">
+            <div className="[zoom:0.5] sm:[zoom:0.7] xl:[zoom:1]">
               <div
                 ref={(el) => {
                   columnRefs.current[i] = el;
@@ -210,7 +195,7 @@ export function ShowcaseGrid() {
                 className="flex w-full flex-col [will-change:transform]"
               >
                 {[...column, ...column].map((Card, j) => (
-                  <div key={j} className="pb-3 sm:pb-4 lg:pb-6">
+                  <div key={j} className="pb-3 md:pb-4 2xl:pb-5">
                     <Card />
                   </div>
                 ))}

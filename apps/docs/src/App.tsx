@@ -1,15 +1,10 @@
 import { lazy, Suspense, useEffect } from "react";
-import {
-  Link,
-  Navigate,
-  NavLink,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { Toaster } from "@/components/ui/toast";
-import { cn } from "@/lib/utils";
+
+import { SidebarLayout } from "./components/SidebarLayout";
+import { TopBar } from "./components/TopBar";
 
 const HomePage = lazy(() =>
   import("./pages/HomePage").then((m) => ({ default: m.HomePage })),
@@ -62,35 +57,11 @@ function FullWidthLayout({ children }: { children: React.ReactNode }) {
   return <div className="w-full px-6 py-12">{children}</div>;
 }
 
-/** Centered content layout for list pages (no sidebar). */
-function CenteredLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex justify-center px-6 py-8">
-      <div className="w-full max-w-4xl">{children}</div>
-    </div>
-  );
-}
-
 export function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScrollToTop />
-      <header className="sticky top-0 z-20 border-b border-border bg-surface/80 backdrop-blur-md">
-        <div className="flex w-full items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-md font-mono font-semibold tracking-tight text-foreground">
-              ionbit
-              <span className="text-accent">_ui</span>
-            </span>
-          </Link>
-          <nav className="flex items-center gap-1 text-sm">
-            <NavItem to="/">Home</NavItem>
-            <NavItem to="/docs/components">Components</NavItem>
-            <NavItem to="/docs/utils">Utils</NavItem>
-            <NavItem to="/tokens">Tokens</NavItem>
-          </nav>
-        </div>
-      </header>
+      <TopBar />
       <main>
         <Routes>
           <Route
@@ -107,9 +78,9 @@ export function App() {
             path="/docs/components"
             element={
               <Suspense fallback={<PageLoader />}>
-                <CenteredLayout>
+                <SidebarLayout>
                   <ComponentsPage />
-                </CenteredLayout>
+                </SidebarLayout>
               </Suspense>
             }
           />
@@ -117,9 +88,9 @@ export function App() {
             path="/docs/utils"
             element={
               <Suspense fallback={<PageLoader />}>
-                <CenteredLayout>
+                <SidebarLayout>
                   <UtilsPage />
-                </CenteredLayout>
+                </SidebarLayout>
               </Suspense>
             }
           />
@@ -143,20 +114,11 @@ export function App() {
             path="/tokens"
             element={
               <Suspense fallback={<PageLoader />}>
-                <CenteredLayout>
+                <SidebarLayout>
                   <TokensPage />
-                </CenteredLayout>
+                </SidebarLayout>
               </Suspense>
             }
-          />
-          {/* Redirects from old routes */}
-          <Route
-            path="/components"
-            element={<Navigate to="/docs/components" replace />}
-          />
-          <Route
-            path="/components/:name"
-            element={<Navigate to="/docs/components" replace />}
           />
           <Route
             path="*"
@@ -172,25 +134,5 @@ export function App() {
       </main>
       <Toaster position="top-center" />
     </div>
-  );
-}
-
-function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
-  return (
-    <NavLink
-      to={to}
-      end
-      className={({ isActive }) =>
-        cn(
-          "rounded-md px-3 py-1.5 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
-          "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-          isActive
-            ? "bg-accent-muted text-accent"
-            : "text-foreground-muted hover:bg-surface-hover hover:text-foreground",
-        )
-      }
-    >
-      {children}
-    </NavLink>
   );
 }

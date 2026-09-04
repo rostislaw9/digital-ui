@@ -11,13 +11,13 @@ import { AccessibilityList } from "../components/AccessibilityList";
 import { ApiTable } from "../components/ApiTable";
 import { CompositionSection } from "../components/CompositionSection";
 import { CursorSection } from "../components/CursorSection";
-import { DocsSidebar } from "../components/DocsSidebar";
 import { InstallBlock } from "../components/InstallBlock";
 import { OnThisPage } from "../components/OnThisPage";
 import { PageActions } from "../components/PageActions";
 import { PreviewCodeBlock } from "../components/PreviewCodeBlock";
 import { PrevNextNav } from "../components/PrevNextNav";
 import { SectionHeading } from "../components/SectionHeading";
+import { Sidebar } from "../components/Sidebar";
 import { UsageSection } from "../components/UsageSection";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
 import { useScrollToAnchor } from "../hooks/useScrollToAnchor";
@@ -222,7 +222,7 @@ export function ComponentDetailPage() {
         <aside className="hidden w-60 shrink-0 lg:block">
           <div className="fixed top-1/2 h-[calc(100vh-16rem)] w-60 -translate-y-1/2">
             <Reveal direction="right" className="h-full">
-              <DocsSidebar />
+              <Sidebar />
             </Reveal>
           </div>
         </aside>
