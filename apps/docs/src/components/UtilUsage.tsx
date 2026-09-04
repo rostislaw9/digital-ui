@@ -12,6 +12,7 @@ import {
 } from "@ionbit-ui/ui";
 
 import { CodeBlockWithCopy } from "./CodeBlockWithCopy";
+import { SectionHeading } from "./SectionHeading";
 
 export function UtilUsage({
   utilName,
@@ -31,31 +32,33 @@ export function UtilUsage({
   const usageKey = `__util_usage_${utilName}__`;
   const usageHtml = highlightedInline[usageKey]?.codeHtml;
 
+  const headClass =
+    "h-auto px-4 py-2 font-mono text-xs uppercase tracking-wider text-foreground-subtle";
+  const cellBase = "px-4 py-2 font-mono text-xs leading-loose";
+
   return (
     <section id="usage" className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-xl md:text-lg font-semibold text-foreground">
-        Usage
-      </h2>
+      <SectionHeading id="usage">Usage</SectionHeading>
       {classTable && (
-        <div className="rounded-lg border border-border">
+        <div className="overflow-hidden rounded-lg border border-border">
           <Table>
             <TableHeader>
               <TableRow className="bg-surface hover:bg-surface">
-                <TableHead className="px-4 py-2 text-left font-semibold text-foreground">
-                  Class
-                </TableHead>
-                <TableHead className="px-4 py-2 text-left font-semibold text-foreground">
-                  Styles
-                </TableHead>
+                <TableHead className={headClass}>Class</TableHead>
+                <TableHead className={headClass}>Styles</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {classTable.map((entry) => (
                 <TableRow key={entry.className}>
-                  <TableCell className="px-4 py-2 font-mono text-xs text-accent whitespace-nowrap">
+                  <TableCell
+                    className={`${cellBase} text-accent whitespace-nowrap`}
+                  >
                     {entry.className}
                   </TableCell>
-                  <TableCell className="px-4 py-2 min-w-150 text-xs text-foreground leading-loose whitespace-normal">
+                  <TableCell
+                    className={`${cellBase} min-w-150 text-foreground whitespace-normal`}
+                  >
                     {entry.styles}
                   </TableCell>
                 </TableRow>

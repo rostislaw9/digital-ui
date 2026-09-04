@@ -17,8 +17,10 @@ import { OnThisPage } from "../components/OnThisPage";
 import { PageActions } from "../components/PageActions";
 import { PreviewCodeBlock } from "../components/PreviewCodeBlock";
 import { PrevNextNav } from "../components/PrevNextNav";
+import { SectionHeading } from "../components/SectionHeading";
 import { UsageSection } from "../components/UsageSection";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
+import { useScrollToAnchor } from "../hooks/useScrollToAnchor";
 import { componentToMarkdown } from "../lib/component-to-markdown";
 import { getPrevNext } from "../lib/getPrevNext";
 
@@ -102,9 +104,7 @@ const ExampleSwitcher = memo(function ExampleSwitcher({
 
       <Reveal direction="up" delay={60}>
         <section id="preview" className="flex flex-col gap-3 scroll-mt-24">
-          <h2 className="text-xl md:text-lg font-semibold text-foreground">
-            {example.title}
-          </h2>
+          <SectionHeading id="preview">{example.title}</SectionHeading>
           <p className="text-base md:text-sm text-foreground-muted">
             {example.description}
           </p>
@@ -188,6 +188,8 @@ export function ComponentDetailPage() {
     sectionIds,
     depKey,
   );
+
+  useScrollToAnchor(sectionIds);
 
   if (notFound) {
     return (
@@ -283,9 +285,7 @@ export function ComponentDetailPage() {
                     id="about"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
-                      About
-                    </h2>
+                    <SectionHeading id="about">About</SectionHeading>
                     <p className="text-sm text-foreground-muted">
                       {comp.about}
                     </p>
@@ -298,9 +298,9 @@ export function ComponentDetailPage() {
                   id="installation"
                   className="flex flex-col gap-3 scroll-mt-24"
                 >
-                  <h2 className="text-xl md:text-lg font-semibold text-foreground">
+                  <SectionHeading id="installation">
                     Installation
-                  </h2>
+                  </SectionHeading>
                   <InstallBlock
                     name={comp.name}
                     radixBased={comp.radixBased}
@@ -340,9 +340,7 @@ export function ComponentDetailPage() {
                     id="api"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
-                      API Reference
-                    </h2>
+                    <SectionHeading id="api">API Reference</SectionHeading>
                     <p className="text-sm text-foreground-muted">
                       See the{" "}
                       <a
@@ -365,9 +363,7 @@ export function ComponentDetailPage() {
                     id="api"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
-                      API Reference
-                    </h2>
+                    <SectionHeading id="api">API Reference</SectionHeading>
                     <ApiTable props={comp.props} />
                   </section>
                 </Reveal>
@@ -379,9 +375,9 @@ export function ComponentDetailPage() {
                     id="accessibility"
                     className="flex flex-col gap-3 scroll-mt-24"
                   >
-                    <h2 className="text-xl md:text-lg font-semibold text-foreground">
+                    <SectionHeading id="accessibility">
                       Accessibility
-                    </h2>
+                    </SectionHeading>
                     <AccessibilityList notes={comp.accessibility} />
                   </section>
                 </Reveal>
@@ -396,9 +392,9 @@ export function ComponentDetailPage() {
                         id={sectionId}
                         className="flex flex-col gap-3 scroll-mt-24"
                       >
-                        <h2 className="text-xl md:text-lg font-semibold text-foreground">
+                        <SectionHeading id={sectionId}>
                           {primitive.name} API
-                        </h2>
+                        </SectionHeading>
                         <p className="text-sm text-foreground-muted">
                           {primitive.description}
                         </p>

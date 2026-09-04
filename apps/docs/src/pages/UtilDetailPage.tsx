@@ -16,6 +16,7 @@ import { UtilInstallation } from "../components/UtilInstallation";
 import { UtilSections } from "../components/UtilSections";
 import { UtilUsage } from "../components/UtilUsage";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
+import { useScrollToAnchor } from "../hooks/useScrollToAnchor";
 import { getPrevNext } from "../lib/getPrevNext";
 
 // Lazy-load util registry files.
@@ -98,6 +99,8 @@ export function UtilDetailPage() {
     sectionIds,
     depKey,
   );
+
+  useScrollToAnchor(sectionIds);
 
   if (notFound) {
     return (

@@ -4,13 +4,12 @@ import highlightedInline from "virtual:highlighted-inline";
 import { CopyButton } from "./CopyButton";
 import { HighlightedCode } from "./HighlightedCode";
 import { InlineCode } from "./InlineCode";
+import { SectionHeading } from "./SectionHeading";
 
 export function CursorSection() {
   return (
     <section id="cursor" className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-xl md:text-lg font-semibold text-foreground">
-        Cursor
-      </h2>
+      <SectionHeading id="cursor">Cursor</SectionHeading>
       <p className="text-base md:text-sm text-foreground-muted">
         Tailwind v4{" "}
         <a

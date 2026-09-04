@@ -11,7 +11,7 @@ import {
 
 const headClass =
   "h-auto px-4 py-2 font-mono text-xs uppercase tracking-wider text-foreground-subtle";
-const cellBase = "px-4 py-2 font-mono text-xs";
+const cellBase = "px-4 py-2 font-mono text-xs leading-loose";
 
 export function ApiTable({ props }: { props: PropMeta[] }) {
   return (
@@ -34,13 +34,13 @@ export function ApiTable({ props }: { props: PropMeta[] }) {
               <TableCell className={`${cellBase} text-accent`}>
                 {prop.name}
               </TableCell>
-              <TableCell className={`${cellBase} text-foreground-muted`}>
+              <TableCell className={`${cellBase} text-foreground`}>
                 {prop.type}
               </TableCell>
-              <TableCell className={`${cellBase} text-foreground-subtle`}>
+              <TableCell className={`${cellBase} text-foreground-muted`}>
                 {prop.default ?? "—"}
               </TableCell>
-              <TableCell className="px-4 py-2 text-xs text-foreground-muted">
+              <TableCell className={`${cellBase} text-foreground`}>
                 {prop.description}
               </TableCell>
             </TableRow>

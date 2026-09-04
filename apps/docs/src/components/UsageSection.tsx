@@ -1,6 +1,7 @@
 import highlightedInline from "virtual:highlighted-inline";
 
 import { CodeBlockWithCopy } from "./CodeBlockWithCopy";
+import { SectionHeading } from "./SectionHeading";
 
 export function UsageSection({
   componentName,
@@ -14,9 +15,7 @@ export function UsageSection({
   const highlighted = highlightedInline[componentName]!;
   return (
     <section id="usage" className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-xl md:text-lg font-semibold text-foreground">
-        Usage
-      </h2>
+      <SectionHeading id="usage">Usage</SectionHeading>
       <CodeBlockWithCopy
         rawCode={usageImport}
         html={highlighted.importHtml!}

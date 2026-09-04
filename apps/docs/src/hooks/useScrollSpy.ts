@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { scrollToSection } from "../lib/scroll-to-section";
+
 export interface Section {
   id: string;
   label: string;
@@ -83,46 +85,9 @@ export function useScrollSpy(sectionIds: string[], depKey: string) {
   const handleSectionClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
       e.preventDefault();
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const firstId = sectionIds[0];
-      const lastId = sectionIds[sectionIds.length - 1];
-      const viewportHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-
-      let targetY: number;
-
-      if (id === firstId) {
-        targetY = 0;
-      } else if (id === lastId) {
-        targetY = docHeight - viewportHeight;
-      } else {
-        const rect = el.getBoundingClientRect();
-        const sectionMidpoint = rect.top + rect.height / 2 + window.scrollY;
-        targetY = sectionMidpoint - viewportHeight / 2;
-      }
-
-      targetY = Math.max(0, Math.min(targetY, docHeight - viewportHeight));
-
+      if (!scrollToSection(id, sectionIds, isScrollingRef)) return;
       history.replaceState(null, "", `#${id}`);
       setActiveSection(id);
-
-      el.classList.remove("section-flash");
-      void el.offsetWidth;
-      el.classList.add("section-flash");
-
-      isScrollingRef.current = true;
-      window.scrollTo({ top: targetY, behavior: "smooth" });
-
-      const cleanup = () => {
-        isScrollingRef.current = false;
-        window.removeEventListener("scrollend", onScrollEnd);
-        clearTimeout(fallback);
-      };
-      const onScrollEnd = () => cleanup();
-      const fallback = setTimeout(cleanup, 2000);
-      window.addEventListener("scrollend", onScrollEnd, { once: true });
     },
     [sectionIds],
   );

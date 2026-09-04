@@ -5,6 +5,7 @@ import { CopyButton } from "./CopyButton";
 import { HighlightedCode } from "./HighlightedCode";
 import { InlineCode } from "./InlineCode";
 import { PmCommandBlock } from "./PmCommandBlock";
+import { SectionHeading } from "./SectionHeading";
 
 export function UtilInstallation({
   utilName,
@@ -19,9 +20,7 @@ export function UtilInstallation({
 }) {
   return (
     <section id="installation" className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-xl md:text-lg font-semibold text-foreground">
-        Installation
-      </h2>
+      <SectionHeading id="installation">Installation</SectionHeading>
       <p className="text-base md:text-sm text-foreground-muted leading-relaxed">
         If your project was set up with{" "}
         <InlineCode>npx ionbit-ui@latest init</InlineCode>, you already have{" "}

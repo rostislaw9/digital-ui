@@ -7,6 +7,7 @@ import highlightedInline from "virtual:highlighted-inline";
 
 import { CodeBlockWithCopy } from "./CodeBlockWithCopy";
 import { PreviewCodeBlock } from "./PreviewCodeBlock";
+import { SectionHeading } from "./SectionHeading";
 
 function toSectionId(name: string): string {
   return name.toLowerCase().replace(/\s+/g, "-");
@@ -58,9 +59,7 @@ export function UtilSections({
         id={sectionId}
         className="flex flex-col gap-3 scroll-mt-24"
       >
-        <h2 className="text-xl md:text-lg font-semibold text-foreground">
-          {section.title}
-        </h2>
+        <SectionHeading id={sectionId}>{section.title}</SectionHeading>
         {section.prose && (
           <div className="text-base md:text-sm text-foreground-muted leading-relaxed">
             {section.prose}
