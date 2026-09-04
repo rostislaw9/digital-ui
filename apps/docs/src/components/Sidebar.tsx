@@ -49,6 +49,13 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
           {/* Sections — shown on all devices */}
           <SidebarSection title="Sections">
             <SidebarLink
+              to="/docs/installation"
+              label="Installation"
+              active={pathname === "/docs/installation"}
+              ref={pathname === "/docs/installation" ? activeRef : undefined}
+              onClick={onNavigate}
+            />
+            <SidebarLink
               to="/docs/components"
               label="Components"
               active={pathname === "/docs/components"}

@@ -9,11 +9,55 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Installation page:** new `/docs/installation` page with CLI quick
+  start (init, add, list commands), manual setup steps, and
+  requirements. Uses the same layout pattern as detail pages (left
+  sidebar, centered content, "On this page" right sidebar). All code
+  blocks are syntax-highlighted via Shiki at build time — npm commands
+  use the shared `PmCommandBlock` with package-manager tabs, and
+  JSON/CSS/TSX blocks use `CodeBlockWithCopy`. Added to top nav and
+  sidebar.
 - **Document titles:** each page now sets a descriptive browser tab
   title using the `useDocumentTitle` hook. Homepage shows
   "ionbit_ui - React UI system", list pages show "Components -
   ionbit_ui" etc., and detail pages show the component/util label
   (e.g. "Accordion - ionbit_ui").
+- **Copy page as markdown:** all content pages (Installation, Tokens,
+  Component detail, Util detail) now have a "Copy Page" button in the
+  header that copies the full page content as markdown to the clipboard.
+  Extracted `useCopyPage` hook for shared clipboard logic. Installation
+  and Tokens pages use static `.md` files (`src/content/`) imported via
+  Vite's `?raw` suffix; detail pages use dynamic generators
+  (`componentToMarkdown` / `utilToMarkdown`) since their content depends
+  on registry data.
+- **On this page subsections:** the "On this page" sidebar now supports
+  nested subsections with visual indentation. Installation page uses
+  subsections for Quick Start and Manual Setup steps. Subsections share
+  a single continuous accent rail with parent sections.
+- **Scroll-spy subsection tracking:** scroll-spy now tracks subsections
+  alongside top-level sections using a moving trigger line that
+  interpolates from near the header (top of page) to near the bottom
+  (bottom of page). `scrollToSection` uses the same model so
+  click-to-scroll and scroll-spy stay in sync. Shared constants
+  extracted to `scroll-constants.ts`.
+- **`/docs` redirect:** navigating to `/docs` now redirects to
+  `/docs/installation`. Top bar shows "Docs" instead of "Installation".
+
+### Changed
+
+- **PmCommandBlock self-contained state:** each `PmCommandBlock`
+  instance now manages its own package-manager selection independently,
+  persisted to localStorage. Previously, shared parent state caused all
+  blocks on a page to switch and trigger Radix focus scrolling. The
+  `copyText` prop changed from a string to a `(pmId: string) => string`
+  callback.
+- **`SidebarLayout` inline usage:** all pages that display the left
+  sidebar now own their `SidebarLayout` inline, allowing detail and
+  installation pages to pass right-sidebar content through the
+  `rightSidebar` prop. `App.tsx` no longer wraps pages.
+- **`flattenSectionIds` helper:** pages now use `flattenSectionIds`
+  instead of `sections.map((s) => s.id)` to include subsection IDs in
+  scroll-spy and scroll-to-anchor tracking.
 
 ## [0.1.10] — 2026-09-04
 

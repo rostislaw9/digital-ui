@@ -36,7 +36,7 @@ export function TopBar() {
             <nav className="hidden items-center gap-1 lg:flex">
               {navItems.map((item) => (
                 <Button asChild variant="ghost" key={item.to}>
-                  <NavLink to={item.to} end>
+                  <NavLink to={item.to} end={item.to === "/"}>
                     {item.label}
                   </NavLink>
                 </Button>

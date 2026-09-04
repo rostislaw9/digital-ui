@@ -1,14 +1,20 @@
+import { TRIGGER_BOTTOM_OFFSET, TRIGGER_TOP } from "./scroll-constants";
+
 /**
  * Shared scroll-to-section logic.
  *
  * Used by both the scroll-spy (On this page sidebar clicks) and the
  * scroll-to-anchor hook (URL hash navigation from SectionHeading links).
  *
- * - For sections shorter than the viewport: centers the section vertically.
- * - For sections taller than or equal to the viewport: aligns the section
- *   title to the top (with a header offset) so the heading is always visible.
+ * The target scroll position is computed so that the element's top aligns
+ * with the scroll-spy's moving trigger line at that position. This keeps
+ * click-to-scroll and scroll-spy perfectly in sync:
+ * - Near the top of the page, the trigger line is high, so early sections
+ *   scroll less.
+ * - Near the bottom, the trigger line is low, so late sections scroll more.
  * - First section scrolls to page top; last section scrolls to page bottom.
- * - Applies the `section-flash` attention animation to the target element.
+ *
+ * Applies the `section-flash` attention animation to the target element.
  */
 export function scrollToSection(
   id: string,
@@ -18,32 +24,30 @@ export function scrollToSection(
   const el = document.getElementById(id);
   if (!el) return false;
 
-  const HEADER_OFFSET = 120;
   const viewportHeight = window.innerHeight;
   const docHeight = document.documentElement.scrollHeight;
+  const maxScroll = Math.max(1, docHeight - viewportHeight);
 
   const firstId = sectionIds[0];
   const lastId = sectionIds[sectionIds.length - 1];
+
+  const bottom = viewportHeight - TRIGGER_BOTTOM_OFFSET;
+  const range = bottom - TRIGGER_TOP;
 
   let targetY: number;
 
   if (id === firstId) {
     targetY = 0;
   } else if (id === lastId) {
-    targetY = docHeight - viewportHeight;
+    targetY = maxScroll;
   } else {
-    const rect = el.getBoundingClientRect();
-    if (rect.height >= viewportHeight - HEADER_OFFSET) {
-      // Tall section: align title to top with header offset.
-      targetY = rect.top + window.scrollY - HEADER_OFFSET;
-    } else {
-      // Short section: center vertically.
-      const sectionMidpoint = rect.top + rect.height / 2 + window.scrollY;
-      targetY = sectionMidpoint - viewportHeight / 2;
-    }
+    // Solve: elTop - targetY = top + range * (targetY / maxScroll)
+    // => targetY = (elTop - top) * maxScroll / (maxScroll + range)
+    const elTop = el.getBoundingClientRect().top + window.scrollY;
+    targetY = ((elTop - TRIGGER_TOP) * maxScroll) / (maxScroll + range);
   }
 
-  targetY = Math.max(0, Math.min(targetY, docHeight - viewportHeight));
+  targetY = Math.max(0, Math.min(targetY, maxScroll));
 
   // Attention animation — same as scroll-spy.
   el.classList.remove("section-flash");

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Glow, Magnetic, Reveal } from "@ionbit-ui/motion";
+import { Glow, Reveal } from "@ionbit-ui/motion";
 import { Button } from "@ionbit-ui/ui";
 
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -30,16 +30,16 @@ export function HomePage() {
         </Reveal>
         <Reveal direction="up" delay={120}>
           <div className="flex flex-wrap justify-center gap-3">
-            <Magnetic intensity={0.15}>
-              <Glow intensity={0.7}>
-                <Button variant="primary-soft" size="lg" asChild>
-                  <Link to="/docs/components">Browse components</Link>
-                </Button>
-              </Glow>
-            </Magnetic>
+            {/* <Magnetic intensity={0.15}> */}
+            <Glow intensity={0.7}>
+              <Button variant="primary" size="lg" asChild>
+                <Link to="/docs">Get Started</Link>
+              </Button>
+            </Glow>
+            {/* </Magnetic> */}
             <Glow intensity={0.7}>
               <Button variant="outline" size="lg" asChild>
-                <Link to="/tokens">Design tokens</Link>
+                <Link to="/docs/components">Browse Components</Link>
               </Button>
             </Glow>
           </div>

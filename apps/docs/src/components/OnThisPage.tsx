@@ -21,7 +21,7 @@ export const OnThisPage = memo(function OnThisPage({
       </span>
       <ul className="flex flex-col gap-1.5 border-l border-border">
         {sections.map((section) => (
-          <li key={section.id}>
+          <li key={section.id} className="flex flex-col gap-1.5">
             <SidebarLink
               href={`#${section.id}`}
               isActive={activeSection === section.id}
@@ -29,6 +29,22 @@ export const OnThisPage = memo(function OnThisPage({
             >
               {section.label}
             </SidebarLink>
+            {section.subsections && section.subsections.length > 0 && (
+              <ul className="flex flex-col gap-1.5">
+                {section.subsections.map((sub) => (
+                  <li key={sub.id}>
+                    <SidebarLink
+                      href={`#${sub.id}`}
+                      isActive={activeSection === sub.id}
+                      onClick={(e) => onSectionClick(e, sub.id)}
+                      indented
+                    >
+                      {sub.label}
+                    </SidebarLink>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
@@ -40,11 +56,13 @@ function SidebarLink({
   href,
   isActive,
   onClick,
+  indented,
   children,
 }: {
   href: string;
   isActive: boolean;
   onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  indented?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -52,7 +70,8 @@ function SidebarLink({
       href={href}
       onClick={onClick}
       className={cn(
-        "-ml-px block border-l pl-3 text-sm transition-colors",
+        "-ml-px block border-l text-sm transition-colors",
+        indented ? "pl-7" : "pl-3",
         isActive
           ? "border-accent font-medium text-foreground"
           : "border-transparent text-foreground-muted hover:border-accent hover:text-foreground",

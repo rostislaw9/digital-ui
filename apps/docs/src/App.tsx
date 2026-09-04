@@ -1,9 +1,8 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
-import { Toaster } from "@/components/ui/toast";
+import { Toaster } from "@ionbit-ui/ui";
 
-import { SidebarLayout } from "./components/SidebarLayout";
 import { TopBar } from "./components/TopBar";
 
 const HomePage = lazy(() =>
@@ -31,6 +30,11 @@ const UtilDetailPage = lazy(() =>
 );
 const TokensPage = lazy(() =>
   import("./pages/TokensPage").then((m) => ({ default: m.TokensPage })),
+);
+const InstallationPage = lazy(() =>
+  import("./pages/InstallationPage").then((m) => ({
+    default: m.InstallationPage,
+  })),
 );
 const NotFoundPage = lazy(() =>
   import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })),
@@ -75,12 +79,22 @@ export function App() {
             }
           />
           <Route
+            path="/docs"
+            element={<Navigate to="/docs/installation" replace />}
+          />
+          <Route
+            path="/docs/installation"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <InstallationPage />
+              </Suspense>
+            }
+          />
+          <Route
             path="/docs/components"
             element={
               <Suspense fallback={<PageLoader />}>
-                <SidebarLayout>
-                  <ComponentsPage />
-                </SidebarLayout>
+                <ComponentsPage />
               </Suspense>
             }
           />
@@ -88,9 +102,7 @@ export function App() {
             path="/docs/utils"
             element={
               <Suspense fallback={<PageLoader />}>
-                <SidebarLayout>
-                  <UtilsPage />
-                </SidebarLayout>
+                <UtilsPage />
               </Suspense>
             }
           />
@@ -114,9 +126,7 @@ export function App() {
             path="/tokens"
             element={
               <Suspense fallback={<PageLoader />}>
-                <SidebarLayout>
-                  <TokensPage />
-                </SidebarLayout>
+                <TokensPage />
               </Suspense>
             }
           />

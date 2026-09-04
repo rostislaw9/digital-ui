@@ -781,13 +781,30 @@ muted `#` symbol appearing on hover. Three scroll paths share a single
    loads the page and scrolls to the target section (with retry logic
    for lazy-loaded registry content).
 
-Tall sections (taller than or equal to the viewport) align the title to
-the top of the page instead of centering the midpoint. Both paths apply
-the `section-flash` attention animation.
+The scroll-spy uses a moving trigger line that interpolates from near
+the sticky header (at the top of the page) to near the bottom of the
+viewport (at the bottom of the page). `scrollToSection` solves the same
+equation in reverse so that clicking a link scrolls to the exact
+position where the scroll-spy would highlight that section. Shared
+constants (`TRIGGER_TOP`, `TRIGGER_BOTTOM_OFFSET`, `BOTTOM_MARGIN`) are
+extracted to `scroll-constants.ts`.
 
-Both detail pages have a "Copy Page" button that copies the full
-documentation as markdown (`componentToMarkdown` / `utilToMarkdown`)
-for pasting into AI agent context.
+The "On this page" sidebar supports nested subsections. Sections can
+declare an optional `subsections` array, rendered indented under the
+parent. Subsections share a single continuous accent rail with parent
+sections. `flattenSectionIds` is used to include subsection IDs in
+scroll-spy and scroll-to-anchor tracking.
+
+Both paths apply the `section-flash` attention animation.
+
+All content pages (Installation, Tokens, Component detail, Util detail)
+have a "Copy Page" button that copies the full documentation as
+markdown for pasting into AI agent context. The shared clipboard logic
+is extracted into the `useCopyPage` hook. Detail pages use dynamic
+generators (`componentToMarkdown`, `utilToMarkdown`) since their
+content depends on registry data. Installation and Tokens pages use
+static `.md` files (`src/content/installation.md`,
+`src/content/tokens.md`) imported via Vite's `?raw` suffix.
 
 ### 16.4 Code splitting and registry loading
 

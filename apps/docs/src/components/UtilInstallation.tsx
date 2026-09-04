@@ -10,13 +10,9 @@ import { SectionHeading } from "./SectionHeading";
 export function UtilInstallation({
   utilName,
   cssImport,
-  activePm,
-  onPmChange,
 }: {
   utilName: string;
   cssImport: string;
-  activePm: string;
-  onPmChange: (value: string) => void;
 }) {
   return (
     <section id="installation" className="flex scroll-mt-24 flex-col gap-3">
@@ -32,9 +28,7 @@ export function UtilInstallation({
         Otherwise, install the <InlineCode>ionbit-ui</InlineCode> package:
       </p>
       <PmCommandBlock
-        activePm={activePm}
-        onPmChange={onPmChange}
-        copyText={PM_INSTALL_PREFIX[activePm] + " ionbit-ui"}
+        copyText={(pmId) => PM_INSTALL_PREFIX[pmId] + " ionbit-ui"}
         codeHtml={highlightedInline["__util_install__"]!.install!}
       />
       <p className="text-base leading-relaxed text-foreground-muted md:text-sm">

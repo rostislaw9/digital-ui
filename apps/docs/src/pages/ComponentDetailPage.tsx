@@ -17,10 +17,15 @@ import { PageActions } from "../components/PageActions";
 import { PreviewCodeBlock } from "../components/PreviewCodeBlock";
 import { PrevNextNav } from "../components/PrevNextNav";
 import { SectionHeading } from "../components/SectionHeading";
-import { Sidebar } from "../components/Sidebar";
+import { SidebarLayout } from "../components/SidebarLayout";
 import { UsageSection } from "../components/UsageSection";
+import { useCopyPage } from "../hooks/useCopyPage";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
+import {
+  flattenSectionIds,
+  useScrollSpy,
+  type Section,
+} from "../hooks/useScrollSpy";
 import { useScrollToAnchor } from "../hooks/useScrollToAnchor";
 import { componentToMarkdown } from "../lib/component-to-markdown";
 import { getPrevNext } from "../lib/getPrevNext";
@@ -127,18 +132,14 @@ export function ComponentDetailPage() {
   const [comp, setComp] = useState<ComponentMeta | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [activeExample, setActiveExample] = useState(0);
-  const [pageCopied, setPageCopied] = useState(false);
 
   useDocumentTitle(comp?.label);
 
-  const handleCopyPage = useCallback(() => {
-    if (!comp) return;
-    const md = componentToMarkdown(comp);
-    navigator.clipboard?.writeText(md).then(() => {
-      setPageCopied(true);
-      setTimeout(() => setPageCopied(false), 2000);
-    });
-  }, [comp]);
+  const buildMarkdown = useCallback(
+    () => (comp ? componentToMarkdown(comp) : ""),
+    [comp],
+  );
+  const { pageCopied, handleCopyPage } = useCopyPage(buildMarkdown);
 
   // Dynamically import only the requested component's registry data.
   // Keep old content visible while loading to avoid flicker.
@@ -186,7 +187,7 @@ export function ComponentDetailPage() {
     return result;
   }, [comp]);
 
-  const sectionIds = useMemo(() => sections.map((s) => s.id), [sections]);
+  const sectionIds = useMemo(() => flattenSectionIds(sections), [sections]);
   const depKey = useMemo(() => sectionIds.join(","), [sectionIds]);
 
   const { activeSection, handleSectionClick } = useScrollSpy(
@@ -219,218 +220,181 @@ export function ComponentDetailPage() {
   const { prev, next } = getPrevNext(comp);
 
   return (
-    <>
-      <div className="flex gap-8 px-6 py-8">
-        {/* Left sidebar — component navigation */}
-        <aside className="hidden w-60 shrink-0 lg:block">
-          <div className="fixed top-1/2 h-[calc(100vh-16rem)] w-60 -translate-y-1/2">
-            <Reveal direction="right" className="h-full">
-              <Sidebar />
-            </Reveal>
-          </div>
-        </aside>
-
-        {/* Main content — centered within the available middle space */}
-        <div className="flex min-w-0 flex-1 justify-center">
-          <div className="w-full max-w-4xl">
-            <div className="flex flex-col gap-8">
-              <Reveal direction="up">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
-                        <h1 className="order-2 text-3xl font-semibold tracking-tight text-foreground sm:order-1">
-                          {comp.label}
-                        </h1>
-                        <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
-                          <Badge
-                            variant="accent"
-                            className="font-mono text-[10px] tracking-wider uppercase"
-                          >
-                            {comp.category}
-                          </Badge>
-                          {comp.radixBased && (
-                            <Badge
-                              variant="outline"
-                              className="font-mono text-[10px] tracking-wider uppercase"
-                            >
-                              Radix
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-1 sm:hidden">
-                        <PageActions prev={prev} next={next} />
-                      </div>
-                    </div>
-                    <p className="max-w-2xl text-foreground-muted">
-                      {comp.description}
-                    </p>
-                  </div>
-                  <div className="hidden items-center gap-1 sm:flex sm:shrink-0">
-                    <PageActions
-                      prev={prev}
-                      next={next}
-                      pageCopied={pageCopied}
-                      onCopyPage={handleCopyPage}
-                    />
+    <SidebarLayout
+      rightSidebar={
+        <Reveal direction="up">
+          <OnThisPage
+            sections={sections}
+            activeSection={activeSection}
+            onSectionClick={handleSectionClick}
+          />
+        </Reveal>
+      }
+    >
+      <div className="flex flex-col gap-8">
+        <Reveal direction="up">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                  <h1 className="order-2 text-3xl font-semibold tracking-tight text-foreground sm:order-1">
+                    {comp.label}
+                  </h1>
+                  <div className="order-1 flex flex-wrap items-center gap-2 sm:order-2">
+                    <Badge
+                      variant="accent"
+                      className="font-mono text-[10px] tracking-wider uppercase"
+                    >
+                      {comp.category}
+                    </Badge>
+                    {comp.radixBased && (
+                      <Badge
+                        variant="outline"
+                        className="font-mono text-[10px] tracking-wider uppercase"
+                      >
+                        Radix
+                      </Badge>
+                    )}
                   </div>
                 </div>
-              </Reveal>
-
-              <ExampleSwitcher
-                examples={comp.examples}
-                activeExample={activeExample}
-                onSelect={setActiveExample}
+                <div className="flex items-center gap-1 sm:hidden">
+                  <PageActions prev={prev} next={next} />
+                </div>
+              </div>
+              <p className="max-w-2xl text-foreground-muted">
+                {comp.description}
+              </p>
+            </div>
+            <div className="hidden items-center gap-1 sm:flex sm:shrink-0">
+              <PageActions
+                prev={prev}
+                next={next}
+                pageCopied={pageCopied}
+                onCopyPage={handleCopyPage}
               />
-
-              {comp.about && (
-                <Reveal direction="up" delay={120}>
-                  <section
-                    id="about"
-                    className="flex scroll-mt-24 flex-col gap-3"
-                  >
-                    <SectionHeading id="about">About</SectionHeading>
-                    <p className="text-sm text-foreground-muted">
-                      {comp.about}
-                    </p>
-                  </section>
-                </Reveal>
-              )}
-
-              <Reveal direction="up" delay={120}>
-                <section
-                  id="installation"
-                  className="flex scroll-mt-24 flex-col gap-3"
-                >
-                  <SectionHeading id="installation">
-                    Installation
-                  </SectionHeading>
-                  <InstallBlock
-                    name={comp.name}
-                    radixBased={comp.radixBased}
-                    setup={comp.setup}
-                  />
-                </section>
-              </Reveal>
-
-              {comp.usageImport && comp.usageCode && (
-                <Reveal direction="up" delay={180}>
-                  <UsageSection
-                    componentName={comp.name}
-                    usageImport={comp.usageImport}
-                    usageCode={comp.usageCode}
-                  />
-                </Reveal>
-              )}
-
-              {comp.cursor && (
-                <Reveal direction="up">
-                  <CursorSection />
-                </Reveal>
-              )}
-
-              {comp.composition && (
-                <Reveal direction="up">
-                  <CompositionSection
-                    tree={comp.composition}
-                    label={comp.label}
-                  />
-                </Reveal>
-              )}
-
-              {comp.apiReference && (
-                <Reveal direction="up">
-                  <section
-                    id="api"
-                    className="flex scroll-mt-24 flex-col gap-3"
-                  >
-                    <SectionHeading id="api">API Reference</SectionHeading>
-                    <p className="text-sm text-foreground-muted">
-                      See the{" "}
-                      <a
-                        href={comp.apiReference.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent hover:underline"
-                      >
-                        {comp.apiReference.label}
-                      </a>{" "}
-                      for more information.
-                    </p>
-                  </section>
-                </Reveal>
-              )}
-
-              {!comp.apiReference && comp.props && comp.props.length > 0 && (
-                <Reveal direction="up">
-                  <section
-                    id="api"
-                    className="flex scroll-mt-24 flex-col gap-3"
-                  >
-                    <SectionHeading id="api">API Reference</SectionHeading>
-                    <ApiTable props={comp.props} />
-                  </section>
-                </Reveal>
-              )}
-
-              {comp.accessibility && comp.accessibility.length > 0 && (
-                <Reveal direction="up">
-                  <section
-                    id="accessibility"
-                    className="flex scroll-mt-24 flex-col gap-3"
-                  >
-                    <SectionHeading id="accessibility">
-                      Accessibility
-                    </SectionHeading>
-                    <AccessibilityList notes={comp.accessibility} />
-                  </section>
-                </Reveal>
-              )}
-
-              {comp.primitives &&
-                comp.primitives.map((primitive) => {
-                  const sectionId = `primitive-${toSectionId(primitive.name)}`;
-                  return (
-                    <Reveal key={primitive.name} direction="up">
-                      <section
-                        id={sectionId}
-                        className="flex scroll-mt-24 flex-col gap-3"
-                      >
-                        <SectionHeading id={sectionId}>
-                          {primitive.name} API
-                        </SectionHeading>
-                        <p className="text-sm text-foreground-muted">
-                          {primitive.description}
-                        </p>
-                        <ApiTable props={primitive.props} />
-                        <h3 className="text-xs font-semibold text-foreground-muted">
-                          {primitive.name} Accessibility
-                        </h3>
-                        <AccessibilityList notes={primitive.accessibility} />
-                      </section>
-                    </Reveal>
-                  );
-                })}
-
-              <PrevNextNav prev={prev} next={next} />
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        {/* On this page sidebar */}
-        <aside className="hidden w-60 shrink-0 xl:block">
-          <div className="sticky top-24">
-            <Reveal direction="up">
-              <OnThisPage
-                sections={sections}
-                activeSection={activeSection}
-                onSectionClick={handleSectionClick}
-              />
-            </Reveal>
-          </div>
-        </aside>
+        <ExampleSwitcher
+          examples={comp.examples}
+          activeExample={activeExample}
+          onSelect={setActiveExample}
+        />
+
+        {comp.about && (
+          <Reveal direction="up" delay={120}>
+            <section id="about" className="flex scroll-mt-24 flex-col gap-3">
+              <SectionHeading id="about">About</SectionHeading>
+              <p className="text-sm text-foreground-muted">{comp.about}</p>
+            </section>
+          </Reveal>
+        )}
+
+        <Reveal direction="up" delay={120}>
+          <section
+            id="installation"
+            className="flex scroll-mt-24 flex-col gap-3"
+          >
+            <SectionHeading id="installation">Installation</SectionHeading>
+            <InstallBlock
+              name={comp.name}
+              radixBased={comp.radixBased}
+              setup={comp.setup}
+            />
+          </section>
+        </Reveal>
+
+        {comp.usageImport && comp.usageCode && (
+          <Reveal direction="up" delay={180}>
+            <UsageSection
+              componentName={comp.name}
+              usageImport={comp.usageImport}
+              usageCode={comp.usageCode}
+            />
+          </Reveal>
+        )}
+
+        {comp.cursor && (
+          <Reveal direction="up">
+            <CursorSection />
+          </Reveal>
+        )}
+
+        {comp.composition && (
+          <Reveal direction="up">
+            <CompositionSection tree={comp.composition} label={comp.label} />
+          </Reveal>
+        )}
+
+        {comp.apiReference && (
+          <Reveal direction="up">
+            <section id="api" className="flex scroll-mt-24 flex-col gap-3">
+              <SectionHeading id="api">API Reference</SectionHeading>
+              <p className="text-sm text-foreground-muted">
+                See the{" "}
+                <a
+                  href={comp.apiReference.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline"
+                >
+                  {comp.apiReference.label}
+                </a>{" "}
+                for more information.
+              </p>
+            </section>
+          </Reveal>
+        )}
+
+        {!comp.apiReference && comp.props && comp.props.length > 0 && (
+          <Reveal direction="up">
+            <section id="api" className="flex scroll-mt-24 flex-col gap-3">
+              <SectionHeading id="api">API Reference</SectionHeading>
+              <ApiTable props={comp.props} />
+            </section>
+          </Reveal>
+        )}
+
+        {comp.accessibility && comp.accessibility.length > 0 && (
+          <Reveal direction="up">
+            <section
+              id="accessibility"
+              className="flex scroll-mt-24 flex-col gap-3"
+            >
+              <SectionHeading id="accessibility">Accessibility</SectionHeading>
+              <AccessibilityList notes={comp.accessibility} />
+            </section>
+          </Reveal>
+        )}
+
+        {comp.primitives &&
+          comp.primitives.map((primitive) => {
+            const sectionId = `primitive-${toSectionId(primitive.name)}`;
+            return (
+              <Reveal key={primitive.name} direction="up">
+                <section
+                  id={sectionId}
+                  className="flex scroll-mt-24 flex-col gap-3"
+                >
+                  <SectionHeading id={sectionId}>
+                    {primitive.name} API
+                  </SectionHeading>
+                  <p className="text-sm text-foreground-muted">
+                    {primitive.description}
+                  </p>
+                  <ApiTable props={primitive.props} />
+                  <h3 className="text-xs font-semibold text-foreground-muted">
+                    {primitive.name} Accessibility
+                  </h3>
+                  <AccessibilityList notes={primitive.accessibility} />
+                </section>
+              </Reveal>
+            );
+          })}
+
+        <PrevNextNav prev={prev} next={next} />
       </div>
-    </>
+    </SidebarLayout>
   );
 }

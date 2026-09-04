@@ -31,7 +31,6 @@ interface InstallBlockProps {
 const PM_INSTALL_CMD = pmInstallCmd("radix-ui");
 
 const INSTALL_TAB_KEY = "ionbit:install-tab";
-const INSTALL_PM_KEY = "ionbit:install-pm";
 
 const LINK_TAB_CLASS =
   "rounded-none border-0 border-b-2 border-transparent px-0 pb-1 text-sm text-foreground-muted hover:text-foreground data-[state=active]:border-accent data-[state=active]:bg-transparent data-[state=active]:text-accent data-[state=active]:shadow-none";
@@ -63,26 +62,17 @@ function Steps({ steps }: { steps: Step[] }) {
 }
 
 export function InstallBlock({ name, radixBased, setup }: InstallBlockProps) {
-  const [activePm, setActivePm] = useState<string>(
-    () => localStorage.getItem(INSTALL_PM_KEY) ?? "npm",
-  );
   const [activeTab, setActiveTab] = useState<string>(
     () => localStorage.getItem(INSTALL_TAB_KEY) ?? "command",
   );
   const [sourceData, setSourceData] = useState<SourceEntry | null>(null);
 
-  const activeCommand = `${PACKAGE_MANAGERS.find((pm) => pm.id === activePm)!.prefix} ionbit-ui@latest add ${name}`;
   const inline = highlightedInline[name]!;
   const install = inline.install!;
 
   const handleTabChange = (value: string) => {
     setActiveTab(value);
     localStorage.setItem(INSTALL_TAB_KEY, value);
-  };
-
-  const handlePmChange = (value: string) => {
-    setActivePm(value);
-    localStorage.setItem(INSTALL_PM_KEY, value);
   };
 
   useEffect(() => {
@@ -135,9 +125,9 @@ export function InstallBlock({ name, radixBased, setup }: InstallBlockProps) {
       content: (
         <>
           <PmCommandBlock
-            activePm={activePm}
-            onPmChange={handlePmChange}
-            copyText={activeCommand}
+            copyText={(pmId) =>
+              `${PACKAGE_MANAGERS.find((pm) => pm.id === pmId)!.prefix} ionbit-ui@latest add ${name}`
+            }
             codeHtml={install}
           />
           {radixBased && (
@@ -159,9 +149,7 @@ export function InstallBlock({ name, radixBased, setup }: InstallBlockProps) {
       heading: "Install the following dependencies:",
       content: (
         <PmCommandBlock
-          activePm={activePm}
-          onPmChange={handlePmChange}
-          copyText={PM_INSTALL_CMD[activePm]!}
+          copyText={(pmId) => PM_INSTALL_CMD[pmId]!}
           codeHtml={depInstall}
         />
       ),

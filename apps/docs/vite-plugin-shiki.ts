@@ -21,6 +21,7 @@ function getHighlighter(): Promise<HighlighterCore> {
         import("shiki/langs/tsx.mjs"),
         import("shiki/langs/bash.mjs"),
         import("shiki/langs/css.mjs"),
+        import("shiki/langs/json.mjs"),
       ],
       engine: createJavaScriptRegexEngine(),
     });
@@ -64,6 +65,67 @@ const PM_INSTALL_IONBIT = pmInstallCmd("ionbit-ui");
 /** CSS import for util pages — matches shadcn pattern. */
 const UTIL_CSS_IMPORT = `@import "tailwindcss";
 @import "ionbit-ui/tailwind.css";`;
+
+/** Installation page — config JSON. */
+const INSTALL_CONFIG_JSON = `{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "style": "digital",
+  "tailwind": {
+    "css": "src/index.css",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "src/components/ui",
+    "motion": "src/components/motion",
+    "lib": "src/lib",
+    "styles": "src/styles"
+  }
+}`;
+
+/** Installation page — CSS imports. */
+const INSTALL_CSS_IMPORTS = `@import "tailwindcss";
+
+@import "./styles/tokens.css";
+@import "./styles/base.css";
+@import "./styles/utilities.css";`;
+
+/** Installation page — TSX import example. */
+const INSTALL_TSX_EXAMPLE = `import { Button } from "@/components/ui/button";
+
+export function App() {
+  return <Button variant="primary">Click me</Button>;
+}`;
+
+/** Installation page — package-manager commands. */
+const INSTALL_INIT_CMDS = Object.fromEntries(
+  PACKAGE_MANAGERS.map((pm) => [pm.id, `${pm.prefix} ionbit-ui@latest init`]),
+);
+const INSTALL_ADD_CMDS = Object.fromEntries(
+  PACKAGE_MANAGERS.map((pm) => [
+    pm.id,
+    `${pm.prefix} ionbit-ui@latest add button`,
+  ]),
+);
+const INSTALL_ADD_MULTIPLE_CMDS = Object.fromEntries(
+  PACKAGE_MANAGERS.map((pm) => [
+    pm.id,
+    `${pm.prefix} ionbit-ui@latest add button dialog accordion`,
+  ]),
+);
+const INSTALL_LIST_CMDS = Object.fromEntries(
+  PACKAGE_MANAGERS.map((pm) => [pm.id, `${pm.prefix} ionbit-ui@latest list`]),
+);
+
+/** Highlight a command map (Record<string, string>) for all package managers. */
+async function highlightCmdMap(
+  cmds: Record<string, string>,
+): Promise<Record<string, string>> {
+  const result: Record<string, string> = {};
+  for (const pm of PACKAGE_MANAGERS) {
+    result[pm.id] = await highlight(cmds[pm.id]!, "bash");
+  }
+  return result;
+}
 
 interface RegistryItem {
   name: string;
@@ -289,6 +351,35 @@ export function shikiHighlightPlugin(): Plugin {
         result["__util_install__"] = { install: utilInstall };
         result["__util_css__"] = {
           codeHtml: await highlight(UTIL_CSS_IMPORT, "css"),
+          install: {},
+        };
+
+        // Installation page blocks
+        result["__install_init__"] = {
+          install: await highlightCmdMap(INSTALL_INIT_CMDS),
+        };
+        result["__install_add__"] = {
+          install: await highlightCmdMap(INSTALL_ADD_CMDS),
+        };
+        result["__install_add_multiple__"] = {
+          install: await highlightCmdMap(INSTALL_ADD_MULTIPLE_CMDS),
+        };
+        result["__install_list__"] = {
+          install: await highlightCmdMap(INSTALL_LIST_CMDS),
+        };
+        result["__install_config__"] = {
+          codeHtml: await highlight(INSTALL_CONFIG_JSON, "json"),
+          rawCode: INSTALL_CONFIG_JSON,
+          install: {},
+        };
+        result["__install_css__"] = {
+          codeHtml: await highlight(INSTALL_CSS_IMPORTS, "css"),
+          rawCode: INSTALL_CSS_IMPORTS,
+          install: {},
+        };
+        result["__install_tsx__"] = {
+          codeHtml: await highlight(INSTALL_TSX_EXAMPLE, "tsx"),
+          rawCode: INSTALL_TSX_EXAMPLE,
           install: {},
         };
 
