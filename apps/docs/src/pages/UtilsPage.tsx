@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Badge } from "@ionbit-ui/ui";
 
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { utilManifest } from "../registry/utils/manifest";
 
 export function UtilsPage() {
+  useDocumentTitle("Utils");
   return (
     <div className="flex flex-col gap-8">
       <Reveal direction="up">

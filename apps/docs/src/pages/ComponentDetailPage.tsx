@@ -19,6 +19,7 @@ import { PrevNextNav } from "../components/PrevNextNav";
 import { SectionHeading } from "../components/SectionHeading";
 import { Sidebar } from "../components/Sidebar";
 import { UsageSection } from "../components/UsageSection";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
 import { useScrollToAnchor } from "../hooks/useScrollToAnchor";
 import { componentToMarkdown } from "../lib/component-to-markdown";
@@ -127,6 +128,8 @@ export function ComponentDetailPage() {
   const [notFound, setNotFound] = useState(false);
   const [activeExample, setActiveExample] = useState(0);
   const [pageCopied, setPageCopied] = useState(false);
+
+  useDocumentTitle(comp?.label);
 
   const handleCopyPage = useCallback(() => {
     if (!comp) return;

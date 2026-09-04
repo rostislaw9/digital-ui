@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Document titles:** each page now sets a descriptive browser tab
+  title using the `useDocumentTitle` hook. Homepage shows
+  "ionbit_ui - React UI system", list pages show "Components -
+  ionbit_ui" etc., and detail pages show the component/util label
+  (e.g. "Accordion - ionbit_ui").
+
 ## [0.1.10] — 2026-09-04
 
 ### Added

@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 import { Button } from "@ionbit-ui/ui";
 
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+
 export function NotFoundPage() {
+  useDocumentTitle("Page not found");
   return (
     <div className="flex flex-col items-center gap-6 py-24 text-center">
       <p className="font-mono text-6xl font-bold text-accent">404</p>

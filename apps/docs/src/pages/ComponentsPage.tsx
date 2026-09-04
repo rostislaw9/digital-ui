@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Reveal } from "@ionbit-ui/motion";
 import { Badge, Button, cn, Input } from "@ionbit-ui/ui";
 
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import {
   componentCategories,
   componentManifest,
@@ -13,6 +14,7 @@ import {
 const categories = ["All", ...componentCategories];
 
 export function ComponentsPage() {
+  useDocumentTitle("Components");
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
 

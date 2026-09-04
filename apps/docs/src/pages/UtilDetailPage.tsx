@@ -15,6 +15,7 @@ import { Sidebar } from "../components/Sidebar";
 import { UtilInstallation } from "../components/UtilInstallation";
 import { UtilSections } from "../components/UtilSections";
 import { UtilUsage } from "../components/UtilUsage";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useScrollSpy, type Section } from "../hooks/useScrollSpy";
 import { useScrollToAnchor } from "../hooks/useScrollToAnchor";
 import { getPrevNext } from "../lib/getPrevNext";
@@ -58,6 +59,8 @@ export function UtilDetailPage() {
     () => localStorage.getItem("ionbit:install-pm") ?? "npm",
   );
   const [pageCopied, setPageCopied] = useState(false);
+
+  useDocumentTitle(util?.label);
 
   const handlePmChange = (value: string) => {
     setActivePm(value);

@@ -1,6 +1,9 @@
 import { Reveal } from "@/components/motion";
 
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+
 export function TokensPage() {
+  useDocumentTitle("Tokens");
   return (
     <div className="flex flex-col gap-12">
       <Reveal direction="up">

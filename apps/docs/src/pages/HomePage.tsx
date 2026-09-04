@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { Glow, Magnetic, Reveal } from "@ionbit-ui/motion";
 import { Button } from "@ionbit-ui/ui";
 
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { componentManifest } from "../registry/components/manifest";
 import { ShowcaseGrid } from "../showcase";
 
 export function HomePage() {
+  useDocumentTitle();
   return (
     <div className="flex flex-col gap-24">
       {/* Hero */}
