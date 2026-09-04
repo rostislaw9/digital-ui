@@ -1,16 +1,14 @@
 import {
+  Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function AnalyticsCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Analytics</CardTitle>
         <CardDescription>Traffic sources this week.</CardDescription>
@@ -41,6 +39,6 @@ export function AnalyticsCard() {
           <span className="text-sm font-semibold text-foreground">48.2K</span>
         </div>
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }

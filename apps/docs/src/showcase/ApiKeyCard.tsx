@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   Button,
   CardContent,
@@ -9,12 +10,9 @@ import {
   Input,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function ApiKeyCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>API keys</CardTitle>
         <CardDescription>Manage your access tokens.</CardDescription>
@@ -37,6 +35,6 @@ export function ApiKeyCard() {
           Generate new key
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

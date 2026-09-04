@@ -1,4 +1,5 @@
 import {
+  Card,
   Button,
   CardContent,
   CardDescription,
@@ -8,12 +9,9 @@ import {
   Input,
   toast,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function NewsletterCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Stay in the loop</CardTitle>
         <CardDescription>Get the latest updates and releases.</CardDescription>
@@ -30,6 +28,6 @@ export function NewsletterCard() {
           Subscribe
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

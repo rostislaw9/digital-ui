@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   Button,
   CardContent,
@@ -9,12 +10,9 @@ import {
   Input,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function WebhookCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Webhooks</CardTitle>
         <CardDescription>
@@ -46,6 +44,6 @@ export function WebhookCard() {
           Add endpoint
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

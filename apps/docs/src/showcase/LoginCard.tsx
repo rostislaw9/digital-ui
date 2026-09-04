@@ -1,4 +1,5 @@
 import {
+  Card,
   Button,
   CardContent,
   CardDescription,
@@ -10,12 +11,9 @@ import {
   Label,
   toast,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function LoginCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Welcome back</CardTitle>
         <CardDescription>Sign in to your account to continue.</CardDescription>
@@ -53,6 +51,6 @@ export function LoginCard() {
           Sign in
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

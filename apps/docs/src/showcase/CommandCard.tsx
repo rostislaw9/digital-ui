@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   CardContent,
   CardDescription,
@@ -6,12 +7,9 @@ import {
   CardTitle,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function CommandCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Quick actions</CardTitle>
         <CardDescription>Press ⌘K to open command palette.</CardDescription>
@@ -32,6 +30,6 @@ export function CommandCard() {
           </div>
         ))}
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }

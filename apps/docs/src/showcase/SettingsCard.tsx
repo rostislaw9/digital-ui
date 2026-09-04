@@ -1,4 +1,5 @@
 import {
+  Card,
   Button,
   CardContent,
   CardDescription,
@@ -9,12 +10,9 @@ import {
   Separator,
   Switch,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function SettingsCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Preferences</CardTitle>
         <CardDescription>
@@ -57,6 +55,6 @@ export function SettingsCard() {
           Save changes
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

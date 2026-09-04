@@ -1,4 +1,5 @@
 import {
+  Card,
   Button,
   CardContent,
   CardDescription,
@@ -8,12 +9,9 @@ import {
   Textarea,
   toast,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function FeedbackCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Feedback</CardTitle>
         <CardDescription>How was your experience?</CardDescription>
@@ -46,6 +44,6 @@ export function FeedbackCard() {
           Send feedback
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

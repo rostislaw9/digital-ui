@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   Button,
   CardContent,
@@ -8,12 +9,9 @@ import {
   CardTitle,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function IntegrationCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Integrations</CardTitle>
         <CardDescription>Connect your favorite tools.</CardDescription>
@@ -52,6 +50,6 @@ export function IntegrationCard() {
           Browse marketplace
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

@@ -1,4 +1,5 @@
 import {
+  Card,
   Button,
   CardContent,
   CardDescription,
@@ -9,14 +10,10 @@ import {
   Separator,
   Switch,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function StorageCard() {
   const storage = 42;
-
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Storage</CardTitle>
         <CardDescription>{storage}% of 100 GB used</CardDescription>
@@ -38,6 +35,6 @@ export function StorageCard() {
           Upgrade storage
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   CardContent,
   CardDescription,
@@ -7,12 +8,9 @@ import {
   Progress,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function StatsCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Overview</CardTitle>
         <CardDescription>Last 30 days</CardDescription>
@@ -42,6 +40,6 @@ export function StatsCard() {
           <Progress value={68} />
         </div>
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }

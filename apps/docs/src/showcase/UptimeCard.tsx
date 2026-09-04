@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   CardContent,
   CardDescription,
@@ -8,12 +9,9 @@ import {
   Progress,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function UptimeCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Uptime</CardTitle>
         <CardDescription>Last 90 days status.</CardDescription>
@@ -53,6 +51,6 @@ export function UptimeCard() {
           </span>
         </div>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

@@ -25,20 +25,17 @@ export function HomePage() {
           </h1>
         </Reveal>
         <Reveal direction="up" delay={120}>
-          <p className="max-w-5xl text-lg leading-relaxed text-foreground-muted">
-            Ionbit UI is a React component system with a distinctive digital
-            visual language and a coherent motion system. Inspired by
-            shadcn&apos;s source-ownership model, extended with a motion layer
-            and a restrained digital identity — real primitives, polished
-            interaction, and the kind of restrained taste that lets your product
-            do the talking.
+          <p className="max-w-2xl text-lg leading-relaxed text-foreground-muted">
+            A React component system with a coherent motion layer and a
+            restrained digital identity. Source-owned, accessible, and
+            production-tested.
           </p>
         </Reveal>
         <Reveal direction="up" delay={180}>
           <div className="flex flex-wrap justify-center gap-3">
             <Magnetic intensity={0.15}>
               <Glow intensity={0.7}>
-                <Button variant="primary" size="lg" asChild>
+                <Button variant="primary-soft" size="lg" asChild>
                   <Link to="/docs/components">Browse components</Link>
                 </Button>
               </Glow>
@@ -52,7 +49,7 @@ export function HomePage() {
         </Reveal>
       </section>
 
-      {/* Showcase grid */}
+      {/* Showcase waterfall */}
       <ShowcaseGrid />
 
       {/* Component count */}

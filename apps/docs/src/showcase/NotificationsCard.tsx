@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   CardContent,
   CardDescription,
@@ -6,12 +7,9 @@ import {
   CardTitle,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function NotificationsCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Notifications</CardTitle>
         <CardDescription>3 unread messages.</CardDescription>
@@ -64,6 +62,6 @@ export function NotificationsCard() {
           </div>
         ))}
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }

@@ -1,4 +1,5 @@
 import {
+  Card,
   Button,
   CardContent,
   CardDescription,
@@ -7,12 +8,9 @@ import {
   Input,
   Label,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function SearchCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Quick search</CardTitle>
         <CardDescription>Find anything in your workspace.</CardDescription>
@@ -33,6 +31,6 @@ export function SearchCard() {
           ))}
         </div>
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }

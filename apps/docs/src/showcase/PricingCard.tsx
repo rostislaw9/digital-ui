@@ -1,4 +1,5 @@
 import {
+  Card,
   Button,
   CardContent,
   CardDescription,
@@ -7,12 +8,9 @@ import {
   CardTitle,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function PricingCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Starter plan</CardTitle>
         <CardDescription>Everything you need to begin.</CardDescription>
@@ -34,6 +32,6 @@ export function PricingCard() {
           Get started
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

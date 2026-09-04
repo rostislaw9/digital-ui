@@ -1,4 +1,5 @@
 import {
+  Card,
   Avatar,
   AvatarFallback,
   Badge,
@@ -10,17 +11,13 @@ import {
   Input,
   toast,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 const pending = [
   { email: "sarah@ionbit.ui", initial: "S" },
   { email: "marcus@ionbit.ui", initial: "M" },
 ];
-
 export function InviteCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Invite teammates</CardTitle>
         <CardDescription>Collaborate with your team.</CardDescription>
@@ -49,6 +46,6 @@ export function InviteCard() {
           ))}
         </div>
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }

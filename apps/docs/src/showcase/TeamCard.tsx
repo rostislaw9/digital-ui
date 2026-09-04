@@ -1,4 +1,5 @@
 import {
+  Card,
   Avatar,
   AvatarFallback,
   Badge,
@@ -7,12 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function TeamCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Team</CardTitle>
         <CardDescription>5 members in your workspace.</CardDescription>
@@ -43,6 +41,6 @@ export function TeamCard() {
           </div>
         ))}
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }

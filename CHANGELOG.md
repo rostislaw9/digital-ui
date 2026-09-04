@@ -17,9 +17,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `className` and `cn()` calls on every `yarn format`. Configured with
   `tailwindStylesheet` pointing to the docs CSS entry and
   `tailwindFunctions: ["cn"]`.
+- **Homepage waterfall showcase:** the docs homepage now features an
+  animated waterfall grid of showcase cards. Columns scroll downward
+  at different speeds (parallax) using a `requestAnimationFrame` loop
+  with pixel-precise seamless looping. The animation is disabled on
+  touch devices and when `prefers-reduced-motion` is set. Hovering a
+  column pauses only that column so cards can be interacted with.
+  Cards are proportionally scaled on mobile via CSS `zoom`.
 
 ### Changed
 
+- **Removed `ShowcaseCard` wrapper:** all 22 showcase card components
+  now use the `Card` component directly from `@ionbit-ui/ui` instead
+  of the redundant `ShowcaseCard` wrapper.
+- **Homepage redesign:** cleaner hero section with shorter description,
+  removed "Built with Ionbit UI" heading, removed `max-w-7xl` width
+  constraint so the waterfall spans full width.
 - **Section flash animation:** the scroll-to-section attention flash no
   longer adds padding or changes size. It now animates only color
   transparency (background tint and a constant-spread box-shadow ring),

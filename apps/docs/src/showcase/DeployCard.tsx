@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   Button,
   CardContent,
@@ -8,12 +9,9 @@ import {
   CardTitle,
   Progress,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function DeployCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Deployment</CardTitle>
         <CardDescription>Deploy your project to production.</CardDescription>
@@ -34,6 +32,6 @@ export function DeployCard() {
           Deploy now
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

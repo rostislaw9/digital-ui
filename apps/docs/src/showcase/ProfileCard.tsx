@@ -1,4 +1,5 @@
 import {
+  Card,
   Avatar,
   AvatarFallback,
   Badge,
@@ -9,12 +10,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function ProfileCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Profile</CardTitle>
         <CardDescription>Your public identity.</CardDescription>
@@ -38,6 +36,6 @@ export function ProfileCard() {
           Edit profile
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

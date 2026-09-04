@@ -1,4 +1,5 @@
 import {
+  Card,
   Badge,
   Button,
   CardContent,
@@ -8,12 +9,9 @@ import {
   CardTitle,
   Separator,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function BillingCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Billing</CardTitle>
         <CardDescription>Your current subscription.</CardDescription>
@@ -42,6 +40,6 @@ export function BillingCard() {
           Manage billing
         </Button>
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

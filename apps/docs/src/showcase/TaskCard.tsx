@@ -1,4 +1,5 @@
 import {
+  Card,
   CardContent,
   CardDescription,
   CardFooter,
@@ -8,12 +9,9 @@ import {
   Label,
   Progress,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function TaskCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Tasks</CardTitle>
         <CardDescription>1 of 3 completed</CardDescription>
@@ -44,6 +42,6 @@ export function TaskCard() {
       <CardFooter>
         <Progress value={33} />
       </CardFooter>
-    </ShowcaseCard>
+    </Card>
   );
 }

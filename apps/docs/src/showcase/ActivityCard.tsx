@@ -1,4 +1,5 @@
 import {
+  Card,
   Avatar,
   AvatarFallback,
   Badge,
@@ -7,12 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@ionbit-ui/ui";
-
-import { ShowcaseCard } from "./ShowcaseCard";
-
 export function ActivityCard() {
   return (
-    <ShowcaseCard>
+    <Card>
       <CardHeader>
         <CardTitle>Recent activity</CardTitle>
         <CardDescription>Latest events from your workspace.</CardDescription>
@@ -37,6 +35,6 @@ export function ActivityCard() {
           </div>
         ))}
       </CardContent>
-    </ShowcaseCard>
+    </Card>
   );
 }
