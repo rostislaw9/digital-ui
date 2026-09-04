@@ -104,7 +104,9 @@ const ExampleSwitcher = memo(function ExampleSwitcher({
 
       <Reveal direction="up" delay={60}>
         <section id="preview" className="flex scroll-mt-24 flex-col gap-3">
-          <SectionHeading id="preview">{example.title}</SectionHeading>
+          <h2 className="text-xl font-semibold text-foreground md:text-lg">
+            {example.title}
+          </h2>
           <p className="text-base text-foreground-muted md:text-sm">
             {example.description}
           </p>

@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Composition section anchor:** the Composition section on the
+  component detail page now uses `SectionHeading` with an anchored
+  link and hover `#` symbol, matching all other sections.
 - **Prettier Tailwind class sorting:** added `prettier-plugin-tailwindcss`
   (official Tailwind Labs plugin) to auto-sort Tailwind classes in JSX
   `className` and `cn()` calls on every `yarn format`. Configured with
@@ -17,6 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Section flash animation:** the scroll-to-section attention flash no
+  longer adds padding or changes size. It now animates only color
+  transparency (background tint and a constant-spread box-shadow ring),
+  so the section layout is never affected. The preview section heading
+  no longer has an anchor link (it remains in the "On this page"
+  sidebar).
 - **RTL-aware logical properties:** replaced physical `left`/`right`/`pl`/
   `pr`/`ml`/`mr`/`text-left` utilities with logical `start`/`end`/`ps`/
   `pe`/`ms`/`me`/`text-start` across all UI components so they flip

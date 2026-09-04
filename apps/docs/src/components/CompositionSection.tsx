@@ -1,4 +1,5 @@
 import { InlineCode } from "./InlineCode";
+import { SectionHeading } from "./SectionHeading";
 
 export function CompositionSection({
   tree,
@@ -10,9 +11,7 @@ export function CompositionSection({
   const article = /^[aeiou]/i.test(label) ? "an" : "a";
   return (
     <section id="composition" className="flex scroll-mt-24 flex-col gap-3">
-      <h2 className="text-xl font-semibold text-foreground md:text-lg">
-        Composition
-      </h2>
+      <SectionHeading id="composition">Composition</SectionHeading>
       <p className="text-base text-foreground-muted md:text-sm">
         Use the following composition to build {article}{" "}
         <InlineCode>{label}</InlineCode>:

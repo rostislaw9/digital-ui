@@ -114,17 +114,18 @@
  */
 @keyframes section-flash {
   0% {
-    background-color: color-mix(in oklab, var(--accent) 12%, transparent);
+    background-color: color-mix(in oklab, var(--accent) 10%, transparent);
+    box-shadow: 0 0 0 12px color-mix(in oklab, var(--accent) 10%, transparent);
   }
   100% {
     background-color: transparent;
+    box-shadow: 0 0 0 12px transparent;
   }
 }
 
 .section-flash {
   animation: section-flash 1.2s ease-out;
   border-radius: 0.5rem;
-  padding: 1rem 1.25rem 1rem 0.5rem;
 }
 
 /*
