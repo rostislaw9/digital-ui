@@ -1,6 +1,6 @@
 {
   "name": "ionbit-ui",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Ionbit UI CLI — install source-owned components from the Ionbit UI registry.",
   "type": "module",
   "license": "MIT",
