@@ -83,7 +83,10 @@ export const toggleGroupMeta: ComponentMeta = {
       render: () => <ToggleGroupCustomDemo />,
     },
   ],
-  usageImport: `import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";`,
+  usageImport: `import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/components/ui/toggle-group";`,
   usageCode: `<ToggleGroup type="single">
   <ToggleGroupItem value="a">A</ToggleGroupItem>
   <ToggleGroupItem value="b">B</ToggleGroupItem>

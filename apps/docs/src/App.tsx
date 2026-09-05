@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
-import { Toaster } from "@ionbit-ui/ui";
+import { Spinner, Toaster } from "@ionbit-ui/ui";
 
 import { TopBar } from "./components/TopBar";
 
@@ -43,7 +43,7 @@ const NotFoundPage = lazy(() =>
 function PageLoader() {
   return (
     <div className="flex min-h-[400px] items-center justify-center">
-      <div className="h-6 w-6 animate-spin rounded-full border-2 border-border border-t-accent" />
+      <Spinner size="xl" className="text-accent" />
     </div>
   );
 }

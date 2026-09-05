@@ -1,27 +1,31 @@
-import { Paperclip, Send } from "lucide-react";
+import { AudioLines, Paperclip } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { Input } from "@/components/ui/input";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
 import { Tooltip } from "@/components/ui/tooltip";
 
 export function ButtonGroupNestedDemo() {
   return (
     <ButtonGroup>
       <ButtonGroup>
-        <Tooltip content="Add attachment">
-          <Button variant="outline" size="icon" aria-label="Add attachment">
-            <Paperclip className="size-4" />
-          </Button>
-        </Tooltip>
+        <Button variant="outline" size="icon" aria-label="Add">
+          <Paperclip />
+        </Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Input placeholder="Type a message..." className="h-8" />
-        <Tooltip content="Send message">
-          <Button variant="outline" size="icon" aria-label="Send message">
-            <Send className="size-4" />
-          </Button>
-        </Tooltip>
+        <InputGroup>
+          <InputGroupInput placeholder="Send a message..." />
+          <Tooltip content="Voice Mode">
+            <InputGroupAddon align="inline-end">
+              <AudioLines />
+            </InputGroupAddon>
+          </Tooltip>
+        </InputGroup>
       </ButtonGroup>
     </ButtonGroup>
   );

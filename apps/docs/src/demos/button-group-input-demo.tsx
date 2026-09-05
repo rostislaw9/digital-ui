@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 export function ButtonGroupInputDemo() {
   return (
     <ButtonGroup>
-      <Input placeholder="Search..." className="h-8" />
+      <Input placeholder="Search..." />
       <Button variant="secondary" aria-label="Search">
         <Search className="size-4" />
       </Button>

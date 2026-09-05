@@ -25,7 +25,7 @@ export function ButtonGroupDropdownDemo() {
           <DropdownMenuItem>Save as draft</DropdownMenuItem>
           <DropdownMenuItem>Share link</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem className="text-error hover:bg-error/10! hover:text-error! focus:bg-error/10! focus:text-error!">
+          <DropdownMenuItem className="text-error hover:bg-error-muted! hover:text-error! focus:bg-error-muted! focus:text-error!">
             <Trash2 className="size-4" />
             Discard post
           </DropdownMenuItem>

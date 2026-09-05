@@ -1,13 +1,12 @@
-import { Loader2 } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 
 export function ButtonStatesDemo() {
   return (
     <div className="flex flex-wrap gap-3">
       <Button disabled>Disabled</Button>
       <Button disabled>
-        <Loader2 data-icon="inline-start" className="animate-spin" />
+        <Spinner data-icon="inline-start" />
         Loading
       </Button>
     </div>

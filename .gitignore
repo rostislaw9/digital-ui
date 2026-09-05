@@ -33,3 +33,7 @@ coverage/
 # Vite
 *.local
 test-project/
+
+# Agents
+.agents
+skills-lock.json

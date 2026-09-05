@@ -67,15 +67,35 @@
       "import": "./dist/button-group.js",
       "require": "./dist/button-group.cjs"
     },
+    "./empty": {
+      "types": "./dist/empty.d.ts",
+      "import": "./dist/empty.js",
+      "require": "./dist/empty.cjs"
+    },
     "./input": {
       "types": "./dist/input.d.ts",
       "import": "./dist/input.js",
       "require": "./dist/input.cjs"
     },
+    "./input-group": {
+      "types": "./dist/input-group.d.ts",
+      "import": "./dist/input-group.js",
+      "require": "./dist/input-group.cjs"
+    },
     "./label": {
       "types": "./dist/label.d.ts",
       "import": "./dist/label.js",
       "require": "./dist/label.cjs"
+    },
+    "./native-select": {
+      "types": "./dist/native-select.d.ts",
+      "import": "./dist/native-select.js",
+      "require": "./dist/native-select.cjs"
+    },
+    "./spinner": {
+      "types": "./dist/spinner.d.ts",
+      "import": "./dist/spinner.js",
+      "require": "./dist/spinner.cjs"
     },
     "./textarea": {
       "types": "./dist/textarea.d.ts",

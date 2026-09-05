@@ -69,7 +69,7 @@ export function ButtonGroupDemo() {
               Save as PDF
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-error hover:bg-error/10! hover:text-error! focus:bg-error/10! focus:text-error!">
+            <DropdownMenuItem className="text-error hover:bg-error-muted! hover:text-error! focus:bg-error-muted! focus:text-error!">
               <Trash2 className="size-4" />
               Delete forever
             </DropdownMenuItem>

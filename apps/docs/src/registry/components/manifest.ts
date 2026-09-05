@@ -76,6 +76,14 @@ export const componentManifest: ManifestEntry[] = [
     exampleCount: 2,
   },
   {
+    name: "empty",
+    label: "Empty",
+    category: "Feedback",
+    description: "Placeholder for empty states with structured subcomponents.",
+    exampleCount: 2,
+    isNew: true,
+  },
+  {
     name: "checkbox",
     label: "Checkbox",
     category: "Form",
@@ -132,11 +140,28 @@ export const componentManifest: ManifestEntry[] = [
     exampleCount: 2,
   },
   {
+    name: "input-group",
+    label: "Input Group",
+    category: "Form",
+    description:
+      "Groups an input with leading or trailing addons, buttons, and text.",
+    exampleCount: 4,
+    isNew: true,
+  },
+  {
     name: "label",
     label: "Label",
     category: "Form",
     description: "Accessible form label.",
     exampleCount: 2,
+  },
+  {
+    name: "native-select",
+    label: "Native Select",
+    category: "Form",
+    description: "Styled native HTML select with custom chevron.",
+    exampleCount: 2,
+    isNew: true,
   },
   {
     name: "magnetic",
@@ -221,6 +246,15 @@ export const componentManifest: ManifestEntry[] = [
     category: "Feedback",
     description: "Loading placeholder.",
     exampleCount: 1,
+  },
+  {
+    name: "spinner",
+    label: "Spinner",
+    category: "Feedback",
+    description:
+      "Animated loading indicator icon for buttons and async states.",
+    exampleCount: 2,
+    isNew: true,
   },
   {
     name: "slider",

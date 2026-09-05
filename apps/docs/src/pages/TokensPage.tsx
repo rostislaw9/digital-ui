@@ -105,16 +105,12 @@ export function TokensPage() {
             </Reveal>
 
             <Reveal direction="up" delay={120}>
-              <SubGroup id="accent" title="Accent & status">
+              <SubGroup id="accent" title="Accent">
                 <Swatch name="accent" var="--accent" />
                 <Swatch name="accent-hover" var="--accent-hover" />
                 <Swatch name="accent-muted" var="--accent-muted" />
+                <Swatch name="accent-subtle" var="--accent-subtle" />
                 <Swatch name="accent-foreground" var="--accent-foreground" />
-                <Swatch name="success" var="--success" />
-                <Swatch name="warning" var="--warning" />
-                <Swatch name="error" var="--error" />
-                <Swatch name="error-foreground" var="--error-foreground" />
-                <Swatch name="info" var="--info" />
               </SubGroup>
             </Reveal>
 
@@ -124,7 +120,50 @@ export function TokensPage() {
                 <Swatch name="border-strong" var="--border-strong" />
                 <Swatch name="border-accent" var="--border-accent" />
                 <Swatch name="border-error" var="--border-error" />
+                <Swatch name="border-success" var="--border-success" />
+                <Swatch name="border-warning" var="--border-warning" />
+                <Swatch name="border-info" var="--border-info" />
                 <Swatch name="ring" var="--ring" />
+              </SubGroup>
+            </Reveal>
+
+            <Reveal direction="up">
+              <SubGroup id="success" title="Success">
+                <Swatch name="success" var="--success" />
+                <Swatch name="success-hover" var="--success-hover" />
+                <Swatch name="success-muted" var="--success-muted" />
+                <Swatch name="success-subtle" var="--success-subtle" />
+                <Swatch name="success-foreground" var="--success-foreground" />
+              </SubGroup>
+            </Reveal>
+
+            <Reveal direction="up" delay={60}>
+              <SubGroup id="warning" title="Warning">
+                <Swatch name="warning" var="--warning" />
+                <Swatch name="warning-hover" var="--warning-hover" />
+                <Swatch name="warning-muted" var="--warning-muted" />
+                <Swatch name="warning-subtle" var="--warning-subtle" />
+                <Swatch name="warning-foreground" var="--warning-foreground" />
+              </SubGroup>
+            </Reveal>
+
+            <Reveal direction="up" delay={120}>
+              <SubGroup id="error" title="Error">
+                <Swatch name="error" var="--error" />
+                <Swatch name="error-hover" var="--error-hover" />
+                <Swatch name="error-muted" var="--error-muted" />
+                <Swatch name="error-subtle" var="--error-subtle" />
+                <Swatch name="error-foreground" var="--error-foreground" />
+              </SubGroup>
+            </Reveal>
+
+            <Reveal direction="up" delay={180}>
+              <SubGroup id="info" title="Info">
+                <Swatch name="info" var="--info" />
+                <Swatch name="info-hover" var="--info-hover" />
+                <Swatch name="info-muted" var="--info-muted" />
+                <Swatch name="info-subtle" var="--info-subtle" />
+                <Swatch name="info-foreground" var="--info-foreground" />
               </SubGroup>
             </Reveal>
           </div>

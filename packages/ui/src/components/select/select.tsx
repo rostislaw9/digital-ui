@@ -38,7 +38,7 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
       <SelectPrimitive.Trigger
         ref={ref}
         // prettier-ignore
-        className={cn("flex items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground hover:border-border-strong focus-visible:shadow-focus focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 data-[placeholder]:text-foreground-muted", className)}
+        className={cn("flex h-8 items-center justify-between rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-foreground hover:border-border-strong focus-visible:shadow-focus focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 data-[placeholder]:text-foreground-muted", className)}
         {...props}
       >
         {children}

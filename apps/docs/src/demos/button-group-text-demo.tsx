@@ -6,7 +6,7 @@ export function ButtonGroupTextDemo() {
   return (
     <ButtonGroup>
       <ButtonGroupText>Email</ButtonGroupText>
-      <Input placeholder="you@example.com" className="h-8" />
+      <Input placeholder="you@example.com" />
       <Button variant="secondary">Verify</Button>
     </ButtonGroup>
   );

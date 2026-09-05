@@ -15,9 +15,10 @@ export const SidebarLink = forwardRef<
     to: string;
     label: string;
     active?: boolean;
+    isNew?: boolean;
     onClick?: () => void;
   }
->(function SidebarLink({ to, label, active, onClick }, ref) {
+>(function SidebarLink({ to, label, active, isNew, onClick }, ref) {
   return (
     <Button
       asChild
@@ -26,7 +27,15 @@ export const SidebarLink = forwardRef<
       className={cn(mobileClass, active && activeClass)}
     >
       <Link ref={ref} to={to} onClick={onClick}>
-        {label}
+        <span className="flex items-center gap-1.5">
+          {label}
+          {isNew && (
+            <span
+              aria-label="New"
+              className="size-1.5 rounded-full bg-accent"
+            />
+          )}
+        </span>
       </Link>
     </Button>
   );

@@ -7,6 +7,63 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Spinner component:** animated loading indicator built on
+  `lucide-react`'s `Loader2` with `animate-spin`. Five sizes (xs through
+  xl). Uses `text-current` to inherit the surrounding text color.
+  Compose into disabled Buttons with `data-icon` for loading states
+  instead of an `isPending`/`isLoading` prop.
+- **Empty component:** structured empty-state placeholder with
+  `EmptyHeader`, `EmptyMedia` (default/icon variants via CVA),
+  `EmptyTitle`, `EmptyDescription`, `EmptyContent`, and `EmptyFooter`
+  subcomponents. Flexible container with `flex-1`, `max-w-sm` header,
+  and link styling in descriptions. Six demos: overview, outline,
+  background, avatar, avatar group, and input group.
+- **NativeSelect component:** styled native HTML `<select>` with custom
+  `ChevronDown` icon, `invalid` prop for error state, and the same
+  border/focus/disabled styling as `Input` and `Textarea`. Fixed
+  `h-8` height to match Button md size.
+- **InputGroup component:** shadcn-inspired container that groups an
+  input with leading, trailing, top, or bottom addons. Subcomponents:
+  `InputGroupInput`, `InputGroupTextarea`, `InputGroupAddon` (with
+  `align` prop: inline-start/inline-end/block-start/block-end),
+  `InputGroupText`, `InputGroupButton`, and `InputGroupSeparator`.
+  CVA-based variants, `data-slot` attributes, click-to-focus behavior,
+  and `has-[...]` selectors for focus/invalid states. Fixed `h-8`
+  height to match Button md size.
+- **Design tokens:** added `accent-subtle`, `error-hover`, `error-muted`,
+  `error-subtle`, `success-hover`, `success-muted`, `success-subtle`,
+  `success-foreground`, `warning-hover`, `warning-muted`,
+  `warning-subtle`, `warning-foreground`, `info-hover`, `info-muted`,
+  `info-subtle`, `info-foreground`, `border-success`, `border-warning`,
+  and `border-info` tokens. All exposed as Tailwind utilities.
+- **ToggleGroup demo switcher:** ComponentDetailPage now uses
+  `ToggleGroup` with `type="single"` for switching between demos instead
+  of individual ghost Buttons.
+- **Button Group demos:** added InputGroup demo with voice toggle
+  pattern and updated Nested demo to use InputGroup.
+- **Sidebar new indicator:** accent status dot on sidebar links for
+  manifest entries marked `isNew`.
+
+### Changed
+
+- **Input, SelectTrigger, NativeSelect:** base height locked to `h-8`
+  (32px) to match Button md size. Removed need for per-demo `h-8`
+  overrides in Button Group demos.
+- **Button variants:** `destructive` uses `bg-error-hover` instead of
+  `bg-error/90`. `destructive-soft` uses `bg-error-muted` instead of
+  `bg-error/10`. `primary-soft` no longer duplicates hover color.
+- **Alert, Badge, ContextMenu:** replaced opacity modifiers
+  (`bg-error/10`, `border-success/30`, etc.) with semantic tokens
+  (`bg-error-muted`, `border-border-success`, etc.).
+- **TokensPage:** expanded color sections to show all tokens including
+  new muted/subtle/hover/foreground variants for accent, success,
+  warning, error, and info.
+- **Empty component rewrite:** follows shadcn patterns with CVA-based
+  `EmptyMedia` (default/icon variants), `flex-1` container, `max-w-sm`
+  header/content, `text-balance`, and link styling in descriptions.
+
 ## [0.1.11] — 2026-09-05
 
 ### Added

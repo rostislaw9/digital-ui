@@ -5,7 +5,7 @@ import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { Reveal } from "@ionbit-ui/motion";
-import { Badge, Button, cn } from "@ionbit-ui/ui";
+import { Badge, Button, ToggleGroup, ToggleGroupItem } from "@ionbit-ui/ui";
 
 import { AccessibilityList } from "../components/AccessibilityList";
 import { ApiTable } from "../components/ApiTable";
@@ -89,22 +89,22 @@ const ExampleSwitcher = memo(function ExampleSwitcher({
     <>
       {examples.length > 1 && (
         <Reveal direction="up">
-          <div className="flex flex-wrap gap-1">
+          <ToggleGroup
+            type="single"
+            size="sm"
+            spacing={1}
+            value={String(activeExample)}
+            onValueChange={(v) => {
+              if (v) onSelect(Number(v));
+            }}
+            aria-label="Demo switcher"
+          >
             {examples.map((ex, i) => (
-              <Button
-                key={ex.title}
-                variant="ghost"
-                size="sm"
-                onClick={() => onSelect(i)}
-                className={cn(
-                  activeExample === i &&
-                    "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent",
-                )}
-              >
+              <ToggleGroupItem key={ex.title} value={String(i)}>
                 {ex.title}
-              </Button>
+              </ToggleGroupItem>
             ))}
-          </div>
+          </ToggleGroup>
         </Reveal>
       )}
 

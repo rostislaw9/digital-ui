@@ -10,10 +10,10 @@ export const alertVariants = cva(
     variants: {
       variant: {
         default: "border-border bg-surface text-foreground",
-        accent: "border-border-accent bg-accent-muted/50 text-foreground [&_svg]:text-accent",
-        success: "border-success/30 bg-success/10 text-foreground [&_svg]:text-success",
-        warning: "border-warning/30 bg-warning/10 text-foreground [&_svg]:text-warning",
-        error: "border-error/30 bg-error/10 text-foreground [&_svg]:text-error",
+        accent: "border-border-accent bg-accent-subtle text-foreground [&_svg]:text-accent",
+        success: "border-border-success bg-success-muted text-foreground [&_svg]:text-success",
+        warning: "border-border-warning bg-warning-muted text-foreground [&_svg]:text-warning",
+        error: "border-border-error bg-error-muted text-foreground [&_svg]:text-error",
         "accent-soft": "border-border bg-surface text-accent [&_svg]:text-accent",
         "success-soft": "border-border bg-surface text-success [&_svg]:text-success",
         "warning-soft": "border-border bg-surface text-warning [&_svg]:text-warning",

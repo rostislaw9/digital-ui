@@ -21,29 +21,68 @@
 | `--foreground-muted`  | `var(--foreground-muted)`  |
 | `--foreground-subtle` | `var(--foreground-subtle)` |
 
-### Accent & status
+### Accent
 
 | Token                 | Value                      |
 | --------------------- | -------------------------- |
 | `--accent`            | `var(--accent)`            |
 | `--accent-hover`      | `var(--accent-hover)`      |
 | `--accent-muted`      | `var(--accent-muted)`      |
+| `--accent-subtle`     | `var(--accent-subtle)`     |
 | `--accent-foreground` | `var(--accent-foreground)` |
-| `--success`           | `var(--success)`           |
-| `--warning`           | `var(--warning)`           |
-| `--error`             | `var(--error)`             |
-| `--error-foreground`  | `var(--error-foreground)`  |
-| `--info`              | `var(--info)`              |
+
+### Success
+
+| Token                  | Value                       |
+| ---------------------- | --------------------------- |
+| `--success`            | `var(--success)`            |
+| `--success-hover`      | `var(--success-hover)`      |
+| `--success-muted`      | `var(--success-muted)`      |
+| `--success-subtle`     | `var(--success-subtle)`     |
+| `--success-foreground` | `var(--success-foreground)` |
+
+### Warning
+
+| Token                  | Value                       |
+| ---------------------- | --------------------------- |
+| `--warning`            | `var(--warning)`            |
+| `--warning-hover`      | `var(--warning-hover)`      |
+| `--warning-muted`      | `var(--warning-muted)`      |
+| `--warning-subtle`     | `var(--warning-subtle)`     |
+| `--warning-foreground` | `var(--warning-foreground)` |
+
+### Error
+
+| Token                | Value                     |
+| -------------------- | ------------------------- |
+| `--error`            | `var(--error)`            |
+| `--error-hover`      | `var(--error-hover)`      |
+| `--error-muted`      | `var(--error-muted)`      |
+| `--error-subtle`     | `var(--error-subtle)`     |
+| `--error-foreground` | `var(--error-foreground)` |
+
+### Info
+
+| Token               | Value                    |
+| ------------------- | ------------------------ |
+| `--info`            | `var(--info)`            |
+| `--info-hover`      | `var(--info-hover)`      |
+| `--info-muted`      | `var(--info-muted)`      |
+| `--info-subtle`     | `var(--info-subtle)`     |
+| `--info-foreground` | `var(--info-foreground)` |
 
 ### Borders & ring
 
-| Token             | Value                  |
-| ----------------- | ---------------------- |
-| `--border`        | `var(--border)`        |
-| `--border-strong` | `var(--border-strong)` |
-| `--border-accent` | `var(--border-accent)` |
-| `--border-error`  | `var(--border-error)`  |
-| `--ring`          | `var(--ring)`          |
+| Token              | Value                   |
+| ------------------ | ----------------------- |
+| `--border`         | `var(--border)`         |
+| `--border-strong`  | `var(--border-strong)`  |
+| `--border-accent`  | `var(--border-accent)`  |
+| `--border-error`   | `var(--border-error)`   |
+| `--border-success` | `var(--border-success)` |
+| `--border-warning` | `var(--border-warning)` |
+| `--border-info`    | `var(--border-info)`    |
+| `--ring`           | `var(--ring)`           |
 
 ## Typography
 

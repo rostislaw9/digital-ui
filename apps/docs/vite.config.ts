@@ -44,12 +44,21 @@ export default defineConfig({
         ui,
         "components/dropdown-menu/index.ts",
       ),
+      "@/components/ui/empty": resolve(ui, "components/empty/index.ts"),
       "@/components/ui/hover-card": resolve(
         ui,
         "components/hover-card/index.ts",
       ),
       "@/components/ui/input": resolve(ui, "components/input/index.ts"),
+      "@/components/ui/input-group": resolve(
+        ui,
+        "components/input-group/index.ts",
+      ),
       "@/components/ui/label": resolve(ui, "components/label/index.ts"),
+      "@/components/ui/native-select": resolve(
+        ui,
+        "components/native-select/index.ts",
+      ),
       "@/components/ui/pagination": resolve(
         ui,
         "components/pagination/index.ts",
@@ -69,6 +78,7 @@ export default defineConfig({
       "@/components/ui/sheet": resolve(ui, "components/sheet/index.ts"),
       "@/components/ui/skeleton": resolve(ui, "components/skeleton/index.ts"),
       "@/components/ui/slider": resolve(ui, "components/slider/index.ts"),
+      "@/components/ui/spinner": resolve(ui, "components/spinner/index.ts"),
       "@/components/ui/switch": resolve(ui, "components/switch/index.ts"),
       "@/components/ui/table": resolve(ui, "components/table/index.ts"),
       "@/components/ui/tabs": resolve(ui, "components/tabs/index.ts"),

@@ -76,6 +76,21 @@
       ]
     },
     {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Placeholder for empty states with structured subcomponents.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/empty/empty.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/empty.tsx"
+        }
+      ]
+    },
+    {
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
@@ -87,6 +102,56 @@
           "path": "packages/ui/src/components/input/input.tsx",
           "type": "registry:ui",
           "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "Groups an input with leading or trailing addons, buttons, and text.",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn", "button"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/input-group/input-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "Styled native HTML select with custom chevron and invalid state.",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/native-select/native-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/native-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Animated loading indicator icon for buttons and async states.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/spinner/spinner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/spinner.tsx"
         }
       ]
     },

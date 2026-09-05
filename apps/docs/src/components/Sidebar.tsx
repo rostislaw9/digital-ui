@@ -88,6 +88,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
                   to={`/docs/components/${comp.name}`}
                   label={comp.label}
                   active={isActive}
+                  isNew={comp.isNew}
                   ref={isActive ? activeRef : undefined}
                   onClick={onNavigate}
                 />
@@ -105,6 +106,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
                   to={`/docs/utils/${util.name}`}
                   label={util.label}
                   active={isActive}
+                  isNew={util.isNew}
                   ref={isActive ? activeRef : undefined}
                   onClick={onNavigate}
                 />

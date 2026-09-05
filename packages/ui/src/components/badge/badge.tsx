@@ -11,9 +11,9 @@ export const badgeVariants = cva(
       variant: {
         default: "border-border bg-surface text-foreground-muted",
         accent: "border-border-accent bg-accent-muted text-accent",
-        success: "border-success/30 bg-success/10 text-success",
-        warning: "border-warning/30 bg-warning/10 text-warning",
-        error: "border-error/30 bg-error/10 text-error",
+        success: "border-border-success bg-success-muted text-success",
+        warning: "border-border-warning bg-warning-muted text-warning",
+        error: "border-border-error bg-error-muted text-error",
         outline: "border-border-strong bg-transparent text-foreground",
       },
     },

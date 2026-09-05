@@ -23,7 +23,7 @@ export function ButtonGroupSelectDemo() {
     <ButtonGroup>
       <ButtonGroup>
         <Select value={currency} onValueChange={setCurrency}>
-          <SelectTrigger className="h-8 rounded-e-none font-mono">
+          <SelectTrigger className="rounded-e-none font-mono">
             {currency}
           </SelectTrigger>
           <SelectContent>
@@ -35,7 +35,7 @@ export function ButtonGroupSelectDemo() {
             ))}
           </SelectContent>
         </Select>
-        <Input placeholder="0.00" className="h-8" />
+        <Input placeholder="0.00" />
       </ButtonGroup>
       <ButtonGroup>
         <Button variant="outline" size="icon" aria-label="Transfer">

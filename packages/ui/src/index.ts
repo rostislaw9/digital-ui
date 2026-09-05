@@ -71,11 +71,56 @@ export type {
 export { Input } from "./components/input/index";
 export type { InputProps } from "./components/input/index";
 
+export {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupText,
+  InputGroupInput,
+  InputGroupTextarea,
+  InputGroupSeparator,
+  inputGroupVariants,
+} from "./components/input-group/index";
+export type {
+  InputGroupProps,
+  InputGroupAddonProps,
+  InputGroupButtonProps,
+  InputGroupTextProps,
+  InputGroupInputProps,
+  InputGroupTextareaProps,
+  InputGroupSeparatorProps,
+} from "./components/input-group/index";
+
 export { Label } from "./components/label/index";
 export type { LabelProps } from "./components/label/index";
 
+export { NativeSelect } from "./components/native-select/index";
+export type { NativeSelectProps } from "./components/native-select/index";
+
+export { Spinner, spinnerVariants } from "./components/spinner/index";
+export type { SpinnerProps } from "./components/spinner/index";
+
 export { Textarea } from "./components/textarea/index";
 export type { TextareaProps } from "./components/textarea/index";
+
+export {
+  Empty,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+  EmptyDescription,
+  EmptyContent,
+  EmptyFooter,
+} from "./components/empty/index";
+export type {
+  EmptyProps,
+  EmptyHeaderProps,
+  EmptyMediaProps,
+  EmptyTitleProps,
+  EmptyDescriptionProps,
+  EmptyContentProps,
+  EmptyFooterProps,
+} from "./components/empty/index";
 
 export {
   Card,

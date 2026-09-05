@@ -9,6 +9,9 @@ import ButtonGroupDropdownDemoRaw from "../../demos/button-group-dropdown-demo.t
 import { ButtonGroupInputDemo } from "../../demos/button-group-input-demo";
 import ButtonGroupInputDemoSource from "../../demos/button-group-input-demo.tsx?highlighted";
 import ButtonGroupInputDemoRaw from "../../demos/button-group-input-demo.tsx?raw";
+import { ButtonGroupInputGroupDemo } from "../../demos/button-group-input-group-demo";
+import ButtonGroupInputGroupDemoSource from "../../demos/button-group-input-group-demo.tsx?highlighted";
+import ButtonGroupInputGroupDemoRaw from "../../demos/button-group-input-group-demo.tsx?raw";
 import { ButtonGroupNestedDemo } from "../../demos/button-group-nested-demo";
 import ButtonGroupNestedDemoSource from "../../demos/button-group-nested-demo.tsx?highlighted";
 import ButtonGroupNestedDemoRaw from "../../demos/button-group-nested-demo.tsx?raw";
@@ -95,6 +98,14 @@ export const buttonGroupMeta: ComponentMeta = {
       code: ButtonGroupInputDemoSource,
       rawCode: ButtonGroupInputDemoRaw,
       render: () => <ButtonGroupInputDemo />,
+    },
+    {
+      title: "Input Group",
+      description:
+        "Wrap an InputGroup inside ButtonGroup for complex input layouts with addons.",
+      code: ButtonGroupInputGroupDemoSource,
+      rawCode: ButtonGroupInputGroupDemoRaw,
+      render: () => <ButtonGroupInputGroupDemo />,
     },
     {
       title: "Text",

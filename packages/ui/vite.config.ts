@@ -25,8 +25,18 @@ export default defineConfig({
           "src/components/button-group/index.ts",
         ),
         card: resolve(__dirname, "src/components/card/index.ts"),
+        empty: resolve(__dirname, "src/components/empty/index.ts"),
         input: resolve(__dirname, "src/components/input/index.ts"),
+        "input-group": resolve(
+          __dirname,
+          "src/components/input-group/index.ts",
+        ),
         label: resolve(__dirname, "src/components/label/index.ts"),
+        "native-select": resolve(
+          __dirname,
+          "src/components/native-select/index.ts",
+        ),
+        spinner: resolve(__dirname, "src/components/spinner/index.ts"),
         textarea: resolve(__dirname, "src/components/textarea/index.ts"),
         tooltip: resolve(__dirname, "src/components/tooltip/index.ts"),
         popover: resolve(__dirname, "src/components/popover/index.ts"),

@@ -13,11 +13,14 @@ import { commandMeta } from "./command";
 import { contextMenuMeta } from "./context-menu";
 import { dialogMeta } from "./dialog";
 import { dropdownMenuMeta } from "./dropdown-menu";
+import { emptyMeta } from "./empty";
 import { glowMeta } from "./glow";
 import { hoverCardMeta } from "./hover-card";
 import { inputMeta } from "./input";
+import { inputGroupMeta } from "./input-group";
 import { labelMeta } from "./label";
 import { magneticMeta } from "./magnetic";
+import { nativeSelectMeta } from "./native-select";
 import { paginationMeta } from "./pagination";
 import { popoverMeta } from "./popover";
 import { progressMeta } from "./progress";
@@ -30,6 +33,7 @@ import { separatorMeta } from "./separator";
 import { sheetMeta } from "./sheet";
 import { skeletonMeta } from "./skeleton";
 import { sliderMeta } from "./slider";
+import { spinnerMeta } from "./spinner";
 import { spotlightMeta } from "./spotlight";
 import { switchMeta } from "./switch";
 import { tableMeta } from "./table";
@@ -52,11 +56,14 @@ export const componentRegistry: ComponentMeta[] = [
   contextMenuMeta,
   dialogMeta,
   dropdownMenuMeta,
+  emptyMeta,
   glowMeta,
   hoverCardMeta,
   inputMeta,
+  inputGroupMeta,
   labelMeta,
   magneticMeta,
+  nativeSelectMeta,
   paginationMeta,
   popoverMeta,
   progressMeta,
@@ -69,6 +76,7 @@ export const componentRegistry: ComponentMeta[] = [
   sheetMeta,
   skeletonMeta,
   sliderMeta,
+  spinnerMeta,
   spotlightMeta,
   switchMeta,
   tableMeta,
