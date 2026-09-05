@@ -60,6 +60,15 @@ export const componentManifest: ManifestEntry[] = [
     exampleCount: 5,
   },
   {
+    name: "button-group",
+    label: "Button Group",
+    category: "Form",
+    description:
+      "Groups related buttons with separators, text, and nesting support.",
+    exampleCount: 11,
+    isNew: true,
+  },
+  {
     name: "card",
     label: "Card",
     category: "Layout",
@@ -262,6 +271,23 @@ export const componentManifest: ManifestEntry[] = [
     category: "Feedback",
     description: "Transient notification. Built on Sonner.",
     exampleCount: 5,
+  },
+  {
+    name: "toggle",
+    label: "Toggle",
+    category: "Form",
+    description: "A two-state button that can be either on or off.",
+    exampleCount: 5,
+    isNew: true,
+  },
+  {
+    name: "toggle-group",
+    label: "Toggle Group",
+    category: "Form",
+    description:
+      "A set of two-state buttons with single or multiple selection.",
+    exampleCount: 6,
+    isNew: true,
   },
   {
     name: "tooltip",

@@ -3,7 +3,13 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Reveal } from "@ionbit-ui/motion";
-import { Badge, Button, cn, Input } from "@ionbit-ui/ui";
+import {
+  Badge,
+  Button,
+  Input,
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@ionbit-ui/ui";
 
 import { SidebarLayout } from "../components/SidebarLayout";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -57,23 +63,21 @@ export function ComponentsPage() {
               onChange={(e) => setQuery(e.target.value)}
               className="w-full sm:max-w-xs"
             />
-            <div className="flex flex-wrap gap-1">
+            <ToggleGroup
+              type="single"
+              size="sm"
+              spacing={1}
+              value={activeCategory}
+              onValueChange={(v: string) => v && setActiveCategory(v)}
+              aria-label="Filter by category"
+              className="flex-wrap"
+            >
               {categories.map((cat) => (
-                <Button
-                  key={cat}
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setActiveCategory(cat)}
-                  className={cn(
-                    "text-xs",
-                    activeCategory === cat &&
-                      "bg-accent-muted text-accent hover:bg-accent-muted hover:text-accent",
-                  )}
-                >
+                <ToggleGroupItem key={cat} value={cat}>
                   {cat}
-                </Button>
+                </ToggleGroupItem>
               ))}
-            </div>
+            </ToggleGroup>
           </div>
         </Reveal>
 

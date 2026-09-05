@@ -28,6 +28,10 @@ export default defineConfig({
         "components/breadcrumb/index.ts",
       ),
       "@/components/ui/button": resolve(ui, "components/button/index.ts"),
+      "@/components/ui/button-group": resolve(
+        ui,
+        "components/button-group/index.ts",
+      ),
       "@/components/ui/card": resolve(ui, "components/card/index.ts"),
       "@/components/ui/checkbox": resolve(ui, "components/checkbox/index.ts"),
       "@/components/ui/command": resolve(ui, "components/command/index.ts"),
@@ -68,6 +72,11 @@ export default defineConfig({
       "@/components/ui/switch": resolve(ui, "components/switch/index.ts"),
       "@/components/ui/table": resolve(ui, "components/table/index.ts"),
       "@/components/ui/tabs": resolve(ui, "components/tabs/index.ts"),
+      "@/components/ui/toggle": resolve(ui, "components/toggle/index.ts"),
+      "@/components/ui/toggle-group": resolve(
+        ui,
+        "components/toggle-group/index.ts",
+      ),
       "@/components/ui/textarea": resolve(ui, "components/textarea/index.ts"),
       "@/components/ui/toast": resolve(ui, "components/toast/index.ts"),
       "@/components/ui/tooltip": resolve(ui, "components/tooltip/index.ts"),

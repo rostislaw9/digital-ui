@@ -20,6 +20,10 @@ export default defineConfig({
         badge: resolve(__dirname, "src/components/badge/index.ts"),
         breadcrumb: resolve(__dirname, "src/components/breadcrumb/index.ts"),
         button: resolve(__dirname, "src/components/button/index.ts"),
+        "button-group": resolve(
+          __dirname,
+          "src/components/button-group/index.ts",
+        ),
         card: resolve(__dirname, "src/components/card/index.ts"),
         input: resolve(__dirname, "src/components/input/index.ts"),
         label: resolve(__dirname, "src/components/label/index.ts"),
@@ -62,6 +66,11 @@ export default defineConfig({
         ),
         sheet: resolve(__dirname, "src/components/sheet/index.ts"),
         table: resolve(__dirname, "src/components/table/index.ts"),
+        toggle: resolve(__dirname, "src/components/toggle/index.ts"),
+        "toggle-group": resolve(
+          __dirname,
+          "src/components/toggle-group/index.ts",
+        ),
         utils: resolve(__dirname, "src/lib/utils.ts"),
       },
       formats: ["es", "cjs"],

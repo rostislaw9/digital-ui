@@ -56,6 +56,18 @@ export type {
 export { Button, buttonVariants } from "./components/button/index";
 export type { ButtonProps } from "./components/button/index";
 
+export {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+  buttonGroupVariants,
+} from "./components/button-group/index";
+export type {
+  ButtonGroupProps,
+  ButtonGroupSeparatorProps,
+  ButtonGroupTextProps,
+} from "./components/button-group/index";
+
 export { Input } from "./components/input/index";
 export type { InputProps } from "./components/input/index";
 
@@ -362,3 +374,12 @@ export type {
   SheetTitleProps,
   SheetTriggerProps,
 } from "./components/sheet/index";
+
+export { Toggle, toggleVariants } from "./components/toggle/index";
+export type { ToggleProps } from "./components/toggle/index";
+
+export { ToggleGroup, ToggleGroupItem } from "./components/toggle-group/index";
+export type {
+  ToggleGroupProps,
+  ToggleGroupItemProps,
+} from "./components/toggle-group/index";

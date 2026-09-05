@@ -9,6 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Toggle component:** two-state button built on Radix Toggle with
+  `default` (ghost-like) and `outline` variants. Five text sizes (xs
+  through xl) plus five icon sizes, matching the Button size system.
+  Active state uses `accent-muted` background with accent text color.
+- **Toggle Group component:** single or multiple selection built on
+  Radix Toggle Group. `variant`, `size`, and `spacing` props propagate
+  to all items via React context. `spacing` defaults to 2 (gap-2);
+  set to 0 for joined items with shared borders. Supports vertical
+  orientation via `orientation="vertical"`.
+- **Button Group component:** container for grouping related buttons
+  with two variants: `overlapped` (default, 50% opacity shared borders
+  with hover-aware sibling selectors) and `separated` (shadcn-like,
+  touching borders removed). Includes `ButtonGroupSeparator` and
+  `ButtonGroupText` subcomponents. Supports horizontal and vertical
+  orientation with logical (RTL-aware) inline-direction utilities.
+
+### Changed
+
+- **Components page category filter:** replaced the manual Button-based
+  category filter with the new `ToggleGroup` component for consistent
+  styling and behavior.
+- **Button sizes demo:** updated to use `outline` variant with `Plus`
+  icons instead of `primary-soft` with `Download` icons.
 - **Installation page:** new `/docs/installation` page with CLI quick
   start (init, add, list commands), manual setup steps, and
   requirements. Uses the same layout pattern as detail pages (left
@@ -42,9 +65,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   extracted to `scroll-constants.ts`.
 - **`/docs` redirect:** navigating to `/docs` now redirects to
   `/docs/installation`. Top bar shows "Docs" instead of "Installation".
-
-### Changed
-
 - **PmCommandBlock self-contained state:** each `PmCommandBlock`
   instance now manages its own package-manager selection independently,
   persisted to localStorage. Previously, shared parent state caused all

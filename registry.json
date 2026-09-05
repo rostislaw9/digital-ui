@@ -61,6 +61,21 @@
       ]
     },
     {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Container that groups related buttons with separators, text labels, and nesting support.",
+      "dependencies": ["@radix-ui/react-slot", "clsx", "tailwind-merge"],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/button-group/button-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button-group.tsx"
+        }
+      ]
+    },
+    {
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
@@ -725,6 +740,46 @@
           "path": "packages/ui/src/components/command/command.tsx",
           "type": "registry:ui",
           "target": "components/ui/command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Radix-based two-state button with variant and size support.",
+      "dependencies": [
+        "@radix-ui/react-toggle",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["cn"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/toggle/toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "Radix-based set of two-state buttons with single or multiple selection modes.",
+      "dependencies": [
+        "@radix-ui/react-toggle-group",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["cn", "toggle"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/toggle-group/toggle-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toggle-group.tsx"
         }
       ]
     }

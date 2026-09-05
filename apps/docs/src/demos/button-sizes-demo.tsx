@@ -1,48 +1,48 @@
-import { Download } from "lucide-react";
+import { Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
 export function ButtonSizesDemo() {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:items-start">
+    <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
       <div className="flex items-center gap-2">
-        <Button size="xs" variant="primary-soft">
-          Extra Small
+        <Button size="xs" variant="outline">
+          XS
         </Button>
-        <Button size="icon-xs" variant="primary-soft" aria-label="Download">
-          <Download />
+        <Button size="icon-xs" variant="outline" aria-label="Add">
+          <Plus />
         </Button>
       </div>
       <div className="flex items-center gap-2">
-        <Button size="sm" variant="primary-soft">
+        <Button size="sm" variant="outline">
           Small
         </Button>
-        <Button size="icon-sm" variant="primary-soft" aria-label="Download">
-          <Download />
+        <Button size="icon-sm" variant="outline" aria-label="Add">
+          <Plus />
         </Button>
       </div>
       <div className="flex items-center gap-2">
-        <Button size="md" variant="primary-soft">
+        <Button size="md" variant="outline">
           Medium
         </Button>
-        <Button size="icon" variant="primary-soft" aria-label="Download">
-          <Download />
+        <Button size="icon" variant="outline" aria-label="Add">
+          <Plus />
         </Button>
       </div>
       <div className="flex items-center gap-2">
-        <Button size="lg" variant="primary-soft">
+        <Button size="lg" variant="outline">
           Large
         </Button>
-        <Button size="icon-lg" variant="primary-soft" aria-label="Download">
-          <Download />
+        <Button size="icon-lg" variant="outline" aria-label="Add">
+          <Plus />
         </Button>
       </div>
       <div className="flex items-center gap-2">
-        <Button size="xl" variant="primary-soft">
-          Extra Large
+        <Button size="xl" variant="outline">
+          XL
         </Button>
-        <Button size="icon-xl" variant="primary-soft" aria-label="Download">
-          <Download />
+        <Button size="icon-xl" variant="outline" aria-label="Add">
+          <Plus />
         </Button>
       </div>
     </div>
